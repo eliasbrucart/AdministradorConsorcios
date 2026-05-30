@@ -2,15 +2,56 @@ package entidades;
 
 public class Edificio {
     //componemos las unidades funcionales
+    private String nombre;
     private String direccion;
+    private String localidad;
+    private int codigoPostal;
+    private int cantidadPisos;
+    private int cantidadUnidades;
     public Edificio(){
 
     }
+    public void setNombre(String nombre){
+        this.nombre = nombre;
+    }
+
+    public String getNombre(){
+        return nombre;
+    }
+
     public void setDireccion(String direccion){
         this.direccion = direccion;
     }
 
     public String getDireccion(){
         return direccion;
+    }
+
+    public void setLocalidad(String localidad){
+        this.localidad = localidad;
+    }
+
+    public String getLocalidad(){
+        return localidad;
+    }
+
+    public void setCodigoPostal(int codigoPostal){
+        this.codigoPostal = codigoPostal;
+    }
+
+    public int getCodigoPostal(){
+        return this.codigoPostal;
+    }
+
+    public void setCantidadPisos(int cantidadPisos){
+        this.cantidadPisos = cantidadPisos;
+    }
+
+    public int getCantidadPisos(){
+        return cantidadPisos;
+    }
+
+    public void setCantidadUnidades(int cantidadUnidades){
+        this.cantidadUnidades = cantidadUnidades;
     }
 }

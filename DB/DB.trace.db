@@ -60,3 +60,1920 @@ CREATE TABLE Edificio(Id INT PRIMARY KEY, nombre VARCHAR(255), direccion VARCHAR
 	at org.h2.server.web.WebThread.process(WebThread.java:190)
 	at org.h2.server.web.WebThread.run(WebThread.java:103)
 	at java.base/java.lang.Thread.run(Thread.java:1583)
+2026-05-30 01:50:11.235361-03:00 database: flush
+org.h2.message.DbException: Error General : "org.h2.mvstore.MVStoreException: The file is locked: C:/Users/elias/Desktop/Universidad de Palermo/Cuatrimestre 2/Programacion 3/Proyectos/AdministradorConsorcios/DB/DB.mv.db [2.4.240/7]"
+General error: "org.h2.mvstore.MVStoreException: The file is locked: C:/Users/elias/Desktop/Universidad de Palermo/Cuatrimestre 2/Programacion 3/Proyectos/AdministradorConsorcios/DB/DB.mv.db [2.4.240/7]" [50000-240]
+	at org.h2.message.DbException.get(DbException.java:212)
+	at org.h2.message.DbException.convert(DbException.java:407)
+	at org.h2.mvstore.db.Store.lambda$new$0(Store.java:122)
+	at org.h2.mvstore.MVStore.handleException(MVStore.java:1675)
+	at org.h2.mvstore.MVStore.panic(MVStore.java:502)
+	at org.h2.mvstore.MVStore.<init>(MVStore.java:296)
+	at org.h2.mvstore.MVStore$Builder.open(MVStore.java:2164)
+	at org.h2.mvstore.db.Store.<init>(Store.java:133)
+	at org.h2.engine.Database.<init>(Database.java:328)
+	at org.h2.engine.Engine.openSession(Engine.java:92)
+	at org.h2.engine.Engine.openSession(Engine.java:222)
+	at org.h2.engine.Engine.createSession(Engine.java:201)
+	at org.h2.engine.SessionRemote.connectEmbeddedOrServer(SessionRemote.java:350)
+	at org.h2.jdbc.JdbcConnection.<init>(JdbcConnection.java:124)
+	at org.h2.Driver.connect(Driver.java:59)
+	at java.sql/java.sql.DriverManager.getConnection(DriverManager.java:683)
+	at java.sql/java.sql.DriverManager.getConnection(DriverManager.java:230)
+	at DAO.DAOEdificio.consultar(DAOEdificio.java:60)
+	at Main.main(Main.java:10)
+Caused by: org.h2.jdbc.JdbcSQLNonTransientException: Error General : "org.h2.mvstore.MVStoreException: The file is locked: C:/Users/elias/Desktop/Universidad de Palermo/Cuatrimestre 2/Programacion 3/Proyectos/AdministradorConsorcios/DB/DB.mv.db [2.4.240/7]"
+General error: "org.h2.mvstore.MVStoreException: The file is locked: C:/Users/elias/Desktop/Universidad de Palermo/Cuatrimestre 2/Programacion 3/Proyectos/AdministradorConsorcios/DB/DB.mv.db [2.4.240/7]" [50000-240]
+	at org.h2.message.DbException.getJdbcSQLException(DbException.java:566)
+	at org.h2.message.DbException.getJdbcSQLException(DbException.java:489)
+	... 19 more
+Caused by: org.h2.mvstore.MVStoreException: The file is locked: C:/Users/elias/Desktop/Universidad de Palermo/Cuatrimestre 2/Programacion 3/Proyectos/AdministradorConsorcios/DB/DB.mv.db [2.4.240/7]
+	at org.h2.mvstore.DataUtils.newMVStoreException(DataUtils.java:996)
+	at org.h2.mvstore.SingleFileStore.lockFileChannel(SingleFileStore.java:143)
+	at org.h2.mvstore.SingleFileStore.open(SingleFileStore.java:117)
+	at org.h2.mvstore.SingleFileStore.open(SingleFileStore.java:81)
+	at org.h2.mvstore.MVStore.<init>(MVStore.java:291)
+	... 13 more
+2026-05-30 01:50:12.369303-03:00 database: flush
+org.h2.message.DbException: Error General : "org.h2.mvstore.MVStoreException: The file is locked: C:/Users/elias/Desktop/Universidad de Palermo/Cuatrimestre 2/Programacion 3/Proyectos/AdministradorConsorcios/DB/DB.mv.db [2.4.240/7]"
+General error: "org.h2.mvstore.MVStoreException: The file is locked: C:/Users/elias/Desktop/Universidad de Palermo/Cuatrimestre 2/Programacion 3/Proyectos/AdministradorConsorcios/DB/DB.mv.db [2.4.240/7]" [50000-240]
+	at org.h2.message.DbException.get(DbException.java:212)
+	at org.h2.message.DbException.convert(DbException.java:407)
+	at org.h2.mvstore.db.Store.lambda$new$0(Store.java:122)
+	at org.h2.mvstore.MVStore.handleException(MVStore.java:1675)
+	at org.h2.mvstore.MVStore.panic(MVStore.java:502)
+	at org.h2.mvstore.MVStore.<init>(MVStore.java:296)
+	at org.h2.mvstore.MVStore$Builder.open(MVStore.java:2164)
+	at org.h2.mvstore.db.Store.<init>(Store.java:133)
+	at org.h2.engine.Database.<init>(Database.java:328)
+	at org.h2.engine.Engine.openSession(Engine.java:92)
+	at org.h2.engine.Engine.openSession(Engine.java:222)
+	at org.h2.engine.Engine.createSession(Engine.java:201)
+	at org.h2.engine.SessionRemote.connectEmbeddedOrServer(SessionRemote.java:350)
+	at org.h2.jdbc.JdbcConnection.<init>(JdbcConnection.java:124)
+	at org.h2.Driver.connect(Driver.java:59)
+	at java.sql/java.sql.DriverManager.getConnection(DriverManager.java:683)
+	at java.sql/java.sql.DriverManager.getConnection(DriverManager.java:230)
+	at DAO.DAOEdificio.consultar(DAOEdificio.java:60)
+	at Main.main(Main.java:10)
+Caused by: org.h2.jdbc.JdbcSQLNonTransientException: Error General : "org.h2.mvstore.MVStoreException: The file is locked: C:/Users/elias/Desktop/Universidad de Palermo/Cuatrimestre 2/Programacion 3/Proyectos/AdministradorConsorcios/DB/DB.mv.db [2.4.240/7]"
+General error: "org.h2.mvstore.MVStoreException: The file is locked: C:/Users/elias/Desktop/Universidad de Palermo/Cuatrimestre 2/Programacion 3/Proyectos/AdministradorConsorcios/DB/DB.mv.db [2.4.240/7]" [50000-240]
+	at org.h2.message.DbException.getJdbcSQLException(DbException.java:566)
+	at org.h2.message.DbException.getJdbcSQLException(DbException.java:489)
+	... 19 more
+Caused by: org.h2.mvstore.MVStoreException: The file is locked: C:/Users/elias/Desktop/Universidad de Palermo/Cuatrimestre 2/Programacion 3/Proyectos/AdministradorConsorcios/DB/DB.mv.db [2.4.240/7]
+	at org.h2.mvstore.DataUtils.newMVStoreException(DataUtils.java:996)
+	at org.h2.mvstore.SingleFileStore.lockFileChannel(SingleFileStore.java:143)
+	at org.h2.mvstore.SingleFileStore.open(SingleFileStore.java:117)
+	at org.h2.mvstore.SingleFileStore.open(SingleFileStore.java:81)
+	at org.h2.mvstore.MVStore.<init>(MVStore.java:291)
+	... 13 more
+2026-05-30 01:53:35.539728-03:00 database: flush
+org.h2.message.DbException: Error General : "org.h2.mvstore.MVStoreException: The file is locked: C:/Users/elias/Desktop/Universidad de Palermo/Cuatrimestre 2/Programacion 3/Proyectos/AdministradorConsorcios/DB/DB.mv.db [2.4.240/7]"
+General error: "org.h2.mvstore.MVStoreException: The file is locked: C:/Users/elias/Desktop/Universidad de Palermo/Cuatrimestre 2/Programacion 3/Proyectos/AdministradorConsorcios/DB/DB.mv.db [2.4.240/7]" [50000-240]
+	at org.h2.message.DbException.get(DbException.java:212)
+	at org.h2.message.DbException.convert(DbException.java:407)
+	at org.h2.mvstore.db.Store.lambda$new$0(Store.java:122)
+	at org.h2.mvstore.MVStore.handleException(MVStore.java:1675)
+	at org.h2.mvstore.MVStore.panic(MVStore.java:502)
+	at org.h2.mvstore.MVStore.<init>(MVStore.java:296)
+	at org.h2.mvstore.MVStore$Builder.open(MVStore.java:2164)
+	at org.h2.mvstore.db.Store.<init>(Store.java:133)
+	at org.h2.engine.Database.<init>(Database.java:328)
+	at org.h2.engine.Engine.openSession(Engine.java:92)
+	at org.h2.engine.Engine.openSession(Engine.java:222)
+	at org.h2.engine.Engine.createSession(Engine.java:201)
+	at org.h2.engine.SessionRemote.connectEmbeddedOrServer(SessionRemote.java:350)
+	at org.h2.jdbc.JdbcConnection.<init>(JdbcConnection.java:124)
+	at org.h2.Driver.connect(Driver.java:59)
+	at java.sql/java.sql.DriverManager.getConnection(DriverManager.java:683)
+	at java.sql/java.sql.DriverManager.getConnection(DriverManager.java:230)
+	at DAO.DAOEdificio.consultar(DAOEdificio.java:60)
+	at Main.main(Main.java:10)
+Caused by: org.h2.jdbc.JdbcSQLNonTransientException: Error General : "org.h2.mvstore.MVStoreException: The file is locked: C:/Users/elias/Desktop/Universidad de Palermo/Cuatrimestre 2/Programacion 3/Proyectos/AdministradorConsorcios/DB/DB.mv.db [2.4.240/7]"
+General error: "org.h2.mvstore.MVStoreException: The file is locked: C:/Users/elias/Desktop/Universidad de Palermo/Cuatrimestre 2/Programacion 3/Proyectos/AdministradorConsorcios/DB/DB.mv.db [2.4.240/7]" [50000-240]
+	at org.h2.message.DbException.getJdbcSQLException(DbException.java:566)
+	at org.h2.message.DbException.getJdbcSQLException(DbException.java:489)
+	... 19 more
+Caused by: org.h2.mvstore.MVStoreException: The file is locked: C:/Users/elias/Desktop/Universidad de Palermo/Cuatrimestre 2/Programacion 3/Proyectos/AdministradorConsorcios/DB/DB.mv.db [2.4.240/7]
+	at org.h2.mvstore.DataUtils.newMVStoreException(DataUtils.java:996)
+	at org.h2.mvstore.SingleFileStore.lockFileChannel(SingleFileStore.java:143)
+	at org.h2.mvstore.SingleFileStore.open(SingleFileStore.java:117)
+	at org.h2.mvstore.SingleFileStore.open(SingleFileStore.java:81)
+	at org.h2.mvstore.MVStore.<init>(MVStore.java:291)
+	... 13 more
+2026-05-30 01:53:50.007003-03:00 jdbc[5]: null
+org.h2.message.DbException: La conexión no fue cerrada por la aplicación y esta siendo limpiada (garbage collected)
+The connection was not closed by the application and is garbage collected [90018-240]
+	at org.h2.message.DbException.get(DbException.java:223)
+	at org.h2.message.DbException.get(DbException.java:199)
+	at org.h2.message.DbException.get(DbException.java:188)
+	at org.h2.jdbc.JdbcConnection.closeOld(JdbcConnection.java:217)
+	at org.h2.jdbc.JdbcConnection.<init>(JdbcConnection.java:134)
+	at org.h2.util.JdbcUtils.getConnection(JdbcUtils.java:291)
+	at org.h2.server.web.WebServer.getConnection(WebServer.java:811)
+	at org.h2.server.web.WebApp.login(WebApp.java:1038)
+	at org.h2.server.web.WebApp.process(WebApp.java:226)
+	at org.h2.server.web.WebApp.processRequest(WebApp.java:176)
+	at org.h2.server.web.WebThread.process(WebThread.java:154)
+	at org.h2.server.web.WebThread.run(WebThread.java:103)
+	at java.base/java.lang.Thread.run(Thread.java:1583)
+Caused by: org.h2.jdbc.JdbcSQLNonTransientConnectionException: La conexión no fue cerrada por la aplicación y esta siendo limpiada (garbage collected)
+The connection was not closed by the application and is garbage collected [90018-240]
+	at org.h2.message.DbException.getJdbcSQLException(DbException.java:690)
+	at org.h2.message.DbException.getJdbcSQLException(DbException.java:489)
+	... 13 more
+2026-05-30 01:53:50.010200-03:00 jdbc[5]: null
+org.h2.message.DbException: La conexión no fue cerrada por la aplicación y esta siendo limpiada (garbage collected)
+The connection was not closed by the application and is garbage collected [90018-240]
+	at org.h2.message.DbException.get(DbException.java:223)
+	at org.h2.message.DbException.get(DbException.java:199)
+	at org.h2.message.DbException.get(DbException.java:188)
+	at org.h2.jdbc.JdbcConnection.closeOld(JdbcConnection.java:217)
+	at org.h2.jdbc.JdbcConnection.<init>(JdbcConnection.java:134)
+	at org.h2.util.JdbcUtils.getConnection(JdbcUtils.java:291)
+	at org.h2.server.web.WebServer.getConnection(WebServer.java:811)
+	at org.h2.server.web.WebApp.login(WebApp.java:1038)
+	at org.h2.server.web.WebApp.process(WebApp.java:226)
+	at org.h2.server.web.WebApp.processRequest(WebApp.java:176)
+	at org.h2.server.web.WebThread.process(WebThread.java:154)
+	at org.h2.server.web.WebThread.run(WebThread.java:103)
+	at java.base/java.lang.Thread.run(Thread.java:1583)
+Caused by: org.h2.jdbc.JdbcSQLNonTransientConnectionException: La conexión no fue cerrada por la aplicación y esta siendo limpiada (garbage collected)
+The connection was not closed by the application and is garbage collected [90018-240]
+	at org.h2.message.DbException.getJdbcSQLException(DbException.java:690)
+	at org.h2.message.DbException.getJdbcSQLException(DbException.java:489)
+	... 13 more
+2026-05-30 01:53:50.011202-03:00 jdbc[5]: null
+org.h2.message.DbException: La conexión no fue cerrada por la aplicación y esta siendo limpiada (garbage collected)
+The connection was not closed by the application and is garbage collected [90018-240]
+	at org.h2.message.DbException.get(DbException.java:223)
+	at org.h2.message.DbException.get(DbException.java:199)
+	at org.h2.message.DbException.get(DbException.java:188)
+	at org.h2.jdbc.JdbcConnection.closeOld(JdbcConnection.java:217)
+	at org.h2.jdbc.JdbcConnection.<init>(JdbcConnection.java:134)
+	at org.h2.util.JdbcUtils.getConnection(JdbcUtils.java:291)
+	at org.h2.server.web.WebServer.getConnection(WebServer.java:811)
+	at org.h2.server.web.WebApp.login(WebApp.java:1038)
+	at org.h2.server.web.WebApp.process(WebApp.java:226)
+	at org.h2.server.web.WebApp.processRequest(WebApp.java:176)
+	at org.h2.server.web.WebThread.process(WebThread.java:154)
+	at org.h2.server.web.WebThread.run(WebThread.java:103)
+	at java.base/java.lang.Thread.run(Thread.java:1583)
+Caused by: org.h2.jdbc.JdbcSQLNonTransientConnectionException: La conexión no fue cerrada por la aplicación y esta siendo limpiada (garbage collected)
+The connection was not closed by the application and is garbage collected [90018-240]
+	at org.h2.message.DbException.getJdbcSQLException(DbException.java:690)
+	at org.h2.message.DbException.getJdbcSQLException(DbException.java:489)
+	... 13 more
+2026-05-30 01:53:50.012699-03:00 jdbc[5]: null
+org.h2.message.DbException: La conexión no fue cerrada por la aplicación y esta siendo limpiada (garbage collected)
+The connection was not closed by the application and is garbage collected [90018-240]
+	at org.h2.message.DbException.get(DbException.java:223)
+	at org.h2.message.DbException.get(DbException.java:199)
+	at org.h2.message.DbException.get(DbException.java:188)
+	at org.h2.jdbc.JdbcConnection.closeOld(JdbcConnection.java:217)
+	at org.h2.jdbc.JdbcConnection.<init>(JdbcConnection.java:134)
+	at org.h2.util.JdbcUtils.getConnection(JdbcUtils.java:291)
+	at org.h2.server.web.WebServer.getConnection(WebServer.java:811)
+	at org.h2.server.web.WebApp.login(WebApp.java:1038)
+	at org.h2.server.web.WebApp.process(WebApp.java:226)
+	at org.h2.server.web.WebApp.processRequest(WebApp.java:176)
+	at org.h2.server.web.WebThread.process(WebThread.java:154)
+	at org.h2.server.web.WebThread.run(WebThread.java:103)
+	at java.base/java.lang.Thread.run(Thread.java:1583)
+Caused by: org.h2.jdbc.JdbcSQLNonTransientConnectionException: La conexión no fue cerrada por la aplicación y esta siendo limpiada (garbage collected)
+The connection was not closed by the application and is garbage collected [90018-240]
+	at org.h2.message.DbException.getJdbcSQLException(DbException.java:690)
+	at org.h2.message.DbException.getJdbcSQLException(DbException.java:489)
+	... 13 more
+2026-05-30 01:57:05.581775-03:00 database: flush
+org.h2.message.DbException: Error General : "org.h2.mvstore.MVStoreException: The file is locked: C:/Users/elias/Desktop/Universidad de Palermo/Cuatrimestre 2/Programacion 3/Proyectos/AdministradorConsorcios/DB/DB.mv.db [2.4.240/7]"
+General error: "org.h2.mvstore.MVStoreException: The file is locked: C:/Users/elias/Desktop/Universidad de Palermo/Cuatrimestre 2/Programacion 3/Proyectos/AdministradorConsorcios/DB/DB.mv.db [2.4.240/7]" [50000-240]
+	at org.h2.message.DbException.get(DbException.java:212)
+	at org.h2.message.DbException.convert(DbException.java:407)
+	at org.h2.mvstore.db.Store.lambda$new$0(Store.java:122)
+	at org.h2.mvstore.MVStore.handleException(MVStore.java:1675)
+	at org.h2.mvstore.MVStore.panic(MVStore.java:502)
+	at org.h2.mvstore.MVStore.<init>(MVStore.java:296)
+	at org.h2.mvstore.MVStore$Builder.open(MVStore.java:2164)
+	at org.h2.mvstore.db.Store.<init>(Store.java:133)
+	at org.h2.engine.Database.<init>(Database.java:328)
+	at org.h2.engine.Engine.openSession(Engine.java:92)
+	at org.h2.engine.Engine.openSession(Engine.java:222)
+	at org.h2.engine.Engine.createSession(Engine.java:201)
+	at org.h2.engine.SessionRemote.connectEmbeddedOrServer(SessionRemote.java:350)
+	at org.h2.jdbc.JdbcConnection.<init>(JdbcConnection.java:124)
+	at org.h2.Driver.connect(Driver.java:59)
+	at java.sql/java.sql.DriverManager.getConnection(DriverManager.java:683)
+	at java.sql/java.sql.DriverManager.getConnection(DriverManager.java:230)
+	at DAO.DAOEdificio.consultar(DAOEdificio.java:60)
+	at Main.main(Main.java:10)
+Caused by: org.h2.jdbc.JdbcSQLNonTransientException: Error General : "org.h2.mvstore.MVStoreException: The file is locked: C:/Users/elias/Desktop/Universidad de Palermo/Cuatrimestre 2/Programacion 3/Proyectos/AdministradorConsorcios/DB/DB.mv.db [2.4.240/7]"
+General error: "org.h2.mvstore.MVStoreException: The file is locked: C:/Users/elias/Desktop/Universidad de Palermo/Cuatrimestre 2/Programacion 3/Proyectos/AdministradorConsorcios/DB/DB.mv.db [2.4.240/7]" [50000-240]
+	at org.h2.message.DbException.getJdbcSQLException(DbException.java:566)
+	at org.h2.message.DbException.getJdbcSQLException(DbException.java:489)
+	... 19 more
+Caused by: org.h2.mvstore.MVStoreException: The file is locked: C:/Users/elias/Desktop/Universidad de Palermo/Cuatrimestre 2/Programacion 3/Proyectos/AdministradorConsorcios/DB/DB.mv.db [2.4.240/7]
+	at org.h2.mvstore.DataUtils.newMVStoreException(DataUtils.java:996)
+	at org.h2.mvstore.SingleFileStore.lockFileChannel(SingleFileStore.java:143)
+	at org.h2.mvstore.SingleFileStore.open(SingleFileStore.java:117)
+	at org.h2.mvstore.SingleFileStore.open(SingleFileStore.java:81)
+	at org.h2.mvstore.MVStore.<init>(MVStore.java:291)
+	... 13 more
+2026-05-30 01:59:26.352614-03:00 database: flush
+org.h2.message.DbException: Error General : "org.h2.mvstore.MVStoreException: The file is locked: C:/Users/elias/Desktop/Universidad de Palermo/Cuatrimestre 2/Programacion 3/Proyectos/AdministradorConsorcios/DB/DB.mv.db [2.4.240/7]"
+General error: "org.h2.mvstore.MVStoreException: The file is locked: C:/Users/elias/Desktop/Universidad de Palermo/Cuatrimestre 2/Programacion 3/Proyectos/AdministradorConsorcios/DB/DB.mv.db [2.4.240/7]" [50000-240]
+	at org.h2.message.DbException.get(DbException.java:212)
+	at org.h2.message.DbException.convert(DbException.java:407)
+	at org.h2.mvstore.db.Store.lambda$new$0(Store.java:122)
+	at org.h2.mvstore.MVStore.handleException(MVStore.java:1675)
+	at org.h2.mvstore.MVStore.panic(MVStore.java:502)
+	at org.h2.mvstore.MVStore.<init>(MVStore.java:296)
+	at org.h2.mvstore.MVStore$Builder.open(MVStore.java:2164)
+	at org.h2.mvstore.db.Store.<init>(Store.java:133)
+	at org.h2.engine.Database.<init>(Database.java:328)
+	at org.h2.engine.Engine.openSession(Engine.java:92)
+	at org.h2.engine.Engine.openSession(Engine.java:222)
+	at org.h2.engine.Engine.createSession(Engine.java:201)
+	at org.h2.engine.SessionRemote.connectEmbeddedOrServer(SessionRemote.java:350)
+	at org.h2.jdbc.JdbcConnection.<init>(JdbcConnection.java:124)
+	at org.h2.Driver.connect(Driver.java:59)
+	at java.sql/java.sql.DriverManager.getConnection(DriverManager.java:683)
+	at java.sql/java.sql.DriverManager.getConnection(DriverManager.java:230)
+	at DAO.DAOEdificio.consultar(DAOEdificio.java:60)
+	at Main.main(Main.java:10)
+Caused by: org.h2.jdbc.JdbcSQLNonTransientException: Error General : "org.h2.mvstore.MVStoreException: The file is locked: C:/Users/elias/Desktop/Universidad de Palermo/Cuatrimestre 2/Programacion 3/Proyectos/AdministradorConsorcios/DB/DB.mv.db [2.4.240/7]"
+General error: "org.h2.mvstore.MVStoreException: The file is locked: C:/Users/elias/Desktop/Universidad de Palermo/Cuatrimestre 2/Programacion 3/Proyectos/AdministradorConsorcios/DB/DB.mv.db [2.4.240/7]" [50000-240]
+	at org.h2.message.DbException.getJdbcSQLException(DbException.java:566)
+	at org.h2.message.DbException.getJdbcSQLException(DbException.java:489)
+	... 19 more
+Caused by: org.h2.mvstore.MVStoreException: The file is locked: C:/Users/elias/Desktop/Universidad de Palermo/Cuatrimestre 2/Programacion 3/Proyectos/AdministradorConsorcios/DB/DB.mv.db [2.4.240/7]
+	at org.h2.mvstore.DataUtils.newMVStoreException(DataUtils.java:996)
+	at org.h2.mvstore.SingleFileStore.lockFileChannel(SingleFileStore.java:143)
+	at org.h2.mvstore.SingleFileStore.open(SingleFileStore.java:117)
+	at org.h2.mvstore.SingleFileStore.open(SingleFileStore.java:81)
+	at org.h2.mvstore.MVStore.<init>(MVStore.java:291)
+	... 13 more
+2026-05-30 01:59:32.415408-03:00 database: flush
+org.h2.message.DbException: Error General : "org.h2.mvstore.MVStoreException: The file is locked: C:/Users/elias/Desktop/Universidad de Palermo/Cuatrimestre 2/Programacion 3/Proyectos/AdministradorConsorcios/DB/DB.mv.db [2.4.240/7]"
+General error: "org.h2.mvstore.MVStoreException: The file is locked: C:/Users/elias/Desktop/Universidad de Palermo/Cuatrimestre 2/Programacion 3/Proyectos/AdministradorConsorcios/DB/DB.mv.db [2.4.240/7]" [50000-240]
+	at org.h2.message.DbException.get(DbException.java:212)
+	at org.h2.message.DbException.convert(DbException.java:407)
+	at org.h2.mvstore.db.Store.lambda$new$0(Store.java:122)
+	at org.h2.mvstore.MVStore.handleException(MVStore.java:1675)
+	at org.h2.mvstore.MVStore.panic(MVStore.java:502)
+	at org.h2.mvstore.MVStore.<init>(MVStore.java:296)
+	at org.h2.mvstore.MVStore$Builder.open(MVStore.java:2164)
+	at org.h2.mvstore.db.Store.<init>(Store.java:133)
+	at org.h2.engine.Database.<init>(Database.java:328)
+	at org.h2.engine.Engine.openSession(Engine.java:92)
+	at org.h2.engine.Engine.openSession(Engine.java:222)
+	at org.h2.engine.Engine.createSession(Engine.java:201)
+	at org.h2.engine.SessionRemote.connectEmbeddedOrServer(SessionRemote.java:350)
+	at org.h2.jdbc.JdbcConnection.<init>(JdbcConnection.java:124)
+	at org.h2.Driver.connect(Driver.java:59)
+	at java.sql/java.sql.DriverManager.getConnection(DriverManager.java:683)
+	at java.sql/java.sql.DriverManager.getConnection(DriverManager.java:230)
+	at DAO.DAOEdificio.consultar(DAOEdificio.java:60)
+	at Main.main(Main.java:10)
+Caused by: org.h2.jdbc.JdbcSQLNonTransientException: Error General : "org.h2.mvstore.MVStoreException: The file is locked: C:/Users/elias/Desktop/Universidad de Palermo/Cuatrimestre 2/Programacion 3/Proyectos/AdministradorConsorcios/DB/DB.mv.db [2.4.240/7]"
+General error: "org.h2.mvstore.MVStoreException: The file is locked: C:/Users/elias/Desktop/Universidad de Palermo/Cuatrimestre 2/Programacion 3/Proyectos/AdministradorConsorcios/DB/DB.mv.db [2.4.240/7]" [50000-240]
+	at org.h2.message.DbException.getJdbcSQLException(DbException.java:566)
+	at org.h2.message.DbException.getJdbcSQLException(DbException.java:489)
+	... 19 more
+Caused by: org.h2.mvstore.MVStoreException: The file is locked: C:/Users/elias/Desktop/Universidad de Palermo/Cuatrimestre 2/Programacion 3/Proyectos/AdministradorConsorcios/DB/DB.mv.db [2.4.240/7]
+	at org.h2.mvstore.DataUtils.newMVStoreException(DataUtils.java:996)
+	at org.h2.mvstore.SingleFileStore.lockFileChannel(SingleFileStore.java:143)
+	at org.h2.mvstore.SingleFileStore.open(SingleFileStore.java:117)
+	at org.h2.mvstore.SingleFileStore.open(SingleFileStore.java:81)
+	at org.h2.mvstore.MVStore.<init>(MVStore.java:291)
+	... 13 more
+2026-05-30 02:01:32.724093-03:00 database: flush
+org.h2.message.DbException: Error General : "org.h2.mvstore.MVStoreException: The file is locked: C:/Users/elias/Desktop/Universidad de Palermo/Cuatrimestre 2/Programacion 3/Proyectos/AdministradorConsorcios/DB/DB.mv.db [2.4.240/7]"
+General error: "org.h2.mvstore.MVStoreException: The file is locked: C:/Users/elias/Desktop/Universidad de Palermo/Cuatrimestre 2/Programacion 3/Proyectos/AdministradorConsorcios/DB/DB.mv.db [2.4.240/7]" [50000-240]
+	at org.h2.message.DbException.get(DbException.java:212)
+	at org.h2.message.DbException.convert(DbException.java:407)
+	at org.h2.mvstore.db.Store.lambda$new$0(Store.java:122)
+	at org.h2.mvstore.MVStore.handleException(MVStore.java:1675)
+	at org.h2.mvstore.MVStore.panic(MVStore.java:502)
+	at org.h2.mvstore.MVStore.<init>(MVStore.java:296)
+	at org.h2.mvstore.MVStore$Builder.open(MVStore.java:2164)
+	at org.h2.mvstore.db.Store.<init>(Store.java:133)
+	at org.h2.engine.Database.<init>(Database.java:328)
+	at org.h2.engine.Engine.openSession(Engine.java:92)
+	at org.h2.engine.Engine.openSession(Engine.java:222)
+	at org.h2.engine.Engine.createSession(Engine.java:201)
+	at org.h2.engine.SessionRemote.connectEmbeddedOrServer(SessionRemote.java:350)
+	at org.h2.jdbc.JdbcConnection.<init>(JdbcConnection.java:124)
+	at org.h2.Driver.connect(Driver.java:59)
+	at java.sql/java.sql.DriverManager.getConnection(DriverManager.java:683)
+	at java.sql/java.sql.DriverManager.getConnection(DriverManager.java:230)
+	at DAO.DAOEdificio.consultar(DAOEdificio.java:60)
+	at Main.main(Main.java:10)
+Caused by: org.h2.jdbc.JdbcSQLNonTransientException: Error General : "org.h2.mvstore.MVStoreException: The file is locked: C:/Users/elias/Desktop/Universidad de Palermo/Cuatrimestre 2/Programacion 3/Proyectos/AdministradorConsorcios/DB/DB.mv.db [2.4.240/7]"
+General error: "org.h2.mvstore.MVStoreException: The file is locked: C:/Users/elias/Desktop/Universidad de Palermo/Cuatrimestre 2/Programacion 3/Proyectos/AdministradorConsorcios/DB/DB.mv.db [2.4.240/7]" [50000-240]
+	at org.h2.message.DbException.getJdbcSQLException(DbException.java:566)
+	at org.h2.message.DbException.getJdbcSQLException(DbException.java:489)
+	... 19 more
+Caused by: org.h2.mvstore.MVStoreException: The file is locked: C:/Users/elias/Desktop/Universidad de Palermo/Cuatrimestre 2/Programacion 3/Proyectos/AdministradorConsorcios/DB/DB.mv.db [2.4.240/7]
+	at org.h2.mvstore.DataUtils.newMVStoreException(DataUtils.java:996)
+	at org.h2.mvstore.SingleFileStore.lockFileChannel(SingleFileStore.java:143)
+	at org.h2.mvstore.SingleFileStore.open(SingleFileStore.java:117)
+	at org.h2.mvstore.SingleFileStore.open(SingleFileStore.java:81)
+	at org.h2.mvstore.MVStore.<init>(MVStore.java:291)
+	... 13 more
+2026-05-30 02:03:54.642102-03:00 database: flush
+org.h2.message.DbException: Error General : "org.h2.mvstore.MVStoreException: The file is locked: C:/Users/elias/Desktop/Universidad de Palermo/Cuatrimestre 2/Programacion 3/Proyectos/AdministradorConsorcios/DB/DB.mv.db [2.4.240/7]"
+General error: "org.h2.mvstore.MVStoreException: The file is locked: C:/Users/elias/Desktop/Universidad de Palermo/Cuatrimestre 2/Programacion 3/Proyectos/AdministradorConsorcios/DB/DB.mv.db [2.4.240/7]" [50000-240]
+	at org.h2.message.DbException.get(DbException.java:212)
+	at org.h2.message.DbException.convert(DbException.java:407)
+	at org.h2.mvstore.db.Store.lambda$new$0(Store.java:122)
+	at org.h2.mvstore.MVStore.handleException(MVStore.java:1675)
+	at org.h2.mvstore.MVStore.panic(MVStore.java:502)
+	at org.h2.mvstore.MVStore.<init>(MVStore.java:296)
+	at org.h2.mvstore.MVStore$Builder.open(MVStore.java:2164)
+	at org.h2.mvstore.db.Store.<init>(Store.java:133)
+	at org.h2.engine.Database.<init>(Database.java:328)
+	at org.h2.engine.Engine.openSession(Engine.java:92)
+	at org.h2.engine.Engine.openSession(Engine.java:222)
+	at org.h2.engine.Engine.createSession(Engine.java:201)
+	at org.h2.engine.SessionRemote.connectEmbeddedOrServer(SessionRemote.java:350)
+	at org.h2.jdbc.JdbcConnection.<init>(JdbcConnection.java:124)
+	at org.h2.Driver.connect(Driver.java:59)
+	at java.sql/java.sql.DriverManager.getConnection(DriverManager.java:683)
+	at java.sql/java.sql.DriverManager.getConnection(DriverManager.java:230)
+	at DAO.DAOEdificio.consultar(DAOEdificio.java:60)
+	at Main.main(Main.java:10)
+Caused by: org.h2.jdbc.JdbcSQLNonTransientException: Error General : "org.h2.mvstore.MVStoreException: The file is locked: C:/Users/elias/Desktop/Universidad de Palermo/Cuatrimestre 2/Programacion 3/Proyectos/AdministradorConsorcios/DB/DB.mv.db [2.4.240/7]"
+General error: "org.h2.mvstore.MVStoreException: The file is locked: C:/Users/elias/Desktop/Universidad de Palermo/Cuatrimestre 2/Programacion 3/Proyectos/AdministradorConsorcios/DB/DB.mv.db [2.4.240/7]" [50000-240]
+	at org.h2.message.DbException.getJdbcSQLException(DbException.java:566)
+	at org.h2.message.DbException.getJdbcSQLException(DbException.java:489)
+	... 19 more
+Caused by: org.h2.mvstore.MVStoreException: The file is locked: C:/Users/elias/Desktop/Universidad de Palermo/Cuatrimestre 2/Programacion 3/Proyectos/AdministradorConsorcios/DB/DB.mv.db [2.4.240/7]
+	at org.h2.mvstore.DataUtils.newMVStoreException(DataUtils.java:996)
+	at org.h2.mvstore.SingleFileStore.lockFileChannel(SingleFileStore.java:143)
+	at org.h2.mvstore.SingleFileStore.open(SingleFileStore.java:117)
+	at org.h2.mvstore.SingleFileStore.open(SingleFileStore.java:81)
+	at org.h2.mvstore.MVStore.<init>(MVStore.java:291)
+	... 13 more
+2026-05-30 17:26:01.521535-03:00 database: flush
+org.h2.message.DbException: Error General : "org.h2.mvstore.MVStoreException: The file is locked: C:/Users/elias/Desktop/Universidad de Palermo/Cuatrimestre 2/Programacion 3/Proyectos/AdministradorConsorcios/DB/DB.mv.db [2.4.240/7]"
+General error: "org.h2.mvstore.MVStoreException: The file is locked: C:/Users/elias/Desktop/Universidad de Palermo/Cuatrimestre 2/Programacion 3/Proyectos/AdministradorConsorcios/DB/DB.mv.db [2.4.240/7]" [50000-240]
+	at org.h2.message.DbException.get(DbException.java:212)
+	at org.h2.message.DbException.convert(DbException.java:407)
+	at org.h2.mvstore.db.Store.lambda$new$0(Store.java:122)
+	at org.h2.mvstore.MVStore.handleException(MVStore.java:1675)
+	at org.h2.mvstore.MVStore.panic(MVStore.java:502)
+	at org.h2.mvstore.MVStore.<init>(MVStore.java:296)
+	at org.h2.mvstore.MVStore$Builder.open(MVStore.java:2164)
+	at org.h2.mvstore.db.Store.<init>(Store.java:133)
+	at org.h2.engine.Database.<init>(Database.java:328)
+	at org.h2.engine.Engine.openSession(Engine.java:92)
+	at org.h2.engine.Engine.openSession(Engine.java:222)
+	at org.h2.engine.Engine.createSession(Engine.java:201)
+	at org.h2.engine.SessionRemote.connectEmbeddedOrServer(SessionRemote.java:350)
+	at org.h2.jdbc.JdbcConnection.<init>(JdbcConnection.java:124)
+	at org.h2.Driver.connect(Driver.java:59)
+	at java.sql/java.sql.DriverManager.getConnection(DriverManager.java:683)
+	at java.sql/java.sql.DriverManager.getConnection(DriverManager.java:230)
+	at DAO.DAOEdificio.consultar(DAOEdificio.java:63)
+	at Main.main(Main.java:32)
+Caused by: org.h2.jdbc.JdbcSQLNonTransientException: Error General : "org.h2.mvstore.MVStoreException: The file is locked: C:/Users/elias/Desktop/Universidad de Palermo/Cuatrimestre 2/Programacion 3/Proyectos/AdministradorConsorcios/DB/DB.mv.db [2.4.240/7]"
+General error: "org.h2.mvstore.MVStoreException: The file is locked: C:/Users/elias/Desktop/Universidad de Palermo/Cuatrimestre 2/Programacion 3/Proyectos/AdministradorConsorcios/DB/DB.mv.db [2.4.240/7]" [50000-240]
+	at org.h2.message.DbException.getJdbcSQLException(DbException.java:566)
+	at org.h2.message.DbException.getJdbcSQLException(DbException.java:489)
+	... 19 more
+Caused by: org.h2.mvstore.MVStoreException: The file is locked: C:/Users/elias/Desktop/Universidad de Palermo/Cuatrimestre 2/Programacion 3/Proyectos/AdministradorConsorcios/DB/DB.mv.db [2.4.240/7]
+	at org.h2.mvstore.DataUtils.newMVStoreException(DataUtils.java:996)
+	at org.h2.mvstore.SingleFileStore.lockFileChannel(SingleFileStore.java:143)
+	at org.h2.mvstore.SingleFileStore.open(SingleFileStore.java:117)
+	at org.h2.mvstore.SingleFileStore.open(SingleFileStore.java:81)
+	at org.h2.mvstore.MVStore.<init>(MVStore.java:291)
+	... 13 more
+2026-05-30 17:27:04.799152-03:00 database: flush
+org.h2.message.DbException: Error General : "org.h2.mvstore.MVStoreException: The file is locked: C:/Users/elias/Desktop/Universidad de Palermo/Cuatrimestre 2/Programacion 3/Proyectos/AdministradorConsorcios/DB/DB.mv.db [2.4.240/7]"
+General error: "org.h2.mvstore.MVStoreException: The file is locked: C:/Users/elias/Desktop/Universidad de Palermo/Cuatrimestre 2/Programacion 3/Proyectos/AdministradorConsorcios/DB/DB.mv.db [2.4.240/7]" [50000-240]
+	at org.h2.message.DbException.get(DbException.java:212)
+	at org.h2.message.DbException.convert(DbException.java:407)
+	at org.h2.mvstore.db.Store.lambda$new$0(Store.java:122)
+	at org.h2.mvstore.MVStore.handleException(MVStore.java:1675)
+	at org.h2.mvstore.MVStore.panic(MVStore.java:502)
+	at org.h2.mvstore.MVStore.<init>(MVStore.java:296)
+	at org.h2.mvstore.MVStore$Builder.open(MVStore.java:2164)
+	at org.h2.mvstore.db.Store.<init>(Store.java:133)
+	at org.h2.engine.Database.<init>(Database.java:328)
+	at org.h2.engine.Engine.openSession(Engine.java:92)
+	at org.h2.engine.Engine.openSession(Engine.java:222)
+	at org.h2.engine.Engine.createSession(Engine.java:201)
+	at org.h2.engine.SessionRemote.connectEmbeddedOrServer(SessionRemote.java:350)
+	at org.h2.jdbc.JdbcConnection.<init>(JdbcConnection.java:124)
+	at org.h2.Driver.connect(Driver.java:59)
+	at java.sql/java.sql.DriverManager.getConnection(DriverManager.java:683)
+	at java.sql/java.sql.DriverManager.getConnection(DriverManager.java:230)
+	at DAO.DAOEdificio.agregar(DAOEdificio.java:28)
+	at Main.main(Main.java:42)
+Caused by: org.h2.jdbc.JdbcSQLNonTransientException: Error General : "org.h2.mvstore.MVStoreException: The file is locked: C:/Users/elias/Desktop/Universidad de Palermo/Cuatrimestre 2/Programacion 3/Proyectos/AdministradorConsorcios/DB/DB.mv.db [2.4.240/7]"
+General error: "org.h2.mvstore.MVStoreException: The file is locked: C:/Users/elias/Desktop/Universidad de Palermo/Cuatrimestre 2/Programacion 3/Proyectos/AdministradorConsorcios/DB/DB.mv.db [2.4.240/7]" [50000-240]
+	at org.h2.message.DbException.getJdbcSQLException(DbException.java:566)
+	at org.h2.message.DbException.getJdbcSQLException(DbException.java:489)
+	... 19 more
+Caused by: org.h2.mvstore.MVStoreException: The file is locked: C:/Users/elias/Desktop/Universidad de Palermo/Cuatrimestre 2/Programacion 3/Proyectos/AdministradorConsorcios/DB/DB.mv.db [2.4.240/7]
+	at org.h2.mvstore.DataUtils.newMVStoreException(DataUtils.java:996)
+	at org.h2.mvstore.SingleFileStore.lockFileChannel(SingleFileStore.java:143)
+	at org.h2.mvstore.SingleFileStore.open(SingleFileStore.java:117)
+	at org.h2.mvstore.SingleFileStore.open(SingleFileStore.java:81)
+	at org.h2.mvstore.MVStore.<init>(MVStore.java:291)
+	... 13 more
+2026-05-30 17:27:50.578286-03:00 database: flush
+org.h2.message.DbException: Error General : "org.h2.mvstore.MVStoreException: The file is locked: C:/Users/elias/Desktop/Universidad de Palermo/Cuatrimestre 2/Programacion 3/Proyectos/AdministradorConsorcios/DB/DB.mv.db [2.4.240/7]"
+General error: "org.h2.mvstore.MVStoreException: The file is locked: C:/Users/elias/Desktop/Universidad de Palermo/Cuatrimestre 2/Programacion 3/Proyectos/AdministradorConsorcios/DB/DB.mv.db [2.4.240/7]" [50000-240]
+	at org.h2.message.DbException.get(DbException.java:212)
+	at org.h2.message.DbException.convert(DbException.java:407)
+	at org.h2.mvstore.db.Store.lambda$new$0(Store.java:122)
+	at org.h2.mvstore.MVStore.handleException(MVStore.java:1675)
+	at org.h2.mvstore.MVStore.panic(MVStore.java:502)
+	at org.h2.mvstore.MVStore.<init>(MVStore.java:296)
+	at org.h2.mvstore.MVStore$Builder.open(MVStore.java:2164)
+	at org.h2.mvstore.db.Store.<init>(Store.java:133)
+	at org.h2.engine.Database.<init>(Database.java:328)
+	at org.h2.engine.Engine.openSession(Engine.java:92)
+	at org.h2.engine.Engine.openSession(Engine.java:222)
+	at org.h2.engine.Engine.createSession(Engine.java:201)
+	at org.h2.engine.SessionRemote.connectEmbeddedOrServer(SessionRemote.java:350)
+	at org.h2.jdbc.JdbcConnection.<init>(JdbcConnection.java:124)
+	at org.h2.Driver.connect(Driver.java:59)
+	at java.sql/java.sql.DriverManager.getConnection(DriverManager.java:683)
+	at java.sql/java.sql.DriverManager.getConnection(DriverManager.java:230)
+	at DAO.DAOEdificio.agregar(DAOEdificio.java:28)
+	at Main.main(Main.java:42)
+Caused by: org.h2.jdbc.JdbcSQLNonTransientException: Error General : "org.h2.mvstore.MVStoreException: The file is locked: C:/Users/elias/Desktop/Universidad de Palermo/Cuatrimestre 2/Programacion 3/Proyectos/AdministradorConsorcios/DB/DB.mv.db [2.4.240/7]"
+General error: "org.h2.mvstore.MVStoreException: The file is locked: C:/Users/elias/Desktop/Universidad de Palermo/Cuatrimestre 2/Programacion 3/Proyectos/AdministradorConsorcios/DB/DB.mv.db [2.4.240/7]" [50000-240]
+	at org.h2.message.DbException.getJdbcSQLException(DbException.java:566)
+	at org.h2.message.DbException.getJdbcSQLException(DbException.java:489)
+	... 19 more
+Caused by: org.h2.mvstore.MVStoreException: The file is locked: C:/Users/elias/Desktop/Universidad de Palermo/Cuatrimestre 2/Programacion 3/Proyectos/AdministradorConsorcios/DB/DB.mv.db [2.4.240/7]
+	at org.h2.mvstore.DataUtils.newMVStoreException(DataUtils.java:996)
+	at org.h2.mvstore.SingleFileStore.lockFileChannel(SingleFileStore.java:143)
+	at org.h2.mvstore.SingleFileStore.open(SingleFileStore.java:117)
+	at org.h2.mvstore.SingleFileStore.open(SingleFileStore.java:81)
+	at org.h2.mvstore.MVStore.<init>(MVStore.java:291)
+	... 13 more
+2026-05-30 17:29:28.288253-03:00 database: flush
+org.h2.message.DbException: Error General : "org.h2.mvstore.MVStoreException: The file is locked: C:/Users/elias/Desktop/Universidad de Palermo/Cuatrimestre 2/Programacion 3/Proyectos/AdministradorConsorcios/DB/DB.mv.db [2.4.240/7]"
+General error: "org.h2.mvstore.MVStoreException: The file is locked: C:/Users/elias/Desktop/Universidad de Palermo/Cuatrimestre 2/Programacion 3/Proyectos/AdministradorConsorcios/DB/DB.mv.db [2.4.240/7]" [50000-240]
+	at org.h2.message.DbException.get(DbException.java:212)
+	at org.h2.message.DbException.convert(DbException.java:407)
+	at org.h2.mvstore.db.Store.lambda$new$0(Store.java:122)
+	at org.h2.mvstore.MVStore.handleException(MVStore.java:1675)
+	at org.h2.mvstore.MVStore.panic(MVStore.java:502)
+	at org.h2.mvstore.MVStore.<init>(MVStore.java:296)
+	at org.h2.mvstore.MVStore$Builder.open(MVStore.java:2164)
+	at org.h2.mvstore.db.Store.<init>(Store.java:133)
+	at org.h2.engine.Database.<init>(Database.java:328)
+	at org.h2.engine.Engine.openSession(Engine.java:92)
+	at org.h2.engine.Engine.openSession(Engine.java:222)
+	at org.h2.engine.Engine.createSession(Engine.java:201)
+	at org.h2.engine.SessionRemote.connectEmbeddedOrServer(SessionRemote.java:350)
+	at org.h2.jdbc.JdbcConnection.<init>(JdbcConnection.java:124)
+	at org.h2.Driver.connect(Driver.java:59)
+	at java.sql/java.sql.DriverManager.getConnection(DriverManager.java:683)
+	at java.sql/java.sql.DriverManager.getConnection(DriverManager.java:230)
+	at DAO.DAOEdificio.agregar(DAOEdificio.java:28)
+	at Main.main(Main.java:42)
+Caused by: org.h2.jdbc.JdbcSQLNonTransientException: Error General : "org.h2.mvstore.MVStoreException: The file is locked: C:/Users/elias/Desktop/Universidad de Palermo/Cuatrimestre 2/Programacion 3/Proyectos/AdministradorConsorcios/DB/DB.mv.db [2.4.240/7]"
+General error: "org.h2.mvstore.MVStoreException: The file is locked: C:/Users/elias/Desktop/Universidad de Palermo/Cuatrimestre 2/Programacion 3/Proyectos/AdministradorConsorcios/DB/DB.mv.db [2.4.240/7]" [50000-240]
+	at org.h2.message.DbException.getJdbcSQLException(DbException.java:566)
+	at org.h2.message.DbException.getJdbcSQLException(DbException.java:489)
+	... 19 more
+Caused by: org.h2.mvstore.MVStoreException: The file is locked: C:/Users/elias/Desktop/Universidad de Palermo/Cuatrimestre 2/Programacion 3/Proyectos/AdministradorConsorcios/DB/DB.mv.db [2.4.240/7]
+	at org.h2.mvstore.DataUtils.newMVStoreException(DataUtils.java:996)
+	at org.h2.mvstore.SingleFileStore.lockFileChannel(SingleFileStore.java:143)
+	at org.h2.mvstore.SingleFileStore.open(SingleFileStore.java:117)
+	at org.h2.mvstore.SingleFileStore.open(SingleFileStore.java:81)
+	at org.h2.mvstore.MVStore.<init>(MVStore.java:291)
+	... 13 more
+2026-05-30 17:30:15.165190-03:00 database: flush
+org.h2.message.DbException: Error General : "org.h2.mvstore.MVStoreException: The file is locked: C:/Users/elias/Desktop/Universidad de Palermo/Cuatrimestre 2/Programacion 3/Proyectos/AdministradorConsorcios/DB/DB.mv.db [2.4.240/7]"
+General error: "org.h2.mvstore.MVStoreException: The file is locked: C:/Users/elias/Desktop/Universidad de Palermo/Cuatrimestre 2/Programacion 3/Proyectos/AdministradorConsorcios/DB/DB.mv.db [2.4.240/7]" [50000-240]
+	at org.h2.message.DbException.get(DbException.java:212)
+	at org.h2.message.DbException.convert(DbException.java:407)
+	at org.h2.mvstore.db.Store.lambda$new$0(Store.java:122)
+	at org.h2.mvstore.MVStore.handleException(MVStore.java:1675)
+	at org.h2.mvstore.MVStore.panic(MVStore.java:502)
+	at org.h2.mvstore.MVStore.<init>(MVStore.java:296)
+	at org.h2.mvstore.MVStore$Builder.open(MVStore.java:2164)
+	at org.h2.mvstore.db.Store.<init>(Store.java:133)
+	at org.h2.engine.Database.<init>(Database.java:328)
+	at org.h2.engine.Engine.openSession(Engine.java:92)
+	at org.h2.engine.Engine.openSession(Engine.java:222)
+	at org.h2.engine.Engine.createSession(Engine.java:201)
+	at org.h2.engine.SessionRemote.connectEmbeddedOrServer(SessionRemote.java:350)
+	at org.h2.jdbc.JdbcConnection.<init>(JdbcConnection.java:124)
+	at org.h2.Driver.connect(Driver.java:59)
+	at java.sql/java.sql.DriverManager.getConnection(DriverManager.java:683)
+	at java.sql/java.sql.DriverManager.getConnection(DriverManager.java:230)
+	at DAO.DAOEdificio.agregar(DAOEdificio.java:28)
+	at Main.main(Main.java:42)
+Caused by: org.h2.jdbc.JdbcSQLNonTransientException: Error General : "org.h2.mvstore.MVStoreException: The file is locked: C:/Users/elias/Desktop/Universidad de Palermo/Cuatrimestre 2/Programacion 3/Proyectos/AdministradorConsorcios/DB/DB.mv.db [2.4.240/7]"
+General error: "org.h2.mvstore.MVStoreException: The file is locked: C:/Users/elias/Desktop/Universidad de Palermo/Cuatrimestre 2/Programacion 3/Proyectos/AdministradorConsorcios/DB/DB.mv.db [2.4.240/7]" [50000-240]
+	at org.h2.message.DbException.getJdbcSQLException(DbException.java:566)
+	at org.h2.message.DbException.getJdbcSQLException(DbException.java:489)
+	... 19 more
+Caused by: org.h2.mvstore.MVStoreException: The file is locked: C:/Users/elias/Desktop/Universidad de Palermo/Cuatrimestre 2/Programacion 3/Proyectos/AdministradorConsorcios/DB/DB.mv.db [2.4.240/7]
+	at org.h2.mvstore.DataUtils.newMVStoreException(DataUtils.java:996)
+	at org.h2.mvstore.SingleFileStore.lockFileChannel(SingleFileStore.java:143)
+	at org.h2.mvstore.SingleFileStore.open(SingleFileStore.java:117)
+	at org.h2.mvstore.SingleFileStore.open(SingleFileStore.java:81)
+	at org.h2.mvstore.MVStore.<init>(MVStore.java:291)
+	... 13 more
+2026-05-30 17:32:25.874037-03:00 database: flush
+org.h2.message.DbException: Error General : "org.h2.mvstore.MVStoreException: The file is locked: C:/Users/elias/Desktop/Universidad de Palermo/Cuatrimestre 2/Programacion 3/Proyectos/AdministradorConsorcios/DB/DB.mv.db [2.4.240/7]"
+General error: "org.h2.mvstore.MVStoreException: The file is locked: C:/Users/elias/Desktop/Universidad de Palermo/Cuatrimestre 2/Programacion 3/Proyectos/AdministradorConsorcios/DB/DB.mv.db [2.4.240/7]" [50000-240]
+	at org.h2.message.DbException.get(DbException.java:212)
+	at org.h2.message.DbException.convert(DbException.java:407)
+	at org.h2.mvstore.db.Store.lambda$new$0(Store.java:122)
+	at org.h2.mvstore.MVStore.handleException(MVStore.java:1675)
+	at org.h2.mvstore.MVStore.panic(MVStore.java:502)
+	at org.h2.mvstore.MVStore.<init>(MVStore.java:296)
+	at org.h2.mvstore.MVStore$Builder.open(MVStore.java:2164)
+	at org.h2.mvstore.db.Store.<init>(Store.java:133)
+	at org.h2.engine.Database.<init>(Database.java:328)
+	at org.h2.engine.Engine.openSession(Engine.java:92)
+	at org.h2.engine.Engine.openSession(Engine.java:222)
+	at org.h2.engine.Engine.createSession(Engine.java:201)
+	at org.h2.engine.SessionRemote.connectEmbeddedOrServer(SessionRemote.java:350)
+	at org.h2.jdbc.JdbcConnection.<init>(JdbcConnection.java:124)
+	at org.h2.Driver.connect(Driver.java:59)
+	at java.sql/java.sql.DriverManager.getConnection(DriverManager.java:683)
+	at java.sql/java.sql.DriverManager.getConnection(DriverManager.java:230)
+	at DAO.DAOEdificio.consultar(DAOEdificio.java:63)
+	at Main.main(Main.java:32)
+Caused by: org.h2.jdbc.JdbcSQLNonTransientException: Error General : "org.h2.mvstore.MVStoreException: The file is locked: C:/Users/elias/Desktop/Universidad de Palermo/Cuatrimestre 2/Programacion 3/Proyectos/AdministradorConsorcios/DB/DB.mv.db [2.4.240/7]"
+General error: "org.h2.mvstore.MVStoreException: The file is locked: C:/Users/elias/Desktop/Universidad de Palermo/Cuatrimestre 2/Programacion 3/Proyectos/AdministradorConsorcios/DB/DB.mv.db [2.4.240/7]" [50000-240]
+	at org.h2.message.DbException.getJdbcSQLException(DbException.java:566)
+	at org.h2.message.DbException.getJdbcSQLException(DbException.java:489)
+	... 19 more
+Caused by: org.h2.mvstore.MVStoreException: The file is locked: C:/Users/elias/Desktop/Universidad de Palermo/Cuatrimestre 2/Programacion 3/Proyectos/AdministradorConsorcios/DB/DB.mv.db [2.4.240/7]
+	at org.h2.mvstore.DataUtils.newMVStoreException(DataUtils.java:996)
+	at org.h2.mvstore.SingleFileStore.lockFileChannel(SingleFileStore.java:143)
+	at org.h2.mvstore.SingleFileStore.open(SingleFileStore.java:117)
+	at org.h2.mvstore.SingleFileStore.open(SingleFileStore.java:81)
+	at org.h2.mvstore.MVStore.<init>(MVStore.java:291)
+	... 13 more
+2026-05-30 17:34:41.782475-03:00 database: flush
+org.h2.message.DbException: Error General : "org.h2.mvstore.MVStoreException: The file is locked: C:/Users/elias/Desktop/Universidad de Palermo/Cuatrimestre 2/Programacion 3/Proyectos/AdministradorConsorcios/DB/DB.mv.db [2.4.240/7]"
+General error: "org.h2.mvstore.MVStoreException: The file is locked: C:/Users/elias/Desktop/Universidad de Palermo/Cuatrimestre 2/Programacion 3/Proyectos/AdministradorConsorcios/DB/DB.mv.db [2.4.240/7]" [50000-240]
+	at org.h2.message.DbException.get(DbException.java:212)
+	at org.h2.message.DbException.convert(DbException.java:407)
+	at org.h2.mvstore.db.Store.lambda$new$0(Store.java:122)
+	at org.h2.mvstore.MVStore.handleException(MVStore.java:1675)
+	at org.h2.mvstore.MVStore.panic(MVStore.java:502)
+	at org.h2.mvstore.MVStore.<init>(MVStore.java:296)
+	at org.h2.mvstore.MVStore$Builder.open(MVStore.java:2164)
+	at org.h2.mvstore.db.Store.<init>(Store.java:133)
+	at org.h2.engine.Database.<init>(Database.java:328)
+	at org.h2.engine.Engine.openSession(Engine.java:92)
+	at org.h2.engine.Engine.openSession(Engine.java:222)
+	at org.h2.engine.Engine.createSession(Engine.java:201)
+	at org.h2.engine.SessionRemote.connectEmbeddedOrServer(SessionRemote.java:350)
+	at org.h2.jdbc.JdbcConnection.<init>(JdbcConnection.java:124)
+	at org.h2.Driver.connect(Driver.java:59)
+	at java.sql/java.sql.DriverManager.getConnection(DriverManager.java:683)
+	at java.sql/java.sql.DriverManager.getConnection(DriverManager.java:230)
+	at Main.main(Main.java:24)
+Caused by: org.h2.jdbc.JdbcSQLNonTransientException: Error General : "org.h2.mvstore.MVStoreException: The file is locked: C:/Users/elias/Desktop/Universidad de Palermo/Cuatrimestre 2/Programacion 3/Proyectos/AdministradorConsorcios/DB/DB.mv.db [2.4.240/7]"
+General error: "org.h2.mvstore.MVStoreException: The file is locked: C:/Users/elias/Desktop/Universidad de Palermo/Cuatrimestre 2/Programacion 3/Proyectos/AdministradorConsorcios/DB/DB.mv.db [2.4.240/7]" [50000-240]
+	at org.h2.message.DbException.getJdbcSQLException(DbException.java:566)
+	at org.h2.message.DbException.getJdbcSQLException(DbException.java:489)
+	... 18 more
+Caused by: org.h2.mvstore.MVStoreException: The file is locked: C:/Users/elias/Desktop/Universidad de Palermo/Cuatrimestre 2/Programacion 3/Proyectos/AdministradorConsorcios/DB/DB.mv.db [2.4.240/7]
+	at org.h2.mvstore.DataUtils.newMVStoreException(DataUtils.java:996)
+	at org.h2.mvstore.SingleFileStore.lockFileChannel(SingleFileStore.java:143)
+	at org.h2.mvstore.SingleFileStore.open(SingleFileStore.java:117)
+	at org.h2.mvstore.SingleFileStore.open(SingleFileStore.java:81)
+	at org.h2.mvstore.MVStore.<init>(MVStore.java:291)
+	... 12 more
+2026-05-30 17:37:42.255382-03:00 database: flush
+org.h2.message.DbException: Error General : "org.h2.mvstore.MVStoreException: The file is locked: C:/Users/elias/Desktop/Universidad de Palermo/Cuatrimestre 2/Programacion 3/Proyectos/AdministradorConsorcios/DB/DB.mv.db [2.4.240/7]"
+General error: "org.h2.mvstore.MVStoreException: The file is locked: C:/Users/elias/Desktop/Universidad de Palermo/Cuatrimestre 2/Programacion 3/Proyectos/AdministradorConsorcios/DB/DB.mv.db [2.4.240/7]" [50000-240]
+	at org.h2.message.DbException.get(DbException.java:212)
+	at org.h2.message.DbException.convert(DbException.java:407)
+	at org.h2.mvstore.db.Store.lambda$new$0(Store.java:122)
+	at org.h2.mvstore.MVStore.handleException(MVStore.java:1675)
+	at org.h2.mvstore.MVStore.panic(MVStore.java:502)
+	at org.h2.mvstore.MVStore.<init>(MVStore.java:296)
+	at org.h2.mvstore.MVStore$Builder.open(MVStore.java:2164)
+	at org.h2.mvstore.db.Store.<init>(Store.java:133)
+	at org.h2.engine.Database.<init>(Database.java:328)
+	at org.h2.engine.Engine.openSession(Engine.java:92)
+	at org.h2.engine.Engine.openSession(Engine.java:222)
+	at org.h2.engine.Engine.createSession(Engine.java:201)
+	at org.h2.engine.SessionRemote.connectEmbeddedOrServer(SessionRemote.java:350)
+	at org.h2.jdbc.JdbcConnection.<init>(JdbcConnection.java:124)
+	at org.h2.Driver.connect(Driver.java:59)
+	at java.sql/java.sql.DriverManager.getConnection(DriverManager.java:683)
+	at java.sql/java.sql.DriverManager.getConnection(DriverManager.java:230)
+	at Main.main(Main.java:24)
+Caused by: org.h2.jdbc.JdbcSQLNonTransientException: Error General : "org.h2.mvstore.MVStoreException: The file is locked: C:/Users/elias/Desktop/Universidad de Palermo/Cuatrimestre 2/Programacion 3/Proyectos/AdministradorConsorcios/DB/DB.mv.db [2.4.240/7]"
+General error: "org.h2.mvstore.MVStoreException: The file is locked: C:/Users/elias/Desktop/Universidad de Palermo/Cuatrimestre 2/Programacion 3/Proyectos/AdministradorConsorcios/DB/DB.mv.db [2.4.240/7]" [50000-240]
+	at org.h2.message.DbException.getJdbcSQLException(DbException.java:566)
+	at org.h2.message.DbException.getJdbcSQLException(DbException.java:489)
+	... 18 more
+Caused by: org.h2.mvstore.MVStoreException: The file is locked: C:/Users/elias/Desktop/Universidad de Palermo/Cuatrimestre 2/Programacion 3/Proyectos/AdministradorConsorcios/DB/DB.mv.db [2.4.240/7]
+	at org.h2.mvstore.DataUtils.newMVStoreException(DataUtils.java:996)
+	at org.h2.mvstore.SingleFileStore.lockFileChannel(SingleFileStore.java:143)
+	at org.h2.mvstore.SingleFileStore.open(SingleFileStore.java:117)
+	at org.h2.mvstore.SingleFileStore.open(SingleFileStore.java:81)
+	at org.h2.mvstore.MVStore.<init>(MVStore.java:291)
+	... 12 more
+2026-05-30 17:38:02.103375-03:00 database: flush
+org.h2.message.DbException: Error General : "org.h2.mvstore.MVStoreException: The file is locked: C:/Users/elias/Desktop/Universidad de Palermo/Cuatrimestre 2/Programacion 3/Proyectos/AdministradorConsorcios/DB/DB.mv.db [2.4.240/7]"
+General error: "org.h2.mvstore.MVStoreException: The file is locked: C:/Users/elias/Desktop/Universidad de Palermo/Cuatrimestre 2/Programacion 3/Proyectos/AdministradorConsorcios/DB/DB.mv.db [2.4.240/7]" [50000-240]
+	at org.h2.message.DbException.get(DbException.java:212)
+	at org.h2.message.DbException.convert(DbException.java:407)
+	at org.h2.mvstore.db.Store.lambda$new$0(Store.java:122)
+	at org.h2.mvstore.MVStore.handleException(MVStore.java:1675)
+	at org.h2.mvstore.MVStore.panic(MVStore.java:502)
+	at org.h2.mvstore.MVStore.<init>(MVStore.java:296)
+	at org.h2.mvstore.MVStore$Builder.open(MVStore.java:2164)
+	at org.h2.mvstore.db.Store.<init>(Store.java:133)
+	at org.h2.engine.Database.<init>(Database.java:328)
+	at org.h2.engine.Engine.openSession(Engine.java:92)
+	at org.h2.engine.Engine.openSession(Engine.java:222)
+	at org.h2.engine.Engine.createSession(Engine.java:201)
+	at org.h2.engine.SessionRemote.connectEmbeddedOrServer(SessionRemote.java:350)
+	at org.h2.jdbc.JdbcConnection.<init>(JdbcConnection.java:124)
+	at org.h2.Driver.connect(Driver.java:59)
+	at java.sql/java.sql.DriverManager.getConnection(DriverManager.java:683)
+	at java.sql/java.sql.DriverManager.getConnection(DriverManager.java:230)
+	at Main.main(Main.java:24)
+Caused by: org.h2.jdbc.JdbcSQLNonTransientException: Error General : "org.h2.mvstore.MVStoreException: The file is locked: C:/Users/elias/Desktop/Universidad de Palermo/Cuatrimestre 2/Programacion 3/Proyectos/AdministradorConsorcios/DB/DB.mv.db [2.4.240/7]"
+General error: "org.h2.mvstore.MVStoreException: The file is locked: C:/Users/elias/Desktop/Universidad de Palermo/Cuatrimestre 2/Programacion 3/Proyectos/AdministradorConsorcios/DB/DB.mv.db [2.4.240/7]" [50000-240]
+	at org.h2.message.DbException.getJdbcSQLException(DbException.java:566)
+	at org.h2.message.DbException.getJdbcSQLException(DbException.java:489)
+	... 18 more
+Caused by: org.h2.mvstore.MVStoreException: The file is locked: C:/Users/elias/Desktop/Universidad de Palermo/Cuatrimestre 2/Programacion 3/Proyectos/AdministradorConsorcios/DB/DB.mv.db [2.4.240/7]
+	at org.h2.mvstore.DataUtils.newMVStoreException(DataUtils.java:996)
+	at org.h2.mvstore.SingleFileStore.lockFileChannel(SingleFileStore.java:143)
+	at org.h2.mvstore.SingleFileStore.open(SingleFileStore.java:117)
+	at org.h2.mvstore.SingleFileStore.open(SingleFileStore.java:81)
+	at org.h2.mvstore.MVStore.<init>(MVStore.java:291)
+	... 12 more
+2026-05-30 17:38:02.125567-03:00 database: flush
+org.h2.message.DbException: Error General : "org.h2.mvstore.MVStoreException: The file is locked: C:/Users/elias/Desktop/Universidad de Palermo/Cuatrimestre 2/Programacion 3/Proyectos/AdministradorConsorcios/DB/DB.mv.db [2.4.240/7]"
+General error: "org.h2.mvstore.MVStoreException: The file is locked: C:/Users/elias/Desktop/Universidad de Palermo/Cuatrimestre 2/Programacion 3/Proyectos/AdministradorConsorcios/DB/DB.mv.db [2.4.240/7]" [50000-240]
+	at org.h2.message.DbException.get(DbException.java:212)
+	at org.h2.message.DbException.convert(DbException.java:407)
+	at org.h2.mvstore.db.Store.lambda$new$0(Store.java:122)
+	at org.h2.mvstore.MVStore.handleException(MVStore.java:1675)
+	at org.h2.mvstore.MVStore.panic(MVStore.java:502)
+	at org.h2.mvstore.MVStore.<init>(MVStore.java:296)
+	at org.h2.mvstore.MVStore$Builder.open(MVStore.java:2164)
+	at org.h2.mvstore.db.Store.<init>(Store.java:133)
+	at org.h2.engine.Database.<init>(Database.java:328)
+	at org.h2.engine.Engine.openSession(Engine.java:92)
+	at org.h2.engine.Engine.openSession(Engine.java:222)
+	at org.h2.engine.Engine.createSession(Engine.java:201)
+	at org.h2.engine.SessionRemote.connectEmbeddedOrServer(SessionRemote.java:350)
+	at org.h2.jdbc.JdbcConnection.<init>(JdbcConnection.java:124)
+	at org.h2.Driver.connect(Driver.java:59)
+	at java.sql/java.sql.DriverManager.getConnection(DriverManager.java:683)
+	at java.sql/java.sql.DriverManager.getConnection(DriverManager.java:230)
+	at DAO.DAOEdificio.consultar(DAOEdificio.java:63)
+	at Main.main(Main.java:32)
+Caused by: org.h2.jdbc.JdbcSQLNonTransientException: Error General : "org.h2.mvstore.MVStoreException: The file is locked: C:/Users/elias/Desktop/Universidad de Palermo/Cuatrimestre 2/Programacion 3/Proyectos/AdministradorConsorcios/DB/DB.mv.db [2.4.240/7]"
+General error: "org.h2.mvstore.MVStoreException: The file is locked: C:/Users/elias/Desktop/Universidad de Palermo/Cuatrimestre 2/Programacion 3/Proyectos/AdministradorConsorcios/DB/DB.mv.db [2.4.240/7]" [50000-240]
+	at org.h2.message.DbException.getJdbcSQLException(DbException.java:566)
+	at org.h2.message.DbException.getJdbcSQLException(DbException.java:489)
+	... 19 more
+Caused by: org.h2.mvstore.MVStoreException: The file is locked: C:/Users/elias/Desktop/Universidad de Palermo/Cuatrimestre 2/Programacion 3/Proyectos/AdministradorConsorcios/DB/DB.mv.db [2.4.240/7]
+	at org.h2.mvstore.DataUtils.newMVStoreException(DataUtils.java:996)
+	at org.h2.mvstore.SingleFileStore.lockFileChannel(SingleFileStore.java:143)
+	at org.h2.mvstore.SingleFileStore.open(SingleFileStore.java:117)
+	at org.h2.mvstore.SingleFileStore.open(SingleFileStore.java:81)
+	at org.h2.mvstore.MVStore.<init>(MVStore.java:291)
+	... 13 more
+2026-05-30 17:39:41.391654-03:00 database: flush
+org.h2.message.DbException: Error General : "org.h2.mvstore.MVStoreException: The file is locked: C:/Users/elias/Desktop/Universidad de Palermo/Cuatrimestre 2/Programacion 3/Proyectos/AdministradorConsorcios/DB/DB.mv.db [2.4.240/7]"
+General error: "org.h2.mvstore.MVStoreException: The file is locked: C:/Users/elias/Desktop/Universidad de Palermo/Cuatrimestre 2/Programacion 3/Proyectos/AdministradorConsorcios/DB/DB.mv.db [2.4.240/7]" [50000-240]
+	at org.h2.message.DbException.get(DbException.java:212)
+	at org.h2.message.DbException.convert(DbException.java:407)
+	at org.h2.mvstore.db.Store.lambda$new$0(Store.java:122)
+	at org.h2.mvstore.MVStore.handleException(MVStore.java:1675)
+	at org.h2.mvstore.MVStore.panic(MVStore.java:502)
+	at org.h2.mvstore.MVStore.<init>(MVStore.java:296)
+	at org.h2.mvstore.MVStore$Builder.open(MVStore.java:2164)
+	at org.h2.mvstore.db.Store.<init>(Store.java:133)
+	at org.h2.engine.Database.<init>(Database.java:328)
+	at org.h2.engine.Engine.openSession(Engine.java:92)
+	at org.h2.engine.Engine.openSession(Engine.java:222)
+	at org.h2.engine.Engine.createSession(Engine.java:201)
+	at org.h2.engine.SessionRemote.connectEmbeddedOrServer(SessionRemote.java:350)
+	at org.h2.jdbc.JdbcConnection.<init>(JdbcConnection.java:124)
+	at org.h2.Driver.connect(Driver.java:59)
+	at java.sql/java.sql.DriverManager.getConnection(DriverManager.java:683)
+	at java.sql/java.sql.DriverManager.getConnection(DriverManager.java:230)
+	at Main.main(Main.java:24)
+Caused by: org.h2.jdbc.JdbcSQLNonTransientException: Error General : "org.h2.mvstore.MVStoreException: The file is locked: C:/Users/elias/Desktop/Universidad de Palermo/Cuatrimestre 2/Programacion 3/Proyectos/AdministradorConsorcios/DB/DB.mv.db [2.4.240/7]"
+General error: "org.h2.mvstore.MVStoreException: The file is locked: C:/Users/elias/Desktop/Universidad de Palermo/Cuatrimestre 2/Programacion 3/Proyectos/AdministradorConsorcios/DB/DB.mv.db [2.4.240/7]" [50000-240]
+	at org.h2.message.DbException.getJdbcSQLException(DbException.java:566)
+	at org.h2.message.DbException.getJdbcSQLException(DbException.java:489)
+	... 18 more
+Caused by: org.h2.mvstore.MVStoreException: The file is locked: C:/Users/elias/Desktop/Universidad de Palermo/Cuatrimestre 2/Programacion 3/Proyectos/AdministradorConsorcios/DB/DB.mv.db [2.4.240/7]
+	at org.h2.mvstore.DataUtils.newMVStoreException(DataUtils.java:996)
+	at org.h2.mvstore.SingleFileStore.lockFileChannel(SingleFileStore.java:143)
+	at org.h2.mvstore.SingleFileStore.open(SingleFileStore.java:117)
+	at org.h2.mvstore.SingleFileStore.open(SingleFileStore.java:81)
+	at org.h2.mvstore.MVStore.<init>(MVStore.java:291)
+	... 12 more
+2026-05-30 17:39:41.414509-03:00 database: flush
+org.h2.message.DbException: Error General : "org.h2.mvstore.MVStoreException: The file is locked: C:/Users/elias/Desktop/Universidad de Palermo/Cuatrimestre 2/Programacion 3/Proyectos/AdministradorConsorcios/DB/DB.mv.db [2.4.240/7]"
+General error: "org.h2.mvstore.MVStoreException: The file is locked: C:/Users/elias/Desktop/Universidad de Palermo/Cuatrimestre 2/Programacion 3/Proyectos/AdministradorConsorcios/DB/DB.mv.db [2.4.240/7]" [50000-240]
+	at org.h2.message.DbException.get(DbException.java:212)
+	at org.h2.message.DbException.convert(DbException.java:407)
+	at org.h2.mvstore.db.Store.lambda$new$0(Store.java:122)
+	at org.h2.mvstore.MVStore.handleException(MVStore.java:1675)
+	at org.h2.mvstore.MVStore.panic(MVStore.java:502)
+	at org.h2.mvstore.MVStore.<init>(MVStore.java:296)
+	at org.h2.mvstore.MVStore$Builder.open(MVStore.java:2164)
+	at org.h2.mvstore.db.Store.<init>(Store.java:133)
+	at org.h2.engine.Database.<init>(Database.java:328)
+	at org.h2.engine.Engine.openSession(Engine.java:92)
+	at org.h2.engine.Engine.openSession(Engine.java:222)
+	at org.h2.engine.Engine.createSession(Engine.java:201)
+	at org.h2.engine.SessionRemote.connectEmbeddedOrServer(SessionRemote.java:350)
+	at org.h2.jdbc.JdbcConnection.<init>(JdbcConnection.java:124)
+	at org.h2.Driver.connect(Driver.java:59)
+	at java.sql/java.sql.DriverManager.getConnection(DriverManager.java:683)
+	at java.sql/java.sql.DriverManager.getConnection(DriverManager.java:230)
+	at DAO.DAOEdificio.consultar(DAOEdificio.java:63)
+	at Main.main(Main.java:32)
+Caused by: org.h2.jdbc.JdbcSQLNonTransientException: Error General : "org.h2.mvstore.MVStoreException: The file is locked: C:/Users/elias/Desktop/Universidad de Palermo/Cuatrimestre 2/Programacion 3/Proyectos/AdministradorConsorcios/DB/DB.mv.db [2.4.240/7]"
+General error: "org.h2.mvstore.MVStoreException: The file is locked: C:/Users/elias/Desktop/Universidad de Palermo/Cuatrimestre 2/Programacion 3/Proyectos/AdministradorConsorcios/DB/DB.mv.db [2.4.240/7]" [50000-240]
+	at org.h2.message.DbException.getJdbcSQLException(DbException.java:566)
+	at org.h2.message.DbException.getJdbcSQLException(DbException.java:489)
+	... 19 more
+Caused by: org.h2.mvstore.MVStoreException: The file is locked: C:/Users/elias/Desktop/Universidad de Palermo/Cuatrimestre 2/Programacion 3/Proyectos/AdministradorConsorcios/DB/DB.mv.db [2.4.240/7]
+	at org.h2.mvstore.DataUtils.newMVStoreException(DataUtils.java:996)
+	at org.h2.mvstore.SingleFileStore.lockFileChannel(SingleFileStore.java:143)
+	at org.h2.mvstore.SingleFileStore.open(SingleFileStore.java:117)
+	at org.h2.mvstore.SingleFileStore.open(SingleFileStore.java:81)
+	at org.h2.mvstore.MVStore.<init>(MVStore.java:291)
+	... 13 more
+2026-05-30 17:43:59.372245-03:00 database: flush
+org.h2.message.DbException: Error General : "org.h2.mvstore.MVStoreException: The file is locked: C:/Users/elias/Desktop/Universidad de Palermo/Cuatrimestre 2/Programacion 3/Proyectos/AdministradorConsorcios/DB/DB.mv.db [2.4.240/7]"
+General error: "org.h2.mvstore.MVStoreException: The file is locked: C:/Users/elias/Desktop/Universidad de Palermo/Cuatrimestre 2/Programacion 3/Proyectos/AdministradorConsorcios/DB/DB.mv.db [2.4.240/7]" [50000-240]
+	at org.h2.message.DbException.get(DbException.java:212)
+	at org.h2.message.DbException.convert(DbException.java:407)
+	at org.h2.mvstore.db.Store.lambda$new$0(Store.java:122)
+	at org.h2.mvstore.MVStore.handleException(MVStore.java:1675)
+	at org.h2.mvstore.MVStore.panic(MVStore.java:502)
+	at org.h2.mvstore.MVStore.<init>(MVStore.java:296)
+	at org.h2.mvstore.MVStore$Builder.open(MVStore.java:2164)
+	at org.h2.mvstore.db.Store.<init>(Store.java:133)
+	at org.h2.engine.Database.<init>(Database.java:328)
+	at org.h2.engine.Engine.openSession(Engine.java:92)
+	at org.h2.engine.Engine.openSession(Engine.java:222)
+	at org.h2.engine.Engine.createSession(Engine.java:201)
+	at org.h2.engine.SessionRemote.connectEmbeddedOrServer(SessionRemote.java:350)
+	at org.h2.jdbc.JdbcConnection.<init>(JdbcConnection.java:124)
+	at org.h2.Driver.connect(Driver.java:59)
+	at java.sql/java.sql.DriverManager.getConnection(DriverManager.java:683)
+	at java.sql/java.sql.DriverManager.getConnection(DriverManager.java:230)
+	at Main.main(Main.java:24)
+Caused by: org.h2.jdbc.JdbcSQLNonTransientException: Error General : "org.h2.mvstore.MVStoreException: The file is locked: C:/Users/elias/Desktop/Universidad de Palermo/Cuatrimestre 2/Programacion 3/Proyectos/AdministradorConsorcios/DB/DB.mv.db [2.4.240/7]"
+General error: "org.h2.mvstore.MVStoreException: The file is locked: C:/Users/elias/Desktop/Universidad de Palermo/Cuatrimestre 2/Programacion 3/Proyectos/AdministradorConsorcios/DB/DB.mv.db [2.4.240/7]" [50000-240]
+	at org.h2.message.DbException.getJdbcSQLException(DbException.java:566)
+	at org.h2.message.DbException.getJdbcSQLException(DbException.java:489)
+	... 18 more
+Caused by: org.h2.mvstore.MVStoreException: The file is locked: C:/Users/elias/Desktop/Universidad de Palermo/Cuatrimestre 2/Programacion 3/Proyectos/AdministradorConsorcios/DB/DB.mv.db [2.4.240/7]
+	at org.h2.mvstore.DataUtils.newMVStoreException(DataUtils.java:996)
+	at org.h2.mvstore.SingleFileStore.lockFileChannel(SingleFileStore.java:143)
+	at org.h2.mvstore.SingleFileStore.open(SingleFileStore.java:117)
+	at org.h2.mvstore.SingleFileStore.open(SingleFileStore.java:81)
+	at org.h2.mvstore.MVStore.<init>(MVStore.java:291)
+	... 12 more
+2026-05-30 17:43:59.407099-03:00 database: flush
+org.h2.message.DbException: Error General : "org.h2.mvstore.MVStoreException: The file is locked: C:/Users/elias/Desktop/Universidad de Palermo/Cuatrimestre 2/Programacion 3/Proyectos/AdministradorConsorcios/DB/DB.mv.db [2.4.240/7]"
+General error: "org.h2.mvstore.MVStoreException: The file is locked: C:/Users/elias/Desktop/Universidad de Palermo/Cuatrimestre 2/Programacion 3/Proyectos/AdministradorConsorcios/DB/DB.mv.db [2.4.240/7]" [50000-240]
+	at org.h2.message.DbException.get(DbException.java:212)
+	at org.h2.message.DbException.convert(DbException.java:407)
+	at org.h2.mvstore.db.Store.lambda$new$0(Store.java:122)
+	at org.h2.mvstore.MVStore.handleException(MVStore.java:1675)
+	at org.h2.mvstore.MVStore.panic(MVStore.java:502)
+	at org.h2.mvstore.MVStore.<init>(MVStore.java:296)
+	at org.h2.mvstore.MVStore$Builder.open(MVStore.java:2164)
+	at org.h2.mvstore.db.Store.<init>(Store.java:133)
+	at org.h2.engine.Database.<init>(Database.java:328)
+	at org.h2.engine.Engine.openSession(Engine.java:92)
+	at org.h2.engine.Engine.openSession(Engine.java:222)
+	at org.h2.engine.Engine.createSession(Engine.java:201)
+	at org.h2.engine.SessionRemote.connectEmbeddedOrServer(SessionRemote.java:350)
+	at org.h2.jdbc.JdbcConnection.<init>(JdbcConnection.java:124)
+	at org.h2.Driver.connect(Driver.java:59)
+	at java.sql/java.sql.DriverManager.getConnection(DriverManager.java:683)
+	at java.sql/java.sql.DriverManager.getConnection(DriverManager.java:230)
+	at DAO.DAOEdificio.consultar(DAOEdificio.java:63)
+	at Main.main(Main.java:32)
+Caused by: org.h2.jdbc.JdbcSQLNonTransientException: Error General : "org.h2.mvstore.MVStoreException: The file is locked: C:/Users/elias/Desktop/Universidad de Palermo/Cuatrimestre 2/Programacion 3/Proyectos/AdministradorConsorcios/DB/DB.mv.db [2.4.240/7]"
+General error: "org.h2.mvstore.MVStoreException: The file is locked: C:/Users/elias/Desktop/Universidad de Palermo/Cuatrimestre 2/Programacion 3/Proyectos/AdministradorConsorcios/DB/DB.mv.db [2.4.240/7]" [50000-240]
+	at org.h2.message.DbException.getJdbcSQLException(DbException.java:566)
+	at org.h2.message.DbException.getJdbcSQLException(DbException.java:489)
+	... 19 more
+Caused by: org.h2.mvstore.MVStoreException: The file is locked: C:/Users/elias/Desktop/Universidad de Palermo/Cuatrimestre 2/Programacion 3/Proyectos/AdministradorConsorcios/DB/DB.mv.db [2.4.240/7]
+	at org.h2.mvstore.DataUtils.newMVStoreException(DataUtils.java:996)
+	at org.h2.mvstore.SingleFileStore.lockFileChannel(SingleFileStore.java:143)
+	at org.h2.mvstore.SingleFileStore.open(SingleFileStore.java:117)
+	at org.h2.mvstore.SingleFileStore.open(SingleFileStore.java:81)
+	at org.h2.mvstore.MVStore.<init>(MVStore.java:291)
+	... 13 more
+2026-05-30 17:44:05.995336-03:00 database: flush
+org.h2.message.DbException: Error General : "org.h2.mvstore.MVStoreException: The file is locked: C:/Users/elias/Desktop/Universidad de Palermo/Cuatrimestre 2/Programacion 3/Proyectos/AdministradorConsorcios/DB/DB.mv.db [2.4.240/7]"
+General error: "org.h2.mvstore.MVStoreException: The file is locked: C:/Users/elias/Desktop/Universidad de Palermo/Cuatrimestre 2/Programacion 3/Proyectos/AdministradorConsorcios/DB/DB.mv.db [2.4.240/7]" [50000-240]
+	at org.h2.message.DbException.get(DbException.java:212)
+	at org.h2.message.DbException.convert(DbException.java:407)
+	at org.h2.mvstore.db.Store.lambda$new$0(Store.java:122)
+	at org.h2.mvstore.MVStore.handleException(MVStore.java:1675)
+	at org.h2.mvstore.MVStore.panic(MVStore.java:502)
+	at org.h2.mvstore.MVStore.<init>(MVStore.java:296)
+	at org.h2.mvstore.MVStore$Builder.open(MVStore.java:2164)
+	at org.h2.mvstore.db.Store.<init>(Store.java:133)
+	at org.h2.engine.Database.<init>(Database.java:328)
+	at org.h2.engine.Engine.openSession(Engine.java:92)
+	at org.h2.engine.Engine.openSession(Engine.java:222)
+	at org.h2.engine.Engine.createSession(Engine.java:201)
+	at org.h2.engine.SessionRemote.connectEmbeddedOrServer(SessionRemote.java:350)
+	at org.h2.jdbc.JdbcConnection.<init>(JdbcConnection.java:124)
+	at org.h2.Driver.connect(Driver.java:59)
+	at java.sql/java.sql.DriverManager.getConnection(DriverManager.java:683)
+	at java.sql/java.sql.DriverManager.getConnection(DriverManager.java:230)
+	at Main.main(Main.java:24)
+Caused by: org.h2.jdbc.JdbcSQLNonTransientException: Error General : "org.h2.mvstore.MVStoreException: The file is locked: C:/Users/elias/Desktop/Universidad de Palermo/Cuatrimestre 2/Programacion 3/Proyectos/AdministradorConsorcios/DB/DB.mv.db [2.4.240/7]"
+General error: "org.h2.mvstore.MVStoreException: The file is locked: C:/Users/elias/Desktop/Universidad de Palermo/Cuatrimestre 2/Programacion 3/Proyectos/AdministradorConsorcios/DB/DB.mv.db [2.4.240/7]" [50000-240]
+	at org.h2.message.DbException.getJdbcSQLException(DbException.java:566)
+	at org.h2.message.DbException.getJdbcSQLException(DbException.java:489)
+	... 18 more
+Caused by: org.h2.mvstore.MVStoreException: The file is locked: C:/Users/elias/Desktop/Universidad de Palermo/Cuatrimestre 2/Programacion 3/Proyectos/AdministradorConsorcios/DB/DB.mv.db [2.4.240/7]
+	at org.h2.mvstore.DataUtils.newMVStoreException(DataUtils.java:996)
+	at org.h2.mvstore.SingleFileStore.lockFileChannel(SingleFileStore.java:143)
+	at org.h2.mvstore.SingleFileStore.open(SingleFileStore.java:117)
+	at org.h2.mvstore.SingleFileStore.open(SingleFileStore.java:81)
+	at org.h2.mvstore.MVStore.<init>(MVStore.java:291)
+	... 12 more
+2026-05-30 17:44:06.017522-03:00 database: flush
+org.h2.message.DbException: Error General : "org.h2.mvstore.MVStoreException: The file is locked: C:/Users/elias/Desktop/Universidad de Palermo/Cuatrimestre 2/Programacion 3/Proyectos/AdministradorConsorcios/DB/DB.mv.db [2.4.240/7]"
+General error: "org.h2.mvstore.MVStoreException: The file is locked: C:/Users/elias/Desktop/Universidad de Palermo/Cuatrimestre 2/Programacion 3/Proyectos/AdministradorConsorcios/DB/DB.mv.db [2.4.240/7]" [50000-240]
+	at org.h2.message.DbException.get(DbException.java:212)
+	at org.h2.message.DbException.convert(DbException.java:407)
+	at org.h2.mvstore.db.Store.lambda$new$0(Store.java:122)
+	at org.h2.mvstore.MVStore.handleException(MVStore.java:1675)
+	at org.h2.mvstore.MVStore.panic(MVStore.java:502)
+	at org.h2.mvstore.MVStore.<init>(MVStore.java:296)
+	at org.h2.mvstore.MVStore$Builder.open(MVStore.java:2164)
+	at org.h2.mvstore.db.Store.<init>(Store.java:133)
+	at org.h2.engine.Database.<init>(Database.java:328)
+	at org.h2.engine.Engine.openSession(Engine.java:92)
+	at org.h2.engine.Engine.openSession(Engine.java:222)
+	at org.h2.engine.Engine.createSession(Engine.java:201)
+	at org.h2.engine.SessionRemote.connectEmbeddedOrServer(SessionRemote.java:350)
+	at org.h2.jdbc.JdbcConnection.<init>(JdbcConnection.java:124)
+	at org.h2.Driver.connect(Driver.java:59)
+	at java.sql/java.sql.DriverManager.getConnection(DriverManager.java:683)
+	at java.sql/java.sql.DriverManager.getConnection(DriverManager.java:230)
+	at DAO.DAOEdificio.consultar(DAOEdificio.java:63)
+	at Main.main(Main.java:32)
+Caused by: org.h2.jdbc.JdbcSQLNonTransientException: Error General : "org.h2.mvstore.MVStoreException: The file is locked: C:/Users/elias/Desktop/Universidad de Palermo/Cuatrimestre 2/Programacion 3/Proyectos/AdministradorConsorcios/DB/DB.mv.db [2.4.240/7]"
+General error: "org.h2.mvstore.MVStoreException: The file is locked: C:/Users/elias/Desktop/Universidad de Palermo/Cuatrimestre 2/Programacion 3/Proyectos/AdministradorConsorcios/DB/DB.mv.db [2.4.240/7]" [50000-240]
+	at org.h2.message.DbException.getJdbcSQLException(DbException.java:566)
+	at org.h2.message.DbException.getJdbcSQLException(DbException.java:489)
+	... 19 more
+Caused by: org.h2.mvstore.MVStoreException: The file is locked: C:/Users/elias/Desktop/Universidad de Palermo/Cuatrimestre 2/Programacion 3/Proyectos/AdministradorConsorcios/DB/DB.mv.db [2.4.240/7]
+	at org.h2.mvstore.DataUtils.newMVStoreException(DataUtils.java:996)
+	at org.h2.mvstore.SingleFileStore.lockFileChannel(SingleFileStore.java:143)
+	at org.h2.mvstore.SingleFileStore.open(SingleFileStore.java:117)
+	at org.h2.mvstore.SingleFileStore.open(SingleFileStore.java:81)
+	at org.h2.mvstore.MVStore.<init>(MVStore.java:291)
+	... 13 more
+2026-05-30 17:45:14.254874-03:00 database: flush
+org.h2.message.DbException: Error General : "org.h2.mvstore.MVStoreException: The file is locked: C:/Users/elias/Desktop/Universidad de Palermo/Cuatrimestre 2/Programacion 3/Proyectos/AdministradorConsorcios/DB/DB.mv.db [2.4.240/7]"
+General error: "org.h2.mvstore.MVStoreException: The file is locked: C:/Users/elias/Desktop/Universidad de Palermo/Cuatrimestre 2/Programacion 3/Proyectos/AdministradorConsorcios/DB/DB.mv.db [2.4.240/7]" [50000-240]
+	at org.h2.message.DbException.get(DbException.java:212)
+	at org.h2.message.DbException.convert(DbException.java:407)
+	at org.h2.mvstore.db.Store.lambda$new$0(Store.java:122)
+	at org.h2.mvstore.MVStore.handleException(MVStore.java:1675)
+	at org.h2.mvstore.MVStore.panic(MVStore.java:502)
+	at org.h2.mvstore.MVStore.<init>(MVStore.java:296)
+	at org.h2.mvstore.MVStore$Builder.open(MVStore.java:2164)
+	at org.h2.mvstore.db.Store.<init>(Store.java:133)
+	at org.h2.engine.Database.<init>(Database.java:328)
+	at org.h2.engine.Engine.openSession(Engine.java:92)
+	at org.h2.engine.Engine.openSession(Engine.java:222)
+	at org.h2.engine.Engine.createSession(Engine.java:201)
+	at org.h2.engine.SessionRemote.connectEmbeddedOrServer(SessionRemote.java:350)
+	at org.h2.jdbc.JdbcConnection.<init>(JdbcConnection.java:124)
+	at org.h2.Driver.connect(Driver.java:59)
+	at java.sql/java.sql.DriverManager.getConnection(DriverManager.java:683)
+	at java.sql/java.sql.DriverManager.getConnection(DriverManager.java:230)
+	at Main.main(Main.java:24)
+Caused by: org.h2.jdbc.JdbcSQLNonTransientException: Error General : "org.h2.mvstore.MVStoreException: The file is locked: C:/Users/elias/Desktop/Universidad de Palermo/Cuatrimestre 2/Programacion 3/Proyectos/AdministradorConsorcios/DB/DB.mv.db [2.4.240/7]"
+General error: "org.h2.mvstore.MVStoreException: The file is locked: C:/Users/elias/Desktop/Universidad de Palermo/Cuatrimestre 2/Programacion 3/Proyectos/AdministradorConsorcios/DB/DB.mv.db [2.4.240/7]" [50000-240]
+	at org.h2.message.DbException.getJdbcSQLException(DbException.java:566)
+	at org.h2.message.DbException.getJdbcSQLException(DbException.java:489)
+	... 18 more
+Caused by: org.h2.mvstore.MVStoreException: The file is locked: C:/Users/elias/Desktop/Universidad de Palermo/Cuatrimestre 2/Programacion 3/Proyectos/AdministradorConsorcios/DB/DB.mv.db [2.4.240/7]
+	at org.h2.mvstore.DataUtils.newMVStoreException(DataUtils.java:996)
+	at org.h2.mvstore.SingleFileStore.lockFileChannel(SingleFileStore.java:143)
+	at org.h2.mvstore.SingleFileStore.open(SingleFileStore.java:117)
+	at org.h2.mvstore.SingleFileStore.open(SingleFileStore.java:81)
+	at org.h2.mvstore.MVStore.<init>(MVStore.java:291)
+	... 12 more
+2026-05-30 17:45:14.290518-03:00 database: flush
+org.h2.message.DbException: Error General : "org.h2.mvstore.MVStoreException: The file is locked: C:/Users/elias/Desktop/Universidad de Palermo/Cuatrimestre 2/Programacion 3/Proyectos/AdministradorConsorcios/DB/DB.mv.db [2.4.240/7]"
+General error: "org.h2.mvstore.MVStoreException: The file is locked: C:/Users/elias/Desktop/Universidad de Palermo/Cuatrimestre 2/Programacion 3/Proyectos/AdministradorConsorcios/DB/DB.mv.db [2.4.240/7]" [50000-240]
+	at org.h2.message.DbException.get(DbException.java:212)
+	at org.h2.message.DbException.convert(DbException.java:407)
+	at org.h2.mvstore.db.Store.lambda$new$0(Store.java:122)
+	at org.h2.mvstore.MVStore.handleException(MVStore.java:1675)
+	at org.h2.mvstore.MVStore.panic(MVStore.java:502)
+	at org.h2.mvstore.MVStore.<init>(MVStore.java:296)
+	at org.h2.mvstore.MVStore$Builder.open(MVStore.java:2164)
+	at org.h2.mvstore.db.Store.<init>(Store.java:133)
+	at org.h2.engine.Database.<init>(Database.java:328)
+	at org.h2.engine.Engine.openSession(Engine.java:92)
+	at org.h2.engine.Engine.openSession(Engine.java:222)
+	at org.h2.engine.Engine.createSession(Engine.java:201)
+	at org.h2.engine.SessionRemote.connectEmbeddedOrServer(SessionRemote.java:350)
+	at org.h2.jdbc.JdbcConnection.<init>(JdbcConnection.java:124)
+	at org.h2.Driver.connect(Driver.java:59)
+	at java.sql/java.sql.DriverManager.getConnection(DriverManager.java:683)
+	at java.sql/java.sql.DriverManager.getConnection(DriverManager.java:230)
+	at DAO.DAOEdificio.consultar(DAOEdificio.java:63)
+	at Main.main(Main.java:32)
+Caused by: org.h2.jdbc.JdbcSQLNonTransientException: Error General : "org.h2.mvstore.MVStoreException: The file is locked: C:/Users/elias/Desktop/Universidad de Palermo/Cuatrimestre 2/Programacion 3/Proyectos/AdministradorConsorcios/DB/DB.mv.db [2.4.240/7]"
+General error: "org.h2.mvstore.MVStoreException: The file is locked: C:/Users/elias/Desktop/Universidad de Palermo/Cuatrimestre 2/Programacion 3/Proyectos/AdministradorConsorcios/DB/DB.mv.db [2.4.240/7]" [50000-240]
+	at org.h2.message.DbException.getJdbcSQLException(DbException.java:566)
+	at org.h2.message.DbException.getJdbcSQLException(DbException.java:489)
+	... 19 more
+Caused by: org.h2.mvstore.MVStoreException: The file is locked: C:/Users/elias/Desktop/Universidad de Palermo/Cuatrimestre 2/Programacion 3/Proyectos/AdministradorConsorcios/DB/DB.mv.db [2.4.240/7]
+	at org.h2.mvstore.DataUtils.newMVStoreException(DataUtils.java:996)
+	at org.h2.mvstore.SingleFileStore.lockFileChannel(SingleFileStore.java:143)
+	at org.h2.mvstore.SingleFileStore.open(SingleFileStore.java:117)
+	at org.h2.mvstore.SingleFileStore.open(SingleFileStore.java:81)
+	at org.h2.mvstore.MVStore.<init>(MVStore.java:291)
+	... 13 more
+2026-05-30 17:46:21.447632-03:00 database: flush
+org.h2.message.DbException: Error General : "org.h2.mvstore.MVStoreException: The file is locked: C:/Users/elias/Desktop/Universidad de Palermo/Cuatrimestre 2/Programacion 3/Proyectos/AdministradorConsorcios/DB/DB.mv.db [2.4.240/7]"
+General error: "org.h2.mvstore.MVStoreException: The file is locked: C:/Users/elias/Desktop/Universidad de Palermo/Cuatrimestre 2/Programacion 3/Proyectos/AdministradorConsorcios/DB/DB.mv.db [2.4.240/7]" [50000-240]
+	at org.h2.message.DbException.get(DbException.java:212)
+	at org.h2.message.DbException.convert(DbException.java:407)
+	at org.h2.mvstore.db.Store.lambda$new$0(Store.java:122)
+	at org.h2.mvstore.MVStore.handleException(MVStore.java:1675)
+	at org.h2.mvstore.MVStore.panic(MVStore.java:502)
+	at org.h2.mvstore.MVStore.<init>(MVStore.java:296)
+	at org.h2.mvstore.MVStore$Builder.open(MVStore.java:2164)
+	at org.h2.mvstore.db.Store.<init>(Store.java:133)
+	at org.h2.engine.Database.<init>(Database.java:328)
+	at org.h2.engine.Engine.openSession(Engine.java:92)
+	at org.h2.engine.Engine.openSession(Engine.java:222)
+	at org.h2.engine.Engine.createSession(Engine.java:201)
+	at org.h2.engine.SessionRemote.connectEmbeddedOrServer(SessionRemote.java:350)
+	at org.h2.jdbc.JdbcConnection.<init>(JdbcConnection.java:124)
+	at org.h2.Driver.connect(Driver.java:59)
+	at java.sql/java.sql.DriverManager.getConnection(DriverManager.java:683)
+	at java.sql/java.sql.DriverManager.getConnection(DriverManager.java:230)
+	at Main.main(Main.java:24)
+Caused by: org.h2.jdbc.JdbcSQLNonTransientException: Error General : "org.h2.mvstore.MVStoreException: The file is locked: C:/Users/elias/Desktop/Universidad de Palermo/Cuatrimestre 2/Programacion 3/Proyectos/AdministradorConsorcios/DB/DB.mv.db [2.4.240/7]"
+General error: "org.h2.mvstore.MVStoreException: The file is locked: C:/Users/elias/Desktop/Universidad de Palermo/Cuatrimestre 2/Programacion 3/Proyectos/AdministradorConsorcios/DB/DB.mv.db [2.4.240/7]" [50000-240]
+	at org.h2.message.DbException.getJdbcSQLException(DbException.java:566)
+	at org.h2.message.DbException.getJdbcSQLException(DbException.java:489)
+	... 18 more
+Caused by: org.h2.mvstore.MVStoreException: The file is locked: C:/Users/elias/Desktop/Universidad de Palermo/Cuatrimestre 2/Programacion 3/Proyectos/AdministradorConsorcios/DB/DB.mv.db [2.4.240/7]
+	at org.h2.mvstore.DataUtils.newMVStoreException(DataUtils.java:996)
+	at org.h2.mvstore.SingleFileStore.lockFileChannel(SingleFileStore.java:143)
+	at org.h2.mvstore.SingleFileStore.open(SingleFileStore.java:117)
+	at org.h2.mvstore.SingleFileStore.open(SingleFileStore.java:81)
+	at org.h2.mvstore.MVStore.<init>(MVStore.java:291)
+	... 12 more
+2026-05-30 17:46:21.471052-03:00 database: flush
+org.h2.message.DbException: Error General : "org.h2.mvstore.MVStoreException: The file is locked: C:/Users/elias/Desktop/Universidad de Palermo/Cuatrimestre 2/Programacion 3/Proyectos/AdministradorConsorcios/DB/DB.mv.db [2.4.240/7]"
+General error: "org.h2.mvstore.MVStoreException: The file is locked: C:/Users/elias/Desktop/Universidad de Palermo/Cuatrimestre 2/Programacion 3/Proyectos/AdministradorConsorcios/DB/DB.mv.db [2.4.240/7]" [50000-240]
+	at org.h2.message.DbException.get(DbException.java:212)
+	at org.h2.message.DbException.convert(DbException.java:407)
+	at org.h2.mvstore.db.Store.lambda$new$0(Store.java:122)
+	at org.h2.mvstore.MVStore.handleException(MVStore.java:1675)
+	at org.h2.mvstore.MVStore.panic(MVStore.java:502)
+	at org.h2.mvstore.MVStore.<init>(MVStore.java:296)
+	at org.h2.mvstore.MVStore$Builder.open(MVStore.java:2164)
+	at org.h2.mvstore.db.Store.<init>(Store.java:133)
+	at org.h2.engine.Database.<init>(Database.java:328)
+	at org.h2.engine.Engine.openSession(Engine.java:92)
+	at org.h2.engine.Engine.openSession(Engine.java:222)
+	at org.h2.engine.Engine.createSession(Engine.java:201)
+	at org.h2.engine.SessionRemote.connectEmbeddedOrServer(SessionRemote.java:350)
+	at org.h2.jdbc.JdbcConnection.<init>(JdbcConnection.java:124)
+	at org.h2.Driver.connect(Driver.java:59)
+	at java.sql/java.sql.DriverManager.getConnection(DriverManager.java:683)
+	at java.sql/java.sql.DriverManager.getConnection(DriverManager.java:230)
+	at DAO.DAOEdificio.consultar(DAOEdificio.java:63)
+	at Main.main(Main.java:32)
+Caused by: org.h2.jdbc.JdbcSQLNonTransientException: Error General : "org.h2.mvstore.MVStoreException: The file is locked: C:/Users/elias/Desktop/Universidad de Palermo/Cuatrimestre 2/Programacion 3/Proyectos/AdministradorConsorcios/DB/DB.mv.db [2.4.240/7]"
+General error: "org.h2.mvstore.MVStoreException: The file is locked: C:/Users/elias/Desktop/Universidad de Palermo/Cuatrimestre 2/Programacion 3/Proyectos/AdministradorConsorcios/DB/DB.mv.db [2.4.240/7]" [50000-240]
+	at org.h2.message.DbException.getJdbcSQLException(DbException.java:566)
+	at org.h2.message.DbException.getJdbcSQLException(DbException.java:489)
+	... 19 more
+Caused by: org.h2.mvstore.MVStoreException: The file is locked: C:/Users/elias/Desktop/Universidad de Palermo/Cuatrimestre 2/Programacion 3/Proyectos/AdministradorConsorcios/DB/DB.mv.db [2.4.240/7]
+	at org.h2.mvstore.DataUtils.newMVStoreException(DataUtils.java:996)
+	at org.h2.mvstore.SingleFileStore.lockFileChannel(SingleFileStore.java:143)
+	at org.h2.mvstore.SingleFileStore.open(SingleFileStore.java:117)
+	at org.h2.mvstore.SingleFileStore.open(SingleFileStore.java:81)
+	at org.h2.mvstore.MVStore.<init>(MVStore.java:291)
+	... 13 more
+2026-05-30 17:47:37.697798-03:00 database: flush
+org.h2.message.DbException: Error General : "org.h2.mvstore.MVStoreException: The file is locked: C:/Users/elias/Desktop/Universidad de Palermo/Cuatrimestre 2/Programacion 3/Proyectos/AdministradorConsorcios/DB/DB.mv.db [2.4.240/7]"
+General error: "org.h2.mvstore.MVStoreException: The file is locked: C:/Users/elias/Desktop/Universidad de Palermo/Cuatrimestre 2/Programacion 3/Proyectos/AdministradorConsorcios/DB/DB.mv.db [2.4.240/7]" [50000-240]
+	at org.h2.message.DbException.get(DbException.java:212)
+	at org.h2.message.DbException.convert(DbException.java:407)
+	at org.h2.mvstore.db.Store.lambda$new$0(Store.java:122)
+	at org.h2.mvstore.MVStore.handleException(MVStore.java:1675)
+	at org.h2.mvstore.MVStore.panic(MVStore.java:502)
+	at org.h2.mvstore.MVStore.<init>(MVStore.java:296)
+	at org.h2.mvstore.MVStore$Builder.open(MVStore.java:2164)
+	at org.h2.mvstore.db.Store.<init>(Store.java:133)
+	at org.h2.engine.Database.<init>(Database.java:328)
+	at org.h2.engine.Engine.openSession(Engine.java:92)
+	at org.h2.engine.Engine.openSession(Engine.java:222)
+	at org.h2.engine.Engine.createSession(Engine.java:201)
+	at org.h2.engine.SessionRemote.connectEmbeddedOrServer(SessionRemote.java:350)
+	at org.h2.jdbc.JdbcConnection.<init>(JdbcConnection.java:124)
+	at org.h2.Driver.connect(Driver.java:59)
+	at java.sql/java.sql.DriverManager.getConnection(DriverManager.java:683)
+	at java.sql/java.sql.DriverManager.getConnection(DriverManager.java:230)
+	at Main.main(Main.java:24)
+Caused by: org.h2.jdbc.JdbcSQLNonTransientException: Error General : "org.h2.mvstore.MVStoreException: The file is locked: C:/Users/elias/Desktop/Universidad de Palermo/Cuatrimestre 2/Programacion 3/Proyectos/AdministradorConsorcios/DB/DB.mv.db [2.4.240/7]"
+General error: "org.h2.mvstore.MVStoreException: The file is locked: C:/Users/elias/Desktop/Universidad de Palermo/Cuatrimestre 2/Programacion 3/Proyectos/AdministradorConsorcios/DB/DB.mv.db [2.4.240/7]" [50000-240]
+	at org.h2.message.DbException.getJdbcSQLException(DbException.java:566)
+	at org.h2.message.DbException.getJdbcSQLException(DbException.java:489)
+	... 18 more
+Caused by: org.h2.mvstore.MVStoreException: The file is locked: C:/Users/elias/Desktop/Universidad de Palermo/Cuatrimestre 2/Programacion 3/Proyectos/AdministradorConsorcios/DB/DB.mv.db [2.4.240/7]
+	at org.h2.mvstore.DataUtils.newMVStoreException(DataUtils.java:996)
+	at org.h2.mvstore.SingleFileStore.lockFileChannel(SingleFileStore.java:143)
+	at org.h2.mvstore.SingleFileStore.open(SingleFileStore.java:117)
+	at org.h2.mvstore.SingleFileStore.open(SingleFileStore.java:81)
+	at org.h2.mvstore.MVStore.<init>(MVStore.java:291)
+	... 12 more
+2026-05-30 17:47:37.724177-03:00 database: flush
+org.h2.message.DbException: Error General : "org.h2.mvstore.MVStoreException: The file is locked: C:/Users/elias/Desktop/Universidad de Palermo/Cuatrimestre 2/Programacion 3/Proyectos/AdministradorConsorcios/DB/DB.mv.db [2.4.240/7]"
+General error: "org.h2.mvstore.MVStoreException: The file is locked: C:/Users/elias/Desktop/Universidad de Palermo/Cuatrimestre 2/Programacion 3/Proyectos/AdministradorConsorcios/DB/DB.mv.db [2.4.240/7]" [50000-240]
+	at org.h2.message.DbException.get(DbException.java:212)
+	at org.h2.message.DbException.convert(DbException.java:407)
+	at org.h2.mvstore.db.Store.lambda$new$0(Store.java:122)
+	at org.h2.mvstore.MVStore.handleException(MVStore.java:1675)
+	at org.h2.mvstore.MVStore.panic(MVStore.java:502)
+	at org.h2.mvstore.MVStore.<init>(MVStore.java:296)
+	at org.h2.mvstore.MVStore$Builder.open(MVStore.java:2164)
+	at org.h2.mvstore.db.Store.<init>(Store.java:133)
+	at org.h2.engine.Database.<init>(Database.java:328)
+	at org.h2.engine.Engine.openSession(Engine.java:92)
+	at org.h2.engine.Engine.openSession(Engine.java:222)
+	at org.h2.engine.Engine.createSession(Engine.java:201)
+	at org.h2.engine.SessionRemote.connectEmbeddedOrServer(SessionRemote.java:350)
+	at org.h2.jdbc.JdbcConnection.<init>(JdbcConnection.java:124)
+	at org.h2.Driver.connect(Driver.java:59)
+	at java.sql/java.sql.DriverManager.getConnection(DriverManager.java:683)
+	at java.sql/java.sql.DriverManager.getConnection(DriverManager.java:230)
+	at DAO.DAOEdificio.consultar(DAOEdificio.java:63)
+	at Main.main(Main.java:32)
+Caused by: org.h2.jdbc.JdbcSQLNonTransientException: Error General : "org.h2.mvstore.MVStoreException: The file is locked: C:/Users/elias/Desktop/Universidad de Palermo/Cuatrimestre 2/Programacion 3/Proyectos/AdministradorConsorcios/DB/DB.mv.db [2.4.240/7]"
+General error: "org.h2.mvstore.MVStoreException: The file is locked: C:/Users/elias/Desktop/Universidad de Palermo/Cuatrimestre 2/Programacion 3/Proyectos/AdministradorConsorcios/DB/DB.mv.db [2.4.240/7]" [50000-240]
+	at org.h2.message.DbException.getJdbcSQLException(DbException.java:566)
+	at org.h2.message.DbException.getJdbcSQLException(DbException.java:489)
+	... 19 more
+Caused by: org.h2.mvstore.MVStoreException: The file is locked: C:/Users/elias/Desktop/Universidad de Palermo/Cuatrimestre 2/Programacion 3/Proyectos/AdministradorConsorcios/DB/DB.mv.db [2.4.240/7]
+	at org.h2.mvstore.DataUtils.newMVStoreException(DataUtils.java:996)
+	at org.h2.mvstore.SingleFileStore.lockFileChannel(SingleFileStore.java:143)
+	at org.h2.mvstore.SingleFileStore.open(SingleFileStore.java:117)
+	at org.h2.mvstore.SingleFileStore.open(SingleFileStore.java:81)
+	at org.h2.mvstore.MVStore.<init>(MVStore.java:291)
+	... 13 more
+2026-05-30 17:48:16.139128-03:00 database: flush
+org.h2.message.DbException: Error General : "org.h2.mvstore.MVStoreException: The file is locked: C:/Users/elias/Desktop/Universidad de Palermo/Cuatrimestre 2/Programacion 3/Proyectos/AdministradorConsorcios/DB/DB.mv.db [2.4.240/7]"
+General error: "org.h2.mvstore.MVStoreException: The file is locked: C:/Users/elias/Desktop/Universidad de Palermo/Cuatrimestre 2/Programacion 3/Proyectos/AdministradorConsorcios/DB/DB.mv.db [2.4.240/7]" [50000-240]
+	at org.h2.message.DbException.get(DbException.java:212)
+	at org.h2.message.DbException.convert(DbException.java:407)
+	at org.h2.mvstore.db.Store.lambda$new$0(Store.java:122)
+	at org.h2.mvstore.MVStore.handleException(MVStore.java:1675)
+	at org.h2.mvstore.MVStore.panic(MVStore.java:502)
+	at org.h2.mvstore.MVStore.<init>(MVStore.java:296)
+	at org.h2.mvstore.MVStore$Builder.open(MVStore.java:2164)
+	at org.h2.mvstore.db.Store.<init>(Store.java:133)
+	at org.h2.engine.Database.<init>(Database.java:328)
+	at org.h2.engine.Engine.openSession(Engine.java:92)
+	at org.h2.engine.Engine.openSession(Engine.java:222)
+	at org.h2.engine.Engine.createSession(Engine.java:201)
+	at org.h2.engine.SessionRemote.connectEmbeddedOrServer(SessionRemote.java:350)
+	at org.h2.jdbc.JdbcConnection.<init>(JdbcConnection.java:124)
+	at org.h2.Driver.connect(Driver.java:59)
+	at java.sql/java.sql.DriverManager.getConnection(DriverManager.java:683)
+	at java.sql/java.sql.DriverManager.getConnection(DriverManager.java:230)
+	at Main.main(Main.java:24)
+Caused by: org.h2.jdbc.JdbcSQLNonTransientException: Error General : "org.h2.mvstore.MVStoreException: The file is locked: C:/Users/elias/Desktop/Universidad de Palermo/Cuatrimestre 2/Programacion 3/Proyectos/AdministradorConsorcios/DB/DB.mv.db [2.4.240/7]"
+General error: "org.h2.mvstore.MVStoreException: The file is locked: C:/Users/elias/Desktop/Universidad de Palermo/Cuatrimestre 2/Programacion 3/Proyectos/AdministradorConsorcios/DB/DB.mv.db [2.4.240/7]" [50000-240]
+	at org.h2.message.DbException.getJdbcSQLException(DbException.java:566)
+	at org.h2.message.DbException.getJdbcSQLException(DbException.java:489)
+	... 18 more
+Caused by: org.h2.mvstore.MVStoreException: The file is locked: C:/Users/elias/Desktop/Universidad de Palermo/Cuatrimestre 2/Programacion 3/Proyectos/AdministradorConsorcios/DB/DB.mv.db [2.4.240/7]
+	at org.h2.mvstore.DataUtils.newMVStoreException(DataUtils.java:996)
+	at org.h2.mvstore.SingleFileStore.lockFileChannel(SingleFileStore.java:143)
+	at org.h2.mvstore.SingleFileStore.open(SingleFileStore.java:117)
+	at org.h2.mvstore.SingleFileStore.open(SingleFileStore.java:81)
+	at org.h2.mvstore.MVStore.<init>(MVStore.java:291)
+	... 12 more
+2026-05-30 17:48:16.162165-03:00 database: flush
+org.h2.message.DbException: Error General : "org.h2.mvstore.MVStoreException: The file is locked: C:/Users/elias/Desktop/Universidad de Palermo/Cuatrimestre 2/Programacion 3/Proyectos/AdministradorConsorcios/DB/DB.mv.db [2.4.240/7]"
+General error: "org.h2.mvstore.MVStoreException: The file is locked: C:/Users/elias/Desktop/Universidad de Palermo/Cuatrimestre 2/Programacion 3/Proyectos/AdministradorConsorcios/DB/DB.mv.db [2.4.240/7]" [50000-240]
+	at org.h2.message.DbException.get(DbException.java:212)
+	at org.h2.message.DbException.convert(DbException.java:407)
+	at org.h2.mvstore.db.Store.lambda$new$0(Store.java:122)
+	at org.h2.mvstore.MVStore.handleException(MVStore.java:1675)
+	at org.h2.mvstore.MVStore.panic(MVStore.java:502)
+	at org.h2.mvstore.MVStore.<init>(MVStore.java:296)
+	at org.h2.mvstore.MVStore$Builder.open(MVStore.java:2164)
+	at org.h2.mvstore.db.Store.<init>(Store.java:133)
+	at org.h2.engine.Database.<init>(Database.java:328)
+	at org.h2.engine.Engine.openSession(Engine.java:92)
+	at org.h2.engine.Engine.openSession(Engine.java:222)
+	at org.h2.engine.Engine.createSession(Engine.java:201)
+	at org.h2.engine.SessionRemote.connectEmbeddedOrServer(SessionRemote.java:350)
+	at org.h2.jdbc.JdbcConnection.<init>(JdbcConnection.java:124)
+	at org.h2.Driver.connect(Driver.java:59)
+	at java.sql/java.sql.DriverManager.getConnection(DriverManager.java:683)
+	at java.sql/java.sql.DriverManager.getConnection(DriverManager.java:230)
+	at DAO.DAOEdificio.consultar(DAOEdificio.java:63)
+	at Main.main(Main.java:32)
+Caused by: org.h2.jdbc.JdbcSQLNonTransientException: Error General : "org.h2.mvstore.MVStoreException: The file is locked: C:/Users/elias/Desktop/Universidad de Palermo/Cuatrimestre 2/Programacion 3/Proyectos/AdministradorConsorcios/DB/DB.mv.db [2.4.240/7]"
+General error: "org.h2.mvstore.MVStoreException: The file is locked: C:/Users/elias/Desktop/Universidad de Palermo/Cuatrimestre 2/Programacion 3/Proyectos/AdministradorConsorcios/DB/DB.mv.db [2.4.240/7]" [50000-240]
+	at org.h2.message.DbException.getJdbcSQLException(DbException.java:566)
+	at org.h2.message.DbException.getJdbcSQLException(DbException.java:489)
+	... 19 more
+Caused by: org.h2.mvstore.MVStoreException: The file is locked: C:/Users/elias/Desktop/Universidad de Palermo/Cuatrimestre 2/Programacion 3/Proyectos/AdministradorConsorcios/DB/DB.mv.db [2.4.240/7]
+	at org.h2.mvstore.DataUtils.newMVStoreException(DataUtils.java:996)
+	at org.h2.mvstore.SingleFileStore.lockFileChannel(SingleFileStore.java:143)
+	at org.h2.mvstore.SingleFileStore.open(SingleFileStore.java:117)
+	at org.h2.mvstore.SingleFileStore.open(SingleFileStore.java:81)
+	at org.h2.mvstore.MVStore.<init>(MVStore.java:291)
+	... 13 more
+2026-05-30 17:48:35.094273-03:00 database: flush
+org.h2.message.DbException: Error General : "org.h2.mvstore.MVStoreException: The file is locked: C:/Users/elias/Desktop/Universidad de Palermo/Cuatrimestre 2/Programacion 3/Proyectos/AdministradorConsorcios/DB/DB.mv.db [2.4.240/7]"
+General error: "org.h2.mvstore.MVStoreException: The file is locked: C:/Users/elias/Desktop/Universidad de Palermo/Cuatrimestre 2/Programacion 3/Proyectos/AdministradorConsorcios/DB/DB.mv.db [2.4.240/7]" [50000-240]
+	at org.h2.message.DbException.get(DbException.java:212)
+	at org.h2.message.DbException.convert(DbException.java:407)
+	at org.h2.mvstore.db.Store.lambda$new$0(Store.java:122)
+	at org.h2.mvstore.MVStore.handleException(MVStore.java:1675)
+	at org.h2.mvstore.MVStore.panic(MVStore.java:502)
+	at org.h2.mvstore.MVStore.<init>(MVStore.java:296)
+	at org.h2.mvstore.MVStore$Builder.open(MVStore.java:2164)
+	at org.h2.mvstore.db.Store.<init>(Store.java:133)
+	at org.h2.engine.Database.<init>(Database.java:328)
+	at org.h2.engine.Engine.openSession(Engine.java:92)
+	at org.h2.engine.Engine.openSession(Engine.java:222)
+	at org.h2.engine.Engine.createSession(Engine.java:201)
+	at org.h2.engine.SessionRemote.connectEmbeddedOrServer(SessionRemote.java:350)
+	at org.h2.jdbc.JdbcConnection.<init>(JdbcConnection.java:124)
+	at org.h2.Driver.connect(Driver.java:59)
+	at java.sql/java.sql.DriverManager.getConnection(DriverManager.java:683)
+	at java.sql/java.sql.DriverManager.getConnection(DriverManager.java:230)
+	at Main.main(Main.java:24)
+Caused by: org.h2.jdbc.JdbcSQLNonTransientException: Error General : "org.h2.mvstore.MVStoreException: The file is locked: C:/Users/elias/Desktop/Universidad de Palermo/Cuatrimestre 2/Programacion 3/Proyectos/AdministradorConsorcios/DB/DB.mv.db [2.4.240/7]"
+General error: "org.h2.mvstore.MVStoreException: The file is locked: C:/Users/elias/Desktop/Universidad de Palermo/Cuatrimestre 2/Programacion 3/Proyectos/AdministradorConsorcios/DB/DB.mv.db [2.4.240/7]" [50000-240]
+	at org.h2.message.DbException.getJdbcSQLException(DbException.java:566)
+	at org.h2.message.DbException.getJdbcSQLException(DbException.java:489)
+	... 18 more
+Caused by: org.h2.mvstore.MVStoreException: The file is locked: C:/Users/elias/Desktop/Universidad de Palermo/Cuatrimestre 2/Programacion 3/Proyectos/AdministradorConsorcios/DB/DB.mv.db [2.4.240/7]
+	at org.h2.mvstore.DataUtils.newMVStoreException(DataUtils.java:996)
+	at org.h2.mvstore.SingleFileStore.lockFileChannel(SingleFileStore.java:143)
+	at org.h2.mvstore.SingleFileStore.open(SingleFileStore.java:117)
+	at org.h2.mvstore.SingleFileStore.open(SingleFileStore.java:81)
+	at org.h2.mvstore.MVStore.<init>(MVStore.java:291)
+	... 12 more
+2026-05-30 17:48:35.115714-03:00 database: flush
+org.h2.message.DbException: Error General : "org.h2.mvstore.MVStoreException: The file is locked: C:/Users/elias/Desktop/Universidad de Palermo/Cuatrimestre 2/Programacion 3/Proyectos/AdministradorConsorcios/DB/DB.mv.db [2.4.240/7]"
+General error: "org.h2.mvstore.MVStoreException: The file is locked: C:/Users/elias/Desktop/Universidad de Palermo/Cuatrimestre 2/Programacion 3/Proyectos/AdministradorConsorcios/DB/DB.mv.db [2.4.240/7]" [50000-240]
+	at org.h2.message.DbException.get(DbException.java:212)
+	at org.h2.message.DbException.convert(DbException.java:407)
+	at org.h2.mvstore.db.Store.lambda$new$0(Store.java:122)
+	at org.h2.mvstore.MVStore.handleException(MVStore.java:1675)
+	at org.h2.mvstore.MVStore.panic(MVStore.java:502)
+	at org.h2.mvstore.MVStore.<init>(MVStore.java:296)
+	at org.h2.mvstore.MVStore$Builder.open(MVStore.java:2164)
+	at org.h2.mvstore.db.Store.<init>(Store.java:133)
+	at org.h2.engine.Database.<init>(Database.java:328)
+	at org.h2.engine.Engine.openSession(Engine.java:92)
+	at org.h2.engine.Engine.openSession(Engine.java:222)
+	at org.h2.engine.Engine.createSession(Engine.java:201)
+	at org.h2.engine.SessionRemote.connectEmbeddedOrServer(SessionRemote.java:350)
+	at org.h2.jdbc.JdbcConnection.<init>(JdbcConnection.java:124)
+	at org.h2.Driver.connect(Driver.java:59)
+	at java.sql/java.sql.DriverManager.getConnection(DriverManager.java:683)
+	at java.sql/java.sql.DriverManager.getConnection(DriverManager.java:230)
+	at DAO.DAOEdificio.consultar(DAOEdificio.java:63)
+	at Main.main(Main.java:32)
+Caused by: org.h2.jdbc.JdbcSQLNonTransientException: Error General : "org.h2.mvstore.MVStoreException: The file is locked: C:/Users/elias/Desktop/Universidad de Palermo/Cuatrimestre 2/Programacion 3/Proyectos/AdministradorConsorcios/DB/DB.mv.db [2.4.240/7]"
+General error: "org.h2.mvstore.MVStoreException: The file is locked: C:/Users/elias/Desktop/Universidad de Palermo/Cuatrimestre 2/Programacion 3/Proyectos/AdministradorConsorcios/DB/DB.mv.db [2.4.240/7]" [50000-240]
+	at org.h2.message.DbException.getJdbcSQLException(DbException.java:566)
+	at org.h2.message.DbException.getJdbcSQLException(DbException.java:489)
+	... 19 more
+Caused by: org.h2.mvstore.MVStoreException: The file is locked: C:/Users/elias/Desktop/Universidad de Palermo/Cuatrimestre 2/Programacion 3/Proyectos/AdministradorConsorcios/DB/DB.mv.db [2.4.240/7]
+	at org.h2.mvstore.DataUtils.newMVStoreException(DataUtils.java:996)
+	at org.h2.mvstore.SingleFileStore.lockFileChannel(SingleFileStore.java:143)
+	at org.h2.mvstore.SingleFileStore.open(SingleFileStore.java:117)
+	at org.h2.mvstore.SingleFileStore.open(SingleFileStore.java:81)
+	at org.h2.mvstore.MVStore.<init>(MVStore.java:291)
+	... 13 more
+2026-05-30 17:52:13.921741-03:00 database: flush
+org.h2.message.DbException: Error General : "org.h2.mvstore.MVStoreException: The file is locked: C:/Users/elias/Desktop/Universidad de Palermo/Cuatrimestre 2/Programacion 3/Proyectos/AdministradorConsorcios/DB/DB.mv.db [2.4.240/7]"
+General error: "org.h2.mvstore.MVStoreException: The file is locked: C:/Users/elias/Desktop/Universidad de Palermo/Cuatrimestre 2/Programacion 3/Proyectos/AdministradorConsorcios/DB/DB.mv.db [2.4.240/7]" [50000-240]
+	at org.h2.message.DbException.get(DbException.java:212)
+	at org.h2.message.DbException.convert(DbException.java:407)
+	at org.h2.mvstore.db.Store.lambda$new$0(Store.java:122)
+	at org.h2.mvstore.MVStore.handleException(MVStore.java:1675)
+	at org.h2.mvstore.MVStore.panic(MVStore.java:502)
+	at org.h2.mvstore.MVStore.<init>(MVStore.java:296)
+	at org.h2.mvstore.MVStore$Builder.open(MVStore.java:2164)
+	at org.h2.mvstore.db.Store.<init>(Store.java:133)
+	at org.h2.engine.Database.<init>(Database.java:328)
+	at org.h2.engine.Engine.openSession(Engine.java:92)
+	at org.h2.engine.Engine.openSession(Engine.java:222)
+	at org.h2.engine.Engine.createSession(Engine.java:201)
+	at org.h2.engine.SessionRemote.connectEmbeddedOrServer(SessionRemote.java:350)
+	at org.h2.jdbc.JdbcConnection.<init>(JdbcConnection.java:124)
+	at org.h2.Driver.connect(Driver.java:59)
+	at java.sql/java.sql.DriverManager.getConnection(DriverManager.java:683)
+	at java.sql/java.sql.DriverManager.getConnection(DriverManager.java:230)
+	at Main.main(Main.java:24)
+Caused by: org.h2.jdbc.JdbcSQLNonTransientException: Error General : "org.h2.mvstore.MVStoreException: The file is locked: C:/Users/elias/Desktop/Universidad de Palermo/Cuatrimestre 2/Programacion 3/Proyectos/AdministradorConsorcios/DB/DB.mv.db [2.4.240/7]"
+General error: "org.h2.mvstore.MVStoreException: The file is locked: C:/Users/elias/Desktop/Universidad de Palermo/Cuatrimestre 2/Programacion 3/Proyectos/AdministradorConsorcios/DB/DB.mv.db [2.4.240/7]" [50000-240]
+	at org.h2.message.DbException.getJdbcSQLException(DbException.java:566)
+	at org.h2.message.DbException.getJdbcSQLException(DbException.java:489)
+	... 18 more
+Caused by: org.h2.mvstore.MVStoreException: The file is locked: C:/Users/elias/Desktop/Universidad de Palermo/Cuatrimestre 2/Programacion 3/Proyectos/AdministradorConsorcios/DB/DB.mv.db [2.4.240/7]
+	at org.h2.mvstore.DataUtils.newMVStoreException(DataUtils.java:996)
+	at org.h2.mvstore.SingleFileStore.lockFileChannel(SingleFileStore.java:143)
+	at org.h2.mvstore.SingleFileStore.open(SingleFileStore.java:117)
+	at org.h2.mvstore.SingleFileStore.open(SingleFileStore.java:81)
+	at org.h2.mvstore.MVStore.<init>(MVStore.java:291)
+	... 12 more
+2026-05-30 17:52:13.943763-03:00 database: flush
+org.h2.message.DbException: Error General : "org.h2.mvstore.MVStoreException: The file is locked: C:/Users/elias/Desktop/Universidad de Palermo/Cuatrimestre 2/Programacion 3/Proyectos/AdministradorConsorcios/DB/DB.mv.db [2.4.240/7]"
+General error: "org.h2.mvstore.MVStoreException: The file is locked: C:/Users/elias/Desktop/Universidad de Palermo/Cuatrimestre 2/Programacion 3/Proyectos/AdministradorConsorcios/DB/DB.mv.db [2.4.240/7]" [50000-240]
+	at org.h2.message.DbException.get(DbException.java:212)
+	at org.h2.message.DbException.convert(DbException.java:407)
+	at org.h2.mvstore.db.Store.lambda$new$0(Store.java:122)
+	at org.h2.mvstore.MVStore.handleException(MVStore.java:1675)
+	at org.h2.mvstore.MVStore.panic(MVStore.java:502)
+	at org.h2.mvstore.MVStore.<init>(MVStore.java:296)
+	at org.h2.mvstore.MVStore$Builder.open(MVStore.java:2164)
+	at org.h2.mvstore.db.Store.<init>(Store.java:133)
+	at org.h2.engine.Database.<init>(Database.java:328)
+	at org.h2.engine.Engine.openSession(Engine.java:92)
+	at org.h2.engine.Engine.openSession(Engine.java:222)
+	at org.h2.engine.Engine.createSession(Engine.java:201)
+	at org.h2.engine.SessionRemote.connectEmbeddedOrServer(SessionRemote.java:350)
+	at org.h2.jdbc.JdbcConnection.<init>(JdbcConnection.java:124)
+	at org.h2.Driver.connect(Driver.java:59)
+	at java.sql/java.sql.DriverManager.getConnection(DriverManager.java:683)
+	at java.sql/java.sql.DriverManager.getConnection(DriverManager.java:230)
+	at DAO.DAOEdificio.consultar(DAOEdificio.java:63)
+	at Main.main(Main.java:32)
+Caused by: org.h2.jdbc.JdbcSQLNonTransientException: Error General : "org.h2.mvstore.MVStoreException: The file is locked: C:/Users/elias/Desktop/Universidad de Palermo/Cuatrimestre 2/Programacion 3/Proyectos/AdministradorConsorcios/DB/DB.mv.db [2.4.240/7]"
+General error: "org.h2.mvstore.MVStoreException: The file is locked: C:/Users/elias/Desktop/Universidad de Palermo/Cuatrimestre 2/Programacion 3/Proyectos/AdministradorConsorcios/DB/DB.mv.db [2.4.240/7]" [50000-240]
+	at org.h2.message.DbException.getJdbcSQLException(DbException.java:566)
+	at org.h2.message.DbException.getJdbcSQLException(DbException.java:489)
+	... 19 more
+Caused by: org.h2.mvstore.MVStoreException: The file is locked: C:/Users/elias/Desktop/Universidad de Palermo/Cuatrimestre 2/Programacion 3/Proyectos/AdministradorConsorcios/DB/DB.mv.db [2.4.240/7]
+	at org.h2.mvstore.DataUtils.newMVStoreException(DataUtils.java:996)
+	at org.h2.mvstore.SingleFileStore.lockFileChannel(SingleFileStore.java:143)
+	at org.h2.mvstore.SingleFileStore.open(SingleFileStore.java:117)
+	at org.h2.mvstore.SingleFileStore.open(SingleFileStore.java:81)
+	at org.h2.mvstore.MVStore.<init>(MVStore.java:291)
+	... 13 more
+2026-05-30 17:52:47.968603-03:00 database: flush
+org.h2.message.DbException: Error General : "org.h2.mvstore.MVStoreException: The file is locked: C:/Users/elias/Desktop/Universidad de Palermo/Cuatrimestre 2/Programacion 3/Proyectos/AdministradorConsorcios/DB/DB.mv.db [2.4.240/7]"
+General error: "org.h2.mvstore.MVStoreException: The file is locked: C:/Users/elias/Desktop/Universidad de Palermo/Cuatrimestre 2/Programacion 3/Proyectos/AdministradorConsorcios/DB/DB.mv.db [2.4.240/7]" [50000-240]
+	at org.h2.message.DbException.get(DbException.java:212)
+	at org.h2.message.DbException.convert(DbException.java:407)
+	at org.h2.mvstore.db.Store.lambda$new$0(Store.java:122)
+	at org.h2.mvstore.MVStore.handleException(MVStore.java:1675)
+	at org.h2.mvstore.MVStore.panic(MVStore.java:502)
+	at org.h2.mvstore.MVStore.<init>(MVStore.java:296)
+	at org.h2.mvstore.MVStore$Builder.open(MVStore.java:2164)
+	at org.h2.mvstore.db.Store.<init>(Store.java:133)
+	at org.h2.engine.Database.<init>(Database.java:328)
+	at org.h2.engine.Engine.openSession(Engine.java:92)
+	at org.h2.engine.Engine.openSession(Engine.java:222)
+	at org.h2.engine.Engine.createSession(Engine.java:201)
+	at org.h2.engine.SessionRemote.connectEmbeddedOrServer(SessionRemote.java:350)
+	at org.h2.jdbc.JdbcConnection.<init>(JdbcConnection.java:124)
+	at org.h2.Driver.connect(Driver.java:59)
+	at java.sql/java.sql.DriverManager.getConnection(DriverManager.java:683)
+	at java.sql/java.sql.DriverManager.getConnection(DriverManager.java:230)
+	at Main.main(Main.java:24)
+Caused by: org.h2.jdbc.JdbcSQLNonTransientException: Error General : "org.h2.mvstore.MVStoreException: The file is locked: C:/Users/elias/Desktop/Universidad de Palermo/Cuatrimestre 2/Programacion 3/Proyectos/AdministradorConsorcios/DB/DB.mv.db [2.4.240/7]"
+General error: "org.h2.mvstore.MVStoreException: The file is locked: C:/Users/elias/Desktop/Universidad de Palermo/Cuatrimestre 2/Programacion 3/Proyectos/AdministradorConsorcios/DB/DB.mv.db [2.4.240/7]" [50000-240]
+	at org.h2.message.DbException.getJdbcSQLException(DbException.java:566)
+	at org.h2.message.DbException.getJdbcSQLException(DbException.java:489)
+	... 18 more
+Caused by: org.h2.mvstore.MVStoreException: The file is locked: C:/Users/elias/Desktop/Universidad de Palermo/Cuatrimestre 2/Programacion 3/Proyectos/AdministradorConsorcios/DB/DB.mv.db [2.4.240/7]
+	at org.h2.mvstore.DataUtils.newMVStoreException(DataUtils.java:996)
+	at org.h2.mvstore.SingleFileStore.lockFileChannel(SingleFileStore.java:143)
+	at org.h2.mvstore.SingleFileStore.open(SingleFileStore.java:117)
+	at org.h2.mvstore.SingleFileStore.open(SingleFileStore.java:81)
+	at org.h2.mvstore.MVStore.<init>(MVStore.java:291)
+	... 12 more
+2026-05-30 17:52:47.990922-03:00 database: flush
+org.h2.message.DbException: Error General : "org.h2.mvstore.MVStoreException: The file is locked: C:/Users/elias/Desktop/Universidad de Palermo/Cuatrimestre 2/Programacion 3/Proyectos/AdministradorConsorcios/DB/DB.mv.db [2.4.240/7]"
+General error: "org.h2.mvstore.MVStoreException: The file is locked: C:/Users/elias/Desktop/Universidad de Palermo/Cuatrimestre 2/Programacion 3/Proyectos/AdministradorConsorcios/DB/DB.mv.db [2.4.240/7]" [50000-240]
+	at org.h2.message.DbException.get(DbException.java:212)
+	at org.h2.message.DbException.convert(DbException.java:407)
+	at org.h2.mvstore.db.Store.lambda$new$0(Store.java:122)
+	at org.h2.mvstore.MVStore.handleException(MVStore.java:1675)
+	at org.h2.mvstore.MVStore.panic(MVStore.java:502)
+	at org.h2.mvstore.MVStore.<init>(MVStore.java:296)
+	at org.h2.mvstore.MVStore$Builder.open(MVStore.java:2164)
+	at org.h2.mvstore.db.Store.<init>(Store.java:133)
+	at org.h2.engine.Database.<init>(Database.java:328)
+	at org.h2.engine.Engine.openSession(Engine.java:92)
+	at org.h2.engine.Engine.openSession(Engine.java:222)
+	at org.h2.engine.Engine.createSession(Engine.java:201)
+	at org.h2.engine.SessionRemote.connectEmbeddedOrServer(SessionRemote.java:350)
+	at org.h2.jdbc.JdbcConnection.<init>(JdbcConnection.java:124)
+	at org.h2.Driver.connect(Driver.java:59)
+	at java.sql/java.sql.DriverManager.getConnection(DriverManager.java:683)
+	at java.sql/java.sql.DriverManager.getConnection(DriverManager.java:230)
+	at DAO.DAOEdificio.consultar(DAOEdificio.java:63)
+	at Main.main(Main.java:32)
+Caused by: org.h2.jdbc.JdbcSQLNonTransientException: Error General : "org.h2.mvstore.MVStoreException: The file is locked: C:/Users/elias/Desktop/Universidad de Palermo/Cuatrimestre 2/Programacion 3/Proyectos/AdministradorConsorcios/DB/DB.mv.db [2.4.240/7]"
+General error: "org.h2.mvstore.MVStoreException: The file is locked: C:/Users/elias/Desktop/Universidad de Palermo/Cuatrimestre 2/Programacion 3/Proyectos/AdministradorConsorcios/DB/DB.mv.db [2.4.240/7]" [50000-240]
+	at org.h2.message.DbException.getJdbcSQLException(DbException.java:566)
+	at org.h2.message.DbException.getJdbcSQLException(DbException.java:489)
+	... 19 more
+Caused by: org.h2.mvstore.MVStoreException: The file is locked: C:/Users/elias/Desktop/Universidad de Palermo/Cuatrimestre 2/Programacion 3/Proyectos/AdministradorConsorcios/DB/DB.mv.db [2.4.240/7]
+	at org.h2.mvstore.DataUtils.newMVStoreException(DataUtils.java:996)
+	at org.h2.mvstore.SingleFileStore.lockFileChannel(SingleFileStore.java:143)
+	at org.h2.mvstore.SingleFileStore.open(SingleFileStore.java:117)
+	at org.h2.mvstore.SingleFileStore.open(SingleFileStore.java:81)
+	at org.h2.mvstore.MVStore.<init>(MVStore.java:291)
+	... 13 more
+2026-05-30 17:53:51.058494-03:00 database: flush
+org.h2.message.DbException: Error General : "org.h2.mvstore.MVStoreException: The file is locked: C:/Users/elias/Desktop/Universidad de Palermo/Cuatrimestre 2/Programacion 3/Proyectos/AdministradorConsorcios/DB/DB.mv.db [2.4.240/7]"
+General error: "org.h2.mvstore.MVStoreException: The file is locked: C:/Users/elias/Desktop/Universidad de Palermo/Cuatrimestre 2/Programacion 3/Proyectos/AdministradorConsorcios/DB/DB.mv.db [2.4.240/7]" [50000-240]
+	at org.h2.message.DbException.get(DbException.java:212)
+	at org.h2.message.DbException.convert(DbException.java:407)
+	at org.h2.mvstore.db.Store.lambda$new$0(Store.java:122)
+	at org.h2.mvstore.MVStore.handleException(MVStore.java:1675)
+	at org.h2.mvstore.MVStore.panic(MVStore.java:502)
+	at org.h2.mvstore.MVStore.<init>(MVStore.java:296)
+	at org.h2.mvstore.MVStore$Builder.open(MVStore.java:2164)
+	at org.h2.mvstore.db.Store.<init>(Store.java:133)
+	at org.h2.engine.Database.<init>(Database.java:328)
+	at org.h2.engine.Engine.openSession(Engine.java:92)
+	at org.h2.engine.Engine.openSession(Engine.java:222)
+	at org.h2.engine.Engine.createSession(Engine.java:201)
+	at org.h2.engine.SessionRemote.connectEmbeddedOrServer(SessionRemote.java:350)
+	at org.h2.jdbc.JdbcConnection.<init>(JdbcConnection.java:124)
+	at org.h2.Driver.connect(Driver.java:59)
+	at java.sql/java.sql.DriverManager.getConnection(DriverManager.java:683)
+	at java.sql/java.sql.DriverManager.getConnection(DriverManager.java:230)
+	at Main.main(Main.java:24)
+Caused by: org.h2.jdbc.JdbcSQLNonTransientException: Error General : "org.h2.mvstore.MVStoreException: The file is locked: C:/Users/elias/Desktop/Universidad de Palermo/Cuatrimestre 2/Programacion 3/Proyectos/AdministradorConsorcios/DB/DB.mv.db [2.4.240/7]"
+General error: "org.h2.mvstore.MVStoreException: The file is locked: C:/Users/elias/Desktop/Universidad de Palermo/Cuatrimestre 2/Programacion 3/Proyectos/AdministradorConsorcios/DB/DB.mv.db [2.4.240/7]" [50000-240]
+	at org.h2.message.DbException.getJdbcSQLException(DbException.java:566)
+	at org.h2.message.DbException.getJdbcSQLException(DbException.java:489)
+	... 18 more
+Caused by: org.h2.mvstore.MVStoreException: The file is locked: C:/Users/elias/Desktop/Universidad de Palermo/Cuatrimestre 2/Programacion 3/Proyectos/AdministradorConsorcios/DB/DB.mv.db [2.4.240/7]
+	at org.h2.mvstore.DataUtils.newMVStoreException(DataUtils.java:996)
+	at org.h2.mvstore.SingleFileStore.lockFileChannel(SingleFileStore.java:143)
+	at org.h2.mvstore.SingleFileStore.open(SingleFileStore.java:117)
+	at org.h2.mvstore.SingleFileStore.open(SingleFileStore.java:81)
+	at org.h2.mvstore.MVStore.<init>(MVStore.java:291)
+	... 12 more
+2026-05-30 17:53:51.081152-03:00 database: flush
+org.h2.message.DbException: Error General : "org.h2.mvstore.MVStoreException: The file is locked: C:/Users/elias/Desktop/Universidad de Palermo/Cuatrimestre 2/Programacion 3/Proyectos/AdministradorConsorcios/DB/DB.mv.db [2.4.240/7]"
+General error: "org.h2.mvstore.MVStoreException: The file is locked: C:/Users/elias/Desktop/Universidad de Palermo/Cuatrimestre 2/Programacion 3/Proyectos/AdministradorConsorcios/DB/DB.mv.db [2.4.240/7]" [50000-240]
+	at org.h2.message.DbException.get(DbException.java:212)
+	at org.h2.message.DbException.convert(DbException.java:407)
+	at org.h2.mvstore.db.Store.lambda$new$0(Store.java:122)
+	at org.h2.mvstore.MVStore.handleException(MVStore.java:1675)
+	at org.h2.mvstore.MVStore.panic(MVStore.java:502)
+	at org.h2.mvstore.MVStore.<init>(MVStore.java:296)
+	at org.h2.mvstore.MVStore$Builder.open(MVStore.java:2164)
+	at org.h2.mvstore.db.Store.<init>(Store.java:133)
+	at org.h2.engine.Database.<init>(Database.java:328)
+	at org.h2.engine.Engine.openSession(Engine.java:92)
+	at org.h2.engine.Engine.openSession(Engine.java:222)
+	at org.h2.engine.Engine.createSession(Engine.java:201)
+	at org.h2.engine.SessionRemote.connectEmbeddedOrServer(SessionRemote.java:350)
+	at org.h2.jdbc.JdbcConnection.<init>(JdbcConnection.java:124)
+	at org.h2.Driver.connect(Driver.java:59)
+	at java.sql/java.sql.DriverManager.getConnection(DriverManager.java:683)
+	at java.sql/java.sql.DriverManager.getConnection(DriverManager.java:230)
+	at DAO.DAOEdificio.consultar(DAOEdificio.java:63)
+	at Main.main(Main.java:32)
+Caused by: org.h2.jdbc.JdbcSQLNonTransientException: Error General : "org.h2.mvstore.MVStoreException: The file is locked: C:/Users/elias/Desktop/Universidad de Palermo/Cuatrimestre 2/Programacion 3/Proyectos/AdministradorConsorcios/DB/DB.mv.db [2.4.240/7]"
+General error: "org.h2.mvstore.MVStoreException: The file is locked: C:/Users/elias/Desktop/Universidad de Palermo/Cuatrimestre 2/Programacion 3/Proyectos/AdministradorConsorcios/DB/DB.mv.db [2.4.240/7]" [50000-240]
+	at org.h2.message.DbException.getJdbcSQLException(DbException.java:566)
+	at org.h2.message.DbException.getJdbcSQLException(DbException.java:489)
+	... 19 more
+Caused by: org.h2.mvstore.MVStoreException: The file is locked: C:/Users/elias/Desktop/Universidad de Palermo/Cuatrimestre 2/Programacion 3/Proyectos/AdministradorConsorcios/DB/DB.mv.db [2.4.240/7]
+	at org.h2.mvstore.DataUtils.newMVStoreException(DataUtils.java:996)
+	at org.h2.mvstore.SingleFileStore.lockFileChannel(SingleFileStore.java:143)
+	at org.h2.mvstore.SingleFileStore.open(SingleFileStore.java:117)
+	at org.h2.mvstore.SingleFileStore.open(SingleFileStore.java:81)
+	at org.h2.mvstore.MVStore.<init>(MVStore.java:291)
+	... 13 more
+2026-05-30 17:55:16.139576-03:00 database: flush
+org.h2.message.DbException: Error General : "org.h2.mvstore.MVStoreException: The file is locked: C:/Users/elias/Desktop/Universidad de Palermo/Cuatrimestre 2/Programacion 3/Proyectos/AdministradorConsorcios/DB/DB.mv.db [2.4.240/7]"
+General error: "org.h2.mvstore.MVStoreException: The file is locked: C:/Users/elias/Desktop/Universidad de Palermo/Cuatrimestre 2/Programacion 3/Proyectos/AdministradorConsorcios/DB/DB.mv.db [2.4.240/7]" [50000-240]
+	at org.h2.message.DbException.get(DbException.java:212)
+	at org.h2.message.DbException.convert(DbException.java:407)
+	at org.h2.mvstore.db.Store.lambda$new$0(Store.java:122)
+	at org.h2.mvstore.MVStore.handleException(MVStore.java:1675)
+	at org.h2.mvstore.MVStore.panic(MVStore.java:502)
+	at org.h2.mvstore.MVStore.<init>(MVStore.java:296)
+	at org.h2.mvstore.MVStore$Builder.open(MVStore.java:2164)
+	at org.h2.mvstore.db.Store.<init>(Store.java:133)
+	at org.h2.engine.Database.<init>(Database.java:328)
+	at org.h2.engine.Engine.openSession(Engine.java:92)
+	at org.h2.engine.Engine.openSession(Engine.java:222)
+	at org.h2.engine.Engine.createSession(Engine.java:201)
+	at org.h2.engine.SessionRemote.connectEmbeddedOrServer(SessionRemote.java:350)
+	at org.h2.jdbc.JdbcConnection.<init>(JdbcConnection.java:124)
+	at org.h2.Driver.connect(Driver.java:59)
+	at java.sql/java.sql.DriverManager.getConnection(DriverManager.java:683)
+	at java.sql/java.sql.DriverManager.getConnection(DriverManager.java:230)
+	at Main.main(Main.java:24)
+Caused by: org.h2.jdbc.JdbcSQLNonTransientException: Error General : "org.h2.mvstore.MVStoreException: The file is locked: C:/Users/elias/Desktop/Universidad de Palermo/Cuatrimestre 2/Programacion 3/Proyectos/AdministradorConsorcios/DB/DB.mv.db [2.4.240/7]"
+General error: "org.h2.mvstore.MVStoreException: The file is locked: C:/Users/elias/Desktop/Universidad de Palermo/Cuatrimestre 2/Programacion 3/Proyectos/AdministradorConsorcios/DB/DB.mv.db [2.4.240/7]" [50000-240]
+	at org.h2.message.DbException.getJdbcSQLException(DbException.java:566)
+	at org.h2.message.DbException.getJdbcSQLException(DbException.java:489)
+	... 18 more
+Caused by: org.h2.mvstore.MVStoreException: The file is locked: C:/Users/elias/Desktop/Universidad de Palermo/Cuatrimestre 2/Programacion 3/Proyectos/AdministradorConsorcios/DB/DB.mv.db [2.4.240/7]
+	at org.h2.mvstore.DataUtils.newMVStoreException(DataUtils.java:996)
+	at org.h2.mvstore.SingleFileStore.lockFileChannel(SingleFileStore.java:143)
+	at org.h2.mvstore.SingleFileStore.open(SingleFileStore.java:117)
+	at org.h2.mvstore.SingleFileStore.open(SingleFileStore.java:81)
+	at org.h2.mvstore.MVStore.<init>(MVStore.java:291)
+	... 12 more
+2026-05-30 17:55:16.166382-03:00 database: flush
+org.h2.message.DbException: Error General : "org.h2.mvstore.MVStoreException: The file is locked: C:/Users/elias/Desktop/Universidad de Palermo/Cuatrimestre 2/Programacion 3/Proyectos/AdministradorConsorcios/DB/DB.mv.db [2.4.240/7]"
+General error: "org.h2.mvstore.MVStoreException: The file is locked: C:/Users/elias/Desktop/Universidad de Palermo/Cuatrimestre 2/Programacion 3/Proyectos/AdministradorConsorcios/DB/DB.mv.db [2.4.240/7]" [50000-240]
+	at org.h2.message.DbException.get(DbException.java:212)
+	at org.h2.message.DbException.convert(DbException.java:407)
+	at org.h2.mvstore.db.Store.lambda$new$0(Store.java:122)
+	at org.h2.mvstore.MVStore.handleException(MVStore.java:1675)
+	at org.h2.mvstore.MVStore.panic(MVStore.java:502)
+	at org.h2.mvstore.MVStore.<init>(MVStore.java:296)
+	at org.h2.mvstore.MVStore$Builder.open(MVStore.java:2164)
+	at org.h2.mvstore.db.Store.<init>(Store.java:133)
+	at org.h2.engine.Database.<init>(Database.java:328)
+	at org.h2.engine.Engine.openSession(Engine.java:92)
+	at org.h2.engine.Engine.openSession(Engine.java:222)
+	at org.h2.engine.Engine.createSession(Engine.java:201)
+	at org.h2.engine.SessionRemote.connectEmbeddedOrServer(SessionRemote.java:350)
+	at org.h2.jdbc.JdbcConnection.<init>(JdbcConnection.java:124)
+	at org.h2.Driver.connect(Driver.java:59)
+	at java.sql/java.sql.DriverManager.getConnection(DriverManager.java:683)
+	at java.sql/java.sql.DriverManager.getConnection(DriverManager.java:230)
+	at DAO.DAOEdificio.consultar(DAOEdificio.java:63)
+	at Main.main(Main.java:32)
+Caused by: org.h2.jdbc.JdbcSQLNonTransientException: Error General : "org.h2.mvstore.MVStoreException: The file is locked: C:/Users/elias/Desktop/Universidad de Palermo/Cuatrimestre 2/Programacion 3/Proyectos/AdministradorConsorcios/DB/DB.mv.db [2.4.240/7]"
+General error: "org.h2.mvstore.MVStoreException: The file is locked: C:/Users/elias/Desktop/Universidad de Palermo/Cuatrimestre 2/Programacion 3/Proyectos/AdministradorConsorcios/DB/DB.mv.db [2.4.240/7]" [50000-240]
+	at org.h2.message.DbException.getJdbcSQLException(DbException.java:566)
+	at org.h2.message.DbException.getJdbcSQLException(DbException.java:489)
+	... 19 more
+Caused by: org.h2.mvstore.MVStoreException: The file is locked: C:/Users/elias/Desktop/Universidad de Palermo/Cuatrimestre 2/Programacion 3/Proyectos/AdministradorConsorcios/DB/DB.mv.db [2.4.240/7]
+	at org.h2.mvstore.DataUtils.newMVStoreException(DataUtils.java:996)
+	at org.h2.mvstore.SingleFileStore.lockFileChannel(SingleFileStore.java:143)
+	at org.h2.mvstore.SingleFileStore.open(SingleFileStore.java:117)
+	at org.h2.mvstore.SingleFileStore.open(SingleFileStore.java:81)
+	at org.h2.mvstore.MVStore.<init>(MVStore.java:291)
+	... 13 more
+2026-05-30 17:55:31.740953-03:00 database: flush
+org.h2.message.DbException: Error General : "org.h2.mvstore.MVStoreException: The file is locked: C:/Users/elias/Desktop/Universidad de Palermo/Cuatrimestre 2/Programacion 3/Proyectos/AdministradorConsorcios/DB/DB.mv.db [2.4.240/7]"
+General error: "org.h2.mvstore.MVStoreException: The file is locked: C:/Users/elias/Desktop/Universidad de Palermo/Cuatrimestre 2/Programacion 3/Proyectos/AdministradorConsorcios/DB/DB.mv.db [2.4.240/7]" [50000-240]
+	at org.h2.message.DbException.get(DbException.java:212)
+	at org.h2.message.DbException.convert(DbException.java:407)
+	at org.h2.mvstore.db.Store.lambda$new$0(Store.java:122)
+	at org.h2.mvstore.MVStore.handleException(MVStore.java:1675)
+	at org.h2.mvstore.MVStore.panic(MVStore.java:502)
+	at org.h2.mvstore.MVStore.<init>(MVStore.java:296)
+	at org.h2.mvstore.MVStore$Builder.open(MVStore.java:2164)
+	at org.h2.mvstore.db.Store.<init>(Store.java:133)
+	at org.h2.engine.Database.<init>(Database.java:328)
+	at org.h2.engine.Engine.openSession(Engine.java:92)
+	at org.h2.engine.Engine.openSession(Engine.java:222)
+	at org.h2.engine.Engine.createSession(Engine.java:201)
+	at org.h2.engine.SessionRemote.connectEmbeddedOrServer(SessionRemote.java:350)
+	at org.h2.jdbc.JdbcConnection.<init>(JdbcConnection.java:124)
+	at org.h2.Driver.connect(Driver.java:59)
+	at java.sql/java.sql.DriverManager.getConnection(DriverManager.java:683)
+	at java.sql/java.sql.DriverManager.getConnection(DriverManager.java:230)
+	at Main.main(Main.java:24)
+Caused by: org.h2.jdbc.JdbcSQLNonTransientException: Error General : "org.h2.mvstore.MVStoreException: The file is locked: C:/Users/elias/Desktop/Universidad de Palermo/Cuatrimestre 2/Programacion 3/Proyectos/AdministradorConsorcios/DB/DB.mv.db [2.4.240/7]"
+General error: "org.h2.mvstore.MVStoreException: The file is locked: C:/Users/elias/Desktop/Universidad de Palermo/Cuatrimestre 2/Programacion 3/Proyectos/AdministradorConsorcios/DB/DB.mv.db [2.4.240/7]" [50000-240]
+	at org.h2.message.DbException.getJdbcSQLException(DbException.java:566)
+	at org.h2.message.DbException.getJdbcSQLException(DbException.java:489)
+	... 18 more
+Caused by: org.h2.mvstore.MVStoreException: The file is locked: C:/Users/elias/Desktop/Universidad de Palermo/Cuatrimestre 2/Programacion 3/Proyectos/AdministradorConsorcios/DB/DB.mv.db [2.4.240/7]
+	at org.h2.mvstore.DataUtils.newMVStoreException(DataUtils.java:996)
+	at org.h2.mvstore.SingleFileStore.lockFileChannel(SingleFileStore.java:143)
+	at org.h2.mvstore.SingleFileStore.open(SingleFileStore.java:117)
+	at org.h2.mvstore.SingleFileStore.open(SingleFileStore.java:81)
+	at org.h2.mvstore.MVStore.<init>(MVStore.java:291)
+	... 12 more
+2026-05-30 17:55:31.762224-03:00 database: flush
+org.h2.message.DbException: Error General : "org.h2.mvstore.MVStoreException: The file is locked: C:/Users/elias/Desktop/Universidad de Palermo/Cuatrimestre 2/Programacion 3/Proyectos/AdministradorConsorcios/DB/DB.mv.db [2.4.240/7]"
+General error: "org.h2.mvstore.MVStoreException: The file is locked: C:/Users/elias/Desktop/Universidad de Palermo/Cuatrimestre 2/Programacion 3/Proyectos/AdministradorConsorcios/DB/DB.mv.db [2.4.240/7]" [50000-240]
+	at org.h2.message.DbException.get(DbException.java:212)
+	at org.h2.message.DbException.convert(DbException.java:407)
+	at org.h2.mvstore.db.Store.lambda$new$0(Store.java:122)
+	at org.h2.mvstore.MVStore.handleException(MVStore.java:1675)
+	at org.h2.mvstore.MVStore.panic(MVStore.java:502)
+	at org.h2.mvstore.MVStore.<init>(MVStore.java:296)
+	at org.h2.mvstore.MVStore$Builder.open(MVStore.java:2164)
+	at org.h2.mvstore.db.Store.<init>(Store.java:133)
+	at org.h2.engine.Database.<init>(Database.java:328)
+	at org.h2.engine.Engine.openSession(Engine.java:92)
+	at org.h2.engine.Engine.openSession(Engine.java:222)
+	at org.h2.engine.Engine.createSession(Engine.java:201)
+	at org.h2.engine.SessionRemote.connectEmbeddedOrServer(SessionRemote.java:350)
+	at org.h2.jdbc.JdbcConnection.<init>(JdbcConnection.java:124)
+	at org.h2.Driver.connect(Driver.java:59)
+	at java.sql/java.sql.DriverManager.getConnection(DriverManager.java:683)
+	at java.sql/java.sql.DriverManager.getConnection(DriverManager.java:230)
+	at DAO.DAOEdificio.consultar(DAOEdificio.java:63)
+	at Main.main(Main.java:32)
+Caused by: org.h2.jdbc.JdbcSQLNonTransientException: Error General : "org.h2.mvstore.MVStoreException: The file is locked: C:/Users/elias/Desktop/Universidad de Palermo/Cuatrimestre 2/Programacion 3/Proyectos/AdministradorConsorcios/DB/DB.mv.db [2.4.240/7]"
+General error: "org.h2.mvstore.MVStoreException: The file is locked: C:/Users/elias/Desktop/Universidad de Palermo/Cuatrimestre 2/Programacion 3/Proyectos/AdministradorConsorcios/DB/DB.mv.db [2.4.240/7]" [50000-240]
+	at org.h2.message.DbException.getJdbcSQLException(DbException.java:566)
+	at org.h2.message.DbException.getJdbcSQLException(DbException.java:489)
+	... 19 more
+Caused by: org.h2.mvstore.MVStoreException: The file is locked: C:/Users/elias/Desktop/Universidad de Palermo/Cuatrimestre 2/Programacion 3/Proyectos/AdministradorConsorcios/DB/DB.mv.db [2.4.240/7]
+	at org.h2.mvstore.DataUtils.newMVStoreException(DataUtils.java:996)
+	at org.h2.mvstore.SingleFileStore.lockFileChannel(SingleFileStore.java:143)
+	at org.h2.mvstore.SingleFileStore.open(SingleFileStore.java:117)
+	at org.h2.mvstore.SingleFileStore.open(SingleFileStore.java:81)
+	at org.h2.mvstore.MVStore.<init>(MVStore.java:291)
+	... 13 more
+2026-05-30 17:55:41.788244-03:00 jdbc[5]: exception
+org.h2.jdbc.JdbcSQLSyntaxErrorException: La cantidad de columnas no coincide
+Column count does not match; SQL statement:
+INSERT INTO EDIFICIO VALUES(?,?,?) [21002-240]
+	at org.h2.message.DbException.getJdbcSQLException(DbException.java:514)
+	at org.h2.message.DbException.getJdbcSQLException(DbException.java:489)
+	at org.h2.message.DbException.get(DbException.java:223)
+	at org.h2.message.DbException.get(DbException.java:199)
+	at org.h2.message.DbException.get(DbException.java:188)
+	at org.h2.command.dml.Insert.doPrepare(Insert.java:294)
+	at org.h2.command.dml.DataChangeStatement.prepare(DataChangeStatement.java:40)
+	at org.h2.command.Parser.prepareCommand(Parser.java:492)
+	at org.h2.engine.SessionLocal.prepareLocal(SessionLocal.java:647)
+	at org.h2.engine.SessionLocal.prepareCommand(SessionLocal.java:563)
+	at org.h2.jdbc.JdbcConnection.prepareCommand(JdbcConnection.java:1160)
+	at org.h2.jdbc.JdbcPreparedStatement.<init>(JdbcPreparedStatement.java:93)
+	at org.h2.jdbc.JdbcConnection.prepareStatement(JdbcConnection.java:315)
+	at DAO.DAOEdificio.agregar(DAOEdificio.java:30)
+	at Main.main(Main.java:42)
+2026-05-30 17:56:21.737603-03:00 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLSyntaxErrorException: La cantidad de columnas no coincide
+Column count does not match; SQL statement:
+INSERT INTO EDIFICIO VALUES(?,?,?) [21002-240]
+	at org.h2.message.DbException.getJdbcSQLException(DbException.java:514)
+	at org.h2.message.DbException.getJdbcSQLException(DbException.java:489)
+	at org.h2.message.DbException.get(DbException.java:223)
+	at org.h2.message.DbException.get(DbException.java:199)
+	at org.h2.message.DbException.get(DbException.java:188)
+	at org.h2.command.dml.Insert.doPrepare(Insert.java:294)
+	at org.h2.command.dml.DataChangeStatement.prepare(DataChangeStatement.java:40)
+	at org.h2.command.Parser.prepareCommand(Parser.java:492)
+	at org.h2.engine.SessionLocal.prepareLocal(SessionLocal.java:647)
+	at org.h2.engine.SessionLocal.prepareCommand(SessionLocal.java:563)
+	at org.h2.jdbc.JdbcConnection.prepareCommand(JdbcConnection.java:1160)
+	at org.h2.jdbc.JdbcPreparedStatement.<init>(JdbcPreparedStatement.java:93)
+	at org.h2.jdbc.JdbcConnection.prepareStatement(JdbcConnection.java:315)
+	at DAO.DAOEdificio.agregar(DAOEdificio.java:30)
+	at Main.main(Main.java:42)
+2026-05-30 17:57:05.214709-03:00 database: wrong user or password; user: "ROOT"
+org.h2.message.DbException: Nombre de usuario ó password incorrecto
+Wrong user name or password [28000-240]
+	at org.h2.message.DbException.get(DbException.java:223)
+	at org.h2.message.DbException.get(DbException.java:199)
+	at org.h2.message.DbException.get(DbException.java:188)
+	at org.h2.engine.Engine.openSession(Engine.java:154)
+	at org.h2.engine.Engine.openSession(Engine.java:222)
+	at org.h2.engine.Engine.createSession(Engine.java:201)
+	at org.h2.engine.SessionRemote.connectEmbeddedOrServer(SessionRemote.java:350)
+	at org.h2.jdbc.JdbcConnection.<init>(JdbcConnection.java:124)
+	at org.h2.util.JdbcUtils.getConnection(JdbcUtils.java:291)
+	at org.h2.server.web.WebServer.getConnection(WebServer.java:811)
+	at org.h2.server.web.WebApp.login(WebApp.java:1038)
+	at org.h2.server.web.WebApp.process(WebApp.java:226)
+	at org.h2.server.web.WebApp.processRequest(WebApp.java:176)
+	at org.h2.server.web.WebThread.process(WebThread.java:154)
+	at org.h2.server.web.WebThread.run(WebThread.java:103)
+	at java.base/java.lang.Thread.run(Thread.java:1583)
+Caused by: org.h2.jdbc.JdbcSQLInvalidAuthorizationSpecException: Nombre de usuario ó password incorrecto
+Wrong user name or password [28000-240]
+	at org.h2.message.DbException.getJdbcSQLException(DbException.java:522)
+	at org.h2.message.DbException.getJdbcSQLException(DbException.java:489)
+	... 16 more
+2026-05-30 18:02:11.576601-03:00 database: flush
+org.h2.message.DbException: Error General : "org.h2.mvstore.MVStoreException: The file is locked: C:/Users/elias/Desktop/Universidad de Palermo/Cuatrimestre 2/Programacion 3/Proyectos/AdministradorConsorcios/DB/DB.mv.db [2.4.240/7]"
+General error: "org.h2.mvstore.MVStoreException: The file is locked: C:/Users/elias/Desktop/Universidad de Palermo/Cuatrimestre 2/Programacion 3/Proyectos/AdministradorConsorcios/DB/DB.mv.db [2.4.240/7]" [50000-240]
+	at org.h2.message.DbException.get(DbException.java:212)
+	at org.h2.message.DbException.convert(DbException.java:407)
+	at org.h2.mvstore.db.Store.lambda$new$0(Store.java:122)
+	at org.h2.mvstore.MVStore.handleException(MVStore.java:1675)
+	at org.h2.mvstore.MVStore.panic(MVStore.java:502)
+	at org.h2.mvstore.MVStore.<init>(MVStore.java:296)
+	at org.h2.mvstore.MVStore$Builder.open(MVStore.java:2164)
+	at org.h2.mvstore.db.Store.<init>(Store.java:133)
+	at org.h2.engine.Database.<init>(Database.java:328)
+	at org.h2.engine.Engine.openSession(Engine.java:92)
+	at org.h2.engine.Engine.openSession(Engine.java:222)
+	at org.h2.engine.Engine.createSession(Engine.java:201)
+	at org.h2.engine.SessionRemote.connectEmbeddedOrServer(SessionRemote.java:350)
+	at org.h2.jdbc.JdbcConnection.<init>(JdbcConnection.java:124)
+	at org.h2.Driver.connect(Driver.java:59)
+	at java.sql/java.sql.DriverManager.getConnection(DriverManager.java:683)
+	at java.sql/java.sql.DriverManager.getConnection(DriverManager.java:230)
+	at DAO.DAOEdificio.agregar(DAOEdificio.java:28)
+	at Main.main(Main.java:42)
+Caused by: org.h2.jdbc.JdbcSQLNonTransientException: Error General : "org.h2.mvstore.MVStoreException: The file is locked: C:/Users/elias/Desktop/Universidad de Palermo/Cuatrimestre 2/Programacion 3/Proyectos/AdministradorConsorcios/DB/DB.mv.db [2.4.240/7]"
+General error: "org.h2.mvstore.MVStoreException: The file is locked: C:/Users/elias/Desktop/Universidad de Palermo/Cuatrimestre 2/Programacion 3/Proyectos/AdministradorConsorcios/DB/DB.mv.db [2.4.240/7]" [50000-240]
+	at org.h2.message.DbException.getJdbcSQLException(DbException.java:566)
+	at org.h2.message.DbException.getJdbcSQLException(DbException.java:489)
+	... 19 more
+Caused by: org.h2.mvstore.MVStoreException: The file is locked: C:/Users/elias/Desktop/Universidad de Palermo/Cuatrimestre 2/Programacion 3/Proyectos/AdministradorConsorcios/DB/DB.mv.db [2.4.240/7]
+	at org.h2.mvstore.DataUtils.newMVStoreException(DataUtils.java:996)
+	at org.h2.mvstore.SingleFileStore.lockFileChannel(SingleFileStore.java:143)
+	at org.h2.mvstore.SingleFileStore.open(SingleFileStore.java:117)
+	at org.h2.mvstore.SingleFileStore.open(SingleFileStore.java:81)
+	at org.h2.mvstore.MVStore.<init>(MVStore.java:291)
+	... 13 more
+2026-05-30 18:04:36.842556-03:00 database: flush
+org.h2.message.DbException: Error General : "org.h2.mvstore.MVStoreException: The file is locked: C:/Users/elias/Desktop/Universidad de Palermo/Cuatrimestre 2/Programacion 3/Proyectos/AdministradorConsorcios/DB/DB.mv.db [2.4.240/7]"
+General error: "org.h2.mvstore.MVStoreException: The file is locked: C:/Users/elias/Desktop/Universidad de Palermo/Cuatrimestre 2/Programacion 3/Proyectos/AdministradorConsorcios/DB/DB.mv.db [2.4.240/7]" [50000-240]
+	at org.h2.message.DbException.get(DbException.java:212)
+	at org.h2.message.DbException.convert(DbException.java:407)
+	at org.h2.mvstore.db.Store.lambda$new$0(Store.java:122)
+	at org.h2.mvstore.MVStore.handleException(MVStore.java:1675)
+	at org.h2.mvstore.MVStore.panic(MVStore.java:502)
+	at org.h2.mvstore.MVStore.<init>(MVStore.java:296)
+	at org.h2.mvstore.MVStore$Builder.open(MVStore.java:2164)
+	at org.h2.mvstore.db.Store.<init>(Store.java:133)
+	at org.h2.engine.Database.<init>(Database.java:328)
+	at org.h2.engine.Engine.openSession(Engine.java:92)
+	at org.h2.engine.Engine.openSession(Engine.java:222)
+	at org.h2.engine.Engine.createSession(Engine.java:201)
+	at org.h2.engine.SessionRemote.connectEmbeddedOrServer(SessionRemote.java:350)
+	at org.h2.jdbc.JdbcConnection.<init>(JdbcConnection.java:124)
+	at org.h2.Driver.connect(Driver.java:59)
+	at java.sql/java.sql.DriverManager.getConnection(DriverManager.java:683)
+	at java.sql/java.sql.DriverManager.getConnection(DriverManager.java:230)
+	at DAO.DAOEdificio.agregar(DAOEdificio.java:28)
+	at Main.main(Main.java:42)
+Caused by: org.h2.jdbc.JdbcSQLNonTransientException: Error General : "org.h2.mvstore.MVStoreException: The file is locked: C:/Users/elias/Desktop/Universidad de Palermo/Cuatrimestre 2/Programacion 3/Proyectos/AdministradorConsorcios/DB/DB.mv.db [2.4.240/7]"
+General error: "org.h2.mvstore.MVStoreException: The file is locked: C:/Users/elias/Desktop/Universidad de Palermo/Cuatrimestre 2/Programacion 3/Proyectos/AdministradorConsorcios/DB/DB.mv.db [2.4.240/7]" [50000-240]
+	at org.h2.message.DbException.getJdbcSQLException(DbException.java:566)
+	at org.h2.message.DbException.getJdbcSQLException(DbException.java:489)
+	... 19 more
+Caused by: org.h2.mvstore.MVStoreException: The file is locked: C:/Users/elias/Desktop/Universidad de Palermo/Cuatrimestre 2/Programacion 3/Proyectos/AdministradorConsorcios/DB/DB.mv.db [2.4.240/7]
+	at org.h2.mvstore.DataUtils.newMVStoreException(DataUtils.java:996)
+	at org.h2.mvstore.SingleFileStore.lockFileChannel(SingleFileStore.java:143)
+	at org.h2.mvstore.SingleFileStore.open(SingleFileStore.java:117)
+	at org.h2.mvstore.SingleFileStore.open(SingleFileStore.java:81)
+	at org.h2.mvstore.MVStore.<init>(MVStore.java:291)
+	... 13 more
+2026-05-30 18:04:43.828677-03:00 database: flush
+org.h2.message.DbException: Error General : "org.h2.mvstore.MVStoreException: The file is locked: C:/Users/elias/Desktop/Universidad de Palermo/Cuatrimestre 2/Programacion 3/Proyectos/AdministradorConsorcios/DB/DB.mv.db [2.4.240/7]"
+General error: "org.h2.mvstore.MVStoreException: The file is locked: C:/Users/elias/Desktop/Universidad de Palermo/Cuatrimestre 2/Programacion 3/Proyectos/AdministradorConsorcios/DB/DB.mv.db [2.4.240/7]" [50000-240]
+	at org.h2.message.DbException.get(DbException.java:212)
+	at org.h2.message.DbException.convert(DbException.java:407)
+	at org.h2.mvstore.db.Store.lambda$new$0(Store.java:122)
+	at org.h2.mvstore.MVStore.handleException(MVStore.java:1675)
+	at org.h2.mvstore.MVStore.panic(MVStore.java:502)
+	at org.h2.mvstore.MVStore.<init>(MVStore.java:296)
+	at org.h2.mvstore.MVStore$Builder.open(MVStore.java:2164)
+	at org.h2.mvstore.db.Store.<init>(Store.java:133)
+	at org.h2.engine.Database.<init>(Database.java:328)
+	at org.h2.engine.Engine.openSession(Engine.java:92)
+	at org.h2.engine.Engine.openSession(Engine.java:222)
+	at org.h2.engine.Engine.createSession(Engine.java:201)
+	at org.h2.engine.SessionRemote.connectEmbeddedOrServer(SessionRemote.java:350)
+	at org.h2.jdbc.JdbcConnection.<init>(JdbcConnection.java:124)
+	at org.h2.Driver.connect(Driver.java:59)
+	at java.sql/java.sql.DriverManager.getConnection(DriverManager.java:683)
+	at java.sql/java.sql.DriverManager.getConnection(DriverManager.java:230)
+	at DAO.DAOEdificio.agregar(DAOEdificio.java:28)
+	at Main.main(Main.java:42)
+Caused by: org.h2.jdbc.JdbcSQLNonTransientException: Error General : "org.h2.mvstore.MVStoreException: The file is locked: C:/Users/elias/Desktop/Universidad de Palermo/Cuatrimestre 2/Programacion 3/Proyectos/AdministradorConsorcios/DB/DB.mv.db [2.4.240/7]"
+General error: "org.h2.mvstore.MVStoreException: The file is locked: C:/Users/elias/Desktop/Universidad de Palermo/Cuatrimestre 2/Programacion 3/Proyectos/AdministradorConsorcios/DB/DB.mv.db [2.4.240/7]" [50000-240]
+	at org.h2.message.DbException.getJdbcSQLException(DbException.java:566)
+	at org.h2.message.DbException.getJdbcSQLException(DbException.java:489)
+	... 19 more
+Caused by: org.h2.mvstore.MVStoreException: The file is locked: C:/Users/elias/Desktop/Universidad de Palermo/Cuatrimestre 2/Programacion 3/Proyectos/AdministradorConsorcios/DB/DB.mv.db [2.4.240/7]
+	at org.h2.mvstore.DataUtils.newMVStoreException(DataUtils.java:996)
+	at org.h2.mvstore.SingleFileStore.lockFileChannel(SingleFileStore.java:143)
+	at org.h2.mvstore.SingleFileStore.open(SingleFileStore.java:117)
+	at org.h2.mvstore.SingleFileStore.open(SingleFileStore.java:81)
+	at org.h2.mvstore.MVStore.<init>(MVStore.java:291)
+	... 13 more
+2026-05-30 19:01:33.652424-03:00 database: flush
+org.h2.message.DbException: Error General : "org.h2.mvstore.MVStoreException: The file is locked: C:/Users/elias/Desktop/Universidad de Palermo/Cuatrimestre 2/Programacion 3/Proyectos/AdministradorConsorcios/DB/DB.mv.db [2.4.240/7]"
+General error: "org.h2.mvstore.MVStoreException: The file is locked: C:/Users/elias/Desktop/Universidad de Palermo/Cuatrimestre 2/Programacion 3/Proyectos/AdministradorConsorcios/DB/DB.mv.db [2.4.240/7]" [50000-240]
+	at org.h2.message.DbException.get(DbException.java:212)
+	at org.h2.message.DbException.convert(DbException.java:407)
+	at org.h2.mvstore.db.Store.lambda$new$0(Store.java:122)
+	at org.h2.mvstore.MVStore.handleException(MVStore.java:1675)
+	at org.h2.mvstore.MVStore.panic(MVStore.java:502)
+	at org.h2.mvstore.MVStore.<init>(MVStore.java:296)
+	at org.h2.mvstore.MVStore$Builder.open(MVStore.java:2164)
+	at org.h2.mvstore.db.Store.<init>(Store.java:133)
+	at org.h2.engine.Database.<init>(Database.java:328)
+	at org.h2.engine.Engine.openSession(Engine.java:92)
+	at org.h2.engine.Engine.openSession(Engine.java:222)
+	at org.h2.engine.Engine.createSession(Engine.java:201)
+	at org.h2.engine.SessionRemote.connectEmbeddedOrServer(SessionRemote.java:350)
+	at org.h2.jdbc.JdbcConnection.<init>(JdbcConnection.java:124)
+	at org.h2.Driver.connect(Driver.java:59)
+	at java.sql/java.sql.DriverManager.getConnection(DriverManager.java:683)
+	at java.sql/java.sql.DriverManager.getConnection(DriverManager.java:230)
+	at DAO.DAOEdificio.agregar(DAOEdificio.java:28)
+	at Main.main(Main.java:42)
+Caused by: org.h2.jdbc.JdbcSQLNonTransientException: Error General : "org.h2.mvstore.MVStoreException: The file is locked: C:/Users/elias/Desktop/Universidad de Palermo/Cuatrimestre 2/Programacion 3/Proyectos/AdministradorConsorcios/DB/DB.mv.db [2.4.240/7]"
+General error: "org.h2.mvstore.MVStoreException: The file is locked: C:/Users/elias/Desktop/Universidad de Palermo/Cuatrimestre 2/Programacion 3/Proyectos/AdministradorConsorcios/DB/DB.mv.db [2.4.240/7]" [50000-240]
+	at org.h2.message.DbException.getJdbcSQLException(DbException.java:566)
+	at org.h2.message.DbException.getJdbcSQLException(DbException.java:489)
+	... 19 more
+Caused by: org.h2.mvstore.MVStoreException: The file is locked: C:/Users/elias/Desktop/Universidad de Palermo/Cuatrimestre 2/Programacion 3/Proyectos/AdministradorConsorcios/DB/DB.mv.db [2.4.240/7]
+	at org.h2.mvstore.DataUtils.newMVStoreException(DataUtils.java:996)
+	at org.h2.mvstore.SingleFileStore.lockFileChannel(SingleFileStore.java:143)
+	at org.h2.mvstore.SingleFileStore.open(SingleFileStore.java:117)
+	at org.h2.mvstore.SingleFileStore.open(SingleFileStore.java:81)
+	at org.h2.mvstore.MVStore.<init>(MVStore.java:291)
+	... 13 more
+2026-05-30 19:05:32.535309-03:00 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLSyntaxErrorException: Error de Sintaxis en sentencia SQL "ALTER TABLE EDIFICIO [*]CHANGE FECHA_LIQUIDACION DATE NULL"; se esperaba "., ADD, SET, RENAME, DROP, ALTER"
+Syntax error in SQL statement "ALTER TABLE EDIFICIO [*]CHANGE FECHA_LIQUIDACION DATE NULL"; expected "., ADD, SET, RENAME, DROP, ALTER"; SQL statement:
+ALTER TABLE EDIFICIO CHANGE FECHA_LIQUIDACION DATE NULL [42001-240]
+2026-05-30 19:05:48.820624-03:00 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLSyntaxErrorException: Error de Sintaxis en sentencia SQL "ALTER TABLE EDIFICIO [*]CHANGE FECHA_LIQUIDACION NULL"; se esperaba "., ADD, SET, RENAME, DROP, ALTER"
+Syntax error in SQL statement "ALTER TABLE EDIFICIO [*]CHANGE FECHA_LIQUIDACION NULL"; expected "., ADD, SET, RENAME, DROP, ALTER"; SQL statement:
+ALTER TABLE EDIFICIO CHANGE FECHA_LIQUIDACION NULL [42001-240]
+2026-05-30 19:06:21.615577-03:00 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLSyntaxErrorException: Error de Sintaxis en sentencia SQL "ALTER TABLE EDIFICIO [*]CHANGE FECHA_LIQUIDACION_EXPENSAS NULL"; se esperaba "., ADD, SET, RENAME, DROP, ALTER"
+Syntax error in SQL statement "ALTER TABLE EDIFICIO [*]CHANGE FECHA_LIQUIDACION_EXPENSAS NULL"; expected "., ADD, SET, RENAME, DROP, ALTER"; SQL statement:
+ALTER TABLE EDIFICIO CHANGE FECHA_LIQUIDACION_EXPENSAS NULL [42001-240]
+2026-05-30 19:07:24.114150-03:00 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLSyntaxErrorException: Error de Sintaxis en sentencia SQL "ALTER TABLE `edificio` [*]CHANGE `FECHA_LIQUIDACION_EXPENSAS` DATE NULL DEFAULT NULL"; se esperaba "., ADD, SET, RENAME, DROP, ALTER"
+Syntax error in SQL statement "ALTER TABLE `edificio` [*]CHANGE `FECHA_LIQUIDACION_EXPENSAS` DATE NULL DEFAULT NULL"; expected "., ADD, SET, RENAME, DROP, ALTER"; SQL statement:
+ALTER TABLE `edificio` CHANGE `FECHA_LIQUIDACION_EXPENSAS` DATE NULL DEFAULT NULL [42001-240]
+2026-05-30 19:07:32.385029-03:00 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLSyntaxErrorException: Error de Sintaxis en sentencia SQL "ALTER TABLE `EDIFICIO` [*]CHANGE `FECHA_LIQUIDACION_EXPENSAS` DATE NULL DEFAULT NULL"; se esperaba "., ADD, SET, RENAME, DROP, ALTER"
+Syntax error in SQL statement "ALTER TABLE `EDIFICIO` [*]CHANGE `FECHA_LIQUIDACION_EXPENSAS` DATE NULL DEFAULT NULL"; expected "., ADD, SET, RENAME, DROP, ALTER"; SQL statement:
+ALTER TABLE `EDIFICIO` CHANGE `FECHA_LIQUIDACION_EXPENSAS` DATE NULL DEFAULT NULL [42001-240]
+2026-05-30 19:07:58.711131-03:00 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLSyntaxErrorException: Error de Sintaxis en sentencia SQL "ALTER TABLE `EDIFICIO` [*]CHANGE `FECHA_LIQUIDACION_EXPENSAS` DATE NULL DEFAULT NULL"; se esperaba "., ADD, SET, RENAME, DROP, ALTER"
+Syntax error in SQL statement "ALTER TABLE `EDIFICIO` [*]CHANGE `FECHA_LIQUIDACION_EXPENSAS` DATE NULL DEFAULT NULL"; expected "., ADD, SET, RENAME, DROP, ALTER"; SQL statement:
+ALTER TABLE `EDIFICIO` CHANGE `FECHA_LIQUIDACION_EXPENSAS` DATE NULL DEFAULT NULL [42001-240]
+2026-05-30 19:07:59.644181-03:00 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLSyntaxErrorException: Error de Sintaxis en sentencia SQL "ALTER TABLE `EDIFICIO` [*]CHANGE `FECHA_LIQUIDACION_EXPENSAS` DATE NULL DEFAULT NULL"; se esperaba "., ADD, SET, RENAME, DROP, ALTER"
+Syntax error in SQL statement "ALTER TABLE `EDIFICIO` [*]CHANGE `FECHA_LIQUIDACION_EXPENSAS` DATE NULL DEFAULT NULL"; expected "., ADD, SET, RENAME, DROP, ALTER"; SQL statement:
+ALTER TABLE `EDIFICIO` CHANGE `FECHA_LIQUIDACION_EXPENSAS` DATE NULL DEFAULT NULL [42001-240]
+2026-05-30 19:08:00.120047-03:00 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLSyntaxErrorException: Error de Sintaxis en sentencia SQL "ALTER TABLE `EDIFICIO` [*]CHANGE `FECHA_LIQUIDACION_EXPENSAS` DATE NULL DEFAULT NULL"; se esperaba "., ADD, SET, RENAME, DROP, ALTER"
+Syntax error in SQL statement "ALTER TABLE `EDIFICIO` [*]CHANGE `FECHA_LIQUIDACION_EXPENSAS` DATE NULL DEFAULT NULL"; expected "., ADD, SET, RENAME, DROP, ALTER"; SQL statement:
+ALTER TABLE `EDIFICIO` CHANGE `FECHA_LIQUIDACION_EXPENSAS` DATE NULL DEFAULT NULL [42001-240]
+2026-05-30 19:08:00.868928-03:00 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLSyntaxErrorException: Error de Sintaxis en sentencia SQL "ALTER TABLE `EDIFICIO` [*]CHANGE `FECHA_LIQUIDACION_EXPENSAS` DATE NULL DEFAULT NULL"; se esperaba "., ADD, SET, RENAME, DROP, ALTER"
+Syntax error in SQL statement "ALTER TABLE `EDIFICIO` [*]CHANGE `FECHA_LIQUIDACION_EXPENSAS` DATE NULL DEFAULT NULL"; expected "., ADD, SET, RENAME, DROP, ALTER"; SQL statement:
+ALTER TABLE `EDIFICIO` CHANGE `FECHA_LIQUIDACION_EXPENSAS` DATE NULL DEFAULT NULL [42001-240]
+2026-05-30 19:08:01.933249-03:00 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLSyntaxErrorException: Error de Sintaxis en sentencia SQL "ALTER TABLE `EDIFICIO` [*]CHANGE `FECHA_LIQUIDACION_EXPENSAS` DATE NULL DEFAULT NULL"; se esperaba "., ADD, SET, RENAME, DROP, ALTER"
+Syntax error in SQL statement "ALTER TABLE `EDIFICIO` [*]CHANGE `FECHA_LIQUIDACION_EXPENSAS` DATE NULL DEFAULT NULL"; expected "., ADD, SET, RENAME, DROP, ALTER"; SQL statement:
+ALTER TABLE `EDIFICIO` CHANGE `FECHA_LIQUIDACION_EXPENSAS` DATE NULL DEFAULT NULL [42001-240]
+2026-05-30 19:08:06.644813-03:00 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLSyntaxErrorException: Error de Sintaxis en sentencia SQL "ALTER TABLE `EDIFICIO` [*]CHANGE `FECHA_LIQUIDACION_EXPENSAS` DATE NULL DEFAULT NULL"; se esperaba "., ADD, SET, RENAME, DROP, ALTER"
+Syntax error in SQL statement "ALTER TABLE `EDIFICIO` [*]CHANGE `FECHA_LIQUIDACION_EXPENSAS` DATE NULL DEFAULT NULL"; expected "., ADD, SET, RENAME, DROP, ALTER"; SQL statement:
+ALTER TABLE `EDIFICIO` CHANGE `FECHA_LIQUIDACION_EXPENSAS` DATE NULL DEFAULT NULL [42001-240]
+2026-05-30 19:08:39.683957-03:00 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLSyntaxErrorException: Error de Sintaxis en sentencia SQL "ALTER TABLE EDIFICIO [*]CHANGE FECHA_LIQUIDACION_EXPENSAS DATE NULL"; se esperaba "., ADD, SET, RENAME, DROP, ALTER"
+Syntax error in SQL statement "ALTER TABLE EDIFICIO [*]CHANGE FECHA_LIQUIDACION_EXPENSAS DATE NULL"; expected "., ADD, SET, RENAME, DROP, ALTER"; SQL statement:
+ALTER TABLE EDIFICIO CHANGE FECHA_LIQUIDACION_EXPENSAS DATE NULL [42001-240]
+2026-05-30 19:08:40.383854-03:00 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLSyntaxErrorException: Error de Sintaxis en sentencia SQL "ALTER TABLE EDIFICIO [*]CHANGE FECHA_LIQUIDACION_EXPENSAS DATE NULL"; se esperaba "., ADD, SET, RENAME, DROP, ALTER"
+Syntax error in SQL statement "ALTER TABLE EDIFICIO [*]CHANGE FECHA_LIQUIDACION_EXPENSAS DATE NULL"; expected "., ADD, SET, RENAME, DROP, ALTER"; SQL statement:
+ALTER TABLE EDIFICIO CHANGE FECHA_LIQUIDACION_EXPENSAS DATE NULL [42001-240]
+2026-05-30 19:08:40.751227-03:00 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLSyntaxErrorException: Error de Sintaxis en sentencia SQL "ALTER TABLE EDIFICIO [*]CHANGE FECHA_LIQUIDACION_EXPENSAS DATE NULL"; se esperaba "., ADD, SET, RENAME, DROP, ALTER"
+Syntax error in SQL statement "ALTER TABLE EDIFICIO [*]CHANGE FECHA_LIQUIDACION_EXPENSAS DATE NULL"; expected "., ADD, SET, RENAME, DROP, ALTER"; SQL statement:
+ALTER TABLE EDIFICIO CHANGE FECHA_LIQUIDACION_EXPENSAS DATE NULL [42001-240]
+2026-05-30 19:08:40.942940-03:00 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLSyntaxErrorException: Error de Sintaxis en sentencia SQL "ALTER TABLE EDIFICIO [*]CHANGE FECHA_LIQUIDACION_EXPENSAS DATE NULL"; se esperaba "., ADD, SET, RENAME, DROP, ALTER"
+Syntax error in SQL statement "ALTER TABLE EDIFICIO [*]CHANGE FECHA_LIQUIDACION_EXPENSAS DATE NULL"; expected "., ADD, SET, RENAME, DROP, ALTER"; SQL statement:
+ALTER TABLE EDIFICIO CHANGE FECHA_LIQUIDACION_EXPENSAS DATE NULL [42001-240]
+2026-05-30 19:10:17.083182-03:00 database: flush
+org.h2.message.DbException: Error General : "org.h2.mvstore.MVStoreException: The file is locked: C:/Users/elias/Desktop/Universidad de Palermo/Cuatrimestre 2/Programacion 3/Proyectos/AdministradorConsorcios/DB/DB.mv.db [2.4.240/7]"
+General error: "org.h2.mvstore.MVStoreException: The file is locked: C:/Users/elias/Desktop/Universidad de Palermo/Cuatrimestre 2/Programacion 3/Proyectos/AdministradorConsorcios/DB/DB.mv.db [2.4.240/7]" [50000-240]
+	at org.h2.message.DbException.get(DbException.java:212)
+	at org.h2.message.DbException.convert(DbException.java:407)
+	at org.h2.mvstore.db.Store.lambda$new$0(Store.java:122)
+	at org.h2.mvstore.MVStore.handleException(MVStore.java:1675)
+	at org.h2.mvstore.MVStore.panic(MVStore.java:502)
+	at org.h2.mvstore.MVStore.<init>(MVStore.java:296)
+	at org.h2.mvstore.MVStore$Builder.open(MVStore.java:2164)
+	at org.h2.mvstore.db.Store.<init>(Store.java:133)
+	at org.h2.engine.Database.<init>(Database.java:328)
+	at org.h2.engine.Engine.openSession(Engine.java:92)
+	at org.h2.engine.Engine.openSession(Engine.java:222)
+	at org.h2.engine.Engine.createSession(Engine.java:201)
+	at org.h2.engine.SessionRemote.connectEmbeddedOrServer(SessionRemote.java:350)
+	at org.h2.jdbc.JdbcConnection.<init>(JdbcConnection.java:124)
+	at org.h2.Driver.connect(Driver.java:59)
+	at java.sql/java.sql.DriverManager.getConnection(DriverManager.java:683)
+	at java.sql/java.sql.DriverManager.getConnection(DriverManager.java:230)
+	at DAO.DAOEdificio.agregar(DAOEdificio.java:28)
+	at Main.main(Main.java:42)
+Caused by: org.h2.jdbc.JdbcSQLNonTransientException: Error General : "org.h2.mvstore.MVStoreException: The file is locked: C:/Users/elias/Desktop/Universidad de Palermo/Cuatrimestre 2/Programacion 3/Proyectos/AdministradorConsorcios/DB/DB.mv.db [2.4.240/7]"
+General error: "org.h2.mvstore.MVStoreException: The file is locked: C:/Users/elias/Desktop/Universidad de Palermo/Cuatrimestre 2/Programacion 3/Proyectos/AdministradorConsorcios/DB/DB.mv.db [2.4.240/7]" [50000-240]
+	at org.h2.message.DbException.getJdbcSQLException(DbException.java:566)
+	at org.h2.message.DbException.getJdbcSQLException(DbException.java:489)
+	... 19 more
+Caused by: org.h2.mvstore.MVStoreException: The file is locked: C:/Users/elias/Desktop/Universidad de Palermo/Cuatrimestre 2/Programacion 3/Proyectos/AdministradorConsorcios/DB/DB.mv.db [2.4.240/7]
+	at org.h2.mvstore.DataUtils.newMVStoreException(DataUtils.java:996)
+	at org.h2.mvstore.SingleFileStore.lockFileChannel(SingleFileStore.java:143)
+	at org.h2.mvstore.SingleFileStore.open(SingleFileStore.java:117)
+	at org.h2.mvstore.SingleFileStore.open(SingleFileStore.java:81)
+	at org.h2.mvstore.MVStore.<init>(MVStore.java:291)
+	... 13 more
+2026-05-30 19:11:04.365331-03:00 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLSyntaxErrorException: La cantidad de columnas no coincide
+Column count does not match; SQL statement:
+INSERT INTO Edificio VALUES(?,?,?,?,?,?,?) [21002-240]
+	at org.h2.message.DbException.getJdbcSQLException(DbException.java:514)
+	at org.h2.message.DbException.getJdbcSQLException(DbException.java:489)
+	at org.h2.message.DbException.get(DbException.java:223)
+	at org.h2.message.DbException.get(DbException.java:199)
+	at org.h2.message.DbException.get(DbException.java:188)
+	at org.h2.command.dml.Insert.doPrepare(Insert.java:294)
+	at org.h2.command.dml.DataChangeStatement.prepare(DataChangeStatement.java:40)
+	at org.h2.command.Parser.prepareCommand(Parser.java:492)
+	at org.h2.engine.SessionLocal.prepareLocal(SessionLocal.java:647)
+	at org.h2.engine.SessionLocal.prepareCommand(SessionLocal.java:563)
+	at org.h2.jdbc.JdbcConnection.prepareCommand(JdbcConnection.java:1160)
+	at org.h2.jdbc.JdbcPreparedStatement.<init>(JdbcPreparedStatement.java:93)
+	at org.h2.jdbc.JdbcConnection.prepareStatement(JdbcConnection.java:315)
+	at DAO.DAOEdificio.agregar(DAOEdificio.java:30)
+	at Main.main(Main.java:42)
+2026-05-30 19:12:35.837303-03:00 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLDataException: Conversión de datos fallida, convirtiendo "CAST(3000000 AS BIGINT) (EDIFICIO_COPY_3_0: ""LIQUIDACION_EXPENSAS"" DATE)"
+Data conversion error converting "CAST(3000000 AS BIGINT) (EDIFICIO_COPY_3_0: ""LIQUIDACION_EXPENSAS"" DATE)"; SQL statement:
+INSERT INTO "PUBLIC"."EDIFICIO_COPY_3_0"("ID", "NOMBRE", "DIRECCION", "LOCALIDAD", "CODIGO_POSTAL", "CANTIDAD_UNIDADES", "CANTIDAD_PISOS", "LIQUIDACION_EXPENSAS", "FECHA_LIQUIDACION_EXPENSAS") OVERRIDING SYSTEM VALUE SELECT "ID", "NOMBRE", "DIRECCION", "LOCALIDAD", "CODIGO_POSTAL", "CANTIDAD_UNIDADES", "CANTIDAD_PISOS", "LIQUIDACION_EXPENSAS", "FECHA_LIQUIDACION_EXPENSAS" FROM "PUBLIC"."EDIFICIO" [22018-240]
+2026-05-30 19:14:51.884008-03:00 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLSyntaxErrorException: La cantidad de columnas no coincide
+Column count does not match; SQL statement:
+INSERT INTO Edificio VALUES(?,?,?,?,?,?,?) [21002-240]
+	at org.h2.message.DbException.getJdbcSQLException(DbException.java:514)
+	at org.h2.message.DbException.getJdbcSQLException(DbException.java:489)
+	at org.h2.message.DbException.get(DbException.java:223)
+	at org.h2.message.DbException.get(DbException.java:199)
+	at org.h2.message.DbException.get(DbException.java:188)
+	at org.h2.command.dml.Insert.doPrepare(Insert.java:294)
+	at org.h2.command.dml.DataChangeStatement.prepare(DataChangeStatement.java:40)
+	at org.h2.command.Parser.prepareCommand(Parser.java:492)
+	at org.h2.engine.SessionLocal.prepareLocal(SessionLocal.java:647)
+	at org.h2.engine.SessionLocal.prepareCommand(SessionLocal.java:563)
+	at org.h2.jdbc.JdbcConnection.prepareCommand(JdbcConnection.java:1160)
+	at org.h2.jdbc.JdbcPreparedStatement.<init>(JdbcPreparedStatement.java:93)
+	at org.h2.jdbc.JdbcConnection.prepareStatement(JdbcConnection.java:315)
+	at DAO.DAOEdificio.agregar(DAOEdificio.java:30)
+	at Main.main(Main.java:42)
+2026-05-30 19:16:14.658649-03:00 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLSyntaxErrorException: La cantidad de columnas no coincide
+Column count does not match; SQL statement:
+INSERT INTO Edificio VALUES(?,?,?,?,?,?,?) [21002-240]
+	at org.h2.message.DbException.getJdbcSQLException(DbException.java:514)
+	at org.h2.message.DbException.getJdbcSQLException(DbException.java:489)
+	at org.h2.message.DbException.get(DbException.java:223)
+	at org.h2.message.DbException.get(DbException.java:199)
+	at org.h2.message.DbException.get(DbException.java:188)
+	at org.h2.command.dml.Insert.doPrepare(Insert.java:294)
+	at org.h2.command.dml.DataChangeStatement.prepare(DataChangeStatement.java:40)
+	at org.h2.command.Parser.prepareCommand(Parser.java:492)
+	at org.h2.engine.SessionLocal.prepareLocal(SessionLocal.java:647)
+	at org.h2.engine.SessionLocal.prepareCommand(SessionLocal.java:563)
+	at org.h2.jdbc.JdbcConnection.prepareCommand(JdbcConnection.java:1160)
+	at org.h2.jdbc.JdbcPreparedStatement.<init>(JdbcPreparedStatement.java:93)
+	at org.h2.jdbc.JdbcConnection.prepareStatement(JdbcConnection.java:315)
+	at DAO.DAOEdificio.agregar(DAOEdificio.java:30)
+	at Main.main(Main.java:42)
