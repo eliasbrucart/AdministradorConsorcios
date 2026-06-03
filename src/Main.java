@@ -3,8 +3,10 @@
 import DAO.DAOEdificio;
 import DAO.DaoException;
 import entidades.Edificio;
+import gui.PanelManager;
 import service.ServiceEdificio;
 import service.ServiceException;
+import gui.PanelManager;
 
 import java.security.Provider;
 import java.sql.*;
@@ -21,6 +23,8 @@ public class Main {
         }catch (ServiceException e){
             System.out.println("Error al consultar el edificio: " + e);
         }
+
+        PanelManager panelManager = new PanelManager(1);
 
         /*try{
             Edificio edificio = edificioTest.consultar(1);
