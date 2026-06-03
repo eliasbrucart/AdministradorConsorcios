@@ -2,16 +2,20 @@ package gui;
 
 import javax.swing.*;
 import java.awt.*;
+import java.text.Normalizer;
 
 public class PanelManager {
-    JFrame jFrame;
+    private JFrame jFrame;
+    private FormularioEdificio formularioEdificio;
     public PanelManager(int tipo){
         jFrame = new JFrame();
         jFrame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         JPanel jPanel = new JPanel();
-        mostrar(jPanel);
-        /*if(tipo == 1){
-        }*/
+        //mostrar(jPanel);
+        if(tipo == 1){
+            formularioEdificio = new FormularioEdificio(this);
+        }
+        mostrar(formularioEdificio);
     }
 
     public void mostrar(JPanel panel){
@@ -21,5 +25,6 @@ public class PanelManager {
         jFrame.getContentPane().repaint();
         jFrame.setVisible(true);
         jFrame.pack();
+        jFrame.setSize(400,600);
     }
 }
