@@ -3,20 +3,33 @@
 import DAO.DAOEdificio;
 import DAO.DaoException;
 import entidades.Edificio;
+import service.ServiceEdificio;
+import service.ServiceException;
 
+import java.security.Provider;
 import java.sql.*;
 public class Main {
     public static void main(String[] args) throws DaoException {
-        DAOEdificio edificioTest = new DAOEdificio();
+        //DAOEdificio edificioTest = new DAOEdificio();
+
+        ServiceEdificio serviceEdificio = new ServiceEdificio();
 
         try{
+            Edificio edificio = serviceEdificio.consultarEdificio(1);
+            System.out.println("edificio consultado: " + edificio.getNombre());
+            System.out.println("direccion edificio consultado: " + edificio.getDireccion());
+        }catch (ServiceException e){
+            System.out.println("Error al consultar el edificio: " + e);
+        }
+
+        /*try{
             Edificio edificio = edificioTest.consultar(1);
             System.out.println("edificio consultado: " + edificio.getNombre());
             System.out.println("edificio consultado: " + edificio.getDireccion());
             //System.out.println("DAO EDIFICIO consultar: " + edificioTest.consultar(1));
         } catch (DaoException e) {
             throw new DaoException("Error al consultar el edificio: " + e);
-        }
+        }*/
 
         /*Edificio edificio = new Edificio();
         edificio.setNombre("Palacio 1");
