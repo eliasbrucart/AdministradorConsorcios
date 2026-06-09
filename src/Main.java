@@ -14,15 +14,15 @@ public class Main {
     public static void main(String[] args) throws DaoException {
         //DAOEdificio edificioTest = new DAOEdificio();
 
-        ServiceEdificio serviceEdificio = new ServiceEdificio();
+        //ServiceEdificio serviceEdificio = new ServiceEdificio();
 
-        try{
+        /*try{
             Edificio edificio = serviceEdificio.consultarEdificio(1);
             System.out.println("edificio consultado: " + edificio.getNombre());
             System.out.println("direccion edificio consultado: " + edificio.getDireccion());
         }catch (ServiceException e){
             System.out.println("Error al consultar el edificio: " + e);
-        }
+        }*/
 
         PanelManager panelManager = new PanelManager(1);
 

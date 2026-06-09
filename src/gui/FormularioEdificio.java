@@ -1,6 +1,8 @@
 package gui;
 
+import entidades.Edificio;
 import service.ServiceEdificio;
+import service.ServiceException;
 
 import javax.swing.*;
 import javax.swing.table.DefaultTableModel;
@@ -51,14 +53,21 @@ public class FormularioEdificio extends JPanel{
         add(reporte);
     }*/
 
-    public void armarTabla() {
+    public void armarTabla(){
         //diseño del propio JPanel
         setLayout(new BorderLayout());
 
         // agregar service de Edificio para consultar sus datos.
+        ServiceEdificio serviceEdificio = new ServiceEdificio();
+        Edificio edificio = null;
+        try{
+            edificio = serviceEdificio.consultarEdificio(1);
+        } catch (ServiceException e) {
+            System.out.println("Error al consultar el edificio: " + e);
+        }
         String[] columnas = {"Nombre", "Dirección"};
         Object[][] datos = {
-                {"Palacio 1", "Calle Falsa 123"},
+                {"Palacio 1", edificio.getDireccion()},
                 {"Palacio 2", "Avenida Siempre Viva 742"},
                 {"Palacio 3", "Ruta 66 Km 10"}
         };
