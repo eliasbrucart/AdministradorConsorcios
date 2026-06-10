@@ -101,11 +101,8 @@ public class FormularioEdificio extends JPanel{
         //selección de la tabla
         tabla.getSelectionModel().addListSelectionListener(e -> {
             if (!e.getValueIsAdjusting()) {
-                if (tabla.getSelectedRow() != -1) {
-                    btnEditar.setVisible(true); // Mostrar botón
-                } else {
-                    btnEditar.setVisible(false); // Ocultar si no hay selección
-                }
+                // Ocultar si no hay selección
+                btnEditar.setVisible(tabla.getSelectedRow() != -1); // Mostrar botón
                 // Revalidar y repintar el panel de acciones
                 panelAcciones.revalidate();
                 panelAcciones.repaint();
