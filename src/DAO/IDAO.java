@@ -7,5 +7,5 @@ public interface IDAO <T>{ //Le pasamos un generico para que los metodos acepten
     public void eliminar(int id) throws DaoException;
     public void modificar(T elemento) throws DaoException;
     public T consultar(int id) throws DaoException;
-    public ArrayList<T> consultarTodo();
+    public ArrayList<T> consultarTodo() throws  DaoException;
 }

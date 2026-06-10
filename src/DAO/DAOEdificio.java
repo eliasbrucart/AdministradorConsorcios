@@ -30,8 +30,8 @@ public class DAOEdificio implements IDAO<Edificio> {
             System.out.println("no hay driver");
             connection = DriverManager.getConnection(DB_URL, DB_USER, DB_PASSWORD);
             System.out.println("se conecto");
-            preparedStatement = connection.prepareStatement("INSERT INTO Edificio VALUES(?,?,?,?,?,?,?)");
-            preparedStatement.setInt(1, 1); //harcoded
+            preparedStatement = connection.prepareStatement("INSERT INTO Edificio VALUES(?,?,?,?,?,?,?,?,?)");
+            preparedStatement.setInt(1, 2); //harcoded
             preparedStatement.setString(2, elemento.getNombre());
             preparedStatement.setString(3, elemento.getDireccion());
             //quitar luego
@@ -39,8 +39,8 @@ public class DAOEdificio implements IDAO<Edificio> {
             preparedStatement.setInt(5, 1429);
             preparedStatement.setInt(6, 30);
             preparedStatement.setInt(7, 8);
-            //preparedStatement.setLong(8, 3000000);
-            //preparedStatement.setDate(9, Date.valueOf(java.time.LocalDate.now()));
+            preparedStatement.setLong(8, 3000000);
+            preparedStatement.setDate(9, Date.valueOf(java.time.LocalDate.now()));
 
             int resultado = preparedStatement.executeUpdate();
             if (resultado == 1){
@@ -50,7 +50,7 @@ public class DAOEdificio implements IDAO<Edificio> {
             }
         }
         catch (ClassNotFoundException | SQLException e){
-            throw new DaoException("Error en agregar elemento");
+            throw new DaoException("Error en agregar elemento" + e);
         }
     }
 
@@ -106,7 +106,30 @@ public class DAOEdificio implements IDAO<Edificio> {
     }
 
     @Override
-    public ArrayList<Edificio> consultarTodo(){
-        return new ArrayList<Edificio>();
+    public ArrayList<Edificio> consultarTodo() throws DaoException{
+        Connection connection=null;
+        PreparedStatement preparedStatement=null;
+        ArrayList<Edificio> edificios = new ArrayList<>();
+
+        try{
+            Class.forName(DB_JDBC_DRIVER);
+            System.out.println("no hay driver"); //quitar luego
+            connection = DriverManager.getConnection(DB_URL, DB_USER, DB_PASSWORD);
+            System.out.println("se conecto"); //quitar luego
+            preparedStatement = connection.prepareStatement("SELECT * FROM EDIFICIO");
+
+            ResultSet rs=preparedStatement.executeQuery();
+
+            while(rs.next()){
+                Edificio edificio = new Edificio();
+                edificio.setNombre(rs.getString("nombre"));
+                edificio.setDireccion(rs.getString("Direccion"));
+                //faltan mas atributos
+                edificios.add(edificio);
+            }
+        }catch (ClassNotFoundException | SQLException e){
+            throw new DaoException("Error en consultar todos los edificios");
+        }
+        return edificios;
     }
 }

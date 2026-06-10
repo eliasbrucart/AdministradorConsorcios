@@ -59,18 +59,28 @@ public class FormularioEdificio extends JPanel{
 
         // agregar service de Edificio para consultar sus datos.
         ServiceEdificio serviceEdificio = new ServiceEdificio();
-        Edificio edificio = null;
+        //Edificio edificio = null;
+        ArrayList<Edificio> edificiosConsultados = new ArrayList<>();
         try{
-            edificio = serviceEdificio.consultarEdificio(1);
+            edificiosConsultados = serviceEdificio.consultarTodo();
         } catch (ServiceException e) {
             System.out.println("Error al consultar el edificio: " + e);
         }
         String[] columnas = {"Nombre", "Dirección"};
-        Object[][] datos = {
-                {"Palacio 1", edificio.getDireccion()},
-                {"Palacio 2", "Avenida Siempre Viva 742"},
-                {"Palacio 3", "Ruta 66 Km 10"}
-        };
+        Object[][] datos = new Object[edificiosConsultados.size()][2];
+        for(int i = 0; i < edificiosConsultados.size(); i++){
+            Edificio edificio = edificiosConsultados.get(i);
+
+            datos[i][0] = edificio.getNombre();
+            datos[i][1] = edificio.getDireccion();
+        }
+        /*for(Edificio edificio:edificiosConsultados){
+            datos = new Object[][]{
+                    {edificio.getNombre(), edificio.getDireccion()}
+                    //{"Palacio 2", "Avenida Siempre Viva 742"},
+                    //{"Palacio 3", "Ruta 66 Km 10"}
+            };
+        }*/
 
         //modelo y la tabla (celdas no editables directamente)
         DefaultTableModel modelo = new DefaultTableModel(datos, columnas) {

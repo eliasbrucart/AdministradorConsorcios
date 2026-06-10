@@ -10,8 +10,10 @@ import gui.PanelManager;
 
 import java.security.Provider;
 import java.sql.*;
+import java.util.ArrayList;
+
 public class Main {
-    public static void main(String[] args) throws DaoException {
+    public static void main(String[] args) throws DaoException, ServiceException {
         //DAOEdificio edificioTest = new DAOEdificio();
 
         //ServiceEdificio serviceEdificio = new ServiceEdificio();
@@ -35,14 +37,14 @@ public class Main {
             throw new DaoException("Error al consultar el edificio: " + e);
         }*/
 
-        /*Edificio edificio = new Edificio();
-        edificio.setNombre("Palacio 1");
-        edificio.setDireccion("Amenabar 2500");
+        /*Edificio edificio2 = new Edificio();
+        edificio2.setNombre("Palacio 2");
+        edificio2.setDireccion("Huergo 1765");
 
         try{
-            edificioTest.agregar(edificio);
-        } catch (DaoException e) {
-            throw new DaoException("Error al agregar el edificio: " + e);
+            serviceEdificio.insertarEdificio(edificio2);
+        } catch (ServiceException e) {
+            throw new ServiceException("Error al agregar el edificio: " + e);
         }*/
         //System.out.println("Administrador de consorcios");
     }
