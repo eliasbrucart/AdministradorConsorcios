@@ -64,7 +64,7 @@ public class FormularioEdificio extends JPanel{
         try{
             edificiosConsultados = serviceEdificio.consultarTodo();
         } catch (ServiceException e) {
-            System.out.println("Error al consultar el edificio: " + e);
+            //System.out.println("Error al consultar el edificio: " + e);
         }
         String[] columnas = {"Nombre", "Dirección"};
         Object[][] datos = new Object[edificiosConsultados.size()][2];
@@ -95,14 +95,33 @@ public class FormularioEdificio extends JPanel{
         //panel inferior para el botón
         JPanel panelAcciones = new JPanel();
         JButton btnEditar = new JButton("Editar");
+        JButton btnEliminar = new JButton("Eliminar");
+        JButton btnAgregar = new JButton("Agregar");
         btnEditar.setVisible(false); // Oculto por defecto
+        btnEliminar.setVisible(false);
+        btnAgregar.setVisible(true);
         panelAcciones.add(btnEditar);
+        panelAcciones.add(btnEliminar);
+        panelAcciones.add(btnAgregar);
+
+        // 1. Crear los componentes del formulario
+        JTextField txtNombre = new JTextField(10);
+        JTextField txtDireccion = new JTextField(15);
+
+        // 2. Crear un contenedor (Panel) y organizar los componentes
+        JPanel panelFormularioAgregar = new JPanel(new GridLayout(2, 2, 5, 5));
+        panelFormularioAgregar.add(new JLabel("Nombre:"));
+        panelFormularioAgregar.add(txtNombre);
+        panelFormularioAgregar.add(new JLabel("Dirección:"));
+        panelFormularioAgregar.add(txtDireccion);
 
         //selección de la tabla
         tabla.getSelectionModel().addListSelectionListener(e -> {
             if (!e.getValueIsAdjusting()) {
                 // Ocultar si no hay selección
                 btnEditar.setVisible(tabla.getSelectedRow() != -1); // Mostrar botón
+                btnEliminar.setVisible(tabla.getSelectedRow() != -1);
+                //btnAgregar.setVisible(tabla.getSelectedRow() != -1);
                 // Revalidar y repintar el panel de acciones
                 panelAcciones.revalidate();
                 panelAcciones.repaint();
@@ -119,8 +138,67 @@ public class FormularioEdificio extends JPanel{
                     String direccion = (String) tabla.getValueAt(filaSeleccionada, 1);
 
                     // Usamos 'MiPanelTabla.this' como componente padre para el diálogo
-                    JOptionPane.showMessageDialog(FormularioEdificio.this,
-                            "Editando a: " + nombre + " (" + direccion + ")");
+                    /*JOptionPane.showMessageDialog(FormularioEdificio.this,
+                            "Editando a: " + nombre + " (" + direccion + ")");*/
+
+                    /*int opcion = JOptionPane.showConfirmDialog(
+                            FormularioEdificio.this,
+                            panelFormularioAgregar,
+                            "Agregar Nuevo Edificio",
+                            JOptionPane.OK_CANCEL_OPTION,
+                            JOptionPane.PLAIN_MESSAGE
+                    );
+
+                    if(opcion == JOptionPane.OK_OPTION){
+                        String nuevoNombre = txtNombre.getText();
+                        String nuevaDireccion = txtDireccion.getText();
+
+                        Object[] data = new Object[9];
+                        data[0] = nuevoNombre;
+                        data[1] = nuevaDireccion;
+                        try{
+                            serviceEdificio.agregarEdificio(data);
+                        } catch (ServiceException d) {
+                            JOptionPane.showMessageDialog(
+                                    FormularioEdificio.this,
+                                    "Error al agregar edificio"
+                            );
+                            //throw new ServiceException(d.getMessage());
+                        }
+                        //Mandar datos al ServiceEdificio para agregar un edificio.
+                    }*/
+                }
+            }
+        });
+
+        btnAgregar.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e){
+                int opcion = JOptionPane.showConfirmDialog(
+                        FormularioEdificio.this,
+                        panelFormularioAgregar,
+                        "Agregar Nuevo Edificio",
+                        JOptionPane.OK_CANCEL_OPTION,
+                        JOptionPane.PLAIN_MESSAGE
+                );
+
+                if(opcion == JOptionPane.OK_OPTION) {
+                    String nuevoNombre = txtNombre.getText();
+                    String nuevaDireccion = txtDireccion.getText();
+
+                    Object[] data = new Object[9];
+                    data[0] = nuevoNombre;
+                    data[1] = nuevaDireccion;
+                    try {
+                        serviceEdificio.agregarEdificio(data);
+                    } catch (ServiceException d) {
+                        JOptionPane.showMessageDialog(
+                                FormularioEdificio.this,
+                                "Error al agregar edificio"
+                        );
+                        //throw new ServiceException(d.getMessage());
+                    }
+                    //Mandar datos al ServiceEdificio para agregar un edificio.
                 }
             }
         });

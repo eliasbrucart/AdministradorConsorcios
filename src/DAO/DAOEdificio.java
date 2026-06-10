@@ -31,7 +31,7 @@ public class DAOEdificio implements IDAO<Edificio> {
             connection = DriverManager.getConnection(DB_URL, DB_USER, DB_PASSWORD);
             System.out.println("se conecto");
             preparedStatement = connection.prepareStatement("INSERT INTO Edificio VALUES(?,?,?,?,?,?,?,?,?)");
-            preparedStatement.setInt(1, 2); //harcoded
+            preparedStatement.setInt(1, 4); //harcoded
             preparedStatement.setString(2, elemento.getNombre());
             preparedStatement.setString(3, elemento.getDireccion());
             //quitar luego
