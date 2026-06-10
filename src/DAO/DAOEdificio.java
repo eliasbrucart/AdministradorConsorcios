@@ -35,11 +35,11 @@ public class DAOEdificio implements IDAO<Edificio> {
             preparedStatement.setString(1, elemento.getNombre());
             preparedStatement.setString(2, elemento.getDireccion());
             //quitar luego
-            preparedStatement.setString(3, "CABA");
-            preparedStatement.setInt(4, 1429);
-            preparedStatement.setInt(5, 30);
-            preparedStatement.setInt(6, 8);
-            preparedStatement.setLong(7, 3000000);
+            preparedStatement.setString(3, elemento.getLocalidad());
+            preparedStatement.setInt(4, elemento.getCodigoPostal());
+            preparedStatement.setInt(5, elemento.getCantidadUnidades());
+            preparedStatement.setInt(6, elemento.getCantidadPisos());
+            preparedStatement.setLong(7, elemento.getLiquidacionExpensas());
             preparedStatement.setDate(8, Date.valueOf(java.time.LocalDate.now()));
 
             int resultado = preparedStatement.executeUpdate();

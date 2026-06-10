@@ -38,6 +38,12 @@ public class ServiceEdificio {
             Edificio edificio = new Edificio();
             edificio.setNombre((String) data[0]);
             edificio.setDireccion((String)data[1]);
+            edificio.setLocalidad((String)data[2]);
+            edificio.setCodigoPostal((int)data[3]);
+            edificio.setCantidadUnidades((int)data[4]);
+            edificio.setCantidadPisos((int)data[5]);
+            edificio.setLiquidacionExpensas((int)data[6]);
+            edificio.setFechaLiquidacionExpensas((String)data[7]);
             daoEdificio.agregar(edificio);
         }catch (DaoException e){
             throw new ServiceException(e.getMessage());

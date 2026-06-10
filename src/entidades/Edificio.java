@@ -8,6 +8,8 @@ public class Edificio {
     private int codigoPostal;
     private int cantidadPisos;
     private int cantidadUnidades;
+    private int liquidacionExpensas;
+    private String fechaLiquidacionExpensas;
     public Edificio(){
 
     }
@@ -53,5 +55,24 @@ public class Edificio {
 
     public void setCantidadUnidades(int cantidadUnidades){
         this.cantidadUnidades = cantidadUnidades;
+    }
+    public int getCantidadUnidades(){
+        return this.cantidadUnidades;
+    }
+
+    public void setLiquidacionExpensas(int liquidacionExpensas){
+        this.liquidacionExpensas = liquidacionExpensas;
+    }
+
+    public int getLiquidacionExpensas(){
+        return this.liquidacionExpensas;
+    }
+
+    public void setFechaLiquidacionExpensas(String fechaLiquidacionExpensas){
+        this.fechaLiquidacionExpensas = fechaLiquidacionExpensas;
+    }
+
+    public String getFechaLiquidacionExpensas(){
+        return this.fechaLiquidacionExpensas;
     }
 }

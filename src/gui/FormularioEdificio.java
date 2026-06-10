@@ -64,6 +64,10 @@ public class FormularioEdificio extends JPanel{
         try{
             edificiosConsultados = serviceEdificio.consultarTodo();
         } catch (ServiceException e) {
+            JOptionPane.showMessageDialog(
+                    FormularioEdificio.this,
+                    "Error al listar los edificios" + e.getMessage()
+            );
             //System.out.println("Error al consultar el edificio: " + e);
         }
         String[] columnas = {"Nombre", "Dirección"};
@@ -107,13 +111,32 @@ public class FormularioEdificio extends JPanel{
         //Creamos los componentes del formulario
         JTextField txtNombre = new JTextField(10);
         JTextField txtDireccion = new JTextField(15);
+        JTextField txtLocalidad = new JTextField(20);
+        JTextField agregarCodigoPostal = new JTextField(20);
+        JTextField agregarCantidadUnidades = new JTextField(20);
+        JTextField agregarCantidadPisos = new JTextField(20);
+        JTextField agregarLiquidacionExpensas = new JTextField(20);
+        JTextField agregarFechaLiquidacionExpensas = new JTextField(20);
 
         //Creamos un contenedor (Panel) y organizar los componentes
-        JPanel panelFormularioAgregar = new JPanel(new GridLayout(2, 2, 5, 5));
+        JPanel panelFormularioAgregar = new JPanel(new GridLayout(9, 9, 5, 5));
         panelFormularioAgregar.add(new JLabel("Nombre:"));
         panelFormularioAgregar.add(txtNombre);
         panelFormularioAgregar.add(new JLabel("Dirección:"));
         panelFormularioAgregar.add(txtDireccion);
+        panelFormularioAgregar.add(new JLabel("Localidad:"));
+        panelFormularioAgregar.add(txtLocalidad);
+        panelFormularioAgregar.add(new JLabel("Codigo Postal:"));
+        panelFormularioAgregar.add(agregarCodigoPostal);
+        panelFormularioAgregar.add(new JLabel("Cantidad Unidades: "));
+        panelFormularioAgregar.add(agregarCantidadUnidades);
+        panelFormularioAgregar.add(new JLabel("Cantidad Pisos: "));
+        panelFormularioAgregar.add(agregarCantidadPisos);
+        panelFormularioAgregar.add(new JLabel("Liquidacion Expensas:"));
+        panelFormularioAgregar.add(agregarLiquidacionExpensas);
+        panelFormularioAgregar.add(new JLabel("Fecha Liquidacion Expensas:"));
+        panelFormularioAgregar.add(agregarFechaLiquidacionExpensas);
+
 
         //selección de la tabla
         tabla.getSelectionModel().addListSelectionListener(e -> {
@@ -185,10 +208,22 @@ public class FormularioEdificio extends JPanel{
                 if(opcion == JOptionPane.OK_OPTION) {
                     String nuevoNombre = txtNombre.getText();
                     String nuevaDireccion = txtDireccion.getText();
+                    String nuevaLocalidad = txtLocalidad.getText();
+                    int nuevoCodigoPostal = Integer.parseInt(agregarCodigoPostal.getText());
+                    int nuevoCantidadUnidades = Integer.parseInt(agregarCantidadUnidades.getText());
+                    int nuevoCantidadPisos = Integer.parseInt(agregarCantidadPisos.getText());
+                    int nuevoLiquidacionExpensas = Integer.parseInt(agregarLiquidacionExpensas.getText());
+                    String nuevoFechaLiquidacionExpensas = agregarFechaLiquidacionExpensas.getText();
 
                     Object[] data = new Object[9];
                     data[0] = nuevoNombre;
                     data[1] = nuevaDireccion;
+                    data[2] = nuevaLocalidad;
+                    data[3] = nuevoCodigoPostal;
+                    data[4] = nuevoCantidadUnidades;
+                    data[5] = nuevoCantidadPisos;
+                    data[6] = nuevoLiquidacionExpensas;
+                    data[7] = nuevoFechaLiquidacionExpensas;
                     try {
                         serviceEdificio.agregarEdificio(data);
                     } catch (ServiceException d) {
