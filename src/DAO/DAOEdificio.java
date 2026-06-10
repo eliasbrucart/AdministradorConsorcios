@@ -30,17 +30,17 @@ public class DAOEdificio implements IDAO<Edificio> {
             System.out.println("no hay driver");
             connection = DriverManager.getConnection(DB_URL, DB_USER, DB_PASSWORD);
             System.out.println("se conecto");
-            preparedStatement = connection.prepareStatement("INSERT INTO Edificio VALUES(?,?,?,?,?,?,?,?,?)");
-            preparedStatement.setInt(1, 4); //harcoded
-            preparedStatement.setString(2, elemento.getNombre());
-            preparedStatement.setString(3, elemento.getDireccion());
+            preparedStatement = connection.prepareStatement("INSERT INTO Edificio (NOMBRE, DIRECCION, LOCALIDAD, CODIGO_POSTAL, CANTIDAD_UNIDADES, CANTIDAD_PISOS, LIQUIDACION_EXPENSAS, FECHA_LIQUIDACION_EXPENSAS) VALUES(?,?,?,?,?,?,?,?)");
+            //preparedStatement.setInt(1, 4); //harcoded
+            preparedStatement.setString(1, elemento.getNombre());
+            preparedStatement.setString(2, elemento.getDireccion());
             //quitar luego
-            preparedStatement.setString(4, "CABA");
-            preparedStatement.setInt(5, 1429);
-            preparedStatement.setInt(6, 30);
-            preparedStatement.setInt(7, 8);
-            preparedStatement.setLong(8, 3000000);
-            preparedStatement.setDate(9, Date.valueOf(java.time.LocalDate.now()));
+            preparedStatement.setString(3, "CABA");
+            preparedStatement.setInt(4, 1429);
+            preparedStatement.setInt(5, 30);
+            preparedStatement.setInt(6, 8);
+            preparedStatement.setLong(7, 3000000);
+            preparedStatement.setDate(8, Date.valueOf(java.time.LocalDate.now()));
 
             int resultado = preparedStatement.executeUpdate();
             if (resultado == 1){

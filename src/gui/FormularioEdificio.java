@@ -104,11 +104,11 @@ public class FormularioEdificio extends JPanel{
         panelAcciones.add(btnEliminar);
         panelAcciones.add(btnAgregar);
 
-        // 1. Crear los componentes del formulario
+        //Creamos los componentes del formulario
         JTextField txtNombre = new JTextField(10);
         JTextField txtDireccion = new JTextField(15);
 
-        // 2. Crear un contenedor (Panel) y organizar los componentes
+        //Creamos un contenedor (Panel) y organizar los componentes
         JPanel panelFormularioAgregar = new JPanel(new GridLayout(2, 2, 5, 5));
         panelFormularioAgregar.add(new JLabel("Nombre:"));
         panelFormularioAgregar.add(txtNombre);
@@ -194,7 +194,7 @@ public class FormularioEdificio extends JPanel{
                     } catch (ServiceException d) {
                         JOptionPane.showMessageDialog(
                                 FormularioEdificio.this,
-                                "Error al agregar edificio"
+                                "Error al agregar edificio" + d.getMessage()
                         );
                         //throw new ServiceException(d.getMessage());
                     }
