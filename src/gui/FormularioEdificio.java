@@ -22,6 +22,7 @@ public class FormularioEdificio extends JPanel{
     private JButton jbutton;
     private DefaultTableModel contenido;
     private JScrollPane scrollPane;
+    private int idSeleccionado;
 
     public FormularioEdificio(PanelManager panelManager){
         this.panelManager = panelManager;
@@ -70,13 +71,14 @@ public class FormularioEdificio extends JPanel{
             );
             //System.out.println("Error al consultar el edificio: " + e);
         }
-        String[] columnas = {"Nombre", "Dirección"};
-        Object[][] datos = new Object[edificiosConsultados.size()][2];
+        String[] columnas = {"Identificador", "Nombre", "Dirección"};
+        Object[][] datos = new Object[edificiosConsultados.size()][3];
         for(int i = 0; i < edificiosConsultados.size(); i++){
             Edificio edificio = edificiosConsultados.get(i);
 
-            datos[i][0] = edificio.getNombre();
-            datos[i][1] = edificio.getDireccion();
+            datos[i][0] = edificio.getId();
+            datos[i][1] = edificio.getNombre();
+            datos[i][2] = edificio.getDireccion();
         }
         /*for(Edificio edificio:edificiosConsultados){
             datos = new Object[][]{
@@ -108,7 +110,7 @@ public class FormularioEdificio extends JPanel{
         panelAcciones.add(btnEliminar);
         panelAcciones.add(btnAgregar);
 
-        //Creamos los componentes del formulario
+        //Creamos los componentes del formulario agregar
         JTextField txtNombre = new JTextField(10);
         JTextField txtDireccion = new JTextField(15);
         JTextField txtLocalidad = new JTextField(20);
@@ -137,9 +139,41 @@ public class FormularioEdificio extends JPanel{
         panelFormularioAgregar.add(new JLabel("Fecha Liquidacion Expensas:"));
         panelFormularioAgregar.add(agregarFechaLiquidacionExpensas);
 
+        //Creamos los componentes del formulario editar
+        JTextField editarNombre = new JTextField(10);
+        JTextField editarDireccion = new JTextField(15);
+        JTextField editarLocalidad = new JTextField(20);
+        JTextField editarCodigoPostal = new JTextField(20);
+        JTextField editarCantidadUnidades = new JTextField(20);
+        JTextField editarCantidadPisos = new JTextField(20);
+        JTextField editarLiquidacionExpensas = new JTextField(20);
+        JTextField editarFechaLiquidacionExpensas = new JTextField(20);
+
+        JPanel panelFormularioEditar = new JPanel(new GridLayout(9, 9, 5, 5));
+        panelFormularioEditar.add(new JLabel("Nombre:"));
+        panelFormularioEditar.add(editarNombre);
+        panelFormularioEditar.add(new JLabel("Dirección:"));
+        panelFormularioEditar.add(editarDireccion);
+        panelFormularioEditar.add(new JLabel("Localidad:"));
+        panelFormularioEditar.add(editarLocalidad);
+        panelFormularioEditar.add(new JLabel("Codigo Postal:"));
+        panelFormularioEditar.add(editarCodigoPostal);
+        panelFormularioEditar.add(new JLabel("Cantidad Unidades: "));
+        panelFormularioEditar.add(editarCantidadUnidades);
+        panelFormularioEditar.add(new JLabel("Cantidad Pisos: "));
+        panelFormularioEditar.add(editarCantidadPisos);
+        panelFormularioEditar.add(new JLabel("Liquidacion Expensas:"));
+        panelFormularioEditar.add(editarLiquidacionExpensas);
+        panelFormularioEditar.add(new JLabel("Fecha Liquidacion Expensas:"));
+        panelFormularioEditar.add(editarFechaLiquidacionExpensas);
 
         //selección de la tabla
         tabla.getSelectionModel().addListSelectionListener(e -> {
+            int filaSeleccionada = tabla.getSelectedRow();
+            Object valorCelda = tabla.getValueAt(filaSeleccionada, 0);
+            idSeleccionado = Integer.parseInt(valorCelda.toString());
+            //remover luego
+            //System.out.println(idSeleccionado);
             if (!e.getValueIsAdjusting()) {
                 // Ocultar si no hay selección
                 btnEditar.setVisible(tabla.getSelectedRow() != -1); // Mostrar botón
@@ -157,8 +191,8 @@ public class FormularioEdificio extends JPanel{
             public void actionPerformed(ActionEvent e) {
                 int filaSeleccionada = tabla.getSelectedRow();
                 if (filaSeleccionada != -1) {
-                    String nombre = (String) tabla.getValueAt(filaSeleccionada, 0);
-                    String direccion = (String) tabla.getValueAt(filaSeleccionada, 1);
+                    String nombre = (String) tabla.getValueAt(filaSeleccionada, 1);
+                    String direccion = (String) tabla.getValueAt(filaSeleccionada, 2);
 
                     // Usamos 'MiPanelTabla.this' como componente padre para el diálogo
                     /*JOptionPane.showMessageDialog(FormularioEdificio.this,
@@ -235,6 +269,31 @@ public class FormularioEdificio extends JPanel{
                     }
                     //Mandar datos al ServiceEdificio para agregar un edificio.
                 }
+            }
+        });
+
+        btnEditar.addActionListener(new ActionListener(){
+            @Override
+            public void actionPerformed(ActionEvent e){
+                //service buscar en DB por id
+                Edificio edificioConsultado = new Edificio();
+                try{
+                    edificioConsultado = serviceEdificio.consultarEdificio(idSeleccionado);
+                    editarNombre.setText(edificioConsultado.getNombre());
+                }catch (ServiceException d){
+                    JOptionPane.showMessageDialog(
+                            FormularioEdificio.this,
+                            "Error al consultar edificio" + d.getMessage()
+                    );
+                }
+
+                int opcion = JOptionPane.showConfirmDialog(
+                        FormularioEdificio.this,
+                        panelFormularioEditar,
+                        "Editar Edificio",
+                        JOptionPane.OK_CANCEL_OPTION,
+                        JOptionPane.PLAIN_MESSAGE
+                );
             }
         });
 

@@ -2,6 +2,7 @@ package entidades;
 
 public class Edificio {
     //componemos las unidades funcionales
+    private int id;
     private String nombre;
     private String direccion;
     private String localidad;
@@ -12,6 +13,12 @@ public class Edificio {
     private String fechaLiquidacionExpensas;
     public Edificio(){
 
+    }
+    public void setId(int id){
+        this.id = id;
+    }
+    public int getId(){
+        return this.id;
     }
     public void setNombre(String nombre){
         this.nombre = nombre;
