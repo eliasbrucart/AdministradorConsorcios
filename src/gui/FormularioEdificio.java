@@ -121,7 +121,7 @@ public class FormularioEdificio extends JPanel{
         JTextField agregarFechaLiquidacionExpensas = new JTextField(20);
 
         //Creamos un contenedor (Panel) y organizar los componentes
-        JPanel panelFormularioAgregar = new JPanel(new GridLayout(9, 9, 5, 5));
+        JPanel panelFormularioAgregar = new JPanel(new GridLayout(10, 10, 6, 6));
         panelFormularioAgregar.add(new JLabel("Nombre:"));
         panelFormularioAgregar.add(txtNombre);
         panelFormularioAgregar.add(new JLabel("Dirección:"));
@@ -140,6 +140,7 @@ public class FormularioEdificio extends JPanel{
         panelFormularioAgregar.add(agregarFechaLiquidacionExpensas);
 
         //Creamos los componentes del formulario editar
+        JLabel idEdificioModificar = new JLabel();
         JTextField editarNombre = new JTextField(10);
         JTextField editarDireccion = new JTextField(15);
         JTextField editarLocalidad = new JTextField(20);
@@ -150,6 +151,7 @@ public class FormularioEdificio extends JPanel{
         JTextField editarFechaLiquidacionExpensas = new JTextField(20);
 
         JPanel panelFormularioEditar = new JPanel(new GridLayout(9, 9, 5, 5));
+        panelFormularioEditar.add(idEdificioModificar);
         panelFormularioEditar.add(new JLabel("Nombre:"));
         panelFormularioEditar.add(editarNombre);
         panelFormularioEditar.add(new JLabel("Dirección:"));
@@ -274,11 +276,12 @@ public class FormularioEdificio extends JPanel{
 
         btnEditar.addActionListener(new ActionListener(){
             @Override
-            public void actionPerformed(ActionEvent e){
+            public void actionPerformed(ActionEvent e) {
                 //service buscar en DB por id
                 Edificio edificioConsultado = new Edificio();
-                try{
+                try {
                     edificioConsultado = serviceEdificio.consultarEdificio(idSeleccionado);
+                    idEdificioModificar.setText(String.valueOf(edificioConsultado.getId()));
                     editarNombre.setText(edificioConsultado.getNombre());
                     editarDireccion.setText(edificioConsultado.getDireccion());
                     editarLocalidad.setText(edificioConsultado.getLocalidad());
@@ -287,7 +290,7 @@ public class FormularioEdificio extends JPanel{
                     editarCantidadPisos.setText(String.valueOf(edificioConsultado.getCantidadPisos()));
                     editarLiquidacionExpensas.setText(String.valueOf(edificioConsultado.getLiquidacionExpensas()));
                     editarFechaLiquidacionExpensas.setText(edificioConsultado.getFechaLiquidacionExpensas());
-                }catch (ServiceException d){
+                } catch (ServiceException d) {
                     JOptionPane.showMessageDialog(
                             FormularioEdificio.this,
                             "Error al consultar edificio" + d.getMessage()
@@ -301,6 +304,27 @@ public class FormularioEdificio extends JPanel{
                         JOptionPane.OK_CANCEL_OPTION,
                         JOptionPane.PLAIN_MESSAGE
                 );
+
+                if (opcion == JOptionPane.OK_OPTION) {
+                    String nuevoNombre = editarNombre.getText();
+                    String nuevoDireccion = editarDireccion.getText();
+                    String nuevoLocalidad = editarLocalidad.getText();
+                    int nuevoCodigoPostal = Integer.parseInt(editarCodigoPostal.getText());
+                    int nuevoCantidadUnidades = Integer.parseInt(editarCantidadUnidades.getText());
+                    int nuevoCantidadPisos = Integer.parseInt(editarCantidadPisos.getText());
+                    int nuevoLiquidacionExpensas = Integer.parseInt(editarLiquidacionExpensas.getText());
+                    String nuevoFechaLiquidacionExpensas = editarFechaLiquidacionExpensas.getText();
+
+                    Object[] data = new Object[9];
+                    data[0] = nuevoNombre;
+                    data[1] = nuevoDireccion;
+                    data[2] = nuevoLocalidad;
+                    data[3] = nuevoCodigoPostal;
+                    data[4] = nuevoCantidadUnidades;
+                    data[5] = nuevoCantidadPisos;
+                    data[6] = nuevoLiquidacionExpensas;
+                    data[7] = nuevoFechaLiquidacionExpensas;
+                }
             }
         });
 

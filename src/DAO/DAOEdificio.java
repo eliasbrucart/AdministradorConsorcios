@@ -61,7 +61,27 @@ public class DAOEdificio implements IDAO<Edificio> {
 
     @Override
     public void modificar(Edificio elemento) throws DaoException{
-
+        Connection connection=null;
+        PreparedStatement preparedStatement=null;
+        try{
+            Class.forName(DB_JDBC_DRIVER);
+            System.out.println("no hay driver");
+            connection = DriverManager.getConnection(DB_URL, DB_USER, DB_PASSWORD);
+            System.out.println("se conecto");
+            preparedStatement = connection.prepareStatement("UPDATE EDIFICIO SET NOMBRE = ?, DIRECCION = ?, LOCALIDAD = ?, CODIGO_POSTAL = ?, CANTIDAD_UNIDADES = ?, CANTIDAD_PISOS = ?, LIQUIDACION_EXPENSAS = ?, FECHA_LIQUIDACION_EXPENSAS = ? WHERE id = ?");
+            preparedStatement.setString(1, elemento.getNombre());
+            preparedStatement.setString(2, elemento.getDireccion());
+            preparedStatement.setString(3, elemento.getLocalidad());
+            preparedStatement.setInt(4, elemento.getCodigoPostal());
+            preparedStatement.setInt(5, elemento.getCantidadUnidades());
+            preparedStatement.setInt(6, elemento.getCantidadPisos());
+            preparedStatement.setInt(7, elemento.getLiquidacionExpensas());
+            preparedStatement.setString(8, elemento.getFechaLiquidacionExpensas());
+            preparedStatement.setInt(9, elemento.getId());
+            preparedStatement.executeUpdate();
+        }catch (ClassNotFoundException | SQLException e){
+            throw new DaoException("Error al modificar el edificio: " + e);
+        }
     }
 
     public void testDB() throws DaoException{
@@ -87,9 +107,11 @@ public class DAOEdificio implements IDAO<Edificio> {
                 alumno.setNombre(rs.getString("nombre"));
                 alumno.setNota(rs.getInt("nota"));
                 */
+                int idEdificio = Integer.parseInt((rs.getString("id")));
                 String nombre=(rs.getString("nombre"));
                 String direccion=(rs.getString("direccion"));
                 //System.out.println("nombre " + nombre); //borrar print, no se hace en un metodo
+                edificio.setId(idEdificio);
                 edificio.setNombre(nombre);
                 edificio.setDireccion(direccion);
                 //int nota=(rs.getInt("nota"));

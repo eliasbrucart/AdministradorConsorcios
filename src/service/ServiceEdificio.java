@@ -50,6 +50,15 @@ public class ServiceEdificio {
         }
     }
 
+    public void modificarEdificio(Object[] data) throws ServiceException{
+        try{
+            Edificio edificio = new Edificio();
+            daoEdificio.modificar(edificio);
+        }catch (DaoException e){
+            throw new ServiceException(e.getMessage());
+        }
+    }
+
     public ArrayList<Edificio> consultarTodo() throws ServiceException{
         ArrayList<Edificio> edificios = new ArrayList<>();
         try{
