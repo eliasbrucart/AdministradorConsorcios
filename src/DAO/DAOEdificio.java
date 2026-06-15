@@ -3,6 +3,8 @@ package DAO;
 import entidades.Edificio;
 
 import java.sql.*;
+import java.time.LocalDate;
+import java.time.format.DateTimeFormatter;
 import java.util.ArrayList;
 
 public class DAOEdificio implements IDAO<Edificio> {
@@ -76,7 +78,10 @@ public class DAOEdificio implements IDAO<Edificio> {
             preparedStatement.setInt(5, elemento.getCantidadUnidades());
             preparedStatement.setInt(6, elemento.getCantidadPisos());
             preparedStatement.setInt(7, elemento.getLiquidacionExpensas());
-            preparedStatement.setString(8, elemento.getFechaLiquidacionExpensas());
+            //convertir fecha en date
+            DateTimeFormatter formateador = DateTimeFormatter.ofPattern("dd/MM/yyyy");
+            LocalDate fechaLocal = LocalDate.parse(elemento.getFechaLiquidacionExpensas(), formateador);
+            preparedStatement.setDate(8, Date.valueOf(fechaLocal));
             preparedStatement.setInt(9, elemento.getId());
             preparedStatement.executeUpdate();
         }catch (ClassNotFoundException | SQLException e){

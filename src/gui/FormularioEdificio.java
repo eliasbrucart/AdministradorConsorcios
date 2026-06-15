@@ -306,6 +306,7 @@ public class FormularioEdificio extends JPanel{
                 );
 
                 if (opcion == JOptionPane.OK_OPTION) {
+                    int idEdificio = Integer.parseInt(idEdificioModificar.getText());
                     String nuevoNombre = editarNombre.getText();
                     String nuevoDireccion = editarDireccion.getText();
                     String nuevoLocalidad = editarLocalidad.getText();
@@ -324,6 +325,17 @@ public class FormularioEdificio extends JPanel{
                     data[5] = nuevoCantidadPisos;
                     data[6] = nuevoLiquidacionExpensas;
                     data[7] = nuevoFechaLiquidacionExpensas;
+                    data[8] = idEdificio;
+
+                    try {
+                        serviceEdificio.modificarEdificio(data);
+                    } catch (ServiceException d) {
+                        JOptionPane.showMessageDialog(
+                                FormularioEdificio.this,
+                                "Error al modificar edificio" + d.getMessage()
+                        );
+                        //throw new ServiceException(d.getMessage());
+                    }
                 }
             }
         });
