@@ -115,10 +115,22 @@ public class DAOEdificio implements IDAO<Edificio> {
                 int idEdificio = Integer.parseInt((rs.getString("id")));
                 String nombre=(rs.getString("nombre"));
                 String direccion=(rs.getString("direccion"));
+                String localidad = (rs.getString("localidad"));
+                int codigo = (rs.getInt("codigo_postal"));
+                int unidades = (rs.getInt("cantidad_unidades"));
+                int pisos = (rs.getInt("cantidad_pisos"));
+                int liquidacionExpensas = (rs.getInt("liquidacion_expensas"));
+                String fechaLiquidacionExpensas = (rs.getString("fecha_liquidacion_expensas"));
                 //System.out.println("nombre " + nombre); //borrar print, no se hace en un metodo
                 edificio.setId(idEdificio);
                 edificio.setNombre(nombre);
                 edificio.setDireccion(direccion);
+                edificio.setLocalidad(localidad);
+                edificio.setCodigoPostal(codigo);
+                edificio.setCantidadUnidades(unidades);
+                edificio.setCantidadPisos(pisos);
+                edificio.setLiquidacionExpensas(liquidacionExpensas);
+                edificio.setFechaLiquidacionExpensas(fechaLiquidacionExpensas);
                 //int nota=(rs.getInt("nota"));
                 //Obtenemos los datos de la tabla y creamos el objeto propiamente dicho con los valores obtenidos.
                 //alumno=new Alumno(id, nombre);
