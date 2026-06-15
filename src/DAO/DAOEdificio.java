@@ -125,6 +125,12 @@ public class DAOEdificio implements IDAO<Edificio> {
                 edificio.setId(rs.getInt("id"));
                 edificio.setNombre(rs.getString("nombre"));
                 edificio.setDireccion(rs.getString("Direccion"));
+                edificio.setLocalidad(rs.getString("Localidad"));
+                edificio.setLocalidad(rs.getString("Codigo_Postal"));
+                edificio.setLocalidad(rs.getString("Cantidad_Unidades"));
+                edificio.setCantidadPisos(rs.getInt("Cantidad_Pisos"));
+                edificio.setLiquidacionExpensas(rs.getInt("Liquidacion_Expensas"));
+                edificio.setFechaLiquidacionExpensas(rs.getString("Fecha_Liquidacion_Expensas"));
                 //faltan mas atributos
                 edificios.add(edificio);
             }

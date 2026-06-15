@@ -280,6 +280,13 @@ public class FormularioEdificio extends JPanel{
                 try{
                     edificioConsultado = serviceEdificio.consultarEdificio(idSeleccionado);
                     editarNombre.setText(edificioConsultado.getNombre());
+                    editarDireccion.setText(edificioConsultado.getDireccion());
+                    editarLocalidad.setText(edificioConsultado.getLocalidad());
+                    editarCodigoPostal.setText(String.valueOf(edificioConsultado.getCodigoPostal()));
+                    editarCantidadUnidades.setText(String.valueOf(edificioConsultado.getCantidadUnidades()));
+                    editarCantidadPisos.setText(String.valueOf(edificioConsultado.getCantidadPisos()));
+                    editarLiquidacionExpensas.setText(String.valueOf(edificioConsultado.getLiquidacionExpensas()));
+                    editarFechaLiquidacionExpensas.setText(edificioConsultado.getFechaLiquidacionExpensas());
                 }catch (ServiceException d){
                     JOptionPane.showMessageDialog(
                             FormularioEdificio.this,
