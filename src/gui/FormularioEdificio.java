@@ -140,18 +140,20 @@ public class FormularioEdificio extends JPanel{
         panelFormularioAgregar.add(agregarFechaLiquidacionExpensas);
 
         //Creamos los componentes del formulario editar
-        JLabel idEdificioModificar = new JLabel();
+        JTextField idEdificioModificar = new JTextField(10);
         JTextField editarNombre = new JTextField(10);
-        JTextField editarDireccion = new JTextField(15);
-        JTextField editarLocalidad = new JTextField(20);
-        JTextField editarCodigoPostal = new JTextField(20);
-        JTextField editarCantidadUnidades = new JTextField(20);
-        JTextField editarCantidadPisos = new JTextField(20);
-        JTextField editarLiquidacionExpensas = new JTextField(20);
-        JTextField editarFechaLiquidacionExpensas = new JTextField(20);
+        JTextField editarDireccion = new JTextField(10);
+        JTextField editarLocalidad = new JTextField(10);
+        JTextField editarCodigoPostal = new JTextField(10);
+        JTextField editarCantidadUnidades = new JTextField(10);
+        JTextField editarCantidadPisos = new JTextField(10);
+        JTextField editarLiquidacionExpensas = new JTextField(10);
+        JTextField editarFechaLiquidacionExpensas = new JTextField(10);
 
-        JPanel panelFormularioEditar = new JPanel(new GridLayout(9, 9, 5, 5));
+        JPanel panelFormularioEditar = new JPanel(new GridLayout(10, 15, 8, 8));
+        panelFormularioEditar.add(new JLabel("ID: "));
         panelFormularioEditar.add(idEdificioModificar);
+        idEdificioModificar.setEditable(false);
         panelFormularioEditar.add(new JLabel("Nombre:"));
         panelFormularioEditar.add(editarNombre);
         panelFormularioEditar.add(new JLabel("Dirección:"));
@@ -337,6 +339,19 @@ public class FormularioEdificio extends JPanel{
                         //throw new ServiceException(d.getMessage());
                     }
                 }
+            }
+        });
+
+        btnEliminar.addActionListener(new ActionListener(){
+            @Override
+            public void actionPerformed(ActionEvent e){
+                int opcion = JOptionPane.showConfirmDialog(
+                        FormularioEdificio.this,
+                        panelFormularioEditar,
+                        "Editar Edificio",
+                        JOptionPane.OK_CANCEL_OPTION,
+                        JOptionPane.PLAIN_MESSAGE
+                );
             }
         });
 
