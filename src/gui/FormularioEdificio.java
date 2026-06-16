@@ -5,6 +5,7 @@ import service.ServiceEdificio;
 import service.ServiceException;
 
 import javax.swing.*;
+import javax.swing.plaf.basic.BasicInternalFrameTitlePane;
 import javax.swing.table.DefaultTableModel;
 import javax.swing.table.TableColumn;
 import java.awt.*;
@@ -170,6 +171,55 @@ public class FormularioEdificio extends JPanel{
         panelFormularioEditar.add(editarLiquidacionExpensas);
         panelFormularioEditar.add(new JLabel("Fecha Liquidacion Expensas:"));
         panelFormularioEditar.add(editarFechaLiquidacionExpensas);
+
+        //Componentes formulario Eliminar
+        JTextField idEdificioEliminar = new JTextField(10);
+        JTextField nombreEliminar = new JTextField(10);
+        JTextField direccionEliminar = new JTextField(10);
+        JTextField localidadEliminar = new JTextField(10);
+        JTextField codigoPostalEliminar = new JTextField(10);
+        JTextField cantidadUnidadesEliminar = new JTextField(10);
+        JTextField cantidadPisosEliminar = new JTextField(10);
+        JTextField liquidacionExpensasEliminar = new JTextField(10);
+        JTextField fechaLiquidacionExpensasEliminar = new JTextField(10);
+
+        JPanel panelTituloEliminar = new JPanel(new BorderLayout());
+        JLabel tituloEliminar = new JLabel("Eliminar edificio", SwingConstants.CENTER);
+        tituloEliminar.setFont(tituloEliminar.getFont().deriveFont(Font.BOLD, 24f));
+        panelTituloEliminar.add(tituloEliminar, BorderLayout.NORTH);
+
+        JPanel panelFormularioEliminar = new JPanel(new GridLayout(10, 10,8,8));
+        //panelFormularioEliminar.add(tituloEliminar);
+        panelFormularioEliminar.add(new JLabel("ID: "));
+        panelFormularioEliminar.add(idEdificioEliminar);
+        panelFormularioEliminar.add(new JLabel("Nombre:"));
+        panelFormularioEliminar.add(nombreEliminar);
+        panelFormularioEliminar.add(new JLabel("Direccion:"));
+        panelFormularioEliminar.add(direccionEliminar);
+        panelFormularioEliminar.add(new JLabel("Localidad:"));
+        panelFormularioEliminar.add(localidadEliminar);
+        panelFormularioEliminar.add(new JLabel("Codigo Postal:"));
+        panelFormularioEliminar.add(codigoPostalEliminar);
+        panelFormularioEliminar.add(new JLabel("Cantidad Unidades:"));
+        panelFormularioEliminar.add(cantidadUnidadesEliminar);
+        panelFormularioEliminar.add(new JLabel("Cantidad Pisos:"));
+        panelFormularioEliminar.add(cantidadPisosEliminar);
+        panelFormularioEliminar.add(new JLabel("Liquidacion Expensas:"));
+        panelFormularioEliminar.add(liquidacionExpensasEliminar);
+        panelFormularioEliminar.add(new JLabel("Fecha Liquidacion Expensas:"));
+        panelFormularioEliminar.add(fechaLiquidacionExpensasEliminar);
+
+        panelTituloEliminar.add(panelFormularioEliminar, BorderLayout.CENTER);
+
+        idEdificioEliminar.setEditable(false);
+        nombreEliminar.setEditable(false);
+        direccionEliminar.setEditable(false);
+        localidadEliminar.setEditable(false);
+        codigoPostalEliminar.setEditable(false);
+        cantidadUnidadesEliminar.setEditable(false);
+        cantidadPisosEliminar.setEditable(false);
+        liquidacionExpensasEliminar.setEditable(false);
+        fechaLiquidacionExpensasEliminar.setEditable(false);
 
         //selección de la tabla
         tabla.getSelectionModel().addListSelectionListener(e -> {
@@ -345,13 +395,36 @@ public class FormularioEdificio extends JPanel{
         btnEliminar.addActionListener(new ActionListener(){
             @Override
             public void actionPerformed(ActionEvent e){
+                //llenar con los datos
+                Edificio edificioConsultado = new Edificio();
+                try{
+                    edificioConsultado = serviceEdificio.consultarEdificio(idSeleccionado);
+                    idEdificioEliminar.setText(String.valueOf(edificioConsultado.getId()));
+                    nombreEliminar.setText(edificioConsultado.getNombre());
+                    direccionEliminar.setText(edificioConsultado.getDireccion());
+                    localidadEliminar.setText(edificioConsultado.getLocalidad());
+                    codigoPostalEliminar.setText(String.valueOf(edificioConsultado.getCodigoPostal()));
+                    cantidadUnidadesEliminar.setText(String.valueOf(edificioConsultado.getCantidadUnidades()));
+                    cantidadPisosEliminar.setText(String.valueOf(edificioConsultado.getCantidadPisos()));
+                    liquidacionExpensasEliminar.setText(String.valueOf(edificioConsultado.getLiquidacionExpensas()));
+                    fechaLiquidacionExpensasEliminar.setText(edificioConsultado.getFechaLiquidacionExpensas());
+                } catch (ServiceException d) {
+                    JOptionPane.showMessageDialog(
+                            FormularioEdificio.this,
+                            "Error al eliminar edificio" + d.getMessage()
+                    );
+                }
                 int opcion = JOptionPane.showConfirmDialog(
                         FormularioEdificio.this,
-                        panelFormularioEditar,
-                        "Editar Edificio",
+                        panelTituloEliminar,
+                        "Eliminar Edificio",
                         JOptionPane.OK_CANCEL_OPTION,
                         JOptionPane.PLAIN_MESSAGE
                 );
+
+                if (opcion == JOptionPane.OK_OPTION){
+                    System.out.println("Click en boton OK");
+                }
             }
         });
 
