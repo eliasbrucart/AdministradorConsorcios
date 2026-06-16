@@ -423,7 +423,14 @@ public class FormularioEdificio extends JPanel{
                 );
 
                 if (opcion == JOptionPane.OK_OPTION){
-                    System.out.println("Click en boton OK");
+                    try{
+                        serviceEdificio.eliminar(idSeleccionado);
+                    }catch(ServiceException d){
+                        JOptionPane.showMessageDialog(
+                                FormularioEdificio.this,
+                                "Error al eliminar edificio" + d.getMessage()
+                        );
+                    }
                 }
             }
         });

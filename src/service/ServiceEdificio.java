@@ -68,6 +68,14 @@ public class ServiceEdificio {
         }
     }
 
+    public void eliminar(int id) throws ServiceException{
+        try{
+            daoEdificio.eliminar(id);
+        }catch (DaoException e){
+            throw new ServiceException("Error al eliminar edificio: " + e);
+        }
+    }
+
     public ArrayList<Edificio> consultarTodo() throws ServiceException{
         ArrayList<Edificio> edificios = new ArrayList<>();
         try{

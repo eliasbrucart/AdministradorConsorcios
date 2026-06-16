@@ -52,13 +52,25 @@ public class DAOEdificio implements IDAO<Edificio> {
             }
         }
         catch (ClassNotFoundException | SQLException e){
-            throw new DaoException("Error en agregar elemento" + e);
+            throw new DaoException("Error en agregar edificio" + e);
         }
     }
 
     @Override
     public void eliminar(int id) throws DaoException{
-
+        Connection connection=null;
+        PreparedStatement preparedStatement=null;
+        try{
+            Class.forName(DB_JDBC_DRIVER);
+            System.out.println("no hay driver");
+            connection = DriverManager.getConnection(DB_URL, DB_USER, DB_PASSWORD);
+            System.out.println("se conecto");
+            preparedStatement = connection.prepareStatement("DELETE FROM EDIFICIO WHERE id = ?");
+            preparedStatement.setInt(1, id);
+            preparedStatement.executeUpdate();
+        }catch(ClassNotFoundException | SQLException e){
+            throw new DaoException("Error al eliminar el edificio " + e);
+        }
     }
 
     @Override
