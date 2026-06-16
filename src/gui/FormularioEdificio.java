@@ -81,13 +81,6 @@ public class FormularioEdificio extends JPanel{
             datos[i][1] = edificio.getNombre();
             datos[i][2] = edificio.getDireccion();
         }
-        /*for(Edificio edificio:edificiosConsultados){
-            datos = new Object[][]{
-                    {edificio.getNombre(), edificio.getDireccion()}
-                    //{"Palacio 2", "Avenida Siempre Viva 742"},
-                    //{"Palacio 3", "Ruta 66 Km 10"}
-            };
-        }*/
 
         //modelo y la tabla (celdas no editables directamente)
         DefaultTableModel modelo = new DefaultTableModel(datos, columnas) {
@@ -236,49 +229,6 @@ public class FormularioEdificio extends JPanel{
                 // Revalidar y repintar el panel de acciones
                 panelAcciones.revalidate();
                 panelAcciones.repaint();
-            }
-        });
-
-        // Acción para el botón editar
-        btnEditar.addActionListener(new ActionListener() {
-            @Override
-            public void actionPerformed(ActionEvent e) {
-                int filaSeleccionada = tabla.getSelectedRow();
-                if (filaSeleccionada != -1) {
-                    String nombre = (String) tabla.getValueAt(filaSeleccionada, 1);
-                    String direccion = (String) tabla.getValueAt(filaSeleccionada, 2);
-
-                    // Usamos 'MiPanelTabla.this' como componente padre para el diálogo
-                    /*JOptionPane.showMessageDialog(FormularioEdificio.this,
-                            "Editando a: " + nombre + " (" + direccion + ")");*/
-
-                    /*int opcion = JOptionPane.showConfirmDialog(
-                            FormularioEdificio.this,
-                            panelFormularioAgregar,
-                            "Agregar Nuevo Edificio",
-                            JOptionPane.OK_CANCEL_OPTION,
-                            JOptionPane.PLAIN_MESSAGE
-                    );
-
-                    if(opcion == JOptionPane.OK_OPTION){
-                        String nuevoNombre = txtNombre.getText();
-                        String nuevaDireccion = txtDireccion.getText();
-
-                        Object[] data = new Object[9];
-                        data[0] = nuevoNombre;
-                        data[1] = nuevaDireccion;
-                        try{
-                            serviceEdificio.agregarEdificio(data);
-                        } catch (ServiceException d) {
-                            JOptionPane.showMessageDialog(
-                                    FormularioEdificio.this,
-                                    "Error al agregar edificio"
-                            );
-                            //throw new ServiceException(d.getMessage());
-                        }
-                        //Mandar datos al ServiceEdificio para agregar un edificio.
-                    }*/
-                }
             }
         });
 

@@ -42,7 +42,7 @@ public class DAOEdificio implements IDAO<Edificio> {
             preparedStatement.setInt(5, elemento.getCantidadUnidades());
             preparedStatement.setInt(6, elemento.getCantidadPisos());
             preparedStatement.setLong(7, elemento.getLiquidacionExpensas());
-            preparedStatement.setDate(8, Date.valueOf(java.time.LocalDate.now()));
+            preparedStatement.setDate(8, Date.valueOf(LocalDate.now()));
 
             int resultado = preparedStatement.executeUpdate();
             if (resultado == 1){
@@ -132,7 +132,16 @@ public class DAOEdificio implements IDAO<Edificio> {
                 int unidades = (rs.getInt("cantidad_unidades"));
                 int pisos = (rs.getInt("cantidad_pisos"));
                 int liquidacionExpensas = (rs.getInt("liquidacion_expensas"));
-                String fechaLiquidacionExpensas = (rs.getString("fecha_liquidacion_expensas"));
+                //String fechaLiquidacionExpensas = (rs.getString("fecha_liquidacion_expensas"));
+                String fechaDB = (rs.getString("fecha_liquidacion_expensas"));
+                String fechaLiquidacionExpensas = "";
+                if (fechaDB != null){
+                    LocalDate fechaLocal = LocalDate.parse(fechaDB);
+                    DateTimeFormatter formateador = DateTimeFormatter.ofPattern("dd/MM/yyyy");
+
+                    fechaLiquidacionExpensas = fechaLocal.format(formateador);
+                }
+                DateTimeFormatter formateador = DateTimeFormatter.ofPattern("dd/MM/yyyy");
                 //System.out.println("nombre " + nombre); //borrar print, no se hace en un metodo
                 edificio.setId(idEdificio);
                 edificio.setNombre(nombre);
