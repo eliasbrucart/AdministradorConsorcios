@@ -217,19 +217,30 @@ public class FormularioEdificio extends JPanel{
         //selección de la tabla
         tabla.getSelectionModel().addListSelectionListener(e -> {
             int filaSeleccionada = tabla.getSelectedRow();
-            Object valorCelda = tabla.getValueAt(filaSeleccionada, 0);
-            idSeleccionado = Integer.parseInt(valorCelda.toString());
-            //remover luego
-            //System.out.println(idSeleccionado);
-            if (!e.getValueIsAdjusting()) {
-                // Ocultar si no hay selección
-                btnEditar.setVisible(tabla.getSelectedRow() != -1); // Mostrar botón
-                btnEliminar.setVisible(tabla.getSelectedRow() != -1);
-                //btnAgregar.setVisible(tabla.getSelectedRow() != -1);
-                // Revalidar y repintar el panel de acciones
-                panelAcciones.revalidate();
-                panelAcciones.repaint();
-            }
+
+            if(filaSeleccionada != -1){
+                Object valorCelda = tabla.getValueAt(filaSeleccionada, 0);
+                idSeleccionado = Integer.parseInt(valorCelda.toString());
+                //remover luego
+                //System.out.println(idSeleccionado);
+                if (!e.getValueIsAdjusting()) {
+                    // Ocultar si no hay selección
+                    btnEditar.setVisible(tabla.getSelectedRow() != -1); // Mostrar botón
+                    btnEliminar.setVisible(tabla.getSelectedRow() != -1);
+                    //btnAgregar.setVisible(tabla.getSelectedRow() != -1);
+                    // Revalidar y repintar el panel de acciones
+                    panelAcciones.revalidate();
+                    panelAcciones.repaint();
+                }
+            }/*else{
+                JOptionPane.showMessageDialog(
+                        null,
+                        "Por favor, selecciona un edificio de la lista.",
+                        "Aviso",
+                        JOptionPane.WARNING_MESSAGE
+                );
+            }*/
+
         });
 
         btnAgregar.addActionListener(new ActionListener() {
@@ -268,6 +279,14 @@ public class FormularioEdificio extends JPanel{
                                 FormularioEdificio.this,
                                 "Edificio agregado con exito!"
                         );
+                        DefaultTableModel modelo = (DefaultTableModel) tabla.getModel();
+                        modelo.setRowCount(0); //limpia la tabla
+
+                        ArrayList<Edificio> lista = serviceEdificio.consultarTodo();
+
+                        for (Edificio ed : lista) {
+                            modelo.addRow(new Object[]{ed.getId(), ed.getNombre(), ed.getDireccion()});
+                        }
                     } catch (ServiceException d) {
                         JOptionPane.showMessageDialog(
                                 FormularioEdificio.this,
@@ -339,6 +358,14 @@ public class FormularioEdificio extends JPanel{
                                 FormularioEdificio.this,
                                 "Edificio modificado con exito!"
                         );
+                        DefaultTableModel modelo = (DefaultTableModel) tabla.getModel();
+                        modelo.setRowCount(0); //limpia la tabla
+
+                        ArrayList<Edificio> lista = serviceEdificio.consultarTodo();
+
+                        for (Edificio ed : lista) {
+                            modelo.addRow(new Object[]{ed.getId(), ed.getNombre(), ed.getDireccion()});
+                        }
                     } catch (ServiceException d) {
                         JOptionPane.showMessageDialog(
                                 FormularioEdificio.this,
@@ -387,6 +414,14 @@ public class FormularioEdificio extends JPanel{
                                 FormularioEdificio.this,
                                 "Edificio eliminado con exito!"
                         );
+                        DefaultTableModel modelo = (DefaultTableModel) tabla.getModel();
+                        modelo.setRowCount(0); //limpia la tabla
+
+                        ArrayList<Edificio> lista = serviceEdificio.consultarTodo();
+
+                        for (Edificio ed : lista) {
+                            modelo.addRow(new Object[]{ed.getId(), ed.getNombre(), ed.getDireccion()});
+                        }
                     }catch(ServiceException d){
                         JOptionPane.showMessageDialog(
                                 FormularioEdificio.this,
@@ -400,5 +435,25 @@ public class FormularioEdificio extends JPanel{
         //Agregar los componentes directamente
         add(scrollPane, BorderLayout.CENTER);
         add(panelAcciones, BorderLayout.SOUTH);
+    }
+
+    public void recargarDatosTabla(ServiceEdificio serviceEdificio, JTable tabla) {
+        DefaultTableModel modelo = (DefaultTableModel) tabla.getModel();
+        modelo.setRowCount(0); //limpia la tabla
+
+        ArrayList<Edificio> lista;
+
+        try{
+            lista = serviceEdificio.consultarTodo();
+
+            for (Edificio ed : lista) {
+                modelo.addRow(new Object[]{ed.getId(), ed.getNombre(), ed.getDireccion()});
+            }
+        } catch (ServiceException e) {
+            JOptionPane.showMessageDialog(
+                    FormularioEdificio.this,
+                    "Error al listar todos los edificios" + e.getMessage()
+            );
+        }
     }
 }
