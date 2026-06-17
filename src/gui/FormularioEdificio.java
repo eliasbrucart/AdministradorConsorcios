@@ -264,6 +264,10 @@ public class FormularioEdificio extends JPanel{
                     data[7] = nuevoFechaLiquidacionExpensas;
                     try {
                         serviceEdificio.agregarEdificio(data);
+                        JOptionPane.showMessageDialog(
+                                FormularioEdificio.this,
+                                "Edificio agregado con exito!"
+                        );
                     } catch (ServiceException d) {
                         JOptionPane.showMessageDialog(
                                 FormularioEdificio.this,
@@ -331,6 +335,10 @@ public class FormularioEdificio extends JPanel{
 
                     try {
                         serviceEdificio.modificarEdificio(data);
+                        JOptionPane.showMessageDialog(
+                                FormularioEdificio.this,
+                                "Edificio modificado con exito!"
+                        );
                     } catch (ServiceException d) {
                         JOptionPane.showMessageDialog(
                                 FormularioEdificio.this,
@@ -375,6 +383,10 @@ public class FormularioEdificio extends JPanel{
                 if (opcion == JOptionPane.OK_OPTION){
                     try{
                         serviceEdificio.eliminar(idSeleccionado);
+                        JOptionPane.showMessageDialog(
+                                FormularioEdificio.this,
+                                "Edificio eliminado con exito!"
+                        );
                     }catch(ServiceException d){
                         JOptionPane.showMessageDialog(
                                 FormularioEdificio.this,
