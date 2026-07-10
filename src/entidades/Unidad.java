@@ -1,10 +1,10 @@
 package entidades;
 
-public class Unidades {
+public class Unidad {
     private int metrosCuadrados;
     private int ambientes;
 
-    public Unidades(int metrosCuadrados, int ambientes){
+    public Unidad(int metrosCuadrados, int ambientes){
         this.metrosCuadrados = metrosCuadrados;
         this.ambientes = ambientes;
     }
