@@ -1,28 +1,50 @@
 package entidades;
 
 public class Administradora {
-    //agregamos edificio
-    private double entrada;
-    private double gastos;
-    //agregar unidades funcionaless
+    private String nombre;
+    private String direccion;
+    private int telefono;
+    private int cuit;
     public Administradora(){
 
     }
 
-    public void setEntrada(double entrada){
-        this.entrada = entrada;
+    public Administradora(String nombre, String direccion, int telefono, int cuit){
+        this.nombre = nombre;
+        this.direccion = direccion;
+        this.telefono = telefono;
+        this.cuit = cuit;
     }
 
-    public double getEntrada(){
-        return entrada;
+    public void setNombre(String nombre) {
+        this.nombre = nombre;
     }
 
-    public void setGastos(double gastos){
-        this.gastos = gastos;
+    public String getNombre() {
+        return nombre;
     }
 
-    public double getGastos(){
-        return gastos;
+    public void setDireccion(String direccion) {
+        this.direccion = direccion;
     }
 
+    public String getDireccion() {
+        return direccion;
+    }
+
+    public void setTelefono(int telefono) {
+        this.telefono = telefono;
+    }
+
+    public int getTelefono() {
+        return telefono;
+    }
+
+    public void setCuit(int cuit) {
+        this.cuit = cuit;
+    }
+
+    public int getCuit() {
+        return cuit;
+    }
 }
