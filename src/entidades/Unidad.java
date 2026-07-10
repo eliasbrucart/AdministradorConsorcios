@@ -1,20 +1,40 @@
 package entidades;
 
 public class Unidad {
-    private int metrosCuadrados;
+    private String nombre;
+    private String ocupante;
     private int ambientes;
+    private int metrosCuadrados;
+    private int ubicacion;
+    private int porcentaje; //porcentaje de ocupacion en el edificio.
 
-    public Unidad(int metrosCuadrados, int ambientes){
-        this.metrosCuadrados = metrosCuadrados;
+    public Unidad(){
+
+    }
+
+    public Unidad(String nombre, String ocupante, int ambientes, int metrosCuadrados, int ubicacion, int porcentaje){
+        this.nombre = nombre;
+        this.ocupante = ocupante;
         this.ambientes = ambientes;
-    }
-
-    public void setMetrosCuadrados(int metrosCuadrados) {
         this.metrosCuadrados = metrosCuadrados;
+        this.ubicacion = ubicacion;
+        this.porcentaje = porcentaje;
     }
 
-    public int getMetrosCuadrados() {
-        return metrosCuadrados;
+    public void setNombre(String nombre) {
+        this.nombre = nombre;
+    }
+
+    public String getNombre() {
+        return this.nombre;
+    }
+
+    public void setOcupante(String ocupante) {
+        this.ocupante = ocupante;
+    }
+
+    public String getOcupante() {
+        return this.ocupante;
     }
 
     public void setAmbientes(int ambientes) {
@@ -22,6 +42,30 @@ public class Unidad {
     }
 
     public int getAmbientes() {
-        return ambientes;
+        return this.ambientes;
+    }
+
+    public void setMetrosCuadrados(int metrosCuadrados) {
+        this.metrosCuadrados = metrosCuadrados;
+    }
+
+    public int getMetrosCuadrados() {
+        return this.metrosCuadrados;
+    }
+
+    public void setUbicacion(int ubicacion) {
+        this.ubicacion = ubicacion;
+    }
+
+    public int getUbicacion() {
+        return this.ubicacion;
+    }
+
+    public void setPorcentaje(int porcentaje) {
+        this.porcentaje = porcentaje;
+    }
+
+    public int getPorcentaje() {
+        return  this.porcentaje;
     }
 }
