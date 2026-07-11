@@ -145,6 +145,8 @@ public class FormularioEdificio extends JPanel{
         JTextField editarFechaLiquidacionExpensas = new JTextField(10);
 
         JPanel panelFormularioEditar = new JPanel(new GridLayout(10, 15, 8, 8));
+        //panelFormularioEditar.setLayout(null);
+        panelFormularioEditar.setPreferredSize(new Dimension(400, 400));
         panelFormularioEditar.add(new JLabel("ID: "));
         panelFormularioEditar.add(idEdificioModificar);
         idEdificioModificar.setEditable(false);
