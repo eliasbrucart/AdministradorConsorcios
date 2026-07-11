@@ -1,6 +1,7 @@
 package entidades;
 
 public class Administradora {
+    private int id;
     private String nombre;
     private String direccion;
     private int telefono;
@@ -14,6 +15,14 @@ public class Administradora {
         this.direccion = direccion;
         this.telefono = telefono;
         this.cuit = cuit;
+    }
+
+    public void setId(int id){
+        this.id = id;
+    }
+
+    public int getId(){
+        return this.id;
     }
 
     public void setNombre(String nombre) {
