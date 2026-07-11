@@ -1,6 +1,7 @@
 package entidades;
 
 public class Unidad {
+    private int id;
     private String nombre;
     private String ocupante;
     private int ambientes;
@@ -19,6 +20,14 @@ public class Unidad {
         this.metrosCuadrados = metrosCuadrados;
         this.ubicacion = ubicacion;
         this.porcentaje = porcentaje;
+    }
+
+    public void setId(int id){
+        this.id = id;
+    }
+
+    public int getId(){
+        return this.id;
     }
 
     public void setNombre(String nombre) {
