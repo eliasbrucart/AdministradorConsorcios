@@ -25,6 +25,6 @@ public class PanelManager {
         jFrame.getContentPane().repaint();
         jFrame.setVisible(true);
         jFrame.pack();
-        jFrame.setSize(800,600);
+        jFrame.setSize(1024,768);
     }
 }

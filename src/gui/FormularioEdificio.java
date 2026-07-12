@@ -104,6 +104,8 @@ public class FormularioEdificio extends JPanel{
         panelAcciones.add(btnEliminar);
         panelAcciones.add(btnAgregar);
 
+        PanelUnidades panelUnidades = new PanelUnidades();
+
         //Creamos los componentes del formulario agregar
         JTextField txtNombre = new JTextField(10);
         JTextField txtDireccion = new JTextField(15);
@@ -229,9 +231,14 @@ public class FormularioEdificio extends JPanel{
                     // Ocultar si no hay selección
                     btnEditar.setVisible(tabla.getSelectedRow() != -1); // Mostrar botón
                     btnEliminar.setVisible(tabla.getSelectedRow() != -1);
-                    //btnAgregar.setVisible(tabla.getSelectedRow() != -1);
+
+                    panelUnidades.getBtnAgregarUnidades().setVisible(tabla.getSelectedRow() != -1);
+
                     // Revalidar y repintar el panel de acciones
                     panelAcciones.revalidate();
+                    panelAcciones.repaint();
+
+                    panelUnidades.revalidate();
                     panelAcciones.repaint();
                 }
             }/*else{
@@ -437,6 +444,7 @@ public class FormularioEdificio extends JPanel{
         //Agregar los componentes directamente
         add(scrollPane, BorderLayout.CENTER);
         add(panelAcciones, BorderLayout.SOUTH);
+        add(panelUnidades, BorderLayout.WEST);
     }
 
     public void recargarDatosTabla(ServiceEdificio serviceEdificio, JTable tabla) {
