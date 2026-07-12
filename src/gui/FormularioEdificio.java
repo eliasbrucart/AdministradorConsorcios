@@ -106,6 +106,7 @@ public class FormularioEdificio extends JPanel{
 
         PanelUnidades panelUnidades = new PanelUnidades();
         panelUnidades.armarPanelEditar();
+        panelUnidades.armarPanelMostrar();
 
         //Creamos los componentes del formulario agregar
         JTextField txtNombre = new JTextField(10);
@@ -257,13 +258,55 @@ public class FormularioEdificio extends JPanel{
 
         });
 
+        panelUnidades.setIdSeleccionado(idSeleccionado);
+
+
         panelUnidades.getBtnEditarUnidades().addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e){
                 int opcion = JOptionPane.showConfirmDialog(
                         FormularioEdificio.this,
                         panelUnidades.getPanelEditar(),
-                        "Agregar Nueva Unidad",
+                        "Editar Nueva Unidad",
+                        JOptionPane.OK_CANCEL_OPTION,
+                        JOptionPane.PLAIN_MESSAGE
+                );
+            }
+        });
+
+        panelUnidades.getBtnMostrarUnidades().addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e){
+                int opcion = JOptionPane.showConfirmDialog(
+                        FormularioEdificio.this,
+                        panelUnidades.getPanelMostrar(),
+                        "Unidades del edificio",
+                        JOptionPane.OK_CANCEL_OPTION,
+                        JOptionPane.PLAIN_MESSAGE
+                );
+            }
+        });
+
+        panelUnidades.getBtnAgregarUnidades().addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e){
+                int opcion = JOptionPane.showConfirmDialog(
+                        FormularioEdificio.this,
+                        panelUnidades.getPanelMostrar(), //modificar
+                        "Agregar unidades",
+                        JOptionPane.OK_CANCEL_OPTION,
+                        JOptionPane.PLAIN_MESSAGE
+                );
+            }
+        });
+
+        panelUnidades.getBtnEliminarUnidades().addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e){
+                int opcion = JOptionPane.showConfirmDialog(
+                        FormularioEdificio.this,
+                        panelUnidades.getPanelMostrar(), //modificar
+                        "Eliminar unidades",
                         JOptionPane.OK_CANCEL_OPTION,
                         JOptionPane.PLAIN_MESSAGE
                 );

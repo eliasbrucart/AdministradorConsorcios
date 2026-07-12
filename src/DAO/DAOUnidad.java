@@ -170,4 +170,36 @@ public class DAOUnidad implements IDAO<Unidad>{
         }
         return unidades;
     }
+
+    public ArrayList<Unidad> consultarTodoPorID(int id) throws DaoException{
+        Connection connection=null;
+        PreparedStatement preparedStatement=null;
+        ArrayList<Unidad> unidades = new ArrayList<>();
+
+        try{
+            Class.forName(DB_JDBC_DRIVER);
+            System.out.println("no hay driver"); //quitar luego
+            connection = DriverManager.getConnection(DB_URL, DB_USER, DB_PASSWORD);
+            System.out.println("se conecto"); //quitar luego
+            preparedStatement = connection.prepareStatement("SELECT * FROM UNIDAD WHERE id = ?");
+            preparedStatement.setInt(1,id);
+
+            ResultSet rs=preparedStatement.executeQuery();
+
+            while(rs.next()){
+                Unidad unidad = new Unidad();
+                unidad.setId(rs.getInt("id"));
+                unidad.setNombre(rs.getString("nombre"));
+                unidad.setOcupante(rs.getString("ocupante"));
+                unidad.setAmbientes(rs.getInt("ambientes"));
+                unidad.setMetrosCuadrados(rs.getInt("metros"));
+                unidad.setUbicacion(rs.getInt("ubicacion"));
+                unidad.setPorcentaje(rs.getInt("porcentaje"));
+                unidades.add(unidad);
+            }
+        }catch (ClassNotFoundException | SQLException e){
+            throw new DaoException("Error en consultar todas las unidades");
+        }
+        return unidades;
+    }
 }

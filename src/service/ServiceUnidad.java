@@ -1,6 +1,7 @@
 package service;
 
 import DAO.DAOUnidad;
+import DAO.DaoException;
 import entidades.Administradora;
 import entidades.Unidad;
 
@@ -36,6 +37,21 @@ public class ServiceUnidad {
 
     public ArrayList<Unidad> consultarTodo() throws ServiceException{
         ArrayList<Unidad> unidades = new ArrayList<>();
-        return unidades;
+        try{
+            unidades = daoUnidad.consultarTodo();
+            return unidades;
+        }catch (DaoException e){
+            throw new ServiceException("Error al consultar todas las unidades: " + e);
+        }
+    }
+
+    public ArrayList<Unidad> consultarTodoPorID(int id) throws ServiceException{
+        ArrayList<Unidad> unidades = new ArrayList<>();
+        try{
+            unidades = daoUnidad.consultarTodoPorID(id);
+            return unidades;
+        }catch (DaoException e){
+            throw new ServiceException("Error al consultar todas las unidades del edificio: " + id + " error: " + e);
+        }
     }
 }
