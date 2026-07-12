@@ -105,6 +105,7 @@ public class FormularioEdificio extends JPanel{
         panelAcciones.add(btnAgregar);
 
         PanelUnidades panelUnidades = new PanelUnidades();
+        panelUnidades.armarPanelEditar();
 
         //Creamos los componentes del formulario agregar
         JTextField txtNombre = new JTextField(10);
@@ -232,7 +233,11 @@ public class FormularioEdificio extends JPanel{
                     btnEditar.setVisible(tabla.getSelectedRow() != -1); // Mostrar botón
                     btnEliminar.setVisible(tabla.getSelectedRow() != -1);
 
+                    panelUnidades.getBtnMostrarUnidades().setVisible(tabla.getSelectedRow() != -1);
                     panelUnidades.getBtnAgregarUnidades().setVisible(tabla.getSelectedRow() != -1);
+                    panelUnidades.getBtnEditarUnidades().setVisible(tabla.getSelectedRow() != -1);
+                    panelUnidades.getBtnEliminarUnidades().setVisible(tabla.getSelectedRow() != -1);
+                    //panelUnidades.getBtnAgregarUnidades().setVisible(tabla.getSelectedRow() != -1);
 
                     // Revalidar y repintar el panel de acciones
                     panelAcciones.revalidate();
@@ -250,6 +255,19 @@ public class FormularioEdificio extends JPanel{
                 );
             }*/
 
+        });
+
+        panelUnidades.getBtnEditarUnidades().addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e){
+                int opcion = JOptionPane.showConfirmDialog(
+                        FormularioEdificio.this,
+                        panelUnidades.getPanelEditar(),
+                        "Agregar Nueva Unidad",
+                        JOptionPane.OK_CANCEL_OPTION,
+                        JOptionPane.PLAIN_MESSAGE
+                );
+            }
         });
 
         btnAgregar.addActionListener(new ActionListener() {
