@@ -110,6 +110,8 @@ public class FormularioEdificio extends JPanel{
         panelUnidades.armarPanelAgregar();
         panelUnidades.armarPanelEliminar();
 
+        PanelAdministradora panelAdministradora = new PanelAdministradora();
+
         //Creamos los componentes del formulario agregar
         JTextField txtNombre = new JTextField(10);
         JTextField txtDireccion = new JTextField(15);
@@ -514,6 +516,7 @@ public class FormularioEdificio extends JPanel{
         //Agregar los componentes directamente
         add(scrollPane, BorderLayout.CENTER);
         add(panelAcciones, BorderLayout.SOUTH);
+        add(panelAdministradora, BorderLayout.NORTH);
         add(panelUnidades, BorderLayout.WEST);
     }
 
