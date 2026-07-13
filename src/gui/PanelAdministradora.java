@@ -34,6 +34,13 @@ public class PanelAdministradora extends JPanel {
     private JTextField telefonoAdministradoraEditar = new JTextField(15);
     private JTextField cuitAdministradoraEditar = new JTextField(15);
 
+    private JPanel panelEliminar;
+    private JTextField idAdministradoraEliminar = new JTextField(10);
+    private JTextField nombreAdministradoraEliminar = new JTextField(10);
+    private JTextField direccionAdministradoraEliminar = new JTextField(10);
+    private JTextField telefonoAdministradoraEliminar = new JTextField(10);
+    private JTextField cuitAdministradoraEliminar = new JTextField(10);
+
 
     public PanelAdministradora(FormularioEdificio formularioEdificio){
         this.formularioEdificio = formularioEdificio;
@@ -43,7 +50,7 @@ public class PanelAdministradora extends JPanel {
         JLabel direccionAdministradora = new JLabel();
         JLabel telefonoAdministradora = new JLabel();
         try{
-            administradoraConsultada = serviceAdministradora.consultarAdministradora(1);
+            administradoraConsultada = serviceAdministradora.consultarAdministradora();
             //nombreAdministradora.setText(administradoraConsultada.getNombre());
             nombreAdministradora.setText("Nombre: " + administradoraConsultada.getNombre());
             direccionAdministradora.setText("Direccion: " + administradoraConsultada.getDireccion());
@@ -98,13 +105,47 @@ public class PanelAdministradora extends JPanel {
 
         try{
             Administradora administradoraConsultada = new Administradora();
-            administradoraConsultada = serviceAdministradora.consultarAdministradora(1);
+            administradoraConsultada = serviceAdministradora.consultarAdministradora();
 
             idAdministradoraEditar.setText(String.valueOf(administradoraConsultada.getId()));
             nombreAdministradoraEditar.setText(administradoraConsultada.getNombre());
             direccionAdministradoraEditar.setText(administradoraConsultada.getDireccion());
             telefonoAdministradoraEditar.setText(String.valueOf(administradoraConsultada.getTelefono()));
             cuitAdministradoraEditar.setText(String.valueOf(administradoraConsultada.getCuit()));
+            //nombreAdministradora.setText(administradoraConsultada.getNombre());
+        }catch(ServiceException d){
+            JOptionPane.showMessageDialog(
+                    formularioEdificio,
+                    "Error al consultar la administradora " + d.getMessage()
+            );
+        }
+    }
+
+    void armarPanelEliminar(){
+        panelEliminar = new JPanel(new GridLayout(10, 15, 8, 8));
+
+        panelEliminar.add(new JLabel("ID: "));
+        //idAdministradoraEditar.setText("1");
+        idAdministradoraEliminar.setEditable(false);
+        panelEliminar.add(idAdministradoraEliminar);
+        panelEliminar.add(new JLabel("Nombre: "));
+        panelEliminar.add(nombreAdministradoraEliminar);
+        panelEliminar.add(new JLabel("Direccion: "));
+        panelEliminar.add(direccionAdministradoraEliminar);
+        panelEliminar.add(new JLabel("Telefono: "));
+        panelEliminar.add(telefonoAdministradoraEliminar);
+        panelEliminar.add(new JLabel("Cuit: "));
+        panelEliminar.add(cuitAdministradoraEliminar);
+
+        try{
+            Administradora administradoraConsultada = new Administradora();
+            administradoraConsultada = serviceAdministradora.consultarAdministradora();
+
+            idAdministradoraEliminar.setText(String.valueOf(administradoraConsultada.getId()));
+            nombreAdministradoraEliminar.setText(administradoraConsultada.getNombre());
+            direccionAdministradoraEliminar.setText(administradoraConsultada.getDireccion());
+            telefonoAdministradoraEliminar.setText(String.valueOf(administradoraConsultada.getTelefono()));
+            cuitAdministradoraEliminar.setText(String.valueOf(administradoraConsultada.getCuit()));
             //nombreAdministradora.setText(administradoraConsultada.getNombre());
         }catch(ServiceException d){
             JOptionPane.showMessageDialog(
@@ -202,6 +243,47 @@ public class PanelAdministradora extends JPanel {
                                 formularioEdificio,
                                 "Error al modificar la administradora " + d.getMessage()
                         );
+                    }
+                }
+            }
+        });
+    }
+
+    public void actionBtnEliminarAdministradora(){
+        btnEliminarAdministradora.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                int opcion = JOptionPane.showConfirmDialog(
+                        formularioEdificio,
+                        panelEliminar,
+                        "Eliminar Administradora",
+                        JOptionPane.OK_CANCEL_OPTION,
+                        JOptionPane.PLAIN_MESSAGE
+                );
+
+                if(opcion == JOptionPane.OK_OPTION){
+                    int idEliminarAdministradora= Integer.parseInt(idAdministradoraEliminar.getText());
+
+                    try {
+                        serviceAdministradora.eliminar(idEliminarAdministradora);
+                        JOptionPane.showMessageDialog(
+                                formularioEdificio,
+                                "Administradora eliminada con exito!"
+                        );
+                        /*DefaultTableModel modelo = (DefaultTableModel) tabla.getModel();
+                        modelo.setRowCount(0); //limpia la tabla
+
+                        ArrayList<Edificio> lista = serviceEdificio.consultarTodo();
+
+                        for (Edificio ed : lista) {
+                            modelo.addRow(new Object[]{ed.getId(), ed.getNombre(), ed.getDireccion()});
+                        }*/
+                    } catch (ServiceException d) {
+                        JOptionPane.showMessageDialog(
+                                formularioEdificio,
+                                "Error al eliminar la administradora" + d.getMessage()
+                        );
+                        //throw new ServiceException(d.getMessage());
                     }
                 }
             }

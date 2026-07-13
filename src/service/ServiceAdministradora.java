@@ -25,6 +25,16 @@ public class ServiceAdministradora {
         }
     }
 
+    public Administradora consultarAdministradora() throws ServiceException{
+        Administradora administradora = null;
+        try{
+            administradora = daoAdministradora.consultar();
+            return administradora;
+        } catch (DaoException e){
+            throw new ServiceException("Error al consultar la administradora: " + e.getMessage());
+        }
+    }
+
     public void insertarAdministradora(Administradora elemento) throws ServiceException{
         try{
             daoAdministradora.agregar(elemento);

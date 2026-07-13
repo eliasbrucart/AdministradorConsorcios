@@ -137,6 +137,48 @@ public class DAOAdministradora implements IDAO<Administradora> {
         return administradora;
     }
 
+    public Administradora consultar() throws DaoException{
+        Connection connection=null;
+        PreparedStatement preparedStatement=null;
+        //Edificio edificio=null;
+        Administradora administradora=new Administradora();
+        try {
+            Class.forName(DB_JDBC_DRIVER);
+            System.out.println("no hay driver"); //quitar luego
+            connection = DriverManager.getConnection(DB_URL, DB_USER, DB_PASSWORD);
+            System.out.println("se conecto"); //quitar luego
+            preparedStatement = connection.prepareStatement("SELECT * FROM ADMINISTRADORA");
+
+            ResultSet rs=preparedStatement.executeQuery();
+            if (rs.next()) {
+                /*alumno.setId(rs.getInt("id"));
+                alumno.setNombre(rs.getString("nombre"));
+                alumno.setNota(rs.getInt("nota"));
+                */
+                int idAdministradora = Integer.parseInt((rs.getString("id")));
+                String nombre=(rs.getString("nombre"));
+                String direccion=(rs.getString("direccion"));
+                long telefono = (rs.getLong("telefono"));
+                long cuit = (rs.getLong("cuit"));
+                //System.out.println("nombre " + nombre); //borrar print, no se hace en un metodo
+                administradora.setId(idAdministradora);
+                administradora.setNombre(nombre);
+                administradora.setDireccion(direccion);
+                administradora.setTelefono(telefono);
+                administradora.setCuit(cuit);
+                //int nota=(rs.getInt("nota"));
+                //Obtenemos los datos de la tabla y creamos el objeto propiamente dicho con los valores obtenidos.
+                //alumno=new Alumno(id, nombre);
+                //alumno.cambiarNota(nota);
+            }
+
+        }
+        catch (ClassNotFoundException | SQLException e){
+            throw new DaoException("Error en consultar la administradora");
+        }
+        return administradora;
+    }
+
     @Override
     public ArrayList<Administradora> consultarTodo() throws DaoException{
         Connection connection=null;
