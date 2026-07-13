@@ -21,6 +21,14 @@ public class PanelUnidades extends JPanel {
     private JPanel panelMostrar;
     private JScrollPane scrollPane;
 
+    private JPanel panelAgregar;
+    private JTextField nombreUnidadAgregar = new JTextField(10);
+    private JTextField ocupanteUnidadAgregar = new JTextField(10);
+    private JTextField ambientesUnidadAgregar = new JTextField(10);
+    private JTextField metrosUnidadAgregar = new JTextField(10);
+    private JTextField ubicacionUnidadAgregar = new JTextField(10);
+    private JTextField porcentajeUnidadAgregar = new JTextField(10);
+
     private JPanel panelEditar;
     private JTextField idUnidadEditar = new JTextField(10);
     private JTextField nombreUnidadEditar = new JTextField(10);
@@ -82,6 +90,31 @@ public class PanelUnidades extends JPanel {
 
     public JScrollPane getScrollPane() {
         return this.scrollPane;
+    }
+
+    public void setPanelAgregar(JPanel panelAgregar) {
+        this.panelAgregar = panelAgregar;
+    }
+
+    public JPanel getPanelAgregar() {
+        return this.panelAgregar;
+    }
+
+    public void armarPanelAgregar(){
+        panelAgregar = new JPanel(new GridLayout(10, 15, 8, 8));
+
+        panelAgregar.add(new JLabel("Nombre: "));
+        panelAgregar.add(nombreUnidadAgregar);
+        panelAgregar.add(new JLabel("Ocupante: "));
+        panelAgregar.add(ocupanteUnidadAgregar);
+        panelAgregar.add(new JLabel("Ambientes: "));
+        panelAgregar.add(ambientesUnidadAgregar);
+        panelAgregar.add(new JLabel("Metros: "));
+        panelAgregar.add(metrosUnidadAgregar);
+        panelAgregar.add(new JLabel("Ubicacion: "));
+        panelAgregar.add(ubicacionUnidadAgregar);
+        panelAgregar.add(new JLabel("Porcentaje: "));
+        panelAgregar.add(porcentajeUnidadAgregar);
     }
 
     public void armarPanelEditar(){

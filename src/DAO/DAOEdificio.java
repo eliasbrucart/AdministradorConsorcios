@@ -132,6 +132,7 @@ public class DAOEdificio implements IDAO<Edificio> {
                 int unidades = (rs.getInt("cantidad_unidades"));
                 int pisos = (rs.getInt("cantidad_pisos"));
                 int liquidacionExpensas = (rs.getInt("liquidacion_expensas"));
+                String idUnidad = (rs.getString("id_unidad"));
                 //String fechaLiquidacionExpensas = (rs.getString("fecha_liquidacion_expensas"));
                 String fechaDB = (rs.getString("fecha_liquidacion_expensas"));
                 String fechaLiquidacionExpensas = "";
@@ -152,6 +153,7 @@ public class DAOEdificio implements IDAO<Edificio> {
                 edificio.setCantidadPisos(pisos);
                 edificio.setLiquidacionExpensas(liquidacionExpensas);
                 edificio.setFechaLiquidacionExpensas(fechaLiquidacionExpensas);
+                edificio.setIdUnidades(idUnidad);
                 //int nota=(rs.getInt("nota"));
                 //Obtenemos los datos de la tabla y creamos el objeto propiamente dicho con los valores obtenidos.
                 //alumno=new Alumno(id, nombre);
@@ -191,6 +193,7 @@ public class DAOEdificio implements IDAO<Edificio> {
                 edificio.setCantidadPisos(rs.getInt("Cantidad_Pisos"));
                 edificio.setLiquidacionExpensas(rs.getInt("Liquidacion_Expensas"));
                 edificio.setFechaLiquidacionExpensas(rs.getString("Fecha_Liquidacion_Expensas"));
+                edificio.setIdUnidades(rs.getString("id_unidad"));
                 //faltan mas atributos
                 edificios.add(edificio);
             }

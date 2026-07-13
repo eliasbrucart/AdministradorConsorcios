@@ -8,6 +8,7 @@ public class Unidad {
     private int metrosCuadrados;
     private int ubicacion;
     private int porcentaje; //porcentaje de ocupacion en el edificio.
+    private int idEdificio;
 
     public Unidad(){
 
@@ -76,5 +77,13 @@ public class Unidad {
 
     public int getPorcentaje() {
         return  this.porcentaje;
+    }
+
+    public void setIdEdificio(int idEdificio) {
+        this.idEdificio = idEdificio;
+    }
+
+    public int getIdEdificio() {
+        return idEdificio;
     }
 }

@@ -11,6 +11,7 @@ public class Edificio {
     private int cantidadUnidades;
     private int liquidacionExpensas;
     private String fechaLiquidacionExpensas;
+    private String idUnidades;
     public Edificio(){
 
     }
@@ -81,5 +82,13 @@ public class Edificio {
 
     public String getFechaLiquidacionExpensas(){
         return this.fechaLiquidacionExpensas;
+    }
+
+    public void setIdUnidades(String idUnidades) {
+        this.idUnidades = idUnidades;
+    }
+
+    public String getIdUnidades() {
+        return idUnidades;
     }
 }

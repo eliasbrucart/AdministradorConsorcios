@@ -181,7 +181,7 @@ public class DAOUnidad implements IDAO<Unidad>{
             System.out.println("no hay driver"); //quitar luego
             connection = DriverManager.getConnection(DB_URL, DB_USER, DB_PASSWORD);
             System.out.println("se conecto"); //quitar luego
-            preparedStatement = connection.prepareStatement("SELECT * FROM UNIDAD WHERE id = ?");
+            preparedStatement = connection.prepareStatement("SELECT * FROM UNIDAD WHERE id_unidad = ?");
             preparedStatement.setInt(1,id);
 
             ResultSet rs=preparedStatement.executeQuery();

@@ -107,6 +107,7 @@ public class FormularioEdificio extends JPanel{
         PanelUnidades panelUnidades = new PanelUnidades();
         panelUnidades.armarPanelEditar();
         panelUnidades.armarPanelMostrar();
+        panelUnidades.armarPanelAgregar();
 
         //Creamos los componentes del formulario agregar
         JTextField txtNombre = new JTextField(10);
@@ -292,7 +293,7 @@ public class FormularioEdificio extends JPanel{
             public void actionPerformed(ActionEvent e){
                 int opcion = JOptionPane.showConfirmDialog(
                         FormularioEdificio.this,
-                        panelUnidades.getPanelMostrar(), //modificar
+                        panelUnidades.getPanelAgregar(), //modificar
                         "Agregar unidades",
                         JOptionPane.OK_CANCEL_OPTION,
                         JOptionPane.PLAIN_MESSAGE
