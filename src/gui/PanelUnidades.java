@@ -23,6 +23,8 @@ public class PanelUnidades extends JPanel {
     private JButton btnEditarUnidades;
     private JButton btnEliminarUnidades;
 
+    private JButton btnBuscarUnidad = new JButton("Buscar");
+
     private JPanel panelMostrar;
     private JScrollPane scrollPane;
 
@@ -131,6 +133,8 @@ public class PanelUnidades extends JPanel {
         panelEditar.add(new JLabel("ID: "));
         panelEditar.add(idUnidadEditar);
         idUnidadEditar.setEditable(true);
+        //JButton btnBuscarUnidad = new JButton("Buscar");
+        panelEditar.add(btnBuscarUnidad);
         panelEditar.add(new JLabel("Nombre: "));
         panelEditar.add(nombreUnidadEditar);
         panelEditar.add(new JLabel("Ocupante: "));
@@ -261,6 +265,45 @@ public class PanelUnidades extends JPanel {
                         );
                         //throw new ServiceException(d.getMessage());
                     }
+                }
+            }
+        });
+    }
+
+    public void actionBtnBuscarUnidad(){
+        btnBuscarUnidad.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                int idEditarUnidad = Integer.parseInt(idUnidadEditar.getText());
+                System.out.println("Entro en buscar unidad!");
+
+                try {
+                    System.out.println("Entro en try buscar unidad!");
+                    Unidad unidadConsultada = serviceUnidad.consultarUnidad(idEditarUnidad);
+                    idUnidadEditar.setText(String.valueOf(unidadConsultada.getId()));
+                    nombreUnidadEditar.setText(unidadConsultada.getNombre());
+                    ocupanteUnidadEditar.setText(unidadConsultada.getOcupante());
+                    ambientesUnidadEditar.setText(String.valueOf(unidadConsultada.getAmbientes()));
+                    metrosUnidadEditar.setText(String.valueOf(unidadConsultada.getMetrosCuadrados()));
+                    porcentajeUnidadEditar.setText(String.valueOf(unidadConsultada.getPorcentaje()));
+                    JOptionPane.showMessageDialog(
+                            formularioEdificio,
+                            "Unidad encontrada con exito!"
+                    );
+                        /*DefaultTableModel modelo = (DefaultTableModel) tabla.getModel();
+                        modelo.setRowCount(0); //limpia la tabla
+
+                        ArrayList<Edificio> lista = serviceEdificio.consultarTodo();
+
+                        for (Edificio ed : lista) {
+                            modelo.addRow(new Object[]{ed.getId(), ed.getNombre(), ed.getDireccion()});
+                        }*/
+                } catch (ServiceException d) {
+                    JOptionPane.showMessageDialog(
+                            formularioEdificio,
+                            "Error al buscar la unidad" + d.getMessage()
+                    );
+                    //throw new ServiceException(d.getMessage());
                 }
             }
         });

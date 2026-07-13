@@ -304,6 +304,7 @@ public class FormularioEdificio extends JPanel{
         panelUnidades.actionBtnAgregarUnidad();
         panelUnidades.actionBtnMostrarUnidades();
         panelUnidades.actionBtnEditarUnidades();
+        panelUnidades.actionBtnBuscarUnidad();
 
         panelUnidades.getBtnEliminarUnidades().addActionListener(new ActionListener() {
             @Override

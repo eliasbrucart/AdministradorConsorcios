@@ -17,7 +17,12 @@ public class ServiceUnidad {
 
     public Unidad consultarUnidad(int id) throws ServiceException{
         Unidad unidad = null;
-        return unidad;
+        try{
+            unidad = daoUnidad.consultar(id);
+            return unidad;
+        } catch (DaoException e){
+            throw new ServiceException(e.getMessage());
+        }
     }
 
     public void insertarUnidad(Unidad elemento) throws ServiceException{
