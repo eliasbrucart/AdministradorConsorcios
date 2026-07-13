@@ -16,6 +16,8 @@ public class PanelAdministradora extends JPanel {
         btnEditarAdministradora = new JButton("Editar Adm");
         btnEliminarAdministradora = new JButton("Eliminar Adm");
 
+        serviceAdministradora = new ServiceAdministradora();
+
         add(btnAgregarAdministradora);
         add(btnEditarAdministradora);
         add(btnEliminarAdministradora);

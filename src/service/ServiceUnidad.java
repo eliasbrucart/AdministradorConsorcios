@@ -26,7 +26,11 @@ public class ServiceUnidad {
     }
 
     public void insertarUnidad(Unidad elemento) throws ServiceException{
-
+        try{
+            daoUnidad.agregar(elemento);
+        } catch (DaoException e){
+            throw new ServiceException(e.getMessage());
+        }
     }
 
     public void agregarUnidad(Object[] data) throws ServiceException{
