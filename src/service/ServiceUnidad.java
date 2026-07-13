@@ -63,7 +63,11 @@ public class ServiceUnidad {
     }
 
     public void eliminar(int id) throws ServiceException{
-
+        try{
+            daoUnidad.eliminar(id);
+        }catch (DaoException e){
+            throw new ServiceException("Error al eliminar la unidad: " + e);
+        }
     }
 
     public ArrayList<Unidad> consultarTodo() throws ServiceException{

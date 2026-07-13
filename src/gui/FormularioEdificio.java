@@ -108,6 +108,7 @@ public class FormularioEdificio extends JPanel{
         panelUnidades.armarPanelEditar();
         panelUnidades.armarPanelMostrar();
         panelUnidades.armarPanelAgregar();
+        panelUnidades.armarPanelEliminar();
 
         //Creamos los componentes del formulario agregar
         JTextField txtNombre = new JTextField(10);
@@ -304,9 +305,11 @@ public class FormularioEdificio extends JPanel{
         panelUnidades.actionBtnAgregarUnidad();
         panelUnidades.actionBtnMostrarUnidades();
         panelUnidades.actionBtnEditarUnidades();
-        panelUnidades.actionBtnBuscarUnidad();
+        panelUnidades.actionBtnEliminarUnidad();
+        panelUnidades.actionBtnBuscarUnidadEditar();
+        panelUnidades.actionBtnBuscarUnidadEliminar();
 
-        panelUnidades.getBtnEliminarUnidades().addActionListener(new ActionListener() {
+        /*panelUnidades.getBtnEliminarUnidades().addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e){
                 int opcion = JOptionPane.showConfirmDialog(
@@ -317,7 +320,7 @@ public class FormularioEdificio extends JPanel{
                         JOptionPane.PLAIN_MESSAGE
                 );
             }
-        });
+        });*/
 
         btnAgregar.addActionListener(new ActionListener() {
             @Override
