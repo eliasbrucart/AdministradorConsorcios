@@ -87,6 +87,7 @@ public class DAOAdministradora implements IDAO<Administradora> {
             preparedStatement.setLong(4, elemento.getCuit());
             preparedStatement.setInt(5, elemento.getId());
             preparedStatement.executeUpdate();
+            //int filasAfectadas = preparedStatement.executeUpdate();
         }catch (ClassNotFoundException | SQLException e){
             throw new DaoException("Error al modificar la administradora: " + e);
         }

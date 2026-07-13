@@ -10,6 +10,7 @@ import javax.swing.*;
 import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.util.ArrayList;
 
 public class PanelAdministradora extends JPanel {
     private FormularioEdificio formularioEdificio;
@@ -25,6 +26,13 @@ public class PanelAdministradora extends JPanel {
     private JTextField direccionAdministradoraAgregar = new JTextField(10);
     private JTextField telefonoAdministradoraAgregar = new JTextField(15);
     private JTextField cuitAdministradoraAgregar = new JTextField(15);
+
+    private JPanel panelEditar;
+    private JTextField idAdministradoraEditar = new JTextField(10);
+    private JTextField nombreAdministradoraEditar = new JTextField(10);
+    private JTextField direccionAdministradoraEditar = new JTextField(10);
+    private JTextField telefonoAdministradoraEditar = new JTextField(15);
+    private JTextField cuitAdministradoraEditar = new JTextField(15);
 
 
     public PanelAdministradora(FormularioEdificio formularioEdificio){
@@ -72,6 +80,40 @@ public class PanelAdministradora extends JPanel {
         panelAgregar.add(cuitAdministradoraAgregar);
     }
 
+    public void armarPanelEditar(){
+        panelEditar = new JPanel(new GridLayout(10, 15, 8, 8));
+
+        panelAgregar.add(new JLabel("ID: "));
+        //idAdministradoraEditar.setText("1");
+        idAdministradoraEditar.setEditable(false);
+        panelEditar.add(idAdministradoraEditar);
+        panelEditar.add(new JLabel("Nombre: "));
+        panelEditar.add(nombreAdministradoraEditar);
+        panelEditar.add(new JLabel("Direccion: "));
+        panelEditar.add(direccionAdministradoraEditar);
+        panelEditar.add(new JLabel("Telefono: "));
+        panelEditar.add(telefonoAdministradoraEditar);
+        panelEditar.add(new JLabel("Cuit: "));
+        panelEditar.add(cuitAdministradoraEditar);
+
+        try{
+            Administradora administradoraConsultada = new Administradora();
+            administradoraConsultada = serviceAdministradora.consultarAdministradora(1);
+
+            idAdministradoraEditar.setText(String.valueOf(administradoraConsultada.getId()));
+            nombreAdministradoraEditar.setText(administradoraConsultada.getNombre());
+            direccionAdministradoraEditar.setText(administradoraConsultada.getDireccion());
+            telefonoAdministradoraEditar.setText(String.valueOf(administradoraConsultada.getTelefono()));
+            cuitAdministradoraEditar.setText(String.valueOf(administradoraConsultada.getCuit()));
+            //nombreAdministradora.setText(administradoraConsultada.getNombre());
+        }catch(ServiceException d){
+            JOptionPane.showMessageDialog(
+                    formularioEdificio,
+                    "Error al consultar la administradora " + d.getMessage()
+            );
+        }
+    }
+
     public void actionBtnAgregarAdministradora(){
         btnAgregarAdministradora.addActionListener(new ActionListener() {
             @Override
@@ -116,6 +158,50 @@ public class PanelAdministradora extends JPanel {
                                 "Error al agregar la administradora" + d.getMessage()
                         );
                         //throw new ServiceException(d.getMessage());
+                    }
+                }
+            }
+        });
+    }
+
+    public void actionBtnEditarAdministradora(){
+        btnEditarAdministradora.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                int opcion = JOptionPane.showConfirmDialog(
+                        formularioEdificio,
+                        panelEditar,
+                        "Editar Administradora",
+                        JOptionPane.OK_CANCEL_OPTION,
+                        JOptionPane.PLAIN_MESSAGE
+                );
+
+                if(opcion == JOptionPane.OK_OPTION){
+                    int idAdministradora = Integer.parseInt(idAdministradoraEditar.getText());
+                    String nombreAdministradora = nombreAdministradoraEditar.getText();
+                    String direccionAdministradora = direccionAdministradoraEditar.getText();
+                    long telefonoAdministradora = Long.parseLong(telefonoAdministradoraEditar.getText());
+                    long cuitAdministradora = Long.parseLong(cuitAdministradoraEditar.getText());
+
+                    Object[] data = new Object[5];
+                    data[0] = idAdministradora;
+                    data[1] = nombreAdministradora;
+                    data[2] = direccionAdministradora;
+                    data[3] = telefonoAdministradora;
+                    data[4] = cuitAdministradora;
+
+                    try{
+                        serviceAdministradora.modificarAdministradora(data);
+                        JOptionPane.showMessageDialog(
+                                formularioEdificio,
+                                "Administradora editada con exito!"
+                        );
+                        //nombreAdministradora.setText(administradoraConsultada.getNombre());
+                    }catch(ServiceException d){
+                        JOptionPane.showMessageDialog(
+                                formularioEdificio,
+                                "Error al modificar la administradora " + d.getMessage()
+                        );
                     }
                 }
             }

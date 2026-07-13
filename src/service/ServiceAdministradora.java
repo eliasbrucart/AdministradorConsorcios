@@ -47,7 +47,17 @@ public class ServiceAdministradora {
     }
 
     public void modificarAdministradora(Object[] data) throws ServiceException{
-
+        try{
+            Administradora administradora = new Administradora();
+            administradora.setId((int)data[0]);
+            administradora.setNombre((String)data[1]);
+            administradora.setDireccion((String)data[2]);
+            administradora.setTelefono((long)data[3]);
+            administradora.setCuit((long)data[4]);
+            daoAdministradora.modificar(administradora);
+        }catch (DaoException e){
+            throw new ServiceException(e.getMessage());
+        }
     }
 
     public void eliminar(int id) throws ServiceException{

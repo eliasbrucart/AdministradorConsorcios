@@ -307,10 +307,8 @@ public class PanelUnidades extends JPanel {
             @Override
             public void actionPerformed(ActionEvent e) {
                 int idEditarUnidad = Integer.parseInt(idUnidadEditar.getText());
-                System.out.println("Entro en buscar unidad!");
 
                 try {
-                    System.out.println("Entro en try buscar unidad!");
                     Unidad unidadConsultada = serviceUnidad.consultarUnidad(idEditarUnidad);
                     idUnidadEditar.setText(String.valueOf(unidadConsultada.getId()));
                     nombreUnidadEditar.setText(unidadConsultada.getNombre());
