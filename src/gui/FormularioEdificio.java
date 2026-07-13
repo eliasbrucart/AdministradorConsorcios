@@ -110,7 +110,8 @@ public class FormularioEdificio extends JPanel{
         panelUnidades.armarPanelAgregar();
         panelUnidades.armarPanelEliminar();
 
-        PanelAdministradora panelAdministradora = new PanelAdministradora();
+        PanelAdministradora panelAdministradora = new PanelAdministradora(this);
+        panelAdministradora.armarPanelAgregar();
 
         //Creamos los componentes del formulario agregar
         JTextField txtNombre = new JTextField(10);
@@ -310,6 +311,8 @@ public class FormularioEdificio extends JPanel{
         panelUnidades.actionBtnEliminarUnidad();
         panelUnidades.actionBtnBuscarUnidadEditar();
         panelUnidades.actionBtnBuscarUnidadEliminar();
+
+        panelAdministradora.actionBtnAgregarAdministradora();
 
         /*panelUnidades.getBtnEliminarUnidades().addActionListener(new ActionListener() {
             @Override

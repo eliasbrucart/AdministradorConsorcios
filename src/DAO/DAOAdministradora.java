@@ -37,8 +37,10 @@ public class DAOAdministradora implements IDAO<Administradora> {
             //preparedStatement.setInt(1, 4); //harcoded
             preparedStatement.setString(1, elemento.getNombre());
             preparedStatement.setString(2, elemento.getDireccion());
-            preparedStatement.setInt(3, elemento.getTelefono());
-            preparedStatement.setInt(4, elemento.getCuit());
+            preparedStatement.setLong(3, elemento.getTelefono());
+            preparedStatement.setLong(4, elemento.getCuit());
+
+            preparedStatement.executeUpdate();
 
             //int resultado = preparedStatement.executeUpdate();
             /*if (resultado == 1){
@@ -81,8 +83,8 @@ public class DAOAdministradora implements IDAO<Administradora> {
             preparedStatement = connection.prepareStatement("UPDATE ADMINISTRADORA SET NOMBRE = ?, DIRECCION = ?, TELEFONO = ?, CUIT = ? WHERE id = ?");
             preparedStatement.setString(1, elemento.getNombre());
             preparedStatement.setString(2, elemento.getDireccion());
-            preparedStatement.setInt(3, elemento.getTelefono());
-            preparedStatement.setInt(4, elemento.getCuit());
+            preparedStatement.setLong(3, elemento.getTelefono());
+            preparedStatement.setLong(4, elemento.getCuit());
             preparedStatement.setInt(5, elemento.getId());
             preparedStatement.executeUpdate();
         }catch (ClassNotFoundException | SQLException e){
@@ -110,14 +112,13 @@ public class DAOAdministradora implements IDAO<Administradora> {
                 alumno.setNombre(rs.getString("nombre"));
                 alumno.setNota(rs.getInt("nota"));
                 */
-                int idEdificio = Integer.parseInt((rs.getString("id")));
+                int idAdministradora = Integer.parseInt((rs.getString("id")));
                 String nombre=(rs.getString("nombre"));
                 String direccion=(rs.getString("direccion"));
-                int telefono = (rs.getInt("telefono"));
-                int cuit = (rs.getInt("cuit"));
-                String fechaLiquidacionExpensas = "";
+                long telefono = (rs.getLong("telefono"));
+                long cuit = (rs.getLong("cuit"));
                 //System.out.println("nombre " + nombre); //borrar print, no se hace en un metodo
-                administradora.setId(idEdificio);
+                administradora.setId(idAdministradora);
                 administradora.setNombre(nombre);
                 administradora.setDireccion(direccion);
                 administradora.setTelefono(telefono);

@@ -4,8 +4,8 @@ public class Administradora {
     private int id;
     private String nombre;
     private String direccion;
-    private int telefono;
-    private int cuit;
+    private long telefono;
+    private long cuit;
     public Administradora(){
 
     }
@@ -41,19 +41,19 @@ public class Administradora {
         return direccion;
     }
 
-    public void setTelefono(int telefono) {
+    public void setTelefono(long telefono) {
         this.telefono = telefono;
     }
 
-    public int getTelefono() {
+    public long getTelefono() {
         return telefono;
     }
 
-    public void setCuit(int cuit) {
+    public void setCuit(long cuit) {
         this.cuit = cuit;
     }
 
-    public int getCuit() {
+    public long getCuit() {
         return cuit;
     }
 }
