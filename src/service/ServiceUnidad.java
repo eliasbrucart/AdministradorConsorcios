@@ -3,6 +3,7 @@ package service;
 import DAO.DAOUnidad;
 import DAO.DaoException;
 import entidades.Administradora;
+import entidades.Edificio;
 import entidades.Unidad;
 
 import java.util.ArrayList;
@@ -24,7 +25,20 @@ public class ServiceUnidad {
     }
 
     public void agregarUnidad(Object[] data) throws ServiceException{
-
+        try{
+            Unidad unidad = new Unidad();
+            unidad.setNombre((String) data[0]);
+            unidad.setOcupante((String)data[1]);
+            unidad.setAmbientes((int) data[2]);
+            unidad.setMetrosCuadrados((int)data[3]);
+            unidad.setUbicacion((int)data[4]);
+            unidad.setPorcentaje((int)data[5]);
+            unidad.setIdEdificio((int)data[6]);
+            daoUnidad.agregar(unidad);
+            //daoEdificio.agregar(edificio);
+        }catch (DaoException e){
+            throw new ServiceException(e.getMessage());
+        }
     }
 
     public void modificarUnidad(Object[] data) throws ServiceException{

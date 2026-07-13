@@ -9,9 +9,14 @@ import service.ServiceUnidad;
 import javax.swing.*;
 import javax.swing.table.DefaultTableModel;
 import java.awt.*;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
 import java.util.ArrayList;
 
 public class PanelUnidades extends JPanel {
+    private FormularioEdificio formularioEdificio;
+    ServiceUnidad serviceUnidad;
+
     private int idSeleccionado;
     private JButton btnMostrarUnidades;
     private JButton btnAgregarUnidades;
@@ -39,7 +44,8 @@ public class PanelUnidades extends JPanel {
     private JTextField porcentajeUnidadEditar = new JTextField(10);
 
 
-    public PanelUnidades(){
+    public PanelUnidades(FormularioEdificio formularioEdificio){
+        serviceUnidad = new ServiceUnidad();
         btnMostrarUnidades = new JButton("Mostrar Unidades");
         btnAgregarUnidades = new JButton("Agregar Unidades");
         btnEditarUnidades = new JButton("Editar Unidades");
@@ -54,6 +60,8 @@ public class PanelUnidades extends JPanel {
         add(btnAgregarUnidades);
         add(btnEditarUnidades);
         add(btnEliminarUnidades);
+
+        this.formularioEdificio = formularioEdificio;
     }
 
     public void setIdSeleccionado(int id){
@@ -184,5 +192,61 @@ public class PanelUnidades extends JPanel {
         scrollPane = new JScrollPane(tabla);
 
         panelMostrar.add(scrollPane);
+    }
+
+    public void actionBtnAgregarUnidad(){
+        btnAgregarUnidades.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e){
+                int opcion = JOptionPane.showConfirmDialog(
+                        formularioEdificio,
+                        panelAgregar, //modificar
+                        "Agregar unidades",
+                        JOptionPane.OK_CANCEL_OPTION,
+                        JOptionPane.PLAIN_MESSAGE
+                );
+
+                if(opcion == JOptionPane.OK_OPTION){
+                    String nombreUnidad = nombreUnidadAgregar.getText();
+                    String ocupanteUnidad = ocupanteUnidadAgregar.getText();
+                    int ambientesUnidad = Integer.parseInt(ambientesUnidadAgregar.getText());
+                    int metrosUnidad = Integer.parseInt(metrosUnidadAgregar.getText());
+                    int ubicacionUnidad = Integer.parseInt(ubicacionUnidadAgregar.getText());
+                    int porcentajeUnidad = Integer.parseInt(porcentajeUnidadAgregar.getText());
+                    int idEdificio = idSeleccionado;
+
+                    Object[] data = new Object[7];
+                    data[0] = nombreUnidad;
+                    data[1] = ocupanteUnidad;
+                    data[2] = ambientesUnidad;
+                    data[3] = metrosUnidad;
+                    data[4] = ubicacionUnidad;
+                    data[5] = porcentajeUnidad;
+                    data[6] = idEdificio;
+
+                    try {
+                        serviceUnidad.agregarUnidad(data);
+                        JOptionPane.showMessageDialog(
+                                formularioEdificio,
+                                "Unidad agregada con exito!"
+                        );
+                        /*DefaultTableModel modelo = (DefaultTableModel) tabla.getModel();
+                        modelo.setRowCount(0); //limpia la tabla
+
+                        ArrayList<Edificio> lista = serviceEdificio.consultarTodo();
+
+                        for (Edificio ed : lista) {
+                            modelo.addRow(new Object[]{ed.getId(), ed.getNombre(), ed.getDireccion()});
+                        }*/
+                    } catch (ServiceException d) {
+                        JOptionPane.showMessageDialog(
+                                formularioEdificio,
+                                "Error al agregar la unidad" + d.getMessage()
+                        );
+                        //throw new ServiceException(d.getMessage());
+                    }
+                }
+            }
+        });
     }
 }

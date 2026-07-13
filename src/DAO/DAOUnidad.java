@@ -33,7 +33,7 @@ public class DAOUnidad implements IDAO<Unidad>{
             System.out.println("no hay driver");
             connection = DriverManager.getConnection(DB_URL, DB_USER, DB_PASSWORD);
             System.out.println("se conecto");
-            preparedStatement = connection.prepareStatement("INSERT INTO UNIDAD (NOMBRE, OCUPANTE, AMBIENTES, METROS, UBICACION, PORCENTAJE) VALUES(?,?,?,?,?,?)");
+            preparedStatement = connection.prepareStatement("INSERT INTO UNIDAD (NOMBRE, OCUPANTE, AMBIENTES, METROS, UBICACION, PORCENTAJE, ID_EDIFICIO) VALUES(?,?,?,?,?,?,?)");
             //preparedStatement.setInt(1, 4); //harcoded
             preparedStatement.setString(1, elemento.getNombre());
             preparedStatement.setString(2, elemento.getOcupante());
@@ -42,6 +42,7 @@ public class DAOUnidad implements IDAO<Unidad>{
             preparedStatement.setInt(4, elemento.getMetrosCuadrados());
             preparedStatement.setInt(5, elemento.getUbicacion()); //0 o 1
             preparedStatement.setInt(6, elemento.getPorcentaje());
+            preparedStatement.setInt(7, elemento.getIdEdificio());
 
             int resultado = preparedStatement.executeUpdate();
             /*if (resultado == 1){

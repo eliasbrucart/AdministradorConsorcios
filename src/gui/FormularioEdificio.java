@@ -104,7 +104,7 @@ public class FormularioEdificio extends JPanel{
         panelAcciones.add(btnEliminar);
         panelAcciones.add(btnAgregar);
 
-        PanelUnidades panelUnidades = new PanelUnidades();
+        PanelUnidades panelUnidades = new PanelUnidades(this);
         panelUnidades.armarPanelEditar();
         panelUnidades.armarPanelMostrar();
         panelUnidades.armarPanelAgregar();
@@ -288,7 +288,7 @@ public class FormularioEdificio extends JPanel{
             }
         });
 
-        panelUnidades.getBtnAgregarUnidades().addActionListener(new ActionListener() {
+        /*panelUnidades.getBtnAgregarUnidades().addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e){
                 int opcion = JOptionPane.showConfirmDialog(
@@ -299,7 +299,9 @@ public class FormularioEdificio extends JPanel{
                         JOptionPane.PLAIN_MESSAGE
                 );
             }
-        });
+        });*/
+
+        panelUnidades.actionBtnAgregarUnidad();
 
         panelUnidades.getBtnEliminarUnidades().addActionListener(new ActionListener() {
             @Override
