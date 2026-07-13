@@ -130,7 +130,7 @@ public class PanelUnidades extends JPanel {
 
         panelEditar.add(new JLabel("ID: "));
         panelEditar.add(idUnidadEditar);
-        idUnidadEditar.setEditable(false);
+        idUnidadEditar.setEditable(true);
         panelEditar.add(new JLabel("Nombre: "));
         panelEditar.add(nombreUnidadEditar);
         panelEditar.add(new JLabel("Ocupante: "));
@@ -146,9 +146,10 @@ public class PanelUnidades extends JPanel {
     }
 
     public void armarPanelMostrar() {
-        panelMostrar = new JPanel(new GridLayout(10, 15, 8, 8));
+        panelMostrar = new JPanel(new GridLayout(2, 2, 4, 4));
+        panelMostrar.setPreferredSize(new Dimension(400, 400));
         // agregar service de Edificio para consultar sus datos.
-        ServiceUnidad serviceUnidad = new ServiceUnidad();
+        //ServiceUnidad serviceUnidad = new ServiceUnidad();
         ServiceEdificio serviceEdificio = new ServiceEdificio();
         int idEdificioConsultado = 0;
         try{
@@ -192,6 +193,21 @@ public class PanelUnidades extends JPanel {
         scrollPane = new JScrollPane(tabla);
 
         panelMostrar.add(scrollPane);
+    }
+
+    public void actionBtnMostrarUnidades(){
+        btnMostrarUnidades.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                int opcion = JOptionPane.showConfirmDialog(
+                        formularioEdificio,
+                        panelMostrar,
+                        "Unidades del edificio",
+                        JOptionPane.OK_CANCEL_OPTION,
+                        JOptionPane.PLAIN_MESSAGE
+                );
+            }
+        });
     }
 
     public void actionBtnAgregarUnidad(){
@@ -246,6 +262,63 @@ public class PanelUnidades extends JPanel {
                         //throw new ServiceException(d.getMessage());
                     }
                 }
+            }
+        });
+    }
+
+    public void actionBtnEditarUnidades(){
+        btnEditarUnidades.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                int opcion = JOptionPane.showConfirmDialog(
+                        formularioEdificio,
+                        panelEditar, //modificar
+                        "Editar unidad",
+                        JOptionPane.OK_CANCEL_OPTION,
+                        JOptionPane.PLAIN_MESSAGE
+                );
+
+                if(opcion == JOptionPane.OK_OPTION){
+                    int idEditarUnidad = Integer.parseInt(idUnidadEditar.getText());
+                    String nombreEditarUnidad = nombreUnidadEditar.getText();
+                    String ocupanteEditarUnidad = ocupanteUnidadEditar.getText();
+                    int ambientesEditarUnidad = Integer.parseInt(ambientesUnidadEditar.getText());
+                    int metrosEditarUnidad = Integer.parseInt(metrosUnidadEditar.getText());
+                    int ubicacionEditarUnidad = Integer.parseInt(ubicacionUnidadEditar.getText());
+                    int porcentajeEditarUnidad = Integer.parseInt(porcentajeUnidadEditar.getText());
+
+                    Object[] data = new Object[7];
+                    data[0] = idEditarUnidad;
+                    data[1] = nombreEditarUnidad;
+                    data[2] = ocupanteEditarUnidad;
+                    data[3] = ambientesEditarUnidad;
+                    data[4] = metrosEditarUnidad;
+                    data[5] = ubicacionEditarUnidad;
+                    data[6] = porcentajeEditarUnidad;
+
+                    try {
+                        serviceUnidad.modificarUnidad(data);
+                        JOptionPane.showMessageDialog(
+                                formularioEdificio,
+                                "Unidad editada con exito!"
+                        );
+                        /*DefaultTableModel modelo = (DefaultTableModel) tabla.getModel();
+                        modelo.setRowCount(0); //limpia la tabla
+
+                        ArrayList<Edificio> lista = serviceEdificio.consultarTodo();
+
+                        for (Edificio ed : lista) {
+                            modelo.addRow(new Object[]{ed.getId(), ed.getNombre(), ed.getDireccion()});
+                        }*/
+                    } catch (ServiceException d) {
+                        JOptionPane.showMessageDialog(
+                                formularioEdificio,
+                                "Error al editar la unidad" + d.getMessage()
+                        );
+                        //throw new ServiceException(d.getMessage());
+                    }
+                }
+
             }
         });
     }

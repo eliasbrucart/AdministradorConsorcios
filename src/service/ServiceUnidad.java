@@ -42,7 +42,19 @@ public class ServiceUnidad {
     }
 
     public void modificarUnidad(Object[] data) throws ServiceException{
-
+        try{
+            Unidad unidad = new Unidad();
+            unidad.setId((int) data[0]);
+            unidad.setNombre((String) data[1]);
+            unidad.setOcupante((String)data[2]);
+            unidad.setAmbientes((int) data[3]);
+            unidad.setMetrosCuadrados((int)data[4]);
+            unidad.setUbicacion((int)data[5]);
+            unidad.setPorcentaje((int)data[6]);
+            daoUnidad.modificar(unidad);
+        }catch (DaoException e){
+            throw new ServiceException(e.getMessage());
+        }
     }
 
     public void eliminar(int id) throws ServiceException{

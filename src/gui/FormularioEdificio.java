@@ -262,7 +262,7 @@ public class FormularioEdificio extends JPanel{
         panelUnidades.setIdSeleccionado(idSeleccionado);
 
 
-        panelUnidades.getBtnEditarUnidades().addActionListener(new ActionListener() {
+        /*panelUnidades.getBtnEditarUnidades().addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e){
                 int opcion = JOptionPane.showConfirmDialog(
@@ -273,9 +273,9 @@ public class FormularioEdificio extends JPanel{
                         JOptionPane.PLAIN_MESSAGE
                 );
             }
-        });
+        });*/
 
-        panelUnidades.getBtnMostrarUnidades().addActionListener(new ActionListener() {
+        /*panelUnidades.getBtnMostrarUnidades().addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e){
                 int opcion = JOptionPane.showConfirmDialog(
@@ -286,7 +286,7 @@ public class FormularioEdificio extends JPanel{
                         JOptionPane.PLAIN_MESSAGE
                 );
             }
-        });
+        });8?
 
         /*panelUnidades.getBtnAgregarUnidades().addActionListener(new ActionListener() {
             @Override
@@ -302,6 +302,8 @@ public class FormularioEdificio extends JPanel{
         });*/
 
         panelUnidades.actionBtnAgregarUnidad();
+        panelUnidades.actionBtnMostrarUnidades();
+        panelUnidades.actionBtnEditarUnidades();
 
         panelUnidades.getBtnEliminarUnidades().addActionListener(new ActionListener() {
             @Override
