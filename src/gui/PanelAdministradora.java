@@ -13,7 +13,7 @@ import java.awt.event.ActionListener;
 import java.util.ArrayList;
 
 public class PanelAdministradora extends JPanel {
-    private FormularioEdificio formularioEdificio;
+    private PanelEdificio panelEdificio;
 
     private JButton btnAgregarAdministradora;
     private JButton btnEditarAdministradora;
@@ -42,8 +42,8 @@ public class PanelAdministradora extends JPanel {
     private JTextField cuitAdministradoraEliminar = new JTextField(10);
 
 
-    public PanelAdministradora(FormularioEdificio formularioEdificio){
-        this.formularioEdificio = formularioEdificio;
+    public PanelAdministradora(PanelEdificio panelEdificio){
+        this.panelEdificio = panelEdificio;
         serviceAdministradora = new ServiceAdministradora();
         Administradora administradoraConsultada = new Administradora();
         JLabel nombreAdministradora = new JLabel();
@@ -115,7 +115,7 @@ public class PanelAdministradora extends JPanel {
             //nombreAdministradora.setText(administradoraConsultada.getNombre());
         }catch(ServiceException d){
             JOptionPane.showMessageDialog(
-                    formularioEdificio,
+                    panelEdificio,
                     "Error al consultar la administradora " + d.getMessage()
             );
         }
@@ -149,7 +149,7 @@ public class PanelAdministradora extends JPanel {
             //nombreAdministradora.setText(administradoraConsultada.getNombre());
         }catch(ServiceException d){
             JOptionPane.showMessageDialog(
-                    formularioEdificio,
+                    panelEdificio,
                     "Error al consultar la administradora " + d.getMessage()
             );
         }
@@ -160,7 +160,7 @@ public class PanelAdministradora extends JPanel {
             @Override
             public void actionPerformed(ActionEvent e) {
                 int opcion = JOptionPane.showConfirmDialog(
-                        formularioEdificio,
+                        panelEdificio,
                         panelAgregar,
                         "Agregar Administradora",
                         JOptionPane.OK_CANCEL_OPTION,
@@ -182,7 +182,7 @@ public class PanelAdministradora extends JPanel {
                     try {
                         serviceAdministradora.agregarAdministradora(data);
                         JOptionPane.showMessageDialog(
-                                formularioEdificio,
+                                panelEdificio,
                                 "Administradora agregada con exito!"
                         );
                         /*DefaultTableModel modelo = (DefaultTableModel) tabla.getModel();
@@ -195,7 +195,7 @@ public class PanelAdministradora extends JPanel {
                         }*/
                     } catch (ServiceException d) {
                         JOptionPane.showMessageDialog(
-                                formularioEdificio,
+                                panelEdificio,
                                 "Error al agregar la administradora" + d.getMessage()
                         );
                         //throw new ServiceException(d.getMessage());
@@ -210,7 +210,7 @@ public class PanelAdministradora extends JPanel {
             @Override
             public void actionPerformed(ActionEvent e) {
                 int opcion = JOptionPane.showConfirmDialog(
-                        formularioEdificio,
+                        panelEdificio,
                         panelEditar,
                         "Editar Administradora",
                         JOptionPane.OK_CANCEL_OPTION,
@@ -234,13 +234,13 @@ public class PanelAdministradora extends JPanel {
                     try{
                         serviceAdministradora.modificarAdministradora(data);
                         JOptionPane.showMessageDialog(
-                                formularioEdificio,
+                                panelEdificio,
                                 "Administradora editada con exito!"
                         );
                         //nombreAdministradora.setText(administradoraConsultada.getNombre());
                     }catch(ServiceException d){
                         JOptionPane.showMessageDialog(
-                                formularioEdificio,
+                                panelEdificio,
                                 "Error al modificar la administradora " + d.getMessage()
                         );
                     }
@@ -254,7 +254,7 @@ public class PanelAdministradora extends JPanel {
             @Override
             public void actionPerformed(ActionEvent e) {
                 int opcion = JOptionPane.showConfirmDialog(
-                        formularioEdificio,
+                        panelEdificio,
                         panelEliminar,
                         "Eliminar Administradora",
                         JOptionPane.OK_CANCEL_OPTION,
@@ -267,7 +267,7 @@ public class PanelAdministradora extends JPanel {
                     try {
                         serviceAdministradora.eliminar(idEliminarAdministradora);
                         JOptionPane.showMessageDialog(
-                                formularioEdificio,
+                                panelEdificio,
                                 "Administradora eliminada con exito!"
                         );
                         /*DefaultTableModel modelo = (DefaultTableModel) tabla.getModel();
@@ -280,7 +280,7 @@ public class PanelAdministradora extends JPanel {
                         }*/
                     } catch (ServiceException d) {
                         JOptionPane.showMessageDialog(
-                                formularioEdificio,
+                                panelEdificio,
                                 "Error al eliminar la administradora" + d.getMessage()
                         );
                         //throw new ServiceException(d.getMessage());

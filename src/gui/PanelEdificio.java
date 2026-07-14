@@ -5,18 +5,15 @@ import service.ServiceEdificio;
 import service.ServiceException;
 
 import javax.swing.*;
-import javax.swing.plaf.basic.BasicInternalFrameTitlePane;
 import javax.swing.table.DefaultTableModel;
-import javax.swing.table.TableColumn;
 import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.util.ArrayList;
-import java.text.Normalizer;
 
 import static java.awt.AWTEventMulticaster.add;
 
-public class FormularioEdificio extends JPanel{
+public class PanelEdificio extends JPanel{
     private PanelManager panelManager;
     private JPanel reporte;
     private JTable jTable;
@@ -25,7 +22,7 @@ public class FormularioEdificio extends JPanel{
     private JScrollPane scrollPane;
     private int idSeleccionado;
 
-    public FormularioEdificio(PanelManager panelManager){
+    public PanelEdificio(PanelManager panelManager){
         this.panelManager = panelManager;
         armarTabla();
     }
@@ -67,7 +64,7 @@ public class FormularioEdificio extends JPanel{
             edificiosConsultados = serviceEdificio.consultarTodo();
         } catch (ServiceException e) {
             JOptionPane.showMessageDialog(
-                    FormularioEdificio.this,
+                    this,
                     "Error al listar los edificios" + e.getMessage()
             );
             //System.out.println("Error al consultar el edificio: " + e);
@@ -335,7 +332,7 @@ public class FormularioEdificio extends JPanel{
             @Override
             public void actionPerformed(ActionEvent e){
                 int opcion = JOptionPane.showConfirmDialog(
-                        FormularioEdificio.this,
+                        PanelEdificio.this,
                         panelFormularioAgregar,
                         "Agregar Nuevo Edificio",
                         JOptionPane.OK_CANCEL_OPTION,
@@ -364,7 +361,7 @@ public class FormularioEdificio extends JPanel{
                     try {
                         serviceEdificio.agregarEdificio(data);
                         JOptionPane.showMessageDialog(
-                                FormularioEdificio.this,
+                                PanelEdificio.this,
                                 "Edificio agregado con exito!"
                         );
                         DefaultTableModel modelo = (DefaultTableModel) tabla.getModel();
@@ -377,7 +374,7 @@ public class FormularioEdificio extends JPanel{
                         }
                     } catch (ServiceException d) {
                         JOptionPane.showMessageDialog(
-                                FormularioEdificio.this,
+                                PanelEdificio.this,
                                 "Error al agregar edificio" + d.getMessage()
                         );
                         //throw new ServiceException(d.getMessage());
@@ -405,13 +402,13 @@ public class FormularioEdificio extends JPanel{
                     editarFechaLiquidacionExpensas.setText(edificioConsultado.getFechaLiquidacionExpensas());
                 } catch (ServiceException d) {
                     JOptionPane.showMessageDialog(
-                            FormularioEdificio.this,
+                            PanelEdificio.this,
                             "Error al consultar edificio" + d.getMessage()
                     );
                 }
 
                 int opcion = JOptionPane.showConfirmDialog(
-                        FormularioEdificio.this,
+                        PanelEdificio.this,
                         panelFormularioEditar,
                         "Editar Edificio",
                         JOptionPane.OK_CANCEL_OPTION,
@@ -443,7 +440,7 @@ public class FormularioEdificio extends JPanel{
                     try {
                         serviceEdificio.modificarEdificio(data);
                         JOptionPane.showMessageDialog(
-                                FormularioEdificio.this,
+                                PanelEdificio.this,
                                 "Edificio modificado con exito!"
                         );
                         DefaultTableModel modelo = (DefaultTableModel) tabla.getModel();
@@ -456,7 +453,7 @@ public class FormularioEdificio extends JPanel{
                         }
                     } catch (ServiceException d) {
                         JOptionPane.showMessageDialog(
-                                FormularioEdificio.this,
+                                PanelEdificio.this,
                                 "Error al modificar edificio" + d.getMessage()
                         );
                         //throw new ServiceException(d.getMessage());
@@ -483,12 +480,12 @@ public class FormularioEdificio extends JPanel{
                     fechaLiquidacionExpensasEliminar.setText(edificioConsultado.getFechaLiquidacionExpensas());
                 } catch (ServiceException d) {
                     JOptionPane.showMessageDialog(
-                            FormularioEdificio.this,
+                            PanelEdificio.this,
                             "Error al eliminar edificio" + d.getMessage()
                     );
                 }
                 int opcion = JOptionPane.showConfirmDialog(
-                        FormularioEdificio.this,
+                        PanelEdificio.this,
                         panelTituloEliminar,
                         "Eliminar Edificio",
                         JOptionPane.OK_CANCEL_OPTION,
@@ -499,7 +496,7 @@ public class FormularioEdificio extends JPanel{
                     try{
                         serviceEdificio.eliminar(idSeleccionado);
                         JOptionPane.showMessageDialog(
-                                FormularioEdificio.this,
+                                PanelEdificio.this,
                                 "Edificio eliminado con exito!"
                         );
                         DefaultTableModel modelo = (DefaultTableModel) tabla.getModel();
@@ -512,7 +509,7 @@ public class FormularioEdificio extends JPanel{
                         }
                     }catch(ServiceException d){
                         JOptionPane.showMessageDialog(
-                                FormularioEdificio.this,
+                                PanelEdificio.this,
                                 "Error al eliminar edificio" + d.getMessage()
                         );
                     }
@@ -541,7 +538,7 @@ public class FormularioEdificio extends JPanel{
             }
         } catch (ServiceException e) {
             JOptionPane.showMessageDialog(
-                    FormularioEdificio.this,
+                    PanelEdificio.this,
                     "Error al listar todos los edificios" + e.getMessage()
             );
         }

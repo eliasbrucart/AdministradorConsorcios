@@ -14,7 +14,7 @@ import java.awt.event.ActionListener;
 import java.util.ArrayList;
 
 public class PanelUnidades extends JPanel {
-    private FormularioEdificio formularioEdificio;
+    private PanelEdificio panelEdificio;
     ServiceUnidad serviceUnidad;
 
     private int idSeleccionado;
@@ -56,7 +56,7 @@ public class PanelUnidades extends JPanel {
     private JTextField porcentajeUnidadEliminar = new JTextField(10);
 
 
-    public PanelUnidades(FormularioEdificio formularioEdificio){
+    public PanelUnidades(PanelEdificio panelEdificio){
         serviceUnidad = new ServiceUnidad();
         btnMostrarUnidades = new JButton("Mostrar Unidades");
         btnAgregarUnidades = new JButton("Agregar Unidades");
@@ -73,7 +73,7 @@ public class PanelUnidades extends JPanel {
         add(btnEditarUnidades);
         add(btnEliminarUnidades);
 
-        this.formularioEdificio = formularioEdificio;
+        this.panelEdificio = panelEdificio;
     }
 
     public void setIdSeleccionado(int id){
@@ -236,7 +236,7 @@ public class PanelUnidades extends JPanel {
             @Override
             public void actionPerformed(ActionEvent e) {
                 int opcion = JOptionPane.showConfirmDialog(
-                        formularioEdificio,
+                        panelEdificio,
                         panelMostrar,
                         "Unidades del edificio",
                         JOptionPane.OK_CANCEL_OPTION,
@@ -251,7 +251,7 @@ public class PanelUnidades extends JPanel {
             @Override
             public void actionPerformed(ActionEvent e){
                 int opcion = JOptionPane.showConfirmDialog(
-                        formularioEdificio,
+                        panelEdificio,
                         panelAgregar, //modificar
                         "Agregar unidades",
                         JOptionPane.OK_CANCEL_OPTION,
@@ -279,7 +279,7 @@ public class PanelUnidades extends JPanel {
                     try {
                         serviceUnidad.agregarUnidad(data);
                         JOptionPane.showMessageDialog(
-                                formularioEdificio,
+                                panelEdificio,
                                 "Unidad agregada con exito!"
                         );
                         /*DefaultTableModel modelo = (DefaultTableModel) tabla.getModel();
@@ -292,7 +292,7 @@ public class PanelUnidades extends JPanel {
                         }*/
                     } catch (ServiceException d) {
                         JOptionPane.showMessageDialog(
-                                formularioEdificio,
+                                panelEdificio,
                                 "Error al agregar la unidad" + d.getMessage()
                         );
                         //throw new ServiceException(d.getMessage());
@@ -317,7 +317,7 @@ public class PanelUnidades extends JPanel {
                     metrosUnidadEditar.setText(String.valueOf(unidadConsultada.getMetrosCuadrados()));
                     porcentajeUnidadEditar.setText(String.valueOf(unidadConsultada.getPorcentaje()));
                     JOptionPane.showMessageDialog(
-                            formularioEdificio,
+                            panelEdificio,
                             "Unidad encontrada con exito!"
                     );
                         /*DefaultTableModel modelo = (DefaultTableModel) tabla.getModel();
@@ -330,7 +330,7 @@ public class PanelUnidades extends JPanel {
                         }*/
                 } catch (ServiceException d) {
                     JOptionPane.showMessageDialog(
-                            formularioEdificio,
+                            panelEdificio,
                             "Error al buscar la unidad" + d.getMessage()
                     );
                     //throw new ServiceException(d.getMessage());
@@ -354,7 +354,7 @@ public class PanelUnidades extends JPanel {
                     metrosUnidadEliminar.setText(String.valueOf(unidadConsultada.getMetrosCuadrados()));
                     porcentajeUnidadEliminar.setText(String.valueOf(unidadConsultada.getPorcentaje()));
                     JOptionPane.showMessageDialog(
-                            formularioEdificio,
+                            panelEdificio,
                             "Unidad encontrada con exito!"
                     );
                         /*DefaultTableModel modelo = (DefaultTableModel) tabla.getModel();
@@ -367,7 +367,7 @@ public class PanelUnidades extends JPanel {
                         }*/
                 } catch (ServiceException d) {
                     JOptionPane.showMessageDialog(
-                            formularioEdificio,
+                            panelEdificio,
                             "Error al buscar la unidad" + d.getMessage()
                     );
                     //throw new ServiceException(d.getMessage());
@@ -381,7 +381,7 @@ public class PanelUnidades extends JPanel {
             @Override
             public void actionPerformed(ActionEvent e) {
                 int opcion = JOptionPane.showConfirmDialog(
-                        formularioEdificio,
+                        panelEdificio,
                         panelEditar, //modificar
                         "Editar unidad",
                         JOptionPane.OK_CANCEL_OPTION,
@@ -409,7 +409,7 @@ public class PanelUnidades extends JPanel {
                     try {
                         serviceUnidad.modificarUnidad(data);
                         JOptionPane.showMessageDialog(
-                                formularioEdificio,
+                                panelEdificio,
                                 "Unidad editada con exito!"
                         );
                         /*DefaultTableModel modelo = (DefaultTableModel) tabla.getModel();
@@ -422,7 +422,7 @@ public class PanelUnidades extends JPanel {
                         }*/
                     } catch (ServiceException d) {
                         JOptionPane.showMessageDialog(
-                                formularioEdificio,
+                                panelEdificio,
                                 "Error al editar la unidad" + d.getMessage()
                         );
                         //throw new ServiceException(d.getMessage());
@@ -438,7 +438,7 @@ public class PanelUnidades extends JPanel {
             @Override
             public void actionPerformed(ActionEvent e) {
                 int opcion = JOptionPane.showConfirmDialog(
-                        formularioEdificio,
+                        panelEdificio,
                         panelEliminar, //modificar
                         "Eliminar unidad",
                         JOptionPane.OK_CANCEL_OPTION,
@@ -466,7 +466,7 @@ public class PanelUnidades extends JPanel {
                     try {
                         serviceUnidad.eliminar(idEliminarUnidad);
                         JOptionPane.showMessageDialog(
-                                formularioEdificio,
+                                panelEdificio,
                                 "Unidad eliminada con exito!"
                         );
                         /*DefaultTableModel modelo = (DefaultTableModel) tabla.getModel();
@@ -479,7 +479,7 @@ public class PanelUnidades extends JPanel {
                         }*/
                     } catch (ServiceException d) {
                         JOptionPane.showMessageDialog(
-                                formularioEdificio,
+                                panelEdificio,
                                 "Error al eliminar la unidad" + d.getMessage()
                         );
                         //throw new ServiceException(d.getMessage());

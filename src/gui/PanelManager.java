@@ -6,16 +6,16 @@ import java.text.Normalizer;
 
 public class PanelManager {
     private JFrame jFrame;
-    private FormularioEdificio formularioEdificio;
+    private PanelEdificio panelEdificio;
     public PanelManager(int tipo){
         jFrame = new JFrame();
         jFrame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         JPanel jPanel = new JPanel();
         //mostrar(jPanel);
         if(tipo == 1){
-            formularioEdificio = new FormularioEdificio(this);
+            panelEdificio = new PanelEdificio(this);
         }
-        mostrar(formularioEdificio);
+        mostrar(panelEdificio);
     }
 
     public void mostrar(JPanel panel){
