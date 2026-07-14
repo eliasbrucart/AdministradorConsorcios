@@ -94,12 +94,15 @@ public class PanelEdificio extends JPanel{
         JButton btnEditar = new JButton("Editar");
         JButton btnEliminar = new JButton("Eliminar");
         JButton btnAgregar = new JButton("Agregar");
+        JButton btnAdministrar = new JButton("Administrar");
         btnEditar.setVisible(false); // Oculto por defecto
         btnEliminar.setVisible(false);
         btnAgregar.setVisible(true);
+        btnAdministrar.setVisible(false);
         panelAcciones.add(btnEditar);
         panelAcciones.add(btnEliminar);
         panelAcciones.add(btnAgregar);
+        panelAcciones.add(btnAdministrar);
 
         PanelUnidades panelUnidades = new PanelUnidades(this);
         panelUnidades.armarPanelEditar();
@@ -224,6 +227,25 @@ public class PanelEdificio extends JPanel{
         liquidacionExpensasEliminar.setEditable(false);
         fechaLiquidacionExpensasEliminar.setEditable(false);
 
+        JPanel administrarEdificio = new JPanel(new GridLayout(10, 10,8,8));
+        JTextField expensasOrdinarias = new JTextField(10);
+        JTextField expensasExtraordinarias = new JTextField(10);
+        JTextField sueldoEmpleado = new JTextField(10);
+        JTextField gastosMantenimiento = new JTextField(10);
+        JLabel balanceTotalLabel = new JLabel();
+
+        administrarEdificio.add(new JLabel("Expensas ordinarias: "));
+        administrarEdificio.add(expensasOrdinarias);
+        administrarEdificio.add(new JLabel("Expensas Extraordinarias: "));
+        administrarEdificio.add(expensasExtraordinarias);
+        administrarEdificio.add(new JLabel("Sueldo empleado: "));
+        administrarEdificio.add(sueldoEmpleado);
+        administrarEdificio.add(new JLabel("Gastos mantenimiento: "));
+        administrarEdificio.add(gastosMantenimiento);
+        administrarEdificio.add(balanceTotalLabel);
+
+
+
         //selección de la tabla
         tabla.getSelectionModel().addListSelectionListener(e -> {
             int filaSeleccionada = tabla.getSelectedRow();
@@ -237,6 +259,7 @@ public class PanelEdificio extends JPanel{
                     // Ocultar si no hay selección
                     btnEditar.setVisible(tabla.getSelectedRow() != -1); // Mostrar botón
                     btnEliminar.setVisible(tabla.getSelectedRow() != -1);
+                    btnAdministrar.setVisible(tabla.getSelectedRow() != -1);
 
                     panelUnidades.getBtnMostrarUnidades().setVisible(tabla.getSelectedRow() != -1);
                     panelUnidades.getBtnAgregarUnidades().setVisible(tabla.getSelectedRow() != -1);
@@ -327,6 +350,69 @@ public class PanelEdificio extends JPanel{
                 );
             }
         });*/
+
+        btnAdministrar.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                int opcion = JOptionPane.showConfirmDialog(
+                        PanelEdificio.this,
+                        administrarEdificio,
+                        "Agregar Nuevo Edificio",
+                        JOptionPane.OK_CANCEL_OPTION,
+                        JOptionPane.PLAIN_MESSAGE
+                );
+                try {
+                    int ultimoBalance = serviceEdificio.obtenerBalance(idSeleccionado);
+                    balanceTotalLabel.setText("Balance total: " + String.valueOf(ultimoBalance));
+                    //balanceTotalLabel.setText("Balance total: " + String.valueOf(balanceTotal));
+                } catch (ServiceException d) {
+                    JOptionPane.showMessageDialog(
+                            PanelEdificio.this,
+                            "No hay un ultimo balance del edificio" + d.getMessage()
+                    );
+                    //throw new ServiceException(d.getMessage());
+                }
+
+
+                if(opcion == JOptionPane.OK_OPTION) {
+                    int expensasOrd = Integer.parseInt(expensasOrdinarias.getText());
+                    int expensasExtr = Integer.parseInt(expensasExtraordinarias.getText());
+                    int sueldo = Integer.parseInt(sueldoEmpleado.getText());
+                    int mantenimiento = Integer.parseInt(gastosMantenimiento.getText());
+
+
+                    Object[] data = new Object[4];
+                    data[0] = expensasOrd;
+                    data[1] = expensasExtr;
+                    data[2] = sueldo;
+                    data[3] = mantenimiento;
+
+                    try {
+                        int balanceTotal = serviceEdificio.generarBalance(data, idSeleccionado);
+                        balanceTotalLabel.setText("Balance total: " + String.valueOf(balanceTotal));
+                        JOptionPane.showMessageDialog(
+                                PanelEdificio.this,
+                                "Balance generado con exito!"
+                        );
+                        DefaultTableModel modelo = (DefaultTableModel) tabla.getModel();
+                        modelo.setRowCount(0); //limpia la tabla
+
+                        ArrayList<Edificio> lista = serviceEdificio.consultarTodo();
+
+                        for (Edificio ed : lista) {
+                            modelo.addRow(new Object[]{ed.getId(), ed.getNombre(), ed.getDireccion()});
+                        }
+                    } catch (ServiceException d) {
+                        JOptionPane.showMessageDialog(
+                                PanelEdificio.this,
+                                "Error al agregar edificio" + d.getMessage()
+                        );
+                        //throw new ServiceException(d.getMessage());
+                    }
+                    //Mandar datos al ServiceEdificio para agregar un edificio.
+                }
+            }
+        });
 
         btnAgregar.addActionListener(new ActionListener() {
             @Override

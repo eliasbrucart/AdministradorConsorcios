@@ -202,4 +202,49 @@ public class DAOEdificio implements IDAO<Edificio> {
         }
         return edificios;
     }
+
+    public void actualizarBalance(int balanceTotal, int id) throws DaoException{
+        Connection connection=null;
+        PreparedStatement preparedStatement=null;
+        //ArrayList<Edificio> edificios = new ArrayList<>();
+
+        try{
+            Class.forName(DB_JDBC_DRIVER);
+            System.out.println("no hay driver"); //quitar luego
+            connection = DriverManager.getConnection(DB_URL, DB_USER, DB_PASSWORD);
+            System.out.println("se conecto"); //quitar luego
+            preparedStatement = connection.prepareStatement("UPDATE EDIFICIO SET BALANCE = ? WHERE id = ?");
+            preparedStatement.setInt(1, balanceTotal);
+            preparedStatement.setInt(2, id);
+            preparedStatement.executeUpdate();
+
+        }catch (ClassNotFoundException | SQLException e){
+            throw new DaoException("Error al actualizar el balance!");
+        }
+        //return edificios;
+    }
+
+    public int obtenerBalance(int id) throws DaoException{
+        Connection connection=null;
+        PreparedStatement preparedStatement=null;
+        int ultimoBalance = 0;
+
+        try{
+            Class.forName(DB_JDBC_DRIVER);
+            System.out.println("no hay driver"); //quitar luego
+            connection = DriverManager.getConnection(DB_URL, DB_USER, DB_PASSWORD);
+            System.out.println("se conecto"); //quitar luego
+            preparedStatement = connection.prepareStatement("SELECT BALANCE FROM EDIFICIO WHERE id = ?");
+            preparedStatement.setInt(1, id);
+            ResultSet rs=preparedStatement.executeQuery();
+
+            if(rs.next()){
+                ultimoBalance = rs.getInt("balance");
+            }
+
+        }catch (ClassNotFoundException | SQLException e){
+            throw new DaoException("Error al obtener el balance!");
+        }
+        return ultimoBalance;
+    }
 }

@@ -85,4 +85,25 @@ public class ServiceEdificio {
             throw new ServiceException("Error al consultar todos los edificios: " + e);
         }
     }
+
+    public int generarBalance(Object[] data, int id) throws ServiceException{
+        try{
+            int balanceIngresos = (int)data[0] + (int)data[1];
+            int balanceSalidas = (int)data[2] + (int)data[3];
+            int balanceTotal = balanceIngresos - balanceSalidas;
+            daoEdificio.actualizarBalance(balanceTotal, id);
+            return balanceTotal;
+        }catch (DaoException e){
+            throw new ServiceException("Error al generar el balance! " + e);
+        }
+    }
+
+    public int obtenerBalance(int id) throws ServiceException {
+        try{
+            int ultimoBalance = daoEdificio.obtenerBalance(id);
+            return ultimoBalance;
+        }catch (DaoException e){
+            throw new ServiceException("Error al obtener el balance! " + e);
+        }
+    }
 }
