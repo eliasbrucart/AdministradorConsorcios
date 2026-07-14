@@ -181,7 +181,7 @@ public class PanelUnidades extends JPanel {
         panelEliminar.add(porcentajeUnidadEliminar);
     }
 
-    public void armarPanelMostrar() {
+    public void armarPanelMostrar(int id) {
         panelMostrar = new JPanel(new GridLayout(2, 2, 4, 4));
         panelMostrar.setPreferredSize(new Dimension(400, 400));
         // agregar service de Edificio para consultar sus datos.
@@ -189,7 +189,7 @@ public class PanelUnidades extends JPanel {
         ServiceEdificio serviceEdificio = new ServiceEdificio();
         int idEdificioConsultado = 0;
         try{
-            Edificio edificioConsultado = serviceEdificio.consultarEdificio(this.idSeleccionado);
+            Edificio edificioConsultado = serviceEdificio.consultarEdificio(idSeleccionado);
             idEdificioConsultado = edificioConsultado.getId();
         }catch(ServiceException e){
             JOptionPane.showMessageDialog(
@@ -231,7 +231,8 @@ public class PanelUnidades extends JPanel {
         panelMostrar.add(scrollPane);
     }
 
-    public void actionBtnMostrarUnidades(){
+    public void actionBtnMostrarUnidades(int id){
+        System.out.println("dentro de funcion id: " + id);
         btnMostrarUnidades.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
@@ -242,11 +243,14 @@ public class PanelUnidades extends JPanel {
                         JOptionPane.OK_CANCEL_OPTION,
                         JOptionPane.PLAIN_MESSAGE
                 );
+
+                armarPanelMostrar(idSeleccionado);
             }
         });
     }
 
-    public void actionBtnAgregarUnidad(){
+    public void actionBtnAgregarUnidad(int id){
+        System.out.println("dentro de funcion id: " + id);
         btnAgregarUnidades.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e){

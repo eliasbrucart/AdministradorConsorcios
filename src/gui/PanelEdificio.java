@@ -106,7 +106,7 @@ public class PanelEdificio extends JPanel{
 
         PanelUnidades panelUnidades = new PanelUnidades(this);
         panelUnidades.armarPanelEditar();
-        panelUnidades.armarPanelMostrar();
+        //panelUnidades.armarPanelMostrar();
         panelUnidades.armarPanelAgregar();
         panelUnidades.armarPanelEliminar();
 
@@ -253,6 +253,7 @@ public class PanelEdificio extends JPanel{
             if(filaSeleccionada != -1){
                 Object valorCelda = tabla.getValueAt(filaSeleccionada, 0);
                 idSeleccionado = Integer.parseInt(valorCelda.toString());
+                System.out.println(idSeleccionado);
                 //remover luego
                 //System.out.println(idSeleccionado);
                 if (!e.getValueIsAdjusting()) {
@@ -273,6 +274,8 @@ public class PanelEdificio extends JPanel{
 
                     panelUnidades.revalidate();
                     panelAcciones.repaint();
+
+                    panelUnidades.setIdSeleccionado(idSeleccionado);
                 }
             }/*else{
                 JOptionPane.showMessageDialog(
@@ -286,6 +289,7 @@ public class PanelEdificio extends JPanel{
         });
 
         panelUnidades.setIdSeleccionado(idSeleccionado);
+        //System.out.println(idSeleccionado);
 
 
         /*panelUnidades.getBtnEditarUnidades().addActionListener(new ActionListener() {
@@ -327,8 +331,9 @@ public class PanelEdificio extends JPanel{
             }
         });*/
 
-        panelUnidades.actionBtnAgregarUnidad();
-        panelUnidades.actionBtnMostrarUnidades();
+        //System.out.println(idSeleccionado);
+        panelUnidades.actionBtnAgregarUnidad(idSeleccionado);
+        panelUnidades.actionBtnMostrarUnidades(idSeleccionado);
         panelUnidades.actionBtnEditarUnidades();
         panelUnidades.actionBtnEliminarUnidad();
         panelUnidades.actionBtnBuscarUnidadEditar();
