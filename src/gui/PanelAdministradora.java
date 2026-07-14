@@ -66,12 +66,29 @@ public class PanelAdministradora extends JPanel {
         btnEditarAdministradora = new JButton("Editar Adm");
         btnEliminarAdministradora = new JButton("Eliminar Adm");
 
-        add(btnAgregarAdministradora);
-        add(btnEditarAdministradora);
-        add(btnEliminarAdministradora);
-        add(nombreAdministradora);
-        add(direccionAdministradora);
-        add(telefonoAdministradora);
+        setLayout(new BoxLayout(this, BoxLayout.Y_AXIS));
+
+        JPanel panelLabels = new JPanel();
+        panelLabels.setLayout(new BoxLayout(panelLabels, BoxLayout.X_AXIS));
+        panelLabels.add(nombreAdministradora);
+        panelLabels.add(Box.createHorizontalStrut(10));
+        panelLabels.add(direccionAdministradora);
+        panelLabels.add(Box.createHorizontalStrut(10));
+        panelLabels.add(telefonoAdministradora);
+
+        JPanel panelBotones = new JPanel();
+        panelBotones.setLayout(new BoxLayout(panelBotones, BoxLayout.X_AXIS));
+        panelBotones.add(btnAgregarAdministradora);
+        panelBotones.add(Box.createHorizontalStrut(10));
+        panelBotones.add(btnEditarAdministradora);
+        panelBotones.add(Box.createHorizontalStrut(10));
+        panelBotones.add(btnEliminarAdministradora);
+
+        add(panelLabels);
+        add(Box.createVerticalStrut(20)); // Espacio vertical de separación
+        add(panelBotones);
+
+        this.setBorder(javax.swing.BorderFactory.createEmptyBorder(0, 0, 20, 0));
     }
 
     public void armarPanelAgregar(){
