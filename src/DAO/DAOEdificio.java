@@ -45,11 +45,6 @@ public class DAOEdificio implements IDAO<Edificio> {
             preparedStatement.setDate(8, Date.valueOf(LocalDate.now()));
 
             int resultado = preparedStatement.executeUpdate();
-            /*if (resultado == 1){
-                System.out.println("Edificio agregado");
-            }else{
-                System.out.println("Fallo sentencia SQL");
-            }*/
         }
         catch (ClassNotFoundException | SQLException e){
             throw new DaoException("Error en agregar edificio" + e);
@@ -120,10 +115,6 @@ public class DAOEdificio implements IDAO<Edificio> {
             preparedStatement.setInt(1,id);
             ResultSet rs=preparedStatement.executeQuery();
             if (rs.next()) {
-                /*alumno.setId(rs.getInt("id"));
-                alumno.setNombre(rs.getString("nombre"));
-                alumno.setNota(rs.getInt("nota"));
-                */
                 int idEdificio = Integer.parseInt((rs.getString("id")));
                 String nombre=(rs.getString("nombre"));
                 String direccion=(rs.getString("direccion"));
@@ -133,7 +124,6 @@ public class DAOEdificio implements IDAO<Edificio> {
                 int pisos = (rs.getInt("cantidad_pisos"));
                 int liquidacionExpensas = (rs.getInt("liquidacion_expensas"));
                 String idUnidad = (rs.getString("id_unidad"));
-                //String fechaLiquidacionExpensas = (rs.getString("fecha_liquidacion_expensas"));
                 String fechaDB = (rs.getString("fecha_liquidacion_expensas"));
                 String fechaLiquidacionExpensas = "";
                 if (fechaDB != null){
@@ -143,7 +133,6 @@ public class DAOEdificio implements IDAO<Edificio> {
                     fechaLiquidacionExpensas = fechaLocal.format(formateador);
                 }
                 DateTimeFormatter formateador = DateTimeFormatter.ofPattern("dd/MM/yyyy");
-                //System.out.println("nombre " + nombre); //borrar print, no se hace en un metodo
                 edificio.setId(idEdificio);
                 edificio.setNombre(nombre);
                 edificio.setDireccion(direccion);
@@ -154,10 +143,6 @@ public class DAOEdificio implements IDAO<Edificio> {
                 edificio.setLiquidacionExpensas(liquidacionExpensas);
                 edificio.setFechaLiquidacionExpensas(fechaLiquidacionExpensas);
                 edificio.setIdUnidades(idUnidad);
-                //int nota=(rs.getInt("nota"));
-                //Obtenemos los datos de la tabla y creamos el objeto propiamente dicho con los valores obtenidos.
-                //alumno=new Alumno(id, nombre);
-                //alumno.cambiarNota(nota);
             }
 
         }
@@ -194,7 +179,6 @@ public class DAOEdificio implements IDAO<Edificio> {
                 edificio.setLiquidacionExpensas(rs.getInt("Liquidacion_Expensas"));
                 edificio.setFechaLiquidacionExpensas(rs.getString("Fecha_Liquidacion_Expensas"));
                 edificio.setIdUnidades(rs.getString("id_unidad"));
-                //faltan mas atributos
                 edificios.add(edificio);
             }
         }catch (ClassNotFoundException | SQLException e){
@@ -206,7 +190,6 @@ public class DAOEdificio implements IDAO<Edificio> {
     public void actualizarBalance(int balanceTotal, int id) throws DaoException{
         Connection connection=null;
         PreparedStatement preparedStatement=null;
-        //ArrayList<Edificio> edificios = new ArrayList<>();
 
         try{
             Class.forName(DB_JDBC_DRIVER);
@@ -221,7 +204,6 @@ public class DAOEdificio implements IDAO<Edificio> {
         }catch (ClassNotFoundException | SQLException e){
             throw new DaoException("Error al actualizar el balance!");
         }
-        //return edificios;
     }
 
     public int obtenerBalance(int id) throws DaoException{

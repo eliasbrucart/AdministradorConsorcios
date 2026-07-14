@@ -42,12 +42,6 @@ public class DAOAdministradora implements IDAO<Administradora> {
 
             preparedStatement.executeUpdate();
 
-            //int resultado = preparedStatement.executeUpdate();
-            /*if (resultado == 1){
-                System.out.println("Edificio agregado");
-            }else{
-                System.out.println("Fallo sentencia SQL");
-            }*/
         }
         catch (ClassNotFoundException | SQLException e){
             throw new DaoException("Error en agregar Administradora" + e);
@@ -109,10 +103,6 @@ public class DAOAdministradora implements IDAO<Administradora> {
             preparedStatement.setInt(1,id);
             ResultSet rs=preparedStatement.executeQuery();
             if (rs.next()) {
-                /*alumno.setId(rs.getInt("id"));
-                alumno.setNombre(rs.getString("nombre"));
-                alumno.setNota(rs.getInt("nota"));
-                */
                 int idAdministradora = Integer.parseInt((rs.getString("id")));
                 String nombre=(rs.getString("nombre"));
                 String direccion=(rs.getString("direccion"));
@@ -124,10 +114,6 @@ public class DAOAdministradora implements IDAO<Administradora> {
                 administradora.setDireccion(direccion);
                 administradora.setTelefono(telefono);
                 administradora.setCuit(cuit);
-                //int nota=(rs.getInt("nota"));
-                //Obtenemos los datos de la tabla y creamos el objeto propiamente dicho con los valores obtenidos.
-                //alumno=new Alumno(id, nombre);
-                //alumno.cambiarNota(nota);
             }
 
         }
@@ -151,10 +137,6 @@ public class DAOAdministradora implements IDAO<Administradora> {
 
             ResultSet rs=preparedStatement.executeQuery();
             if (rs.next()) {
-                /*alumno.setId(rs.getInt("id"));
-                alumno.setNombre(rs.getString("nombre"));
-                alumno.setNota(rs.getInt("nota"));
-                */
                 int idAdministradora = Integer.parseInt((rs.getString("id")));
                 String nombre=(rs.getString("nombre"));
                 String direccion=(rs.getString("direccion"));
@@ -166,10 +148,6 @@ public class DAOAdministradora implements IDAO<Administradora> {
                 administradora.setDireccion(direccion);
                 administradora.setTelefono(telefono);
                 administradora.setCuit(cuit);
-                //int nota=(rs.getInt("nota"));
-                //Obtenemos los datos de la tabla y creamos el objeto propiamente dicho con los valores obtenidos.
-                //alumno=new Alumno(id, nombre);
-                //alumno.cambiarNota(nota);
             }
 
         }

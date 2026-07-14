@@ -108,7 +108,6 @@ public class PanelAdministradora extends JPanel {
         panelEditar = new JPanel(new GridLayout(10, 15, 8, 8));
 
         panelAgregar.add(new JLabel("ID: "));
-        //idAdministradoraEditar.setText("1");
         idAdministradoraEditar.setEditable(false);
         panelEditar.add(idAdministradoraEditar);
         panelEditar.add(new JLabel("Nombre: "));
@@ -202,20 +201,11 @@ public class PanelAdministradora extends JPanel {
                                 panelEdificio,
                                 "Administradora agregada con exito!"
                         );
-                        /*DefaultTableModel modelo = (DefaultTableModel) tabla.getModel();
-                        modelo.setRowCount(0); //limpia la tabla
-
-                        ArrayList<Edificio> lista = serviceEdificio.consultarTodo();
-
-                        for (Edificio ed : lista) {
-                            modelo.addRow(new Object[]{ed.getId(), ed.getNombre(), ed.getDireccion()});
-                        }*/
                     } catch (ServiceException d) {
                         JOptionPane.showMessageDialog(
                                 panelEdificio,
                                 "Error al agregar la administradora" + d.getMessage()
                         );
-                        //throw new ServiceException(d.getMessage());
                     }
                 }
             }
@@ -287,20 +277,11 @@ public class PanelAdministradora extends JPanel {
                                 panelEdificio,
                                 "Administradora eliminada con exito!"
                         );
-                        /*DefaultTableModel modelo = (DefaultTableModel) tabla.getModel();
-                        modelo.setRowCount(0); //limpia la tabla
-
-                        ArrayList<Edificio> lista = serviceEdificio.consultarTodo();
-
-                        for (Edificio ed : lista) {
-                            modelo.addRow(new Object[]{ed.getId(), ed.getNombre(), ed.getDireccion()});
-                        }*/
                     } catch (ServiceException d) {
                         JOptionPane.showMessageDialog(
                                 panelEdificio,
                                 "Error al eliminar la administradora" + d.getMessage()
                         );
-                        //throw new ServiceException(d.getMessage());
                     }
                 }
             }

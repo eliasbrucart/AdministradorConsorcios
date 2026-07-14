@@ -142,69 +142,6 @@ public class PanelUnidades extends JPanel {
         panelAgregar.add(porcentajeUnidadAgregar);
     }
 
-    /*public void armarPanelEditar(){
-        panelEditar = new JPanel(new GridLayout(0, 2, 8, 8));
-        panelEditar.setPreferredSize(new Dimension(400, 400));
-
-        panelEditar.add(new JLabel("ID: "));
-        panelEditar.add(idUnidadEditar);
-        idUnidadEditar.setEditable(true);
-        //JButton btnBuscarUnidad = new JButton("Buscar");
-        panelEditar.add(btnBuscarUnidadEditar);
-        panelEditar.add(new JLabel("Nombre: "));
-        panelEditar.add(nombreUnidadEditar);
-        panelEditar.add(new JLabel("Ocupante: "));
-        panelEditar.add(ocupanteUnidadEditar);
-        panelEditar.add(new JLabel("Ambientes: "));
-        panelEditar.add(ambientesUnidadEditar);
-        panelEditar.add(new JLabel("Metros cuadrados: "));
-        panelEditar.add(metrosUnidadEditar);
-        panelEditar.add(new JLabel("Ubicacion: "));
-        panelEditar.add(ubicacionUnidadEditar);
-        panelEditar.add(new JLabel("Porcentaje de ocupacion: "));
-        panelEditar.add(porcentajeUnidadEditar);
-    }
-
-    public void armarPanelEditar2(){
-        // Cuadrícula de 2 columnas (Izquierda: Labels, Derecha: Campos)
-        panelEditar = new JPanel(new FlowLayout(FlowLayout.CENTER, 0, 10));
-        panelEditar.setPreferredSize(new Dimension(400, 400));
-
-        // --- FILA 1: ID (Especial con subpanel) ---
-        panelEditar.add(new JLabel("ID: "));
-
-        JPanel subPanelId = new JPanel(new GridLayout(0, 2, 8, 12)); // Espacio de 5px entre campo y botón
-        idUnidadEditar.setEditable(true);
-        subPanelId.add(idUnidadEditar, BorderLayout.CENTER); // El campo ocupa el centro
-        subPanelId.add(btnBuscarUnidadEditar, BorderLayout.EAST); // El botón va a la derecha
-        panelEditar.add(subPanelId); // Agregamos el subpanel al diseño principal
-
-        // --- FILA 2 en adelante: Estructura normal de 2 elementos por fila ---
-        panelEditar.add(new JLabel("Nombre: "));
-        nombreUnidadEditar.setPreferredSize(new Dimension(150, 15));
-        panelEditar.add(nombreUnidadEditar);
-
-        panelEditar.add(new JLabel("Ocupante: "));
-        ocupanteUnidadEditar.setPreferredSize(new Dimension(150, 15));
-        panelEditar.add(ocupanteUnidadEditar);
-
-        panelEditar.add(new JLabel("Ambientes: "));
-        ambientesUnidadEditar.setPreferredSize(new Dimension(150, 15));
-        panelEditar.add(ambientesUnidadEditar);
-
-        panelEditar.add(new JLabel("Metros cuadrados: "));
-        metrosUnidadEditar.setPreferredSize(new Dimension(150, 15));
-        panelEditar.add(metrosUnidadEditar);
-
-        panelEditar.add(new JLabel("Ubicacion: "));
-        ubicacionUnidadEditar.setPreferredSize(new Dimension(150, 15));
-        panelEditar.add(ubicacionUnidadEditar);
-
-        panelEditar.add(new JLabel("Porcentaje de ocupacion: "));
-        porcentajeUnidadEditar.setPreferredSize(new Dimension(150, 15));
-        panelEditar.add(porcentajeUnidadEditar);
-    }*/
-
     public void armarPanelEditar(){
         panelEditar = new JPanel(new FlowLayout(FlowLayout.CENTER, 0, 10));
         panelEditar.setPreferredSize(new Dimension(400, 400));
@@ -294,7 +231,6 @@ public class PanelUnidades extends JPanel {
     }
 
     public void armarPanelMostrar() {
-        // 1. IMPORTANTE: Si el panel ya existe, solo limpiamos la tabla vieja antes de consultar
         if (panelMostrar == null) {
             panelMostrar = new JPanel(new GridLayout(2, 2, 4, 4));
             panelMostrar.setPreferredSize(new Dimension(400, 400));
@@ -303,12 +239,11 @@ public class PanelUnidades extends JPanel {
         ServiceEdificio serviceEdificio = new ServiceEdificio();
         int idEdificioConsultado = 0;
         try {
-            // Nota: Cambié idSeleccionado por 'id' que viene como parámetro del método
             Edificio edificioConsultado = serviceEdificio.consultarEdificio(idSeleccionado);
             idEdificioConsultado = edificioConsultado.getId();
         } catch(ServiceException e) {
             JOptionPane.showMessageDialog(this, "Error al consultar el edificio " + e.getMessage());
-            return; // Detenemos la ejecución si falla el edificio
+            return;
         }
 
         ArrayList<Unidad> unidadesConsultadas = new ArrayList<>();
@@ -327,7 +262,6 @@ public class PanelUnidades extends JPanel {
             datos[i][2] = unidad.getOcupante();
         }
 
-        // 2. LA SOLUCIÓN: Si la tabla ya existe, solo le cambiamos el modelo de datos
         DefaultTableModel modelo = new DefaultTableModel(datos, columnas) {
             @Override
             public boolean isCellEditable(int row, int column) {
@@ -336,20 +270,12 @@ public class PanelUnidades extends JPanel {
         };
 
         if (tabla == null) {
-            // Primera vez: Creamos la tabla y el scrollpane por única vez
             tabla = new JTable(modelo);
             scrollPane = new JScrollPane(tabla);
             panelMostrar.add(scrollPane);
         } else {
-            // Siguientes clics: Le asignamos el nuevo modelo con los datos frescos
             tabla.setModel(modelo);
         }
-
-        //panelMostrar.revalidate();
-        //panelMostrar.repaint();
-        // 3. OBLIGATORIO EN SWING: Forzar al contenedor principal a redibujarse
-        //panelEdificio.revalidate();
-        //panelEdificio.repaint();
     }
 
     public void actualizarPanelMostrarUnidades() throws ServiceException {
@@ -361,9 +287,6 @@ public class PanelUnidades extends JPanel {
         for (Unidad ed : lista) {
             modelo.addRow(new Object[]{ed.getId(), ed.getNombre(), ed.getOcupante()});
         }
-
-        //this.revalidate();
-        //this.repaint();
     }
 
 
@@ -379,7 +302,7 @@ public class PanelUnidades extends JPanel {
                         JOptionPane.OK_CANCEL_OPTION,
                         JOptionPane.PLAIN_MESSAGE
                 );
-                //armarPanelMostrar();
+
                 try {
                     actualizarPanelMostrarUnidades();
                 } catch (ServiceException ex) {
@@ -439,7 +362,6 @@ public class PanelUnidades extends JPanel {
                                 panelEdificio,
                                 "Error al agregar la unidad" + d.getMessage()
                         );
-                        //throw new ServiceException(d.getMessage());
                     }
                 }
             }
@@ -464,20 +386,11 @@ public class PanelUnidades extends JPanel {
                             panelEdificio,
                             "Unidad encontrada con exito!"
                     );
-                        /*DefaultTableModel modelo = (DefaultTableModel) tabla.getModel();
-                        modelo.setRowCount(0); //limpia la tabla
-
-                        ArrayList<Edificio> lista = serviceEdificio.consultarTodo();
-
-                        for (Edificio ed : lista) {
-                            modelo.addRow(new Object[]{ed.getId(), ed.getNombre(), ed.getDireccion()});
-                        }*/
                 } catch (ServiceException d) {
                     JOptionPane.showMessageDialog(
                             panelEdificio,
                             "Error al buscar la unidad" + d.getMessage()
                     );
-                    //throw new ServiceException(d.getMessage());
                 }
             }
         });
@@ -501,20 +414,11 @@ public class PanelUnidades extends JPanel {
                             panelEdificio,
                             "Unidad encontrada con exito!"
                     );
-                        /*DefaultTableModel modelo = (DefaultTableModel) tabla.getModel();
-                        modelo.setRowCount(0); //limpia la tabla
-
-                        ArrayList<Edificio> lista = serviceEdificio.consultarTodo();
-
-                        for (Edificio ed : lista) {
-                            modelo.addRow(new Object[]{ed.getId(), ed.getNombre(), ed.getDireccion()});
-                        }*/
                 } catch (ServiceException d) {
                     JOptionPane.showMessageDialog(
                             panelEdificio,
                             "Error al buscar la unidad" + d.getMessage()
                     );
-                    //throw new ServiceException(d.getMessage());
                 }
             }
         });
@@ -557,20 +461,11 @@ public class PanelUnidades extends JPanel {
                                 panelEdificio,
                                 "Unidad editada con exito!"
                         );
-                        /*DefaultTableModel modelo = (DefaultTableModel) tabla.getModel();
-                        modelo.setRowCount(0); //limpia la tabla
-
-                        ArrayList<Edificio> lista = serviceEdificio.consultarTodo();
-
-                        for (Edificio ed : lista) {
-                            modelo.addRow(new Object[]{ed.getId(), ed.getNombre(), ed.getDireccion()});
-                        }*/
                     } catch (ServiceException d) {
                         JOptionPane.showMessageDialog(
                                 panelEdificio,
                                 "Error al editar la unidad" + d.getMessage()
                         );
-                        //throw new ServiceException(d.getMessage());
                     }
                 }
 
@@ -592,21 +487,6 @@ public class PanelUnidades extends JPanel {
 
                 if(opcion == JOptionPane.OK_OPTION){
                     int idEliminarUnidad = Integer.parseInt(idUnidadEliminar.getText());
-                    /*String nombreEliminarUnidad = nombreUnidadEliminar.getText();
-                    String ocupanteEliminarUnidad = ocupanteUnidadEliminar.getText();
-                    int ambientesEliminarUnidad = Integer.parseInt(ambientesUnidadEliminar.getText());
-                    int metrosEliminarUnidad = Integer.parseInt(metrosUnidadEliminar.getText());
-                    int ubicacionEliminarUnidad = Integer.parseInt(ubicacionUnidadEliminar.getText());
-                    int porcentajeEliminarUnidad = Integer.parseInt(porcentajeUnidadEliminar.getText());*/
-
-                    /*Object[] data = new Object[7];
-                    data[0] = idEliminarUnidad;
-                    data[1] = nombreEliminarUnidad;
-                    data[2] = ocupanteEliminarUnidad;
-                    data[3] = ambientesEliminarUnidad;
-                    data[4] = metrosEliminarUnidad;
-                    data[5] = ubicacionEliminarUnidad;
-                    data[6] = porcentajeEliminarUnidad;*/
 
                     try {
                         serviceUnidad.eliminar(idEliminarUnidad);
@@ -614,20 +494,11 @@ public class PanelUnidades extends JPanel {
                                 panelEdificio,
                                 "Unidad eliminada con exito!"
                         );
-                        /*DefaultTableModel modelo = (DefaultTableModel) tabla.getModel();
-                        modelo.setRowCount(0); //limpia la tabla
-
-                        ArrayList<Edificio> lista = serviceEdificio.consultarTodo();
-
-                        for (Edificio ed : lista) {
-                            modelo.addRow(new Object[]{ed.getId(), ed.getNombre(), ed.getDireccion()});
-                        }*/
                     } catch (ServiceException d) {
                         JOptionPane.showMessageDialog(
                                 panelEdificio,
                                 "Error al eliminar la unidad" + d.getMessage()
                         );
-                        //throw new ServiceException(d.getMessage());
                     }
                 }
             }

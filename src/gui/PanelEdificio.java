@@ -30,31 +30,6 @@ public class PanelEdificio extends JPanel{
         armarTabla();
     }
 
-    /*public void armarTabla(){
-        reporte = new JPanel();
-        reporte.setLayout(new BorderLayout());
-        contenido = new DefaultTableModel();
-        jTable = new JTable();
-        scrollPane = new JScrollPane();
-        scrollPane.setViewportView(jTable);
-        contenido.addColumn("ID");
-        contenido.addColumn("Nombre");
-        contenido.addColumn("Direccion");
-        reporte.add(scrollPane, BorderLayout.CENTER);
-        ServiceEdificio serviceEdificio = new ServiceEdificio();
-        JButton volverBtn = new JButton("Volver");
-        reporte.add(volverBtn, BorderLayout.SOUTH);
-
-        Object [] fila= new Object[3];
-        fila[0]= 1;
-        fila[1]= "Palacio 1";
-        fila[2]= "Amenabar 3357";
-        contenido.addRow(fila);
-        add(scrollPane, BorderLayout.NORTH);
-
-        add(reporte);
-    }*/
-
     public void armarTabla(){
         //diseño del propio JPanel
         setLayout(new BorderLayout());
@@ -70,7 +45,6 @@ public class PanelEdificio extends JPanel{
                     this,
                     "Error al listar los edificios" + e.getMessage()
             );
-            //System.out.println("Error al consultar el edificio: " + e);
         }
         String[] columnas = {"Identificador", "Nombre", "Dirección"};
         Object[][] datos = new Object[edificiosConsultados.size()][3];
@@ -82,7 +56,6 @@ public class PanelEdificio extends JPanel{
             datos[i][2] = edificio.getDireccion();
         }
 
-        //modelo y la tabla (celdas no editables directamente)
         DefaultTableModel modelo = new DefaultTableModel(datos, columnas) {
             @Override
             public boolean isCellEditable(int row, int column) {
@@ -92,7 +65,6 @@ public class PanelEdificio extends JPanel{
         JTable tabla = new JTable(modelo);
         JScrollPane scrollPane = new JScrollPane(tabla);
 
-        //panel inferior para el botón
         JPanel panelAcciones = new JPanel();
         JButton btnEditar = new JButton("Editar");
         JButton btnEliminar = new JButton("Eliminar");
@@ -297,61 +269,12 @@ public class PanelEdificio extends JPanel{
 
                     panelUnidades.setIdSeleccionado(idSeleccionado);
                 }
-            }/*else{
-                JOptionPane.showMessageDialog(
-                        null,
-                        "Por favor, selecciona un edificio de la lista.",
-                        "Aviso",
-                        JOptionPane.WARNING_MESSAGE
-                );
-            }*/
+            }
 
         });
 
         panelUnidades.setIdSeleccionado(idSeleccionado);
-        //System.out.println(idSeleccionado);
 
-
-        /*panelUnidades.getBtnEditarUnidades().addActionListener(new ActionListener() {
-            @Override
-            public void actionPerformed(ActionEvent e){
-                int opcion = JOptionPane.showConfirmDialog(
-                        FormularioEdificio.this,
-                        panelUnidades.getPanelEditar(),
-                        "Editar Nueva Unidad",
-                        JOptionPane.OK_CANCEL_OPTION,
-                        JOptionPane.PLAIN_MESSAGE
-                );
-            }
-        });*/
-
-        /*panelUnidades.getBtnMostrarUnidades().addActionListener(new ActionListener() {
-            @Override
-            public void actionPerformed(ActionEvent e){
-                int opcion = JOptionPane.showConfirmDialog(
-                        FormularioEdificio.this,
-                        panelUnidades.getPanelMostrar(),
-                        "Unidades del edificio",
-                        JOptionPane.OK_CANCEL_OPTION,
-                        JOptionPane.PLAIN_MESSAGE
-                );
-            }
-        });8?
-
-        /*panelUnidades.getBtnAgregarUnidades().addActionListener(new ActionListener() {
-            @Override
-            public void actionPerformed(ActionEvent e){
-                int opcion = JOptionPane.showConfirmDialog(
-                        FormularioEdificio.this,
-                        panelUnidades.getPanelAgregar(), //modificar
-                        "Agregar unidades",
-                        JOptionPane.OK_CANCEL_OPTION,
-                        JOptionPane.PLAIN_MESSAGE
-                );
-            }
-        });*/
-
-        //System.out.println(idSeleccionado);
         panelUnidades.actionBtnAgregarUnidad(idSeleccionado);
         panelUnidades.actionBtnMostrarUnidades(idSeleccionado);
         panelUnidades.actionBtnEditarUnidades();
@@ -363,18 +286,6 @@ public class PanelEdificio extends JPanel{
         panelAdministradora.actionBtnEditarAdministradora();
         panelAdministradora.actionBtnEliminarAdministradora();
 
-        /*panelUnidades.getBtnEliminarUnidades().addActionListener(new ActionListener() {
-            @Override
-            public void actionPerformed(ActionEvent e){
-                int opcion = JOptionPane.showConfirmDialog(
-                        FormularioEdificio.this,
-                        panelUnidades.getPanelMostrar(), //modificar
-                        "Eliminar unidades",
-                        JOptionPane.OK_CANCEL_OPTION,
-                        JOptionPane.PLAIN_MESSAGE
-                );
-            }
-        });*/
 
         btnLiquidarExp.addActionListener(new ActionListener() {
             @Override
@@ -476,7 +387,6 @@ public class PanelEdificio extends JPanel{
                                 PanelEdificio.this,
                                 "Error al agregar edificio" + d.getMessage()
                         );
-                        //throw new ServiceException(d.getMessage());
                     }
                     //Mandar datos al ServiceEdificio para agregar un edificio.
                 }
@@ -532,7 +442,6 @@ public class PanelEdificio extends JPanel{
                                 PanelEdificio.this,
                                 "Error al agregar edificio" + d.getMessage()
                         );
-                        //throw new ServiceException(d.getMessage());
                     }
                     //Mandar datos al ServiceEdificio para agregar un edificio.
                 }
@@ -611,7 +520,6 @@ public class PanelEdificio extends JPanel{
                                 PanelEdificio.this,
                                 "Error al modificar edificio" + d.getMessage()
                         );
-                        //throw new ServiceException(d.getMessage());
                     }
                 }
             }

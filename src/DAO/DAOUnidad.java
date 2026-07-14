@@ -45,11 +45,6 @@ public class DAOUnidad implements IDAO<Unidad>{
             preparedStatement.setInt(7, elemento.getIdEdificio());
 
             int resultado = preparedStatement.executeUpdate();
-            /*if (resultado == 1){
-                System.out.println("Edificio agregado");
-            }else{
-                System.out.println("Fallo sentencia SQL");
-            }*/
         }
         catch (ClassNotFoundException | SQLException e){
             throw new DaoException("Error en agregar unidad" + e);
@@ -134,10 +129,6 @@ public class DAOUnidad implements IDAO<Unidad>{
             preparedStatement.setInt(1,id);
             ResultSet rs=preparedStatement.executeQuery();
             if (rs.next()) {
-                /*alumno.setId(rs.getInt("id"));
-                alumno.setNombre(rs.getString("nombre"));
-                alumno.setNota(rs.getInt("nota"));
-                */
                 int idUnidad = Integer.parseInt((rs.getString("id")));
                 String nombre=(rs.getString("nombre"));
                 String ocupante=(rs.getString("ocupante"));
