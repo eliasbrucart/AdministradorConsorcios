@@ -381,16 +381,25 @@ public class PanelEdificio extends JPanel{
                 //traer todas las unidades del edificio.
                 //sumar el porcentaje, ubicacion y ambientes para el calculo de expensas.
                 //sumar todas las liquidaciones y mostrar las liquidaciones por unidad.
+                liquidarExpensasPanel.removeAll();
                 try{
                     ArrayList<Unidad> unidades = new ArrayList<>();
                     ServiceUnidad serviceUnidad = new ServiceUnidad();
                     serviceUnidad.calcularExpensasPorUnidad(idSeleccionado);
                     unidades = serviceUnidad.consultarTodoPorID(idSeleccionado);
                     int expensas = 0;
+                    JLabel[] labelsUnidades = new JLabel[unidades.size()];
                     for (int i = 0; i < unidades.size(); i++){
                         expensas += unidades.get(i).getExpensas();
+
+                        labelsUnidades[i] = new JLabel("Unidad " + (i + 1) + " - Expensas: " + unidades.get(i).getExpensas());
+
+                        liquidarExpensasPanel.add(labelsUnidades[i]);
                     }
-                    liquidacionTotal.setText(String.valueOf(expensas));
+                    liquidacionTotal.setText("Liquidacion total del edificio: " + String.valueOf(expensas));
+                    liquidarExpensasPanel.add(liquidacionTotal);
+                    liquidarExpensasPanel.revalidate();
+                    liquidarExpensasPanel.repaint();
                     //mover a service
                 }catch(ServiceException d){
                     JOptionPane.showMessageDialog(
