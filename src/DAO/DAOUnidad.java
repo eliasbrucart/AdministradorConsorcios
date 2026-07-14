@@ -196,11 +196,33 @@ public class DAOUnidad implements IDAO<Unidad>{
                 unidad.setMetrosCuadrados(rs.getInt("metros"));
                 unidad.setUbicacion(rs.getInt("ubicacion"));
                 unidad.setPorcentaje(rs.getInt("porcentaje"));
+                unidad.setExpensas(rs.getInt("expensas"));
                 unidades.add(unidad);
             }
         }catch (ClassNotFoundException | SQLException e){
             throw new DaoException("Error en consultar todas las unidades");
         }
         return unidades;
+    }
+
+    public void actualizarExpensas(int id, int expensas)throws DaoException{
+        Connection connection=null;
+        PreparedStatement preparedStatement=null;
+        ArrayList<Unidad> unidades = new ArrayList<>();
+
+        try{
+            Class.forName(DB_JDBC_DRIVER);
+            System.out.println("no hay driver"); //quitar luego
+            connection = DriverManager.getConnection(DB_URL, DB_USER, DB_PASSWORD);
+            System.out.println("se conecto"); //quitar luego
+            preparedStatement = connection.prepareStatement("UPDATE UNIDAD SET EXPENSAS = ? WHERE id_edificio = ?");
+            preparedStatement.setInt(1,expensas);
+            preparedStatement.setInt(2,id);
+
+            preparedStatement.executeUpdate();
+
+        }catch (ClassNotFoundException | SQLException e){
+            throw new DaoException("Error en consultar todas las unidades");
+        }
     }
 }

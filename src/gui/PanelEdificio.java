@@ -1,8 +1,11 @@
 package gui;
 
+import DAO.DAOUnidad;
 import entidades.Edificio;
+import entidades.Unidad;
 import service.ServiceEdificio;
 import service.ServiceException;
+import service.ServiceUnidad;
 
 import javax.swing.*;
 import javax.swing.table.DefaultTableModel;
@@ -95,14 +98,17 @@ public class PanelEdificio extends JPanel{
         JButton btnEliminar = new JButton("Eliminar");
         JButton btnAgregar = new JButton("Agregar");
         JButton btnAdministrar = new JButton("Administrar");
+        JButton btnLiquidarExp = new JButton("Liquidacion");
         btnEditar.setVisible(false); // Oculto por defecto
         btnEliminar.setVisible(false);
         btnAgregar.setVisible(true);
         btnAdministrar.setVisible(false);
+        btnLiquidarExp.setVisible(false);
         panelAcciones.add(btnEditar);
         panelAcciones.add(btnEliminar);
         panelAcciones.add(btnAgregar);
         panelAcciones.add(btnAdministrar);
+        panelAcciones.add(btnLiquidarExp);
 
         PanelUnidades panelUnidades = new PanelUnidades(this);
         panelUnidades.armarPanelEditar();
@@ -244,7 +250,12 @@ public class PanelEdificio extends JPanel{
         administrarEdificio.add(gastosMantenimiento);
         administrarEdificio.add(balanceTotalLabel);
 
+        JPanel liquidarExpensasPanel = new JPanel(new GridLayout(10, 10,8,8));
+        JLabel cantidadUnidades = new JLabel();
+        JLabel liquidacionTotal = new JLabel();
 
+        liquidarExpensasPanel.add(cantidadUnidades);
+        liquidarExpensasPanel.add(liquidacionTotal);
 
         //selección de la tabla
         tabla.getSelectionModel().addListSelectionListener(e -> {
@@ -261,6 +272,7 @@ public class PanelEdificio extends JPanel{
                     btnEditar.setVisible(tabla.getSelectedRow() != -1); // Mostrar botón
                     btnEliminar.setVisible(tabla.getSelectedRow() != -1);
                     btnAdministrar.setVisible(tabla.getSelectedRow() != -1);
+                    btnLiquidarExp.setVisible(tabla.getSelectedRow() != -1);
 
                     panelUnidades.getBtnMostrarUnidades().setVisible(tabla.getSelectedRow() != -1);
                     panelUnidades.getBtnAgregarUnidades().setVisible(tabla.getSelectedRow() != -1);
@@ -355,6 +367,41 @@ public class PanelEdificio extends JPanel{
                 );
             }
         });*/
+
+        btnLiquidarExp.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                int opcion = JOptionPane.showConfirmDialog(
+                        PanelEdificio.this,
+                        liquidarExpensasPanel,
+                        "Liquidacion total de expensas",
+                        JOptionPane.OK_CANCEL_OPTION,
+                        JOptionPane.PLAIN_MESSAGE
+                );
+                //traer todas las unidades del edificio.
+                //sumar el porcentaje, ubicacion y ambientes para el calculo de expensas.
+                //sumar todas las liquidaciones y mostrar las liquidaciones por unidad.
+                try{
+                    ArrayList<Unidad> unidades = new ArrayList<>();
+                    ServiceUnidad serviceUnidad = new ServiceUnidad();
+                    serviceUnidad.calcularExpensasPorUnidad(idSeleccionado);
+                    unidades = serviceUnidad.consultarTodoPorID(idSeleccionado);
+                    int expensas = 0;
+                    for (int i = 0; i < unidades.size(); i++){
+                        expensas += unidades.get(i).getExpensas();
+                    }
+                    liquidacionTotal.setText(String.valueOf(expensas));
+                    //mover a service
+                }catch(ServiceException d){
+                    JOptionPane.showMessageDialog(
+                            PanelEdificio.this,
+                            "Error al obtener todas las unidades!" + d.getMessage()
+                    );
+                }
+
+                //liquidacionTotal.setText("liquidacion");
+            }
+        });
 
         btnAdministrar.addActionListener(new ActionListener() {
             @Override
