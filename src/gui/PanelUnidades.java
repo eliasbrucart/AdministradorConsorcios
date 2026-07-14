@@ -68,9 +68,13 @@ public class PanelUnidades extends JPanel {
         btnEditarUnidades.setVisible(false);
         btnEliminarUnidades.setVisible(false);
 
+        setLayout(new BoxLayout(this, BoxLayout.Y_AXIS));
         add(btnMostrarUnidades);
+        add(Box.createVerticalStrut(10));
         add(btnAgregarUnidades);
+        add(Box.createVerticalStrut(10));
         add(btnEditarUnidades);
+        add(Box.createVerticalStrut(10));
         add(btnEliminarUnidades);
 
         this.panelEdificio = panelEdificio;
