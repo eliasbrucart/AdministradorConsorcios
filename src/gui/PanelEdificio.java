@@ -112,7 +112,7 @@ public class PanelEdificio extends JPanel{
 
         PanelUnidades panelUnidades = new PanelUnidades(this);
         panelUnidades.armarPanelEditar();
-        //panelUnidades.armarPanelMostrar();
+        panelUnidades.armarPanelMostrar();
         panelUnidades.armarPanelAgregar();
         panelUnidades.armarPanelEliminar();
 
@@ -285,7 +285,15 @@ public class PanelEdificio extends JPanel{
                     panelAcciones.repaint();
 
                     panelUnidades.revalidate();
-                    panelAcciones.repaint();
+                    panelUnidades.repaint();
+
+                    try{
+                        panelUnidades.actualizarPanelMostrarUnidades();
+                    }catch(ServiceException d){
+                        throw new RuntimeException(d);
+                    }
+
+                    //panelUnidades.actualizarPanelMostrarUnidades();
 
                     panelUnidades.setIdSeleccionado(idSeleccionado);
                 }

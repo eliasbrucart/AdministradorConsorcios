@@ -96,6 +96,28 @@ public class DAOUnidad implements IDAO<Unidad>{
         }
     }
 
+    public void modificarPorIDEdificio(Unidad elemento) throws DaoException{
+        Connection connection=null;
+        PreparedStatement preparedStatement=null;
+        try{
+            Class.forName(DB_JDBC_DRIVER);
+            System.out.println("no hay driver");
+            connection = DriverManager.getConnection(DB_URL, DB_USER, DB_PASSWORD);
+            System.out.println("se conecto");
+            preparedStatement = connection.prepareStatement("UPDATE UNIDAD SET NOMBRE = ?, OCUPANTE = ?, AMBIENTES = ?, METROS = ?, UBICACION = ?, PORCENTAJE = ? WHERE id_edificio = ?");
+            preparedStatement.setString(1, elemento.getNombre());
+            preparedStatement.setString(2, elemento.getOcupante());
+            preparedStatement.setInt(3, elemento.getAmbientes());
+            preparedStatement.setInt(4, elemento.getMetrosCuadrados());
+            preparedStatement.setInt(5, elemento.getUbicacion());
+            preparedStatement.setInt(6, elemento.getPorcentaje());
+            preparedStatement.setInt(7, elemento.getId());
+            preparedStatement.executeUpdate();
+        }catch (ClassNotFoundException | SQLException e){
+            throw new DaoException("Error al modificar la unidad: " + e);
+        }
+    }
+
     @Override
     public Unidad consultar(int id) throws DaoException{
         Connection connection=null;
@@ -153,6 +175,37 @@ public class DAOUnidad implements IDAO<Unidad>{
             System.out.println("se conecto"); //quitar luego
             preparedStatement = connection.prepareStatement("SELECT * FROM UNIDAD");
 
+            ResultSet rs=preparedStatement.executeQuery();
+
+            while(rs.next()){
+                Unidad unidad = new Unidad();
+                unidad.setId(rs.getInt("id"));
+                unidad.setNombre(rs.getString("nombre"));
+                unidad.setOcupante(rs.getString("ocupante"));
+                unidad.setAmbientes(rs.getInt("ambientes"));
+                unidad.setMetrosCuadrados(rs.getInt("metros"));
+                unidad.setUbicacion(rs.getInt("ubicacion"));
+                unidad.setPorcentaje(rs.getInt("porcentaje"));
+                unidades.add(unidad);
+            }
+        }catch (ClassNotFoundException | SQLException e){
+            throw new DaoException("Error en consultar todas las unidades");
+        }
+        return unidades;
+    }
+
+    public ArrayList<Unidad> consultarUnidadesPorIDEdificio(int id) throws DaoException{
+        Connection connection=null;
+        PreparedStatement preparedStatement=null;
+        ArrayList<Unidad> unidades = new ArrayList<>();
+
+        try{
+            Class.forName(DB_JDBC_DRIVER);
+            System.out.println("no hay driver"); //quitar luego
+            connection = DriverManager.getConnection(DB_URL, DB_USER, DB_PASSWORD);
+            System.out.println("se conecto"); //quitar luego
+            preparedStatement = connection.prepareStatement("SELECT * FROM UNIDAD WHERE id_edificio = ?");
+            preparedStatement.setInt(1,id);
             ResultSet rs=preparedStatement.executeQuery();
 
             while(rs.next()){

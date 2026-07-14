@@ -30,6 +30,7 @@ public class PanelUnidades extends JPanel {
     private JScrollPane scrollPane;
 
     private JPanel panelAgregar;
+    private JTable tabla;
     private JTextField nombreUnidadAgregar = new JTextField(10);
     private JTextField ocupanteUnidadAgregar = new JTextField(10);
     private JTextField ambientesUnidadAgregar = new JTextField(10);
@@ -141,8 +142,9 @@ public class PanelUnidades extends JPanel {
         panelAgregar.add(porcentajeUnidadAgregar);
     }
 
-    public void armarPanelEditar(){
-        panelEditar = new JPanel(new GridLayout(10, 15, 8, 8));
+    /*public void armarPanelEditar(){
+        panelEditar = new JPanel(new GridLayout(0, 2, 8, 8));
+        panelEditar.setPreferredSize(new Dimension(400, 400));
 
         panelEditar.add(new JLabel("ID: "));
         panelEditar.add(idUnidadEditar);
@@ -163,77 +165,207 @@ public class PanelUnidades extends JPanel {
         panelEditar.add(porcentajeUnidadEditar);
     }
 
-    public void armarPanelEliminar(){
-        panelEliminar = new JPanel(new GridLayout(10, 15, 8, 8));
+    public void armarPanelEditar2(){
+        // Cuadrícula de 2 columnas (Izquierda: Labels, Derecha: Campos)
+        panelEditar = new JPanel(new FlowLayout(FlowLayout.CENTER, 0, 10));
+        panelEditar.setPreferredSize(new Dimension(400, 400));
 
-        panelEliminar.add(new JLabel("ID: "));
-        panelEliminar.add(idUnidadEliminar);
+        // --- FILA 1: ID (Especial con subpanel) ---
+        panelEditar.add(new JLabel("ID: "));
+
+        JPanel subPanelId = new JPanel(new GridLayout(0, 2, 8, 12)); // Espacio de 5px entre campo y botón
         idUnidadEditar.setEditable(true);
-        //JButton btnBuscarUnidad = new JButton("Buscar");
-        panelEliminar.add(btnBuscarUnidadEliminar);
-        panelEliminar.add(new JLabel("Nombre: "));
-        panelEliminar.add(nombreUnidadEliminar);
-        panelEliminar.add(new JLabel("Ocupante: "));
-        panelEliminar.add(ocupanteUnidadEliminar);
-        panelEliminar.add(new JLabel("Ambientes: "));
-        panelEliminar.add(ambientesUnidadEliminar);
-        panelEliminar.add(new JLabel("Metros cuadrados: "));
-        panelEliminar.add(metrosUnidadEliminar);
-        panelEliminar.add(new JLabel("Ubicacion: "));
-        panelEliminar.add(ubicacionUnidadEliminar);
-        panelEliminar.add(new JLabel("Porcentaje de ocupacion: "));
-        panelEliminar.add(porcentajeUnidadEliminar);
+        subPanelId.add(idUnidadEditar, BorderLayout.CENTER); // El campo ocupa el centro
+        subPanelId.add(btnBuscarUnidadEditar, BorderLayout.EAST); // El botón va a la derecha
+        panelEditar.add(subPanelId); // Agregamos el subpanel al diseño principal
+
+        // --- FILA 2 en adelante: Estructura normal de 2 elementos por fila ---
+        panelEditar.add(new JLabel("Nombre: "));
+        nombreUnidadEditar.setPreferredSize(new Dimension(150, 15));
+        panelEditar.add(nombreUnidadEditar);
+
+        panelEditar.add(new JLabel("Ocupante: "));
+        ocupanteUnidadEditar.setPreferredSize(new Dimension(150, 15));
+        panelEditar.add(ocupanteUnidadEditar);
+
+        panelEditar.add(new JLabel("Ambientes: "));
+        ambientesUnidadEditar.setPreferredSize(new Dimension(150, 15));
+        panelEditar.add(ambientesUnidadEditar);
+
+        panelEditar.add(new JLabel("Metros cuadrados: "));
+        metrosUnidadEditar.setPreferredSize(new Dimension(150, 15));
+        panelEditar.add(metrosUnidadEditar);
+
+        panelEditar.add(new JLabel("Ubicacion: "));
+        ubicacionUnidadEditar.setPreferredSize(new Dimension(150, 15));
+        panelEditar.add(ubicacionUnidadEditar);
+
+        panelEditar.add(new JLabel("Porcentaje de ocupacion: "));
+        porcentajeUnidadEditar.setPreferredSize(new Dimension(150, 15));
+        panelEditar.add(porcentajeUnidadEditar);
+    }*/
+
+    public void armarPanelEditar(){
+        panelEditar = new JPanel(new FlowLayout(FlowLayout.CENTER, 0, 10));
+        panelEditar.setPreferredSize(new Dimension(400, 400));
+
+        JPanel formPanel = new JPanel(new GridLayout(0, 2, 8, 12));
+
+        formPanel.add(new JLabel("ID: "));
+
+        JPanel subPanelId = new JPanel(new BorderLayout(5, 0));
+        idUnidadEditar.setEditable(true);
+
+        idUnidadEditar.setPreferredSize(new Dimension(60, 25));
+
+        subPanelId.add(idUnidadEditar, BorderLayout.CENTER);
+        subPanelId.add(btnBuscarUnidadEditar, BorderLayout.EAST);
+        formPanel.add(subPanelId);
+
+        formPanel.add(new JLabel("Nombre: "));
+        nombreUnidadEditar.setPreferredSize(new Dimension(150, 25)); // Tamaño estándar ideal para los textos
+        formPanel.add(nombreUnidadEditar);
+
+        formPanel.add(new JLabel("Ocupante: "));
+        ocupanteUnidadEditar.setPreferredSize(new Dimension(150, 25));
+        formPanel.add(ocupanteUnidadEditar);
+
+        formPanel.add(new JLabel("Ambientes: "));
+        ambientesUnidadEditar.setPreferredSize(new Dimension(150, 25));
+        formPanel.add(ambientesUnidadEditar);
+
+        formPanel.add(new JLabel("Metros cuadrados: "));
+        metrosUnidadEditar.setPreferredSize(new Dimension(150, 25));
+        formPanel.add(metrosUnidadEditar);
+
+        formPanel.add(new JLabel("Ubicación: "));
+        ubicacionUnidadEditar.setPreferredSize(new Dimension(150, 25));
+        formPanel.add(ubicacionUnidadEditar);
+
+        formPanel.add(new JLabel("Porcentaje de ocupación: "));
+        porcentajeUnidadEditar.setPreferredSize(new Dimension(150, 25));
+        formPanel.add(porcentajeUnidadEditar);
+
+        panelEditar.add(formPanel);
     }
 
-    public void armarPanelMostrar(int id) {
-        panelMostrar = new JPanel(new GridLayout(2, 2, 4, 4));
-        panelMostrar.setPreferredSize(new Dimension(400, 400));
-        // agregar service de Edificio para consultar sus datos.
-        //ServiceUnidad serviceUnidad = new ServiceUnidad();
+    public void armarPanelEliminar(){
+        panelEliminar = new JPanel(new FlowLayout(FlowLayout.CENTER, 0, 10));
+        panelEliminar.setPreferredSize(new Dimension(400, 400));
+
+        JPanel formPanel = new JPanel(new GridLayout(0, 2, 8, 12));
+
+        formPanel.add(new JLabel("ID: "));
+
+        JPanel subPanelId = new JPanel(new BorderLayout(5, 0));
+        idUnidadEliminar.setEditable(true);
+
+        idUnidadEliminar.setPreferredSize(new Dimension(60, 25));
+
+        subPanelId.add(idUnidadEliminar, BorderLayout.CENTER);
+        subPanelId.add(btnBuscarUnidadEliminar, BorderLayout.EAST);
+        formPanel.add(subPanelId);
+
+        formPanel.add(new JLabel("Nombre: "));
+        nombreUnidadEliminar.setPreferredSize(new Dimension(150, 25)); // Tamaño estándar ideal para los textos
+        formPanel.add(nombreUnidadEliminar);
+
+        formPanel.add(new JLabel("Ocupante: "));
+        ocupanteUnidadEliminar.setPreferredSize(new Dimension(150, 25));
+        formPanel.add(ocupanteUnidadEliminar);
+
+        formPanel.add(new JLabel("Ambientes: "));
+        ambientesUnidadEliminar.setPreferredSize(new Dimension(150, 25));
+        formPanel.add(ambientesUnidadEliminar);
+
+        formPanel.add(new JLabel("Metros cuadrados: "));
+        metrosUnidadEliminar.setPreferredSize(new Dimension(150, 25));
+        formPanel.add(metrosUnidadEliminar);
+
+        formPanel.add(new JLabel("Ubicación: "));
+        ubicacionUnidadEliminar.setPreferredSize(new Dimension(150, 25));
+        formPanel.add(ubicacionUnidadEliminar);
+
+        formPanel.add(new JLabel("Porcentaje de ocupación: "));
+        porcentajeUnidadEliminar.setPreferredSize(new Dimension(150, 25));
+        formPanel.add(porcentajeUnidadEliminar);
+
+        panelEliminar.add(formPanel);
+    }
+
+    public void armarPanelMostrar() {
+        // 1. IMPORTANTE: Si el panel ya existe, solo limpiamos la tabla vieja antes de consultar
+        if (panelMostrar == null) {
+            panelMostrar = new JPanel(new GridLayout(2, 2, 4, 4));
+            panelMostrar.setPreferredSize(new Dimension(400, 400));
+        }
+
         ServiceEdificio serviceEdificio = new ServiceEdificio();
         int idEdificioConsultado = 0;
-        try{
+        try {
+            // Nota: Cambié idSeleccionado por 'id' que viene como parámetro del método
             Edificio edificioConsultado = serviceEdificio.consultarEdificio(idSeleccionado);
             idEdificioConsultado = edificioConsultado.getId();
-        }catch(ServiceException e){
-            JOptionPane.showMessageDialog(
-                    this,
-                    "Error al consultar el edificio " + e.getMessage()
-            );
+        } catch(ServiceException e) {
+            JOptionPane.showMessageDialog(this, "Error al consultar el edificio " + e.getMessage());
+            return; // Detenemos la ejecución si falla el edificio
         }
 
         ArrayList<Unidad> unidadesConsultadas = new ArrayList<>();
-        try{
+        try {
             unidadesConsultadas = serviceUnidad.consultarTodoPorID(idEdificioConsultado);
         } catch (ServiceException e) {
-            JOptionPane.showMessageDialog(
-                    this,
-                    "Error al listar las unidades" + e.getMessage()
-            );
-            //System.out.println("Error al consultar el edificio: " + e);
+            JOptionPane.showMessageDialog(this, "Error al listar las unidades " + e.getMessage());
         }
+
         String[] columnas = {"Identificador", "Nombre", "Ocupante"};
         Object[][] datos = new Object[unidadesConsultadas.size()][3];
-        for(int i = 0; i < unidadesConsultadas.size(); i++){
+        for(int i = 0; i < unidadesConsultadas.size(); i++) {
             Unidad unidad = unidadesConsultadas.get(i);
-
             datos[i][0] = unidad.getId();
             datos[i][1] = unidad.getNombre();
             datos[i][2] = unidad.getOcupante();
         }
 
-        //modelo y la tabla (celdas no editables directamente)
+        // 2. LA SOLUCIÓN: Si la tabla ya existe, solo le cambiamos el modelo de datos
         DefaultTableModel modelo = new DefaultTableModel(datos, columnas) {
             @Override
             public boolean isCellEditable(int row, int column) {
                 return false;
             }
         };
-        JTable tabla = new JTable(modelo);
-        scrollPane = new JScrollPane(tabla);
 
-        panelMostrar.add(scrollPane);
+        if (tabla == null) {
+            // Primera vez: Creamos la tabla y el scrollpane por única vez
+            tabla = new JTable(modelo);
+            scrollPane = new JScrollPane(tabla);
+            panelMostrar.add(scrollPane);
+        } else {
+            // Siguientes clics: Le asignamos el nuevo modelo con los datos frescos
+            tabla.setModel(modelo);
+        }
+
+        //panelMostrar.revalidate();
+        //panelMostrar.repaint();
+        // 3. OBLIGATORIO EN SWING: Forzar al contenedor principal a redibujarse
+        //panelEdificio.revalidate();
+        //panelEdificio.repaint();
     }
+
+    public void actualizarPanelMostrarUnidades() throws ServiceException {
+        DefaultTableModel modelo = (DefaultTableModel)tabla.getModel();
+        modelo.setRowCount(0); //limpia la tabla
+
+        ArrayList<Unidad> lista = serviceUnidad.consultarUnidadesPorIDEdificio(idSeleccionado);
+
+        for (Unidad ed : lista) {
+            modelo.addRow(new Object[]{ed.getId(), ed.getNombre(), ed.getOcupante()});
+        }
+
+        //this.revalidate();
+        //this.repaint();
+    }
+
 
     public void actionBtnMostrarUnidades(int id){
         System.out.println("dentro de funcion id: " + id);
@@ -247,8 +379,12 @@ public class PanelUnidades extends JPanel {
                         JOptionPane.OK_CANCEL_OPTION,
                         JOptionPane.PLAIN_MESSAGE
                 );
-
-                armarPanelMostrar(idSeleccionado);
+                //armarPanelMostrar();
+                try {
+                    actualizarPanelMostrarUnidades();
+                } catch (ServiceException ex) {
+                    throw new RuntimeException(ex);
+                }
             }
         });
     }
@@ -290,14 +426,14 @@ public class PanelUnidades extends JPanel {
                                 panelEdificio,
                                 "Unidad agregada con exito!"
                         );
-                        /*DefaultTableModel modelo = (DefaultTableModel) tabla.getModel();
+                        DefaultTableModel modelo = (DefaultTableModel)tabla.getModel();
                         modelo.setRowCount(0); //limpia la tabla
 
-                        ArrayList<Edificio> lista = serviceEdificio.consultarTodo();
+                        ArrayList<Unidad> lista = serviceUnidad.consultarTodo();
 
-                        for (Edificio ed : lista) {
-                            modelo.addRow(new Object[]{ed.getId(), ed.getNombre(), ed.getDireccion()});
-                        }*/
+                        for (Unidad ed : lista) {
+                            modelo.addRow(new Object[]{ed.getId(), ed.getNombre(), ed.getOcupante()});
+                        }
                     } catch (ServiceException d) {
                         JOptionPane.showMessageDialog(
                                 panelEdificio,
@@ -397,7 +533,8 @@ public class PanelUnidades extends JPanel {
                 );
 
                 if(opcion == JOptionPane.OK_OPTION){
-                    int idEditarUnidad = Integer.parseInt(idUnidadEditar.getText());
+                    //int idEditarUnidad = Integer.parseInt(idUnidadEditar.getText());
+                    int idEditarUnidad = idSeleccionado;
                     String nombreEditarUnidad = nombreUnidadEditar.getText();
                     String ocupanteEditarUnidad = ocupanteUnidadEditar.getText();
                     int ambientesEditarUnidad = Integer.parseInt(ambientesUnidadEditar.getText());

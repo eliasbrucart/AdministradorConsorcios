@@ -84,6 +84,16 @@ public class ServiceUnidad {
         }
     }
 
+    public ArrayList<Unidad> consultarUnidadesPorIDEdificio(int id) throws ServiceException{
+        ArrayList<Unidad> unidades = new ArrayList<>();
+        try{
+            unidades = daoUnidad.consultarUnidadesPorIDEdificio(id);
+            return unidades;
+        }catch (DaoException e){
+            throw new ServiceException("Error al consultar todas las unidades: " + e);
+        }
+    }
+
     public ArrayList<Unidad> consultarTodoPorID(int id) throws ServiceException{
         ArrayList<Unidad> unidades = new ArrayList<>();
         try{
