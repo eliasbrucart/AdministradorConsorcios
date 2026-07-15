@@ -12,6 +12,7 @@ import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.util.ArrayList;
+import java.util.Objects;
 
 public class PanelUnidades extends JPanel {
     private PanelEdificio panelEdificio;
@@ -373,14 +374,16 @@ public class PanelUnidades extends JPanel {
             @Override
             public void actionPerformed(ActionEvent e) {
                 int idEditarUnidad = Integer.parseInt(idUnidadEditar.getText());
+                Unidad unidadConsultada = new Unidad();
 
                 try {
-                    Unidad unidadConsultada = serviceUnidad.consultarUnidad(idEditarUnidad);
+                    unidadConsultada = serviceUnidad.consultarUnidad(idEditarUnidad);
                     idUnidadEditar.setText(String.valueOf(unidadConsultada.getId()));
                     nombreUnidadEditar.setText(unidadConsultada.getNombre());
                     ocupanteUnidadEditar.setText(unidadConsultada.getOcupante());
                     ambientesUnidadEditar.setText(String.valueOf(unidadConsultada.getAmbientes()));
                     metrosUnidadEditar.setText(String.valueOf(unidadConsultada.getMetrosCuadrados()));
+                    ubicacionUnidadEditar.setText(String.valueOf(unidadConsultada.getUbicacion()));
                     porcentajeUnidadEditar.setText(String.valueOf(unidadConsultada.getPorcentaje()));
                     JOptionPane.showMessageDialog(
                             panelEdificio,
@@ -401,24 +404,28 @@ public class PanelUnidades extends JPanel {
             @Override
             public void actionPerformed(ActionEvent e) {
                 int idEditarUnidad = Integer.parseInt(idUnidadEliminar.getText());
+                Unidad unidadConsultada = new Unidad();
 
                 try {
-                    Unidad unidadConsultada = serviceUnidad.consultarUnidad(idEditarUnidad);
+                    unidadConsultada = serviceUnidad.consultarUnidad(idEditarUnidad);
                     idUnidadEliminar.setText(String.valueOf(unidadConsultada.getId()));
                     nombreUnidadEliminar.setText(unidadConsultada.getNombre());
                     ocupanteUnidadEliminar.setText(unidadConsultada.getOcupante());
                     ambientesUnidadEliminar.setText(String.valueOf(unidadConsultada.getAmbientes()));
                     metrosUnidadEliminar.setText(String.valueOf(unidadConsultada.getMetrosCuadrados()));
+                    ubicacionUnidadEliminar.setText(String.valueOf(unidadConsultada.getUbicacion()));
                     porcentajeUnidadEliminar.setText(String.valueOf(unidadConsultada.getPorcentaje()));
                     JOptionPane.showMessageDialog(
                             panelEdificio,
                             "Unidad encontrada con exito!"
                     );
                 } catch (ServiceException d) {
-                    JOptionPane.showMessageDialog(
-                            panelEdificio,
-                            "Error al buscar la unidad" + d.getMessage()
-                    );
+                    if(unidadConsultada.getId() == 0){
+                        JOptionPane.showMessageDialog(
+                                panelEdificio,
+                                "Error al buscar la unidad" + d.getMessage()
+                        );
+                    }
                 }
             }
         });
