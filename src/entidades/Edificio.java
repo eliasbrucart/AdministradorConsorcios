@@ -1,7 +1,8 @@
 package entidades;
 
+import java.util.ArrayList;
+
 public class Edificio {
-    //componemos las unidades funcionales
     private int id;
     private String nombre;
     private String direccion;
@@ -12,8 +13,9 @@ public class Edificio {
     private int liquidacionExpensas;
     private String fechaLiquidacionExpensas;
     private String idUnidades;
+    private ArrayList<Unidad> unidades;
     public Edificio(){
-
+        unidades = new ArrayList<>();
     }
     public void setId(int id){
         this.id = id;
@@ -90,5 +92,13 @@ public class Edificio {
 
     public String getIdUnidades() {
         return idUnidades;
+    }
+
+    public void seetUnidad(Unidad unidad){
+        unidades.add(unidad);
+    }
+
+    public ArrayList<Unidad> getUnidades(){
+        return this.unidades;
     }
 }

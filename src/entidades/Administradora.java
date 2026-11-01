@@ -1,13 +1,16 @@
 package entidades;
 
+import java.util.ArrayList;
+
 public class Administradora {
     private int id;
     private String nombre;
     private String direccion;
     private long telefono;
     private long cuit;
+    private ArrayList<Edificio> edificios;
     public Administradora(){
-
+        edificios = new ArrayList<>();
     }
 
     public Administradora(String nombre, String direccion, int telefono, int cuit){
@@ -55,5 +58,13 @@ public class Administradora {
 
     public long getCuit() {
         return cuit;
+    }
+
+    public void setEdificio(Edificio edificios){
+        this.edificios.add(edificios);
+    }
+
+    public ArrayList<Edificio> getEdificios(){
+        return this.edificios;
     }
 }

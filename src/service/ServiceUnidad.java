@@ -106,7 +106,7 @@ public class ServiceUnidad {
 
     public void calcularExpensasPorUnidad(int id) throws ServiceException{
         try{
-            System.out.println("llego a calcular expensas por unidad!");
+            //System.out.println("llego a calcular expensas por unidad!");
             Unidad unidad = consultarUnidad(id);
             int porcentajeUnidad = 0;
             int ubicacionUnidad = 0;
