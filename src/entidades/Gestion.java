@@ -2,6 +2,7 @@ package entidades;
 
 public class Gestion {
     private int id;
+    private int idEdificio;
     private float entradas;
     private float salidas;
     private float liquidacionExpensas;
@@ -15,6 +16,14 @@ public class Gestion {
 
     public int getId() {
         return id;
+    }
+
+    public void setIdEdificio(int idEdificio){
+        this.idEdificio = idEdificio;
+    }
+
+    public int getIdEdificio(){
+        return this.idEdificio;
     }
 
     public void setEntradas(float entradas) {
