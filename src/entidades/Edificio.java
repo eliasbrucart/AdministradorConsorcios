@@ -14,8 +14,10 @@ public class Edificio {
     private String fechaLiquidacionExpensas;
     private String idUnidades;
     private ArrayList<Unidad> unidades;
+    private Gestion gestion;
     public Edificio(){
         unidades = new ArrayList<>();
+        gestion = new Gestion();
     }
     public void setId(int id){
         this.id = id;
@@ -94,11 +96,19 @@ public class Edificio {
         return idUnidades;
     }
 
-    public void seetUnidad(Unidad unidad){
+    public void setUnidad(Unidad unidad){
         unidades.add(unidad);
     }
 
     public ArrayList<Unidad> getUnidades(){
         return this.unidades;
+    }
+
+    public void setGestion(Gestion gestion){
+        this.gestion = gestion;
+    }
+
+    public Gestion getGestion(){
+        return this.gestion;
     }
 }
