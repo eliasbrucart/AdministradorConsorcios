@@ -232,50 +232,46 @@ public class PanelUnidades extends JPanel {
     }
 
     public void armarPanelMostrar() {
-        if (panelMostrar == null) {
+        //if (panelMostrar == null) {
             panelMostrar = new JPanel(new GridLayout(2, 2, 4, 4));
             panelMostrar.setPreferredSize(new Dimension(400, 400));
-        }
+        //}
 
         ServiceEdificio serviceEdificio = new ServiceEdificio();
         int idEdificioConsultado = 0;
         try {
             Edificio edificioConsultado = serviceEdificio.consultarEdificio(idSeleccionado);
             idEdificioConsultado = edificioConsultado.getId();
+            ArrayList<Unidad> unidadesConsultadas = new ArrayList<>();
+            try {
+                unidadesConsultadas = serviceUnidad.consultarTodoPorID(idEdificioConsultado);
+                String[] columnas = {"Identificador", "Nombre", "Ocupante"};
+                Object[][] datos = new Object[unidadesConsultadas.size()][3];
+                for(int i = 0; i < unidadesConsultadas.size(); i++) {
+                    Unidad unidad = unidadesConsultadas.get(i);
+                    datos[i][0] = unidad.getId();
+                    datos[i][1] = unidad.getNombre();
+                    datos[i][2] = unidad.getOcupante();
+                }
+                DefaultTableModel modelo = new DefaultTableModel(datos, columnas) {
+                    @Override
+                    public boolean isCellEditable(int row, int column) {
+                        return false;
+                    }
+                };
+                if (tabla == null) {
+                    tabla = new JTable(modelo);
+                    scrollPane = new JScrollPane(tabla);
+                    panelMostrar.add(scrollPane);
+                } else {
+                    tabla.setModel(modelo);
+                }
+            } catch (ServiceException e) {
+                JOptionPane.showMessageDialog(this, "Error al listar las unidades " + e.getMessage());
+            }
         } catch(ServiceException e) {
             JOptionPane.showMessageDialog(this, "Error al consultar el edificio " + e.getMessage());
             return;
-        }
-
-        ArrayList<Unidad> unidadesConsultadas = new ArrayList<>();
-        try {
-            unidadesConsultadas = serviceUnidad.consultarTodoPorID(idEdificioConsultado);
-        } catch (ServiceException e) {
-            JOptionPane.showMessageDialog(this, "Error al listar las unidades " + e.getMessage());
-        }
-
-        String[] columnas = {"Identificador", "Nombre", "Ocupante"};
-        Object[][] datos = new Object[unidadesConsultadas.size()][3];
-        for(int i = 0; i < unidadesConsultadas.size(); i++) {
-            Unidad unidad = unidadesConsultadas.get(i);
-            datos[i][0] = unidad.getId();
-            datos[i][1] = unidad.getNombre();
-            datos[i][2] = unidad.getOcupante();
-        }
-
-        DefaultTableModel modelo = new DefaultTableModel(datos, columnas) {
-            @Override
-            public boolean isCellEditable(int row, int column) {
-                return false;
-            }
-        };
-
-        if (tabla == null) {
-            tabla = new JTable(modelo);
-            scrollPane = new JScrollPane(tabla);
-            panelMostrar.add(scrollPane);
-        } else {
-            tabla.setModel(modelo);
         }
     }
 
@@ -287,6 +283,14 @@ public class PanelUnidades extends JPanel {
 
         for (Unidad ed : lista) {
             modelo.addRow(new Object[]{ed.getId(), ed.getNombre(), ed.getOcupante()});
+        }
+
+        if (tabla == null) {
+            tabla = new JTable(modelo);
+            scrollPane = new JScrollPane(tabla);
+            panelMostrar.add(scrollPane);
+        } else {
+            tabla.setModel(modelo);
         }
     }
 
@@ -304,11 +308,39 @@ public class PanelUnidades extends JPanel {
                         JOptionPane.PLAIN_MESSAGE
                 );
 
+                //armarPanelMostrar();
+
+                //panelMostrar.revalidate();
+                //panelMostrar.repaint();
+
+                //setIdSeleccionado(id);
+
+                DefaultTableModel modelo = (DefaultTableModel)tabla.getModel();
+                modelo.setRowCount(0); //limpia la tabla
+
                 try {
+                    ArrayList<Unidad> lista = serviceUnidad.consultarUnidadesPorIDEdificio(id);
+
+                    for (Unidad ed : lista) {
+                        modelo.addRow(new Object[]{ed.getId(), ed.getNombre(), ed.getOcupante()});
+                    }
+
+                    if (tabla == null) {
+                        tabla = new JTable(modelo);
+                        scrollPane = new JScrollPane(tabla);
+                        panelMostrar.add(scrollPane);
+                    } else {
+                        tabla.setModel(modelo);
+                    }
+                }catch(ServiceException ex){
+                    throw new RuntimeException(ex);
+                }
+
+                /*try {
                     actualizarPanelMostrarUnidades();
                 } catch (ServiceException ex) {
                     throw new RuntimeException(ex);
-                }
+                }*/
             }
         });
     }
@@ -364,6 +396,11 @@ public class PanelUnidades extends JPanel {
                                 "Error al agregar la unidad" + d.getMessage()
                         );
                     }
+                }
+                try {
+                    actualizarPanelMostrarUnidades();
+                } catch (ServiceException ex) {
+                    throw new RuntimeException(ex);
                 }
             }
         });
@@ -443,6 +480,9 @@ public class PanelUnidades extends JPanel {
                         JOptionPane.PLAIN_MESSAGE
                 );
 
+                panelMostrar.revalidate();
+                panelMostrar.repaint();
+
                 if(opcion == JOptionPane.OK_OPTION){
                     //int idEditarUnidad = Integer.parseInt(idUnidadEditar.getText());
                     int idEditarUnidad = idSeleccionado;
@@ -475,7 +515,11 @@ public class PanelUnidades extends JPanel {
                         );
                     }
                 }
-
+                try {
+                    actualizarPanelMostrarUnidades();
+                } catch (ServiceException ex) {
+                    throw new RuntimeException(ex);
+                }
             }
         });
     }
@@ -501,11 +545,18 @@ public class PanelUnidades extends JPanel {
                                 panelEdificio,
                                 "Unidad eliminada con exito!"
                         );
+                        /*try{
+                            actualizarPanelMostrarUnidades();
+                        }catch(ServiceException d){
+                            throw new RuntimeException(d);
+                        }*/
                     } catch (ServiceException d) {
                         JOptionPane.showMessageDialog(
                                 panelEdificio,
                                 "Error al eliminar la unidad" + d.getMessage()
                         );
+                        //panelMostrar.revalidate();
+                        //panelMostrar.repaint();
                     }
                 }
             }

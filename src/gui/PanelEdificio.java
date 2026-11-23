@@ -256,8 +256,11 @@ public class PanelEdificio extends JPanel{
                     panelAcciones.revalidate();
                     panelAcciones.repaint();
 
+                    panelUnidades.setIdSeleccionado(idSeleccionado);
+
                     panelUnidades.revalidate();
                     panelUnidades.repaint();
+
 
                     try{
                         panelUnidades.actualizarPanelMostrarUnidades();
@@ -266,8 +269,6 @@ public class PanelEdificio extends JPanel{
                     }
 
                     //panelUnidades.actualizarPanelMostrarUnidades();
-
-                    panelUnidades.setIdSeleccionado(idSeleccionado);
                 }
             }
 
@@ -606,4 +607,24 @@ public class PanelEdificio extends JPanel{
             );
         }
     }
+
+    /*public void recargarDatosTabla() {
+        DefaultTableModel modelo = (DefaultTableModel) tabla.getModel();
+        modelo.setRowCount(0); //limpia la tabla
+
+        ArrayList<Edificio> lista;
+
+        try{
+            lista = this.serviceEdificio.consultarTodo();
+
+            for (Edificio ed : lista) {
+                modelo.addRow(new Object[]{ed.getId(), ed.getNombre(), ed.getDireccion()});
+            }
+        } catch (ServiceException e) {
+            JOptionPane.showMessageDialog(
+                    PanelEdificio.this,
+                    "Error al listar todos los edificios" + e.getMessage()
+            );
+        }
+    }*/
 }
