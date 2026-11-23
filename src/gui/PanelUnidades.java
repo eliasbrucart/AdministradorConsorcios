@@ -294,6 +294,25 @@ public class PanelUnidades extends JPanel {
         }
     }
 
+    public void actualizarPanelMostrarUnidades(int id) throws ServiceException {
+        DefaultTableModel modelo = (DefaultTableModel)tabla.getModel();
+        modelo.setRowCount(0); //limpia la tabla
+
+        ArrayList<Unidad> lista = serviceUnidad.consultarUnidadesPorIDEdificio(id);
+
+        for (Unidad ed : lista) {
+            modelo.addRow(new Object[]{ed.getId(), ed.getNombre(), ed.getOcupante()});
+        }
+
+        if (tabla == null) {
+            tabla = new JTable(modelo);
+            scrollPane = new JScrollPane(tabla);
+            panelMostrar.add(scrollPane);
+        } else {
+            tabla.setModel(modelo);
+        }
+    }
+
 
     public void actionBtnMostrarUnidades(int id){
         System.out.println("dentro de funcion id: " + id);
@@ -315,7 +334,7 @@ public class PanelUnidades extends JPanel {
 
                 //setIdSeleccionado(id);
 
-                DefaultTableModel modelo = (DefaultTableModel)tabla.getModel();
+                /*DefaultTableModel modelo = (DefaultTableModel)tabla.getModel();
                 modelo.setRowCount(0); //limpia la tabla
 
                 try {
@@ -334,13 +353,13 @@ public class PanelUnidades extends JPanel {
                     }
                 }catch(ServiceException ex){
                     throw new RuntimeException(ex);
-                }
+                }*/
 
-                /*try {
+                try {
                     actualizarPanelMostrarUnidades();
                 } catch (ServiceException ex) {
                     throw new RuntimeException(ex);
-                }*/
+                }
             }
         });
     }
@@ -480,8 +499,8 @@ public class PanelUnidades extends JPanel {
                         JOptionPane.PLAIN_MESSAGE
                 );
 
-                panelMostrar.revalidate();
-                panelMostrar.repaint();
+                //panelMostrar.revalidate();
+                //panelMostrar.repaint();
 
                 if(opcion == JOptionPane.OK_OPTION){
                     //int idEditarUnidad = Integer.parseInt(idUnidadEditar.getText());
@@ -546,11 +565,11 @@ public class PanelUnidades extends JPanel {
                                 panelEdificio,
                                 "Unidad eliminada con exito!"
                         );
-                        /*try{
+                        try{
                             actualizarPanelMostrarUnidades();
                         }catch(ServiceException d){
                             throw new RuntimeException(d);
-                        }*/
+                        }
                     } catch (ServiceException d) {
                         JOptionPane.showMessageDialog(
                                 panelEdificio,
