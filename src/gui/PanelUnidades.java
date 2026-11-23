@@ -485,7 +485,8 @@ public class PanelUnidades extends JPanel {
 
                 if(opcion == JOptionPane.OK_OPTION){
                     //int idEditarUnidad = Integer.parseInt(idUnidadEditar.getText());
-                    int idEditarUnidad = idSeleccionado;
+                    //int idEditarUnidad = idSeleccionado;
+                    int idEditarUnidad = Integer.parseInt(idUnidadEditar.getText());
                     String nombreEditarUnidad = nombreUnidadEditar.getText();
                     String ocupanteEditarUnidad = ocupanteUnidadEditar.getText();
                     int ambientesEditarUnidad = Integer.parseInt(ambientesUnidadEditar.getText());
