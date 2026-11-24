@@ -1,8 +1,10 @@
 package gui;
 
 import DAO.DAOUnidad;
+import entidades.Administradora;
 import entidades.Edificio;
 import entidades.Unidad;
+import service.ServiceAdministradora;
 import service.ServiceEdificio;
 import service.ServiceException;
 import service.ServiceUnidad;
@@ -36,10 +38,13 @@ public class PanelEdificio extends JPanel{
 
         // agregar service de Edificio para consultar sus datos.
         ServiceEdificio serviceEdificio = new ServiceEdificio();
+        ServiceAdministradora serviceAdministradora = new ServiceAdministradora();
+        Administradora administradora = new Administradora();
         //Edificio edificio = null;
-        ArrayList<Edificio> edificiosConsultados = new ArrayList<>();
+        //ArrayList<Edificio> edificiosConsultados = new ArrayList<>();
         try{
-            edificiosConsultados = serviceEdificio.consultarTodo();
+            administradora.setEdificios(serviceAdministradora.consultarAdministradora().getEdificios());
+            //edificiosConsultados = serviceEdificio.consultarTodo();
         } catch (ServiceException e) {
             JOptionPane.showMessageDialog(
                     this,
@@ -47,9 +52,9 @@ public class PanelEdificio extends JPanel{
             );
         }
         String[] columnas = {"Identificador", "Nombre", "Dirección"};
-        Object[][] datos = new Object[edificiosConsultados.size()][3];
-        for(int i = 0; i < edificiosConsultados.size(); i++){
-            Edificio edificio = edificiosConsultados.get(i);
+        Object[][] datos = new Object[administradora.getEdificios().size()][3];
+        for(int i = 0; i < administradora.getEdificios().size(); i++){
+            Edificio edificio = administradora.getEdificios().get(i);
 
             datos[i][0] = edificio.getId();
             datos[i][1] = edificio.getNombre();

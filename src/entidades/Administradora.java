@@ -64,6 +64,10 @@ public class Administradora {
         this.edificios.add(edificios);
     }
 
+    public void setEdificios(ArrayList<Edificio> edificios){
+        this.edificios = edificios;
+    }
+
     public ArrayList<Edificio> getEdificios(){
         return this.edificios;
     }

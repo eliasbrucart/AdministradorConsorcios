@@ -93,6 +93,8 @@ public class DAOAdministradora implements IDAO<Administradora> {
         PreparedStatement preparedStatement=null;
         //Edificio edificio=null;
         Administradora administradora=new Administradora();
+        DAOEdificio daoEdificio = new DAOEdificio();
+        ArrayList<Edificio> edificios = new ArrayList<Edificio>();
         try {
             Class.forName(DB_JDBC_DRIVER);
             System.out.println("no hay driver"); //quitar luego
@@ -128,12 +130,16 @@ public class DAOAdministradora implements IDAO<Administradora> {
         PreparedStatement preparedStatement=null;
         //Edificio edificio=null;
         Administradora administradora=new Administradora();
+        DAOEdificio daoEdificio = new DAOEdificio();
+        ArrayList<Edificio> edificios = new ArrayList<Edificio>();
         try {
             Class.forName(DB_JDBC_DRIVER);
             System.out.println("no hay driver"); //quitar luego
             connection = DriverManager.getConnection(DB_URL, DB_USER, DB_PASSWORD);
             System.out.println("se conecto"); //quitar luego
             preparedStatement = connection.prepareStatement("SELECT * FROM ADMINISTRADORA");
+
+            edificios = daoEdificio.consultarTodo();
 
             ResultSet rs=preparedStatement.executeQuery();
             if (rs.next()) {
@@ -148,6 +154,7 @@ public class DAOAdministradora implements IDAO<Administradora> {
                 administradora.setDireccion(direccion);
                 administradora.setTelefono(telefono);
                 administradora.setCuit(cuit);
+                administradora.setEdificios(edificios);
             }
 
         }
@@ -162,7 +169,6 @@ public class DAOAdministradora implements IDAO<Administradora> {
         Connection connection=null;
         PreparedStatement preparedStatement=null;
         ArrayList<Administradora> administradoras = new ArrayList<>();
-
         try{
             Class.forName(DB_JDBC_DRIVER);
             System.out.println("no hay driver"); //quitar luego
