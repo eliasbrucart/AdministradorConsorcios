@@ -100,6 +100,10 @@ public class Edificio {
         unidades.add(unidad);
     }
 
+    public void setUnidades(ArrayList<Unidad> unidades){
+        this.unidades = unidades;
+    }
+
     public ArrayList<Unidad> getUnidades(){
         return this.unidades;
     }

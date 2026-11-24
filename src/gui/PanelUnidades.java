@@ -241,14 +241,14 @@ public class PanelUnidades extends JPanel {
         int idEdificioConsultado = 0;
         try {
             Edificio edificioConsultado = serviceEdificio.consultarEdificio(idSeleccionado);
-            idEdificioConsultado = edificioConsultado.getId();
-            ArrayList<Unidad> unidadesConsultadas = new ArrayList<>();
+            //idEdificioConsultado = edificioConsultado.getId();
+            //ArrayList<Unidad> unidadesConsultadas = new ArrayList<>();
             try {
-                unidadesConsultadas = serviceUnidad.consultarTodoPorID(idEdificioConsultado);
+                //unidadesConsultadas = serviceUnidad.consultarTodoPorID(idEdificioConsultado);
                 String[] columnas = {"Identificador", "Nombre", "Ocupante"};
-                Object[][] datos = new Object[unidadesConsultadas.size()][3];
-                for(int i = 0; i < unidadesConsultadas.size(); i++) {
-                    Unidad unidad = unidadesConsultadas.get(i);
+                Object[][] datos = new Object[edificioConsultado.getUnidades().size()][3];
+                for(int i = 0; i < edificioConsultado.getUnidades().size(); i++) {
+                    Unidad unidad = edificioConsultado.getUnidades().get(i);
                     datos[i][0] = unidad.getId();
                     datos[i][1] = unidad.getNombre();
                     datos[i][2] = unidad.getOcupante();
@@ -266,7 +266,7 @@ public class PanelUnidades extends JPanel {
                 } else {
                     tabla.setModel(modelo);
                 }
-            } catch (ServiceException e) {
+            } catch (Exception e) {
                 JOptionPane.showMessageDialog(this, "Error al listar las unidades " + e.getMessage());
             }
         } catch(ServiceException e) {
@@ -279,9 +279,31 @@ public class PanelUnidades extends JPanel {
         DefaultTableModel modelo = (DefaultTableModel)tabla.getModel();
         modelo.setRowCount(0); //limpia la tabla
 
-        ArrayList<Unidad> lista = serviceUnidad.consultarUnidadesPorIDEdificio(idSeleccionado);
+        ServiceEdificio serviceEdificio = new ServiceEdificio();
+        Edificio edificioConsultado = serviceEdificio.consultarEdificio(idSeleccionado);
+
+        ArrayList<Unidad> lista = edificioConsultado.getUnidades();
 
         for (Unidad ed : lista) {
+            modelo.addRow(new Object[]{ed.getId(), ed.getNombre(), ed.getOcupante()});
+        }
+
+        if (tabla == null) {
+            tabla = new JTable(modelo);
+            scrollPane = new JScrollPane(tabla);
+            panelMostrar.add(scrollPane);
+        } else {
+            tabla.setModel(modelo);
+        }
+    }
+
+    public void actualizarPanelMostrarUnidades(ArrayList<Unidad> unidades) throws ServiceException {
+        DefaultTableModel modelo = (DefaultTableModel)tabla.getModel();
+        modelo.setRowCount(0); //limpia la tabla
+
+        //ArrayList<Unidad> lista = serviceUnidad.consultarUnidadesPorIDEdificio(idSeleccionado);
+
+        for (Unidad ed : unidades) {
             modelo.addRow(new Object[]{ed.getId(), ed.getNombre(), ed.getOcupante()});
         }
 

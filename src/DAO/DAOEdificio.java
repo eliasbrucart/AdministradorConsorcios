@@ -1,6 +1,7 @@
 package DAO;
 
 import entidades.Edificio;
+import entidades.Unidad;
 
 import java.sql.*;
 import java.time.LocalDate;
@@ -105,6 +106,8 @@ public class DAOEdificio implements IDAO<Edificio> {
         PreparedStatement preparedStatement=null;
         //Edificio edificio=null;
         Edificio edificio=new Edificio();
+        Unidad unidadesEdificio=new Unidad();
+        DAOUnidad daoUnidad = new DAOUnidad();
         try {
             Class.forName(DB_JDBC_DRIVER);
             System.out.println("no hay driver"); //quitar luego
@@ -132,6 +135,8 @@ public class DAOEdificio implements IDAO<Edificio> {
 
                     fechaLiquidacionExpensas = fechaLocal.format(formateador);
                 }
+                ArrayList<Unidad> unidadesConsultadas = new ArrayList<Unidad>();
+                unidadesConsultadas = daoUnidad.consultarTodoPorID(idEdificio);
                 DateTimeFormatter formateador = DateTimeFormatter.ofPattern("dd/MM/yyyy");
                 edificio.setId(idEdificio);
                 edificio.setNombre(nombre);
@@ -143,6 +148,7 @@ public class DAOEdificio implements IDAO<Edificio> {
                 edificio.setLiquidacionExpensas(liquidacionExpensas);
                 edificio.setFechaLiquidacionExpensas(fechaLiquidacionExpensas);
                 edificio.setIdUnidades(idUnidad);
+                edificio.setUnidades(unidadesConsultadas);
             }
 
         }
