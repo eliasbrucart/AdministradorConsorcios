@@ -23,134 +23,133 @@ public class DAOGestion implements IDAO<Gestion> {
 
     @Override
     public void agregar(Gestion elemento) throws DaoException{
-        /*Connection connection=null;
+        Connection connection=null;
         PreparedStatement preparedStatement=null;
         try {
             Class.forName(DB_JDBC_DRIVER);
             System.out.println("no hay driver");
             connection = DriverManager.getConnection(DB_URL, DB_USER, DB_PASSWORD);
             System.out.println("se conecto");
-            preparedStatement = connection.prepareStatement("INSERT INTO ADMINISTRADORA (NOMBRE, DIRECCION, TELEFONO, CUIT) VALUES(?,?,?,?)");
+            preparedStatement = connection.prepareStatement("INSERT INTO GESTION (ID_EDIFICIO, ENTRADAS, SALIDAS, LIQUIDACION_EXPENSAS) VALUES(?,?,?,?)");
             //preparedStatement.setInt(1, 4); //harcoded
-            preparedStatement.setString(1, elemento.getNombre());
-            preparedStatement.setString(2, elemento.getDireccion());
-            preparedStatement.setLong(3, elemento.getTelefono());
-            preparedStatement.setLong(4, elemento.getCuit());
+            preparedStatement.setInt(1, elemento.getIdEdificio());
+            preparedStatement.setFloat(2, elemento.getEntradas());
+            preparedStatement.setFloat(3, elemento.getSalidas());
+            preparedStatement.setFloat(4, elemento.getLiquidacionExpensas());
 
             preparedStatement.executeUpdate();
 
         }
         catch (ClassNotFoundException | SQLException e){
             throw new DaoException("Error en agregar Administradora" + e);
-        }*/
+        }
     }
 
     @Override
     public void eliminar(int id) throws DaoException{
-        /*Connection connection=null;
+        Connection connection=null;
         PreparedStatement preparedStatement=null;
         try{
             Class.forName(DB_JDBC_DRIVER);
             System.out.println("no hay driver");
             connection = DriverManager.getConnection(DB_URL, DB_USER, DB_PASSWORD);
             System.out.println("se conecto");
-            preparedStatement = connection.prepareStatement("DELETE FROM ADMINISTRADORA WHERE id = ?");
+            preparedStatement = connection.prepareStatement("DELETE FROM GESTION WHERE id_edificio = ?");
             preparedStatement.setInt(1, id);
             preparedStatement.executeUpdate();
         }catch(ClassNotFoundException | SQLException e){
             throw new DaoException("Error al eliminar la administradora " + e);
-        }*/
+        }
     }
 
     @Override
     public void modificar(Gestion elemento) throws DaoException{
-        /*Connection connection=null;
+        Connection connection=null;
         PreparedStatement preparedStatement=null;
         try{
             Class.forName(DB_JDBC_DRIVER);
             System.out.println("no hay driver");
             connection = DriverManager.getConnection(DB_URL, DB_USER, DB_PASSWORD);
             System.out.println("se conecto");
-            preparedStatement = connection.prepareStatement("UPDATE ADMINISTRADORA SET NOMBRE = ?, DIRECCION = ?, TELEFONO = ?, CUIT = ? WHERE id = ?");
-            preparedStatement.setString(1, elemento.getNombre());
-            preparedStatement.setString(2, elemento.getDireccion());
-            preparedStatement.setLong(3, elemento.getTelefono());
-            preparedStatement.setLong(4, elemento.getCuit());
-            preparedStatement.setInt(5, elemento.getId());
+            preparedStatement = connection.prepareStatement("UPDATE GESTION SET ENTRADAS = ?, SALIDAS = ?, LIQUIDACION_EXPENSAS = ? WHERE id_edificio = ?");
+            preparedStatement.setFloat(1, elemento.getEntradas());
+            preparedStatement.setFloat(2, elemento.getSalidas());
+            preparedStatement.setFloat(3, elemento.getLiquidacionExpensas());
+            preparedStatement.setInt(4, elemento.getIdEdificio());
             preparedStatement.executeUpdate();
             //int filasAfectadas = preparedStatement.executeUpdate();
         }catch (ClassNotFoundException | SQLException e){
             throw new DaoException("Error al modificar la administradora: " + e);
-        }*/
+        }
     }
 
     @Override
     public Gestion consultar(int id) throws DaoException {
-        /*Connection connection=null;
+        Connection connection=null;
         PreparedStatement preparedStatement=null;
         //Edificio edificio=null;
-        Administradora administradora=new Administradora();
+        Gestion gestion = new Gestion();
         try {
             Class.forName(DB_JDBC_DRIVER);
             System.out.println("no hay driver"); //quitar luego
             connection = DriverManager.getConnection(DB_URL, DB_USER, DB_PASSWORD);
             System.out.println("se conecto"); //quitar luego
-            preparedStatement = connection.prepareStatement("SELECT * FROM ADMINISTRADORA WHERE id=?");
+            preparedStatement = connection.prepareStatement("SELECT * FROM GESTION WHERE id=?");
 
             preparedStatement.setInt(1,id);
             ResultSet rs=preparedStatement.executeQuery();
             if (rs.next()) {
-                int idAdministradora = Integer.parseInt((rs.getString("id")));
-                String nombre=(rs.getString("nombre"));
-                String direccion=(rs.getString("direccion"));
-                long telefono = (rs.getLong("telefono"));
-                long cuit = (rs.getLong("cuit"));
+                int idGestion = Integer.parseInt((rs.getString("id")));
+                int idEdificio = Integer.parseInt((rs.getString("id_edificio")));
+                float entradas=(rs.getFloat("entradas"));
+                float salidas=(rs.getFloat("salidas"));
+                float liquidacionExpensas=(rs.getFloat("liquidacion_expensas"));
+                //long telefono = (rs.getLong("telefono"));
+                //long cuit = (rs.getLong("cuit"));
                 //System.out.println("nombre " + nombre); //borrar print, no se hace en un metodo
-                administradora.setId(idAdministradora);
-                administradora.setNombre(nombre);
-                administradora.setDireccion(direccion);
-                administradora.setTelefono(telefono);
-                administradora.setCuit(cuit);
+                gestion.setId(idGestion);
+                gestion.setIdEdificio(idEdificio);
+                gestion.setEntradas(entradas);
+                gestion.setSalidas(salidas);
+                gestion.setLiquidacionExpensas(liquidacionExpensas);
             }
 
         }
         catch (ClassNotFoundException | SQLException e){
             throw new DaoException("Error en consultar la administradora");
         }
-        return administradora;*/
-        Gestion gestion = new Gestion();
         return gestion;
     }
 
     @Override
     public ArrayList<Gestion> consultarTodo() throws DaoException{
-       /* Connection connection=null;
+       Connection connection=null;
         PreparedStatement preparedStatement=null;
-        ArrayList<Administradora> administradoras = new ArrayList<>();
+        ArrayList<Gestion> gestiones = new ArrayList<>();
 
         try{
             Class.forName(DB_JDBC_DRIVER);
             System.out.println("no hay driver"); //quitar luego
             connection = DriverManager.getConnection(DB_URL, DB_USER, DB_PASSWORD);
             System.out.println("se conecto"); //quitar luego
-            preparedStatement = connection.prepareStatement("SELECT * FROM ADMINISTRADORA");
+            preparedStatement = connection.prepareStatement("SELECT * FROM GESTION");
 
             ResultSet rs=preparedStatement.executeQuery();
 
             while(rs.next()){
-                Administradora administradora = new Administradora();
-                administradora.setId(rs.getInt("id"));
-                administradora.setNombre(rs.getString("nombre"));
-                administradora.setDireccion(rs.getString("direccion"));
-                administradora.setTelefono(rs.getInt("telefono"));
-                administradora.setCuit(rs.getInt("cuit"));
-                administradoras.add(administradora);
+                Gestion gestion = new Gestion();
+                gestion.setId(rs.getInt("id"));
+                gestion.setIdEdificio(rs.getInt("id_edificio"));
+                gestion.setEntradas(rs.getFloat("entradas"));
+                gestion.setSalidas(rs.getInt("salidas"));
+                gestion.setLiquidacionExpensas(rs.getFloat("liquidacion_expensas"));
+                gestiones.add(gestion);
             }
         }catch (ClassNotFoundException | SQLException e){
             throw new DaoException("Error en consultar todas las administradoras");
         }
-        return administradoras;*/
-        ArrayList<Gestion> gestiones = new ArrayList<Gestion>();
         return gestiones;
+        //ArrayList<Gestion> gestiones = new ArrayList<Gestion>();
+        //return gestiones;
     }
 }
