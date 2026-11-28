@@ -1,6 +1,7 @@
 package service;
 
 import DAO.DAOEdificio;
+import DAO.DAOGestion;
 import DAO.DaoException;
 import entidades.Edificio;
 
@@ -10,6 +11,7 @@ import java.util.ArrayList;
 
 public class ServiceEdificio {
     private DAOEdificio daoEdificio;
+    private DAOGestion daoGestion;
 
     public ServiceEdificio(){
         daoEdificio = new DAOEdificio();
@@ -28,6 +30,13 @@ public class ServiceEdificio {
     public void insertarEdificio(Edificio elemento) throws ServiceException{
         try{
             daoEdificio.agregar(elemento);
+        } catch (DaoException e){
+            throw new ServiceException(e.getMessage());
+        }
+
+        //revisar
+        try{
+            daoGestion.agregar(elemento.getGestion());
         } catch (DaoException e){
             throw new ServiceException(e.getMessage());
         }

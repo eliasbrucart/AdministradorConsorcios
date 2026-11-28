@@ -74,18 +74,21 @@ public class PanelEdificio extends JPanel{
         JButton btnEditar = new JButton("Editar");
         JButton btnEliminar = new JButton("Eliminar");
         JButton btnAgregar = new JButton("Agregar");
-        JButton btnAdministrar = new JButton("Administrar");
-        JButton btnLiquidarExp = new JButton("Liquidacion");
+        JButton btnGestionar = new JButton("Agregar Gestionar");
+        JButton btnEditarGestion = new JButton("Editar Gestion");
+        JButton btnElimiarGestion = new JButton("Eliminar Gestion");
         btnEditar.setVisible(false); // Oculto por defecto
         btnEliminar.setVisible(false);
         btnAgregar.setVisible(true);
-        btnAdministrar.setVisible(false);
-        btnLiquidarExp.setVisible(false);
+        btnGestionar.setVisible(false);
+        btnElimiarGestion.setVisible(false);
+        btnEditarGestion.setVisible(false);
         panelAcciones.add(btnEditar);
         panelAcciones.add(btnEliminar);
         panelAcciones.add(btnAgregar);
-        panelAcciones.add(btnAdministrar);
-        panelAcciones.add(btnLiquidarExp);
+        panelAcciones.add(btnGestionar);
+        panelAcciones.add(btnEditarGestion);
+        panelAcciones.add(btnElimiarGestion);
 
         PanelUnidades panelUnidades = new PanelUnidades(this);
         panelUnidades.armarPanelEditar();
@@ -210,29 +213,64 @@ public class PanelEdificio extends JPanel{
         liquidacionExpensasEliminar.setEditable(false);
         fechaLiquidacionExpensasEliminar.setEditable(false);
 
-        JPanel administrarEdificio = new JPanel(new GridLayout(10, 10,8,8));
+        JPanel gestionarEdificio = new JPanel(new GridLayout(10, 10,8,8));
+        JTextField idEdificioGestion = new JTextField(10);
         JTextField expensasOrdinarias = new JTextField(10);
         JTextField expensasExtraordinarias = new JTextField(10);
         JTextField sueldoEmpleado = new JTextField(10);
         JTextField gastosMantenimiento = new JTextField(10);
         JLabel balanceTotalLabel = new JLabel();
 
-        administrarEdificio.add(new JLabel("Expensas ordinarias: "));
-        administrarEdificio.add(expensasOrdinarias);
-        administrarEdificio.add(new JLabel("Expensas Extraordinarias: "));
-        administrarEdificio.add(expensasExtraordinarias);
-        administrarEdificio.add(new JLabel("Sueldo empleado: "));
-        administrarEdificio.add(sueldoEmpleado);
-        administrarEdificio.add(new JLabel("Gastos mantenimiento: "));
-        administrarEdificio.add(gastosMantenimiento);
-        administrarEdificio.add(balanceTotalLabel);
+        gestionarEdificio.add(new JLabel("ID Edificio: "));
+        gestionarEdificio.add(idEdificioGestion);
+        gestionarEdificio.add(new JLabel("Expensas ordinarias (Entradas): "));
+        gestionarEdificio.add(expensasOrdinarias);
+        gestionarEdificio.add(new JLabel("Expensas Extraordinarias (Entradas): "));
+        gestionarEdificio.add(expensasExtraordinarias);
+        gestionarEdificio.add(new JLabel("Sueldo empleado (Salidas): "));
+        gestionarEdificio.add(sueldoEmpleado);
+        gestionarEdificio.add(new JLabel("Gastos mantenimiento (Salidas): "));
+        gestionarEdificio.add(gastosMantenimiento);
+        gestionarEdificio.add(balanceTotalLabel);
 
-        JPanel liquidarExpensasPanel = new JPanel(new GridLayout(10, 10,8,8));
-        JLabel cantidadUnidades = new JLabel();
-        JLabel liquidacionTotal = new JLabel();
+        //editar gestionar panel
+        JPanel editarGestionPanel = new JPanel(new GridLayout(10, 10,8,8));
+        JTextField idEdificioEditarGestion = new JTextField(10);
+        JTextField editarExpensasOrdinarias = new JTextField(10);
+        JTextField editarExpensasExtraordinarias = new JTextField(10);
+        JTextField editarSueldoEmpleado = new JTextField(10);
+        JTextField editarGastosMantenimiento = new JTextField(10);
 
-        liquidarExpensasPanel.add(cantidadUnidades);
-        liquidarExpensasPanel.add(liquidacionTotal);
+        editarGestionPanel.add(new JLabel("ID Edificio: "));
+        editarGestionPanel.add(idEdificioEditarGestion);
+        editarGestionPanel.add(new JLabel("Expensas ordinarias (Entradas): "));
+        editarGestionPanel.add(editarExpensasOrdinarias);
+        editarGestionPanel.add(new JLabel("Expensas Extraordinarias (Entradas): "));
+        editarGestionPanel.add(editarExpensasExtraordinarias);
+        editarGestionPanel.add(new JLabel("Sueldo empleado (Salidas): "));
+        editarGestionPanel.add(editarSueldoEmpleado);
+        editarGestionPanel.add(new JLabel("Gastos mantenimiento (Salidas): "));
+        editarGestionPanel.add(editarGastosMantenimiento);
+
+
+        //elimiar gestionar panel
+        JPanel eliminarGestionPanel = new JPanel(new GridLayout(10, 10,8,8));
+        JTextField idEdificioEliminarGestion = new JTextField(10);
+        JTextField eliminarExpensasOrdinarias = new JTextField(10);
+        JTextField eliminarExpensasExtraordinarias = new JTextField(10);
+        JTextField eliminarSueldoEmpleado = new JTextField(10);
+        JTextField eliminarGastosMantenimiento = new JTextField(10);
+
+        eliminarGestionPanel.add(new JLabel("ID Edificio: "));
+        eliminarGestionPanel.add(idEdificioEliminarGestion);
+        eliminarGestionPanel.add(new JLabel("Expensas ordinarias (Entradas): "));
+        eliminarGestionPanel.add(eliminarExpensasOrdinarias);
+        eliminarGestionPanel.add(new JLabel("Expensas Extraordinarias (Entradas): "));
+        eliminarGestionPanel.add(eliminarExpensasExtraordinarias);
+        eliminarGestionPanel.add(new JLabel("Sueldo empleado (Salidas): "));
+        eliminarGestionPanel.add(eliminarSueldoEmpleado);
+        eliminarGestionPanel.add(new JLabel("Gastos mantenimiento (Salidas): "));
+        eliminarGestionPanel.add(eliminarGastosMantenimiento);
 
         //selección de la tabla
         tabla.getSelectionModel().addListSelectionListener(e -> {
@@ -248,8 +286,9 @@ public class PanelEdificio extends JPanel{
                     // Ocultar si no hay selección
                     btnEditar.setVisible(tabla.getSelectedRow() != -1); // Mostrar botón
                     btnEliminar.setVisible(tabla.getSelectedRow() != -1);
-                    btnAdministrar.setVisible(tabla.getSelectedRow() != -1);
-                    btnLiquidarExp.setVisible(tabla.getSelectedRow() != -1);
+                    btnGestionar.setVisible(tabla.getSelectedRow() != -1);
+                    btnEditarGestion.setVisible(tabla.getSelectedRow() != -1);
+                    btnElimiarGestion.setVisible(tabla.getSelectedRow() != -1);
 
                     panelUnidades.getBtnMostrarUnidades().setVisible(tabla.getSelectedRow() != -1);
                     panelUnidades.getBtnAgregarUnidades().setVisible(tabla.getSelectedRow() != -1);
@@ -293,7 +332,7 @@ public class PanelEdificio extends JPanel{
         panelAdministradora.actionBtnEliminarAdministradora();
 
 
-        btnLiquidarExp.addActionListener(new ActionListener() {
+        /*btnEditarGestion.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
                 int opcion = JOptionPane.showConfirmDialog(
@@ -335,67 +374,44 @@ public class PanelEdificio extends JPanel{
 
                 //liquidacionTotal.setText("liquidacion");
             }
-        });
+        });*/
 
-        btnAdministrar.addActionListener(new ActionListener() {
+        btnGestionar.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
                 int opcion = JOptionPane.showConfirmDialog(
                         PanelEdificio.this,
-                        administrarEdificio,
-                        "Agregar Nuevo Edificio",
+                        gestionarEdificio,
+                        "Gestion del Edificio",
                         JOptionPane.OK_CANCEL_OPTION,
                         JOptionPane.PLAIN_MESSAGE
                 );
-                try {
-                    int ultimoBalance = serviceEdificio.obtenerBalance(idSeleccionado);
-                    balanceTotalLabel.setText("Balance total: " + String.valueOf(ultimoBalance));
-                    //balanceTotalLabel.setText("Balance total: " + String.valueOf(balanceTotal));
-                } catch (ServiceException d) {
-                    JOptionPane.showMessageDialog(
-                            PanelEdificio.this,
-                            "No hay un ultimo balance del edificio" + d.getMessage()
-                    );
-                    //throw new ServiceException(d.getMessage());
-                }
+            }
+        });
 
+        btnEditarGestion.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                int opcion = JOptionPane.showConfirmDialog(
+                        PanelEdificio.this,
+                        editarGestionPanel,
+                        "Editar Gestion del Edificio",
+                        JOptionPane.OK_CANCEL_OPTION,
+                        JOptionPane.PLAIN_MESSAGE
+                );
+            }
+        });
 
-                if(opcion == JOptionPane.OK_OPTION) {
-                    int expensasOrd = Integer.parseInt(expensasOrdinarias.getText());
-                    int expensasExtr = Integer.parseInt(expensasExtraordinarias.getText());
-                    int sueldo = Integer.parseInt(sueldoEmpleado.getText());
-                    int mantenimiento = Integer.parseInt(gastosMantenimiento.getText());
-
-
-                    Object[] data = new Object[4];
-                    data[0] = expensasOrd;
-                    data[1] = expensasExtr;
-                    data[2] = sueldo;
-                    data[3] = mantenimiento;
-
-                    try {
-                        int balanceTotal = serviceEdificio.generarBalance(data, idSeleccionado);
-                        balanceTotalLabel.setText("Balance total: " + String.valueOf(balanceTotal));
-                        JOptionPane.showMessageDialog(
-                                PanelEdificio.this,
-                                "Balance generado con exito!"
-                        );
-                        DefaultTableModel modelo = (DefaultTableModel) tabla.getModel();
-                        modelo.setRowCount(0); //limpia la tabla
-
-                        ArrayList<Edificio> lista = serviceEdificio.consultarTodo();
-
-                        for (Edificio ed : lista) {
-                            modelo.addRow(new Object[]{ed.getId(), ed.getNombre(), ed.getDireccion()});
-                        }
-                    } catch (ServiceException d) {
-                        JOptionPane.showMessageDialog(
-                                PanelEdificio.this,
-                                "Error al agregar edificio" + d.getMessage()
-                        );
-                    }
-                    //Mandar datos al ServiceEdificio para agregar un edificio.
-                }
+        btnElimiarGestion.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                int opcion = JOptionPane.showConfirmDialog(
+                        PanelEdificio.this,
+                        eliminarGestionPanel,
+                        "Eliminar Gestion del Edificio",
+                        JOptionPane.OK_CANCEL_OPTION,
+                        JOptionPane.PLAIN_MESSAGE
+                );
             }
         });
 
